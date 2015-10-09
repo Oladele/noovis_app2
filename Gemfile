@@ -23,6 +23,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+#app gems
+gem 'rspec_api_documentation'
+
 group :development, :test do
   gem 'byebug'
   gem 'web-console', '~> 2.0'
