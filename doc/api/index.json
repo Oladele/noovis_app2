@@ -1,0 +1,14 @@
+{
+  "resources": [
+    {
+      "name": "Companies",
+      "examples": [
+        {
+          "description": "Listing companies",
+          "link": "companies/listing_companies.json",
+          "groups": "all"
+        }
+      ]
+    }
+  ]
+}

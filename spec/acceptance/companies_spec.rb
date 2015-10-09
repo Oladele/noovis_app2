@@ -1,5 +1,4 @@
-require "rails_helper"
-require 'rspec_api_documentation/dsl'
+require "acceptance_helper"
 
 RSpec.resource "Companies" do
   get "/companies" do
