@@ -25,6 +25,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 #app gems
 gem 'rspec_api_documentation'
+gem 'jsonapi-resources'
 
 group :development, :test do
   gem 'byebug'
