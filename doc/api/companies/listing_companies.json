@@ -16,25 +16,16 @@
       "request_path": "/companies",
       "request_body": null,
       "request_headers": {
-        "Host": "example.org",
-        "Cookie": ""
+        "Content-Type": "application/vnd.api+json"
       },
       "request_query_parameters": {
       },
-      "request_content_type": null,
+      "request_content_type": "application/vnd.api+json",
       "response_status": 200,
       "response_status_text": "OK",
       "response_body": "{\"data\":[]}",
       "response_headers": {
-        "X-Frame-Options": "SAMEORIGIN",
-        "X-XSS-Protection": "1; mode=block",
-        "X-Content-Type-Options": "nosniff",
-        "Content-Type": "application/vnd.api+json",
-        "ETag": "W/\"e0234245cb00aa260ccfa99a9a0b235e\"",
-        "Cache-Control": "max-age=0, private, must-revalidate",
-        "X-Request-Id": "fec0a9a8-5936-4dd1-a9bf-23818d395002",
-        "X-Runtime": "0.016356",
-        "Content-Length": "11"
+        "Content-Type": "application/vnd.api+json"
       },
       "response_content_type": "application/vnd.api+json",
       "curl": null
