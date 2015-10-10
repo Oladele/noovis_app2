@@ -9,4 +9,4 @@ Response:
   Status: 200 OK
   Content-Type: application/vnd.api+json
 
-  {"data":[]}
+  {"data":[{"id":"8","type":"companies","links":{"self":"http://example.org/companies/8"},"attributes":{"name":"1st company"}},{"id":"9","type":"companies","links":{"self":"http://example.org/companies/9"},"attributes":{"name":"2nd company"}}]}
