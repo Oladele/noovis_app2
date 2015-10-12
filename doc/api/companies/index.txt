@@ -1,3 +1,17 @@
+Listing companies
+-----------------
+
+Request:
+  GET /companies
+  Content-Type: application/vnd.api+json
+
+Response:
+  Status: 200 OK
+  Content-Type: application/vnd.api+json
+
+  {"data":[{"id":"47","type":"companies","links":{"self":"http://example.org/companies/47"},"attributes":{"name":"1st company"}},{"id":"48","type":"companies","links":{"self":"http://example.org/companies/48"},"attributes":{"name":"2nd company"}}],"meta":{"record-count":2},"links":{"first":"http://example.org/companies?page%5Blimit%5D=10\u0026page%5Boffset%5D=0","last":"http://example.org/companies?page%5Blimit%5D=10\u0026page%5Boffset%5D=0"}}
+
+
 Create a company
 ----------------
 
@@ -16,18 +30,4 @@ Response:
   Status: 201 Created
   Content-Type: application/vnd.api+json
 
-  {"data":{"id":"39","type":"companies","links":{"self":"http://example.org/companies/39"},"attributes":{"name":"ACME Company"}}}
-
-
-Listing companies
------------------
-
-Request:
-  GET /companies
-  Content-Type: application/vnd.api+json
-
-Response:
-  Status: 200 OK
-  Content-Type: application/vnd.api+json
-
-  {"data":[{"id":"40","type":"companies","links":{"self":"http://example.org/companies/40"},"attributes":{"name":"1st company"}},{"id":"41","type":"companies","links":{"self":"http://example.org/companies/41"},"attributes":{"name":"2nd company"}}]}
+  {"data":{"id":"49","type":"companies","links":{"self":"http://example.org/companies/49"},"attributes":{"name":"ACME Company"}}}
