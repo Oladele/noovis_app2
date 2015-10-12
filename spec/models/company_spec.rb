@@ -3,6 +3,7 @@ require 'rails_helper'
 RSpec.describe Company, type: :model do
 	describe "attributes" do
   	it { is_expected.to have_attribute :name }
+  	it { is_expected.to validate_uniqueness_of :name }
 	end
   
   describe "validations" do

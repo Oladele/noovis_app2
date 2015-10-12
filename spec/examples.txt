@@ -1,7 +1,8 @@
 example_id                                   | status  | run_time        |
 -------------------------------------------- | ------- | --------------- |
-./spec/acceptance/companies_spec.rb[1:1:1]   | passed  | 0.01096 seconds |
-./spec/acceptance/companies_spec.rb[1:2:1]   | passed  | 0.01079 seconds |
+./spec/acceptance/companies_spec.rb[1:1:1]   | passed  | 0.01017 seconds |
+./spec/acceptance/companies_spec.rb[1:2:1]   | passed  | 0.05412 seconds |
 ./spec/helpers/companies_helper_spec.rb[1:1] | pending | 0.00002 seconds |
-./spec/models/company_spec.rb[1:1]           | passed  | 0.00203 seconds |
-./spec/models/company_spec.rb[1:2]           | passed  | 0.00541 seconds |
+./spec/models/company_spec.rb[1:1:1]         | passed  | 0.00206 seconds |
+./spec/models/company_spec.rb[1:1:2]         | failed  | 0.01574 seconds |
+./spec/models/company_spec.rb[1:2:1]         | passed  | 0.00598 seconds |

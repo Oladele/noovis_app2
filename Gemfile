@@ -10,9 +10,13 @@ gem 'rspec_api_documentation'
 gem 'jsonapi-resources'
 gem "apitome"
 
+group :development do
+  gem "spring"
+  gem "spring-commands-rspec"
+end
+
 group :development, :test do
   gem 'byebug'
-  gem 'spring'
   #app-specific gems
   gem 'rspec-rails', '~> 3.0'
   gem "factory_girl_rails"
