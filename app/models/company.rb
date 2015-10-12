@@ -1,6 +1,6 @@
 class Company < ActiveRecord::Base
 
 	### Validations
-  validates :name, presence: true
+  validates :name, uniqueness: true, presence: true
 
 end
