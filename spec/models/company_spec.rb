@@ -1,5 +1,12 @@
 require 'rails_helper'
 
 RSpec.describe Company, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it { is_expected.to have_attribute :name }
+  
+  it "validates presence of name" do
+    subject.name = nil
+    subject.valid?
+    expect(subject.errors[:name]).to include "can't be blank"
+  end
+
 end
