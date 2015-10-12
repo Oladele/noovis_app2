@@ -4,6 +4,11 @@
       "name": "Companies",
       "examples": [
         {
+          "description": "Create a company",
+          "link": "companies/create_a_company.json",
+          "groups": "all"
+        },
+        {
           "description": "Listing companies",
           "link": "companies/listing_companies.json",
           "groups": "all"
