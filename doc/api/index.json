@@ -6,12 +6,16 @@
         {
           "description": "Create a company",
           "link": "companies/create_a_company.json",
-          "groups": "all"
+          "groups": "all",
+          "route": "/companies",
+          "method": "post"
         },
         {
-          "description": "Listing companies",
-          "link": "companies/listing_companies.json",
-          "groups": "all"
+          "description": "List all companies",
+          "link": "companies/list_all_companies.json",
+          "groups": "all",
+          "route": "/companies",
+          "method": "get"
         }
       ]
     }

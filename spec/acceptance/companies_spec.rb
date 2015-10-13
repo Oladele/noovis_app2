@@ -21,7 +21,7 @@ RSpec.resource "Companies" do
   end
 
   get "/companies" do    
-    example "Listing companies" do
+    example "List all companies" do
     	FactoryGirl.create :company, name: "1st company"
     	FactoryGirl.create :company, name: "2nd company"
       do_request
