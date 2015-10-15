@@ -1,7 +1,7 @@
 FactoryGirl.define do
 	
 	factory :company do
-	  name "ACME Company"
+  	sequence(:name)  { |n| "Company #{n}" }
 	end
 
 end

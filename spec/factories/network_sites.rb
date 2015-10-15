@@ -1,8 +1,8 @@
 FactoryGirl.define do
   factory :network_site do
-    name "MyString"
-address "MyString"
-company nil
+  	sequence(:name)  { |n| "Site #{n}" }
+		address "MyString"
+		company
   end
 
 end
