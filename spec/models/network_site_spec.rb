@@ -7,14 +7,10 @@ RSpec.describe NetworkSite, type: :model do
 	end
 
 	describe "associations" do
-		let(:company) { FactoryGirl.create(:company) }
-  	before do 
-  		@network_site = company.network_sites.build(name: "Lorem ipsum")
-  	end
-
-	  subject { @network_site}
 	  it "should belong to a company" do
-	  	expect(subject.company).to eq company
+	  	company = FactoryGirl.create(:company)
+	  	network_site = company.network_sites.build(name: "Lorem ipsum")
+	  	expect(network_site.company).to eq company
 	  end
 	end
   
