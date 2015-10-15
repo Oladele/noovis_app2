@@ -1,0 +1,2 @@
+class NetworkSitesController < ApplicationController
+end
