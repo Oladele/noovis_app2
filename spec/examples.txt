@@ -1,11 +1,15 @@
 example_id                                       | status  | run_time        |
 ------------------------------------------------ | ------- | --------------- |
-./spec/acceptance/companies_spec.rb[1:1:1]       | passed  | 0.00846 seconds |
-./spec/acceptance/companies_spec.rb[1:2:1]       | passed  | 0.02129 seconds |
-./spec/acceptance/network_sites_spec.rb[1:1:1]   | passed  | 0.01493 seconds |
-./spec/acceptance/network_sites_spec.rb[1:2:1]   | passed  | 0.00975 seconds |
+./spec/acceptance/companies_spec.rb[1:1:1]       | passed  | 0.01002 seconds |
+./spec/acceptance/companies_spec.rb[1:2:1]       | passed  | 0.0126 seconds  |
+./spec/acceptance/network_sites_spec.rb[1:1:1]   | passed  | 0.0192 seconds  |
+./spec/acceptance/network_sites_spec.rb[1:2:1]   | passed  | 0.02247 seconds |
 ./spec/helpers/companies_helper_spec.rb[1:1]     | pending | 0.00002 seconds |
-./spec/helpers/network_sites_helper_spec.rb[1:1] | pending | 0.00002 seconds |
-./spec/models/company_spec.rb[1:1:1]             | passed  | 0.00317 seconds |
-./spec/models/company_spec.rb[1:2:1]             | passed  | 0.05394 seconds |
-./spec/models/company_spec.rb[1:2:2]             | passed  | 0.00765 seconds |
+./spec/helpers/network_sites_helper_spec.rb[1:1] | pending | 0.00001 seconds |
+./spec/models/company_spec.rb[1:1:1]             | passed  | 0.00212 seconds |
+./spec/models/company_spec.rb[1:2:1]             | passed  | 0.00692 seconds |
+./spec/models/company_spec.rb[1:2:2]             | passed  | 0.00485 seconds |
+./spec/models/network_site_spec.rb[1:1:1]        | passed  | 0.00121 seconds |
+./spec/models/network_site_spec.rb[1:2:1]        | passed  | 0.00274 seconds |
+./spec/models/network_site_spec.rb[1:2:2]        | passed  | 0.00228 seconds |
+./spec/models/network_site_spec.rb[1:2:3]        | passed  | 0.00777 seconds |
