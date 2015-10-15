@@ -30,11 +30,6 @@ RSpec.resource "NetworkSites" do
     
     example "Create a network site" do
       do_request
-      puts "***************"
-      puts params
-      puts "***************"
-      puts response_body
-      puts "***************"
       expect(status).to eq 201
     end
   end

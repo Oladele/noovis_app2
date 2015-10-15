@@ -3,6 +3,19 @@ require 'rails_helper'
 RSpec.describe NetworkSite, type: :model do
   describe "attributes" do
   	it { is_expected.to have_attribute :name }
+  	it { is_expected.to have_attribute :company_id }
+	end
+
+	describe "associations" do
+		let(:company) { FactoryGirl.create(:company) }
+  	before do 
+  		@network_site = company.network_sites.build(name: "Lorem ipsum")
+  	end
+
+	  subject { @network_site}
+	  it "should belong to a company" do
+	  	expect(subject.company).to eq company
+	  end
 	end
   
   describe "validations" do

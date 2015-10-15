@@ -4,6 +4,13 @@ RSpec.describe Company, type: :model do
 	describe "attributes" do
   	it { is_expected.to have_attribute :name }
 	end
+
+	describe "associations" do
+	  it "should have many network_sites" do
+	  	network_site = subject.network_sites.build(name: "site1")
+	  	expect(subject.network_sites).to eq [network_site]
+	  end
+	end
   
   describe "validations" do
 	  it "validates presence of name" do
