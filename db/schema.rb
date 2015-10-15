@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151015091521) do
+ActiveRecord::Schema.define(version: 20151015104013) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,9 +25,9 @@ ActiveRecord::Schema.define(version: 20151015091521) do
   add_index "companies", ["name"], name: "index_companies_on_name", unique: true, using: :btree
 
   create_table "network_sites", force: :cascade do |t|
-    t.string   "name"
+    t.string   "name",       null: false
     t.string   "address"
-    t.integer  "company_id"
+    t.integer  "company_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
