@@ -44,11 +44,25 @@
           "method": "post"
         },
         {
+          "description": "Delete a network-site",
+          "link": "networksites/delete_a_network-site.json",
+          "groups": "all",
+          "route": "/network-sites/:network_site_id",
+          "method": "delete"
+        },
+        {
           "description": "List all network-sites",
           "link": "networksites/list_all_network-sites.json",
           "groups": "all",
           "route": "/network-sites",
           "method": "get"
+        },
+        {
+          "description": "Update a network-site",
+          "link": "networksites/update_a_network-site.json",
+          "groups": "all",
+          "route": "/network-sites/:network_site_id",
+          "method": "patch"
         }
       ]
     }

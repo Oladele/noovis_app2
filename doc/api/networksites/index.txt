@@ -1,3 +1,45 @@
+Delete a network-site
+---------------------
+
+Parameters:
+  * type - Should always be set to <code>network-sites</code>
+  * company - Company id
+  * name - Network Site Name
+  * id - The id of the network-site
+
+Request:
+  DELETE /network-sites/189
+  Content-Type: application/vnd.api+json
+
+  {"data":{"type":"network-sites","relationships":{"company":{"data":{"type":"companies","id":437}}},"id":"189"}}
+
+Response:
+  Status: 204 No Content
+
+
+
+Update a network-site
+---------------------
+
+Parameters:
+  * type - Should always be set to <code>network-sites</code>
+  * company - Company id
+  * name - Network Site Name
+  * id - The id of the network-site
+
+Request:
+  PATCH /network-sites/190
+  Content-Type: application/vnd.api+json
+
+  {"data":{"type":"network-sites","relationships":{"company":{"data":{"type":"companies","id":439}}},"attributes":{"name":"Updated Network Site Name"},"id":"190"}}
+
+Response:
+  Status: 200 OK
+  Content-Type: application/vnd.api+json
+
+  {"data":{"id":"190","type":"network-sites","links":{"self":"http://example.org/network-sites/190"},"attributes":{"name":"Updated Network Site Name"},"relationships":{"company":{"links":{"self":"http://example.org/network-sites/190/relationships/company","related":"http://example.org/network-sites/190/company"}}}}}
+
+
 Create a network site
 ---------------------
 
@@ -10,13 +52,13 @@ Request:
   POST /network-sites
   Content-Type: application/vnd.api+json
 
-  {"data":{"type":"network-sites","relationships":{"company":{"data":{"type":"companies","id":210}}},"attributes":{"name":"Site Name"}}}
+  {"data":{"type":"network-sites","relationships":{"company":{"data":{"type":"companies","id":440}}},"attributes":{"name":"Site Name"}}}
 
 Response:
   Status: 201 Created
   Content-Type: application/vnd.api+json
 
-  {"data":{"id":"86","type":"network-sites","links":{"self":"http://example.org/network-sites/86"},"attributes":{"name":"Site Name"},"relationships":{"company":{"links":{"self":"http://example.org/network-sites/86/relationships/company","related":"http://example.org/network-sites/86/company"}}}}}
+  {"data":{"id":"191","type":"network-sites","links":{"self":"http://example.org/network-sites/191"},"attributes":{"name":"Site Name"},"relationships":{"company":{"links":{"self":"http://example.org/network-sites/191/relationships/company","related":"http://example.org/network-sites/191/company"}}}}}
 
 
 List all network-sites
@@ -30,4 +72,4 @@ Response:
   Status: 200 OK
   Content-Type: application/vnd.api+json
 
-  {"data":[{"id":"87","type":"network-sites","links":{"self":"http://example.org/network-sites/87"},"attributes":{"name":"1st site"},"relationships":{"company":{"links":{"self":"http://example.org/network-sites/87/relationships/company","related":"http://example.org/network-sites/87/company"}}}},{"id":"88","type":"network-sites","links":{"self":"http://example.org/network-sites/88"},"attributes":{"name":"2nd site"},"relationships":{"company":{"links":{"self":"http://example.org/network-sites/88/relationships/company","related":"http://example.org/network-sites/88/company"}}}}],"meta":{"record-count":2},"links":{"first":"http://example.org/network-sites?page%5Blimit%5D=10\u0026page%5Boffset%5D=0","last":"http://example.org/network-sites?page%5Blimit%5D=10\u0026page%5Boffset%5D=0"}}
+  {"data":[{"id":"192","type":"network-sites","links":{"self":"http://example.org/network-sites/192"},"attributes":{"name":"1st site"},"relationships":{"company":{"links":{"self":"http://example.org/network-sites/192/relationships/company","related":"http://example.org/network-sites/192/company"}}}},{"id":"193","type":"network-sites","links":{"self":"http://example.org/network-sites/193"},"attributes":{"name":"2nd site"},"relationships":{"company":{"links":{"self":"http://example.org/network-sites/193/relationships/company","related":"http://example.org/network-sites/193/company"}}}}],"meta":{"record-count":2},"links":{"first":"http://example.org/network-sites?page%5Blimit%5D=10\u0026page%5Boffset%5D=0","last":"http://example.org/network-sites?page%5Blimit%5D=10\u0026page%5Boffset%5D=0"}}

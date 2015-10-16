@@ -1,25 +1,31 @@
 {
-  "resource": "Companies",
+  "resource": "NetworkSites",
   "http_method": "DELETE",
-  "route": "/companies/:company_id",
-  "description": "Delete a company",
+  "route": "/network-sites/:network_site_id",
+  "description": "Delete a network-site",
   "explanation": null,
   "parameters": [
     {
       "required": true,
       "name": "type",
-      "description": "Should always be set to <code>companies</code>"
+      "description": "Should always be set to <code>network-sites</code>"
+    },
+    {
+      "required": true,
+      "scope": "relationships",
+      "name": "company",
+      "description": "Company id"
     },
     {
       "required": true,
       "scope": "attributes",
       "name": "name",
-      "description": "Company Name"
+      "description": "Network Site Name"
     },
     {
       "required": true,
       "name": "id",
-      "description": "The id of the company"
+      "description": "The id of the network-site"
     }
   ],
   "response_fields": [
@@ -28,8 +34,8 @@
   "requests": [
     {
       "request_method": "DELETE",
-      "request_path": "/companies/432",
-      "request_body": "{\"data\":{\"type\":\"companies\",\"id\":\"432\"}}",
+      "request_path": "/network-sites/189",
+      "request_body": "{\"data\":{\"type\":\"network-sites\",\"relationships\":{\"company\":{\"data\":{\"type\":\"companies\",\"id\":437}}},\"id\":\"189\"}}",
       "request_headers": {
         "Content-Type": "application/vnd.api+json"
       },

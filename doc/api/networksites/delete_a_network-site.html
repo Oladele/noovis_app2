@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Companies API</title>
+    <title>NetworkSites API</title>
     <meta charset="utf-8">
     <style>
       
@@ -106,11 +106,11 @@ table th, table td {
   </head>
   <body>
     <div class="container">
-      <h1>Companies API</h1>
+      <h1>NetworkSites API</h1>
 
       <div class="article">
-        <h2>Create a company</h2>
-        <h3>POST /companies</h3>
+        <h2>Delete a network-site</h2>
+        <h3>DELETE /network-sites/:network_site_id</h3>
 
           <h3>Parameters</h3>
           <table class="parameters table table-striped table-bordered table-condensed">
@@ -126,7 +126,15 @@ table th, table td {
                     <span class="name">type</span>
                 </td>
                 <td>
-                  <span class="description">Should always be set to &lt;code&gt;companies&lt;/code&gt;</span>
+                  <span class="description">Should always be set to &lt;code&gt;network-sites&lt;/code&gt;</span>
+                </td>
+              </tr>
+              <tr>
+                <td class="required">
+                    <span class="name">relationships[company]</span>
+                </td>
+                <td>
+                  <span class="description">Company id</span>
                 </td>
               </tr>
               <tr>
@@ -134,7 +142,15 @@ table th, table td {
                     <span class="name">attributes[name]</span>
                 </td>
                 <td>
-                  <span class="description">Company Name</span>
+                  <span class="description">Network Site Name</span>
+                </td>
+              </tr>
+              <tr>
+                <td class="required">
+                    <span class="name">id</span>
+                </td>
+                <td>
+                  <span class="description">The id of the network-site</span>
                 </td>
               </tr>
             </tbody>
@@ -147,20 +163,16 @@ table th, table td {
             <pre class="request headers">Content-Type: application/vnd.api+json</pre>
 
           <h4>Route</h4>
-          <pre class="request route highlight">POST /companies</pre>
+          <pre class="request route highlight">DELETE /network-sites/189</pre>
 
 
             <h4>Body</h4>
-            <pre class="request body">{"data":{"type":"companies","attributes":{"name":"ACME Company"}}}</pre>
+            <pre class="request body">{"data":{"type":"network-sites","relationships":{"company":{"data":{"type":"companies","id":437}}},"id":"189"}}</pre>
 
 
             <h3>Response</h3>
-              <h4>Headers</h4>
-              <pre class="response headers">Content-Type: application/vnd.api+json</pre>
             <h4>Status</h4>
-            <pre class="response status">201 Created</pre>
-              <h4>Body</h4>
-              <pre class="response body">{&quot;data&quot;:{&quot;id&quot;:&quot;433&quot;,&quot;type&quot;:&quot;companies&quot;,&quot;links&quot;:{&quot;self&quot;:&quot;http://example.org/companies/433&quot;},&quot;attributes&quot;:{&quot;name&quot;:&quot;ACME Company&quot;}}}</pre>
+            <pre class="response status">204 No Content</pre>
       </div>
     </div>
   </body>

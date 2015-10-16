@@ -28,8 +28,8 @@
   "requests": [
     {
       "request_method": "PATCH",
-      "request_path": "/companies/205",
-      "request_body": "{\"data\":{\"type\":\"companies\",\"attributes\":{\"name\":\"New Company Name\"},\"id\":\"205\"}}",
+      "request_path": "/companies/431",
+      "request_body": "{\"data\":{\"type\":\"companies\",\"attributes\":{\"name\":\"New Company Name\"},\"id\":\"431\"}}",
       "request_headers": {
         "Content-Type": "application/vnd.api+json"
       },
@@ -38,7 +38,7 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "{\"data\":{\"id\":\"205\",\"type\":\"companies\",\"links\":{\"self\":\"http://example.org/companies/205\"},\"attributes\":{\"name\":\"New Company Name\"}}}",
+      "response_body": "{\"data\":{\"id\":\"431\",\"type\":\"companies\",\"links\":{\"self\":\"http://example.org/companies/431\"},\"attributes\":{\"name\":\"New Company Name\"}}}",
       "response_headers": {
         "Content-Type": "application/vnd.api+json"
       },
