@@ -1,0 +1,33 @@
+List all network-sites
+----------------------
+
+Request:
+  GET /network-sites
+  Content-Type: application/vnd.api+json
+
+Response:
+  Status: 200 OK
+  Content-Type: application/vnd.api+json
+
+  {"data":[{"id":"171","type":"network-sites","links":{"self":"http://example.org/network-sites/171"},"attributes":{"name":"1st site"},"relationships":{"company":{"links":{"self":"http://example.org/network-sites/171/relationships/company","related":"http://example.org/network-sites/171/company"}}}},{"id":"172","type":"network-sites","links":{"self":"http://example.org/network-sites/172"},"attributes":{"name":"2nd site"},"relationships":{"company":{"links":{"self":"http://example.org/network-sites/172/relationships/company","related":"http://example.org/network-sites/172/company"}}}}],"meta":{"record-count":2},"links":{"first":"http://example.org/network-sites?page%5Blimit%5D=10\u0026page%5Boffset%5D=0","last":"http://example.org/network-sites?page%5Blimit%5D=10\u0026page%5Boffset%5D=0"}}
+
+
+Create a network site
+---------------------
+
+Parameters:
+  * type - Should always be set to <code>network-sites</code>
+  * company - Company id
+  * name - Network Site Name
+
+Request:
+  POST /network-sites
+  Content-Type: application/vnd.api+json
+
+  {"data":{"type":"network-sites","relationships":{"company":{"data":{"type":"companies","id":374}}},"attributes":{"name":"Site Name"}}}
+
+Response:
+  Status: 201 Created
+  Content-Type: application/vnd.api+json
+
+  {"data":{"id":"173","type":"network-sites","links":{"self":"http://example.org/network-sites/173"},"attributes":{"name":"Site Name"},"relationships":{"company":{"links":{"self":"http://example.org/network-sites/173/relationships/company","related":"http://example.org/network-sites/173/company"}}}}}

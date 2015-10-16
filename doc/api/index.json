@@ -18,6 +18,25 @@
           "method": "get"
         }
       ]
+    },
+    {
+      "name": "NetworkSites",
+      "examples": [
+        {
+          "description": "Create a network site",
+          "link": "networksites/create_a_network_site.json",
+          "groups": "all",
+          "route": "/network-sites",
+          "method": "post"
+        },
+        {
+          "description": "List all network-sites",
+          "link": "networksites/list_all_network-sites.json",
+          "groups": "all",
+          "route": "/network-sites",
+          "method": "get"
+        }
+      ]
     }
   ]
 }
