@@ -15,14 +15,14 @@ RSpec.resource "NetworkSites" do
       required: true, scope: :attributes
 
     let(:type){ "network-sites"}
+    let(:company_id){ (FactoryGirl.create(:company)).id }
+    let(:company){{"data"=>{"type"=>"companies", "id"=> company_id}}}
   end
 
   post "/network-sites" do
     include_context "network-site parameters"
 
     let(:name){ "Site Name"}
-    let(:company_id){ (FactoryGirl.create(:company)).id }
-    let(:company){{"data"=>{"type"=>"companies", "id"=> company_id}}}
     
     example_request "Create a network site" do
       expect(status).to eq 201

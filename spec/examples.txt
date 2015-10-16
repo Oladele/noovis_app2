@@ -1,20 +1,20 @@
 example_id                                       | status  | run_time        |
 ------------------------------------------------ | ------- | --------------- |
-./spec/acceptance/companies_spec.rb[1:1:1]       | passed  | 0.00853 seconds |
-./spec/acceptance/companies_spec.rb[1:2:1]       | passed  | 0.01918 seconds |
-./spec/acceptance/companies_spec.rb[1:3:1]       | passed  | 0.01573 seconds |
-./spec/acceptance/companies_spec.rb[1:4:1]       | passed  | 0.06736 seconds |
-./spec/acceptance/network_sites_spec.rb[1:1:1]   | passed  | 0.01443 seconds |
-./spec/acceptance/network_sites_spec.rb[1:2:1]   | passed  | 0.02244 seconds |
+./spec/acceptance/companies_spec.rb[1:1:1]       | passed  | 0.00873 seconds |
+./spec/acceptance/companies_spec.rb[1:2:1]       | passed  | 0.0168 seconds  |
+./spec/acceptance/companies_spec.rb[1:3:1]       | passed  | 0.01252 seconds |
+./spec/acceptance/companies_spec.rb[1:4:1]       | passed  | 0.05092 seconds |
+./spec/acceptance/network_sites_spec.rb[1:1:1]   | passed  | 0.02464 seconds |
+./spec/acceptance/network_sites_spec.rb[1:2:1]   | passed  | 0.02121 seconds |
 ./spec/helpers/companies_helper_spec.rb[1:1]     | pending | 0.00002 seconds |
 ./spec/helpers/network_sites_helper_spec.rb[1:1] | pending | 0.00001 seconds |
-./spec/models/company_spec.rb[1:1:1]             | passed  | 0.00256 seconds |
-./spec/models/company_spec.rb[1:2:1]             | passed  | 0.00953 seconds |
-./spec/models/company_spec.rb[1:3:1]             | passed  | 0.0079 seconds  |
-./spec/models/company_spec.rb[1:3:2]             | passed  | 0.00677 seconds |
-./spec/models/network_site_spec.rb[1:1:1]        | passed  | 0.00179 seconds |
-./spec/models/network_site_spec.rb[1:1:2]        | passed  | 0.00219 seconds |
-./spec/models/network_site_spec.rb[1:2:1]        | passed  | 0.0049 seconds  |
-./spec/models/network_site_spec.rb[1:3:1]        | passed  | 0.00332 seconds |
-./spec/models/network_site_spec.rb[1:3:2]        | passed  | 0.00333 seconds |
-./spec/models/network_site_spec.rb[1:3:3]        | passed  | 0.01213 seconds |
+./spec/models/company_spec.rb[1:1:1]             | passed  | 0.00138 seconds |
+./spec/models/company_spec.rb[1:2:1]             | passed  | 0.00172 seconds |
+./spec/models/company_spec.rb[1:3:1]             | passed  | 0.00249 seconds |
+./spec/models/company_spec.rb[1:3:2]             | passed  | 0.00621 seconds |
+./spec/models/network_site_spec.rb[1:1:1]        | passed  | 0.00123 seconds |
+./spec/models/network_site_spec.rb[1:1:2]        | passed  | 0.00215 seconds |
+./spec/models/network_site_spec.rb[1:2:1]        | passed  | 0.00992 seconds |
+./spec/models/network_site_spec.rb[1:3:1]        | passed  | 0.00792 seconds |
+./spec/models/network_site_spec.rb[1:3:2]        | passed  | 0.00252 seconds |
+./spec/models/network_site_spec.rb[1:3:3]        | passed  | 0.00839 seconds |
