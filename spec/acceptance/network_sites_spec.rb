@@ -19,6 +19,16 @@ RSpec.resource "NetworkSites" do
     let(:company){{"data"=>{"type"=>"companies", "id"=> company_id}}}
   end
 
+  shared_context "for a persisted network-site" do
+    parameter :id, 
+      "The id of the network-site",
+      required: true
+
+    let(:persisted_network_site){ FactoryGirl.create :network_site  }
+    let(:id){ persisted_network_site.id.to_s }
+    let(:network_site_id){ persisted_network_site.id.to_s }
+  end
+
   post "/network-sites" do
     include_context "network-site parameters"
 
@@ -26,6 +36,19 @@ RSpec.resource "NetworkSites" do
     
     example_request "Create a network site" do
       expect(status).to eq 201
+      network_site = JSON.parse(response_body)
+      expect(network_site["data"]["attributes"]["name"]).to eq name
+    end
+  end
+
+  patch "/network-sites/:network_site_id" do
+    include_context "network-site parameters"
+    include_context "for a persisted network-site"
+
+    let(:name){ "Updated Network Site Name"}
+    
+    example_request "Update a network-site" do
+      expect(status).to eq 200
       network_site = JSON.parse(response_body)
       expect(network_site["data"]["attributes"]["name"]).to eq name
     end
