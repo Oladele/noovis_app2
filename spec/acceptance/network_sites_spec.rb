@@ -55,7 +55,6 @@ RSpec.resource "NetworkSites" do
   end
 
   get "/network-sites" do
-
     before do
       FactoryGirl.create :network_site, name: "1st site"
       FactoryGirl.create :network_site, name: "2nd site"
@@ -65,6 +64,14 @@ RSpec.resource "NetworkSites" do
       expect(status).to eq 200
       network_sites = JSON.parse(response_body)
       expect(network_sites["data"].size).to eq 2
+    end
+  end
+
+  delete "/network-sites/:network_site_id" do
+    include_context "network-site parameters"
+    include_context "for a persisted network-site"
+    example_request "Delete a network-site" do
+      expect(status).to eq 204
     end
   end
 
