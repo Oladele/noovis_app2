@@ -14,6 +14,16 @@ RSpec.resource "Companies" do
     let(:type){ "companies"}
   end
 
+  shared_context "for a persisted company" do
+    parameter :id, 
+      "The id of the company",
+      required: true
+
+    let(:persisted_company){ FactoryGirl.create :company  }
+    let(:id){ persisted_company.id.to_s }
+    let(:company_id){ persisted_company.id.to_s }
+  end
+
   post "/companies" do
     include_context "company parameters"
 
@@ -28,14 +38,8 @@ RSpec.resource "Companies" do
 
   patch "/companies/:company_id" do
     include_context "company parameters"
+    include_context "for a persisted company"
 
-    parameter :id, 
-      "The id of the company",
-      required: true
-
-    let(:persisted_company){ FactoryGirl.create :company  }
-    let(:id){ persisted_company.id.to_s }
-    let(:company_id){ persisted_company.id.to_s }
     let(:name){ "New Company Name"}
     
     example_request "Update a company" do
@@ -56,6 +60,14 @@ RSpec.resource "Companies" do
       expect(status).to eq 200
       companies = JSON.parse(response_body)
       expect(companies["data"].size).to eq 2
+    end
+  end
+
+  delete "/companies/:company_id" do
+    include_context "company parameters"
+    include_context "for a persisted company"
+    example_request "Delete a company" do
+      expect(status).to eq 204
     end
   end
 
