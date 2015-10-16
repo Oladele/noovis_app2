@@ -109,9 +109,44 @@ table th, table td {
       <h1>Companies API</h1>
 
       <div class="article">
-        <h2>List all companies</h2>
-        <h3>GET /companies</h3>
+        <h2>Update a company</h2>
+        <h3>PATCH /companies/:company_id</h3>
 
+          <h3>Parameters</h3>
+          <table class="parameters table table-striped table-bordered table-condensed">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="required">
+                    <span class="name">type</span>
+                </td>
+                <td>
+                  <span class="description">Should always be set to &lt;code&gt;companies&lt;/code&gt;</span>
+                </td>
+              </tr>
+              <tr>
+                <td class="required">
+                    <span class="name">attributes[name]</span>
+                </td>
+                <td>
+                  <span class="description">Company Name</span>
+                </td>
+              </tr>
+              <tr>
+                <td class="required">
+                    <span class="name">id</span>
+                </td>
+                <td>
+                  <span class="description">The id of the company</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
 
 
           <h3>Request</h3>
@@ -120,9 +155,11 @@ table th, table td {
             <pre class="request headers">Content-Type: application/vnd.api+json</pre>
 
           <h4>Route</h4>
-          <pre class="request route highlight">GET /companies</pre>
+          <pre class="request route highlight">PATCH /companies/160</pre>
 
 
+            <h4>Body</h4>
+            <pre class="request body">{"data":{"type":"companies","attributes":{"name":"New Company Name"},"id":"160"}}</pre>
 
 
             <h3>Response</h3>
@@ -131,7 +168,7 @@ table th, table td {
             <h4>Status</h4>
             <pre class="response status">200 OK</pre>
               <h4>Body</h4>
-              <pre class="response body">{&quot;data&quot;:[{&quot;id&quot;:&quot;161&quot;,&quot;type&quot;:&quot;companies&quot;,&quot;links&quot;:{&quot;self&quot;:&quot;http://example.org/companies/161&quot;},&quot;attributes&quot;:{&quot;name&quot;:&quot;1st company&quot;}},{&quot;id&quot;:&quot;162&quot;,&quot;type&quot;:&quot;companies&quot;,&quot;links&quot;:{&quot;self&quot;:&quot;http://example.org/companies/162&quot;},&quot;attributes&quot;:{&quot;name&quot;:&quot;2nd company&quot;}}],&quot;meta&quot;:{&quot;record-count&quot;:2},&quot;links&quot;:{&quot;first&quot;:&quot;http://example.org/companies?page%5Blimit%5D=10\u0026page%5Boffset%5D=0&quot;,&quot;last&quot;:&quot;http://example.org/companies?page%5Blimit%5D=10\u0026page%5Boffset%5D=0&quot;}}</pre>
+              <pre class="response body">{&quot;data&quot;:{&quot;id&quot;:&quot;160&quot;,&quot;type&quot;:&quot;companies&quot;,&quot;links&quot;:{&quot;self&quot;:&quot;http://example.org/companies/160&quot;},&quot;attributes&quot;:{&quot;name&quot;:&quot;New Company Name&quot;}}}</pre>
       </div>
     </div>
   </body>

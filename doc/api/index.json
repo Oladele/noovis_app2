@@ -16,6 +16,13 @@
           "groups": "all",
           "route": "/companies",
           "method": "get"
+        },
+        {
+          "description": "Update a company",
+          "link": "companies/update_a_company.json",
+          "groups": "all",
+          "route": "/companies/:company_id",
+          "method": "patch"
         }
       ]
     },

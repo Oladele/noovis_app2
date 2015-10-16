@@ -1,22 +1,22 @@
-Create a company
+Update a company
 ----------------
 
 Parameters:
-  * type -       Should always be set to <code>companies</code>.
-
+  * type - Should always be set to <code>companies</code>
   * name - Company Name
+  * id - The id of the company
 
 Request:
-  POST /companies
+  PATCH /companies/160
   Content-Type: application/vnd.api+json
 
-  {"data":{"type":"companies","attributes":{"name":"ACME Company"}}}
+  {"data":{"type":"companies","attributes":{"name":"New Company Name"},"id":"160"}}
 
 Response:
-  Status: 201 Created
+  Status: 200 OK
   Content-Type: application/vnd.api+json
 
-  {"data":{"id":"369","type":"companies","links":{"self":"http://example.org/companies/369"},"attributes":{"name":"ACME Company"}}}
+  {"data":{"id":"160","type":"companies","links":{"self":"http://example.org/companies/160"},"attributes":{"name":"New Company Name"}}}
 
 
 List all companies
@@ -30,6 +30,24 @@ Response:
   Status: 200 OK
   Content-Type: application/vnd.api+json
 
-  {"data":[{"id":"370","type":"companies","links":{"self":"http://example.org/companies/370"},"attributes":{"name":"1st company"}},{"id":"371","type":"companies","links":{"self":"http://example.org/companies/371"},"attributes":{"name":"2nd company"}}],"meta":{"record-count":2},"links":{"first":"http://example.org/companies?page%5Blimit%5D=10\u0026page%5Boffset%5D=0","last":"http://example.org/companies?page%5Blimit%5D=10\u0026page%5Boffset%5D=0"}}
+  {"data":[{"id":"161","type":"companies","links":{"self":"http://example.org/companies/161"},"attributes":{"name":"1st company"}},{"id":"162","type":"companies","links":{"self":"http://example.org/companies/162"},"attributes":{"name":"2nd company"}}],"meta":{"record-count":2},"links":{"first":"http://example.org/companies?page%5Blimit%5D=10\u0026page%5Boffset%5D=0","last":"http://example.org/companies?page%5Blimit%5D=10\u0026page%5Boffset%5D=0"}}
 
 
+Create a company
+----------------
+
+Parameters:
+  * type - Should always be set to <code>companies</code>
+  * name - Company Name
+
+Request:
+  POST /companies
+  Content-Type: application/vnd.api+json
+
+  {"data":{"type":"companies","attributes":{"name":"ACME Company"}}}
+
+Response:
+  Status: 201 Created
+  Content-Type: application/vnd.api+json
+
+  {"data":{"id":"163","type":"companies","links":{"self":"http://example.org/companies/163"},"attributes":{"name":"ACME Company"}}}

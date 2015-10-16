@@ -30,7 +30,7 @@
     {
       "request_method": "POST",
       "request_path": "/network-sites",
-      "request_body": "{\"data\":{\"type\":\"network-sites\",\"relationships\":{\"company\":{\"data\":{\"type\":\"companies\",\"id\":374}}},\"attributes\":{\"name\":\"Site Name\"}}}",
+      "request_body": "{\"data\":{\"type\":\"network-sites\",\"relationships\":{\"company\":{\"data\":{\"type\":\"companies\",\"id\":159}}},\"attributes\":{\"name\":\"Site Name\"}}}",
       "request_headers": {
         "Content-Type": "application/vnd.api+json"
       },
@@ -39,7 +39,7 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 201,
       "response_status_text": "Created",
-      "response_body": "{\"data\":{\"id\":\"173\",\"type\":\"network-sites\",\"links\":{\"self\":\"http://example.org/network-sites/173\"},\"attributes\":{\"name\":\"Site Name\"},\"relationships\":{\"company\":{\"links\":{\"self\":\"http://example.org/network-sites/173/relationships/company\",\"related\":\"http://example.org/network-sites/173/company\"}}}}}",
+      "response_body": "{\"data\":{\"id\":\"69\",\"type\":\"network-sites\",\"links\":{\"self\":\"http://example.org/network-sites/69\"},\"attributes\":{\"name\":\"Site Name\"},\"relationships\":{\"company\":{\"links\":{\"self\":\"http://example.org/network-sites/69/relationships/company\",\"related\":\"http://example.org/network-sites/69/company\"}}}}}",
       "response_headers": {
         "Content-Type": "application/vnd.api+json"
       },
