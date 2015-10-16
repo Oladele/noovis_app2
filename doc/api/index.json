@@ -11,6 +11,13 @@
           "method": "post"
         },
         {
+          "description": "Delete a company",
+          "link": "companies/delete_a_company.json",
+          "groups": "all",
+          "route": "/companies/:company_id",
+          "method": "delete"
+        },
+        {
           "description": "List all companies",
           "link": "companies/list_all_companies.json",
           "groups": "all",

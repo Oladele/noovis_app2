@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>NetworkSites API</title>
+    <title>Companies API</title>
     <meta charset="utf-8">
     <style>
       
@@ -106,12 +106,47 @@ table th, table td {
   </head>
   <body>
     <div class="container">
-      <h1>NetworkSites API</h1>
+      <h1>Companies API</h1>
 
       <div class="article">
-        <h2>List all network-sites</h2>
-        <h3>GET /network-sites</h3>
+        <h2>Delete a company</h2>
+        <h3>DELETE /companies/:company_id</h3>
 
+          <h3>Parameters</h3>
+          <table class="parameters table table-striped table-bordered table-condensed">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="required">
+                    <span class="name">type</span>
+                </td>
+                <td>
+                  <span class="description">Should always be set to &lt;code&gt;companies&lt;/code&gt;</span>
+                </td>
+              </tr>
+              <tr>
+                <td class="required">
+                    <span class="name">attributes[name]</span>
+                </td>
+                <td>
+                  <span class="description">Company Name</span>
+                </td>
+              </tr>
+              <tr>
+                <td class="required">
+                    <span class="name">id</span>
+                </td>
+                <td>
+                  <span class="description">The id of the company</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
 
 
           <h3>Request</h3>
@@ -120,18 +155,16 @@ table th, table td {
             <pre class="request headers">Content-Type: application/vnd.api+json</pre>
 
           <h4>Route</h4>
-          <pre class="request route highlight">GET /network-sites</pre>
+          <pre class="request route highlight">DELETE /companies/209</pre>
 
 
+            <h4>Body</h4>
+            <pre class="request body">{"data":{"type":"companies","id":"209"}}</pre>
 
 
             <h3>Response</h3>
-              <h4>Headers</h4>
-              <pre class="response headers">Content-Type: application/vnd.api+json</pre>
             <h4>Status</h4>
-            <pre class="response status">200 OK</pre>
-              <h4>Body</h4>
-              <pre class="response body">{&quot;data&quot;:[{&quot;id&quot;:&quot;87&quot;,&quot;type&quot;:&quot;network-sites&quot;,&quot;links&quot;:{&quot;self&quot;:&quot;http://example.org/network-sites/87&quot;},&quot;attributes&quot;:{&quot;name&quot;:&quot;1st site&quot;},&quot;relationships&quot;:{&quot;company&quot;:{&quot;links&quot;:{&quot;self&quot;:&quot;http://example.org/network-sites/87/relationships/company&quot;,&quot;related&quot;:&quot;http://example.org/network-sites/87/company&quot;}}}},{&quot;id&quot;:&quot;88&quot;,&quot;type&quot;:&quot;network-sites&quot;,&quot;links&quot;:{&quot;self&quot;:&quot;http://example.org/network-sites/88&quot;},&quot;attributes&quot;:{&quot;name&quot;:&quot;2nd site&quot;},&quot;relationships&quot;:{&quot;company&quot;:{&quot;links&quot;:{&quot;self&quot;:&quot;http://example.org/network-sites/88/relationships/company&quot;,&quot;related&quot;:&quot;http://example.org/network-sites/88/company&quot;}}}}],&quot;meta&quot;:{&quot;record-count&quot;:2},&quot;links&quot;:{&quot;first&quot;:&quot;http://example.org/network-sites?page%5Blimit%5D=10\u0026page%5Boffset%5D=0&quot;,&quot;last&quot;:&quot;http://example.org/network-sites?page%5Blimit%5D=10\u0026page%5Boffset%5D=0&quot;}}</pre>
+            <pre class="response status">204 No Content</pre>
       </div>
     </div>
   </body>
