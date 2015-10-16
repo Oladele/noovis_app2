@@ -50,7 +50,6 @@ RSpec.resource "Companies" do
   end
 
   get "/companies" do    
-    
     before do
     	FactoryGirl.create :company, name: "1st company"
     	FactoryGirl.create :company, name: "2nd company"
