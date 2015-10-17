@@ -1,24 +1,3 @@
-Update a company
-----------------
-
-Parameters:
-  * type - Should always be set to <code>companies</code>
-  * name - Company Name
-  * id - The id of the company
-
-Request:
-  PATCH /companies/431
-  Content-Type: application/vnd.api+json
-
-  {"data":{"type":"companies","attributes":{"name":"New Company Name"},"id":"431"}}
-
-Response:
-  Status: 200 OK
-  Content-Type: application/vnd.api+json
-
-  {"data":{"id":"431","type":"companies","links":{"self":"http://example.org/companies/431"},"attributes":{"name":"New Company Name"}}}
-
-
 Delete a company
 ----------------
 
@@ -28,14 +7,49 @@ Parameters:
   * id - The id of the company
 
 Request:
-  DELETE /companies/432
+  DELETE /companies/564
   Content-Type: application/vnd.api+json
 
-  {"data":{"type":"companies","id":"432"}}
+  {"data":{"type":"companies","id":"564"}}
 
 Response:
   Status: 204 No Content
 
+
+
+Update a company
+----------------
+
+Parameters:
+  * type - Should always be set to <code>companies</code>
+  * name - Company Name
+  * id - The id of the company
+
+Request:
+  PATCH /companies/565
+  Content-Type: application/vnd.api+json
+
+  {"data":{"type":"companies","attributes":{"name":"New Company Name"},"id":"565"}}
+
+Response:
+  Status: 200 OK
+  Content-Type: application/vnd.api+json
+
+  {"data":{"id":"565","type":"companies","links":{"self":"http://example.org/companies/565"},"attributes":{"name":"New Company Name"}}}
+
+
+List all companies
+------------------
+
+Request:
+  GET /companies
+  Content-Type: application/vnd.api+json
+
+Response:
+  Status: 200 OK
+  Content-Type: application/vnd.api+json
+
+  {"data":[{"id":"566","type":"companies","links":{"self":"http://example.org/companies/566"},"attributes":{"name":"1st company"}},{"id":"567","type":"companies","links":{"self":"http://example.org/companies/567"},"attributes":{"name":"2nd company"}}],"meta":{"record-count":2},"links":{"first":"http://example.org/companies?page%5Blimit%5D=10\u0026page%5Boffset%5D=0","last":"http://example.org/companies?page%5Blimit%5D=10\u0026page%5Boffset%5D=0"}}
 
 
 Create a company
@@ -55,20 +69,6 @@ Response:
   Status: 201 Created
   Content-Type: application/vnd.api+json
 
-  {"data":{"id":"433","type":"companies","links":{"self":"http://example.org/companies/433"},"attributes":{"name":"ACME Company"}}}
-
-
-List all companies
-------------------
-
-Request:
-  GET /companies
-  Content-Type: application/vnd.api+json
-
-Response:
-  Status: 200 OK
-  Content-Type: application/vnd.api+json
-
-  {"data":[{"id":"434","type":"companies","links":{"self":"http://example.org/companies/434"},"attributes":{"name":"1st company"}},{"id":"435","type":"companies","links":{"self":"http://example.org/companies/435"},"attributes":{"name":"2nd company"}}],"meta":{"record-count":2},"links":{"first":"http://example.org/companies?page%5Blimit%5D=10\u0026page%5Boffset%5D=0","last":"http://example.org/companies?page%5Blimit%5D=10\u0026page%5Boffset%5D=0"}}
+  {"data":{"id":"568","type":"companies","links":{"self":"http://example.org/companies/568"},"attributes":{"name":"ACME Company"}}}
 
 
