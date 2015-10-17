@@ -19,7 +19,7 @@ RSpec.describe Company, type: :model do
 	    expect(subject.errors[:name]).to include "can't be blank"
 	  end
 
-  	# it { is_expected.to validate_uniqueness_of :name }
+  	it { is_expected.to validate_uniqueness_of :name }
 	  it "validates the uniqueness of name" do
 	    original = FactoryGirl.create(:company)
 	    duplicate = FactoryGirl.build(:company, name: original.name)
