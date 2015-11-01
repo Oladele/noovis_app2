@@ -8,16 +8,16 @@ Parameters:
   * id - The id of the network-site
 
 Request:
-  PATCH /network-sites/244
+  PATCH /network-sites/273
   Content-Type: application/vnd.api+json
 
-  {"data":{"type":"network-sites","relationships":{"company":{"data":{"type":"companies","id":570}}},"attributes":{"name":"Updated Network Site Name"},"id":"244"}}
+  {"data":{"type":"network-sites","relationships":{"company":{"data":{"type":"companies","id":640}}},"attributes":{"name":"Updated Network Site Name"},"id":"273"}}
 
 Response:
   Status: 200 OK
   Content-Type: application/vnd.api+json
 
-  {"data":{"id":"244","type":"network-sites","links":{"self":"http://example.org/network-sites/244"},"attributes":{"name":"Updated Network Site Name"},"relationships":{"company":{"links":{"self":"http://example.org/network-sites/244/relationships/company","related":"http://example.org/network-sites/244/company"}}}}}
+  {"data":{"id":"273","type":"network-sites","links":{"self":"http://example.org/network-sites/273"},"attributes":{"name":"Updated Network Site Name"},"relationships":{"company":{"links":{"self":"http://example.org/network-sites/273/relationships/company","related":"http://example.org/network-sites/273/company"}}}}}
 
 
 List all network-sites
@@ -31,7 +31,7 @@ Response:
   Status: 200 OK
   Content-Type: application/vnd.api+json
 
-  {"data":[{"id":"245","type":"network-sites","links":{"self":"http://example.org/network-sites/245"},"attributes":{"name":"1st site"},"relationships":{"company":{"links":{"self":"http://example.org/network-sites/245/relationships/company","related":"http://example.org/network-sites/245/company"}}}},{"id":"246","type":"network-sites","links":{"self":"http://example.org/network-sites/246"},"attributes":{"name":"2nd site"},"relationships":{"company":{"links":{"self":"http://example.org/network-sites/246/relationships/company","related":"http://example.org/network-sites/246/company"}}}}],"meta":{"record-count":2},"links":{"first":"http://example.org/network-sites?page%5Blimit%5D=10\u0026page%5Boffset%5D=0","last":"http://example.org/network-sites?page%5Blimit%5D=10\u0026page%5Boffset%5D=0"}}
+  {"data":[{"id":"274","type":"network-sites","links":{"self":"http://example.org/network-sites/274"},"attributes":{"name":"1st site"},"relationships":{"company":{"links":{"self":"http://example.org/network-sites/274/relationships/company","related":"http://example.org/network-sites/274/company"}}}},{"id":"275","type":"network-sites","links":{"self":"http://example.org/network-sites/275"},"attributes":{"name":"2nd site"},"relationships":{"company":{"links":{"self":"http://example.org/network-sites/275/relationships/company","related":"http://example.org/network-sites/275/company"}}}}],"meta":{"record-count":2},"links":{"first":"http://example.org/network-sites?page%5Blimit%5D=10\u0026page%5Boffset%5D=0","last":"http://example.org/network-sites?page%5Blimit%5D=10\u0026page%5Boffset%5D=0"}}
 
 
 Create a network site
@@ -46,13 +46,13 @@ Request:
   POST /network-sites
   Content-Type: application/vnd.api+json
 
-  {"data":{"type":"network-sites","relationships":{"company":{"data":{"type":"companies","id":573}}},"attributes":{"name":"Site Name"}}}
+  {"data":{"type":"network-sites","relationships":{"company":{"data":{"type":"companies","id":643}}},"attributes":{"name":"Site Name"}}}
 
 Response:
   Status: 201 Created
   Content-Type: application/vnd.api+json
 
-  {"data":{"id":"247","type":"network-sites","links":{"self":"http://example.org/network-sites/247"},"attributes":{"name":"Site Name"},"relationships":{"company":{"links":{"self":"http://example.org/network-sites/247/relationships/company","related":"http://example.org/network-sites/247/company"}}}}}
+  {"data":{"id":"276","type":"network-sites","links":{"self":"http://example.org/network-sites/276"},"attributes":{"name":"Site Name"},"relationships":{"company":{"links":{"self":"http://example.org/network-sites/276/relationships/company","related":"http://example.org/network-sites/276/company"}}}}}
 
 
 Delete a network-site
@@ -65,11 +65,13 @@ Parameters:
   * id - The id of the network-site
 
 Request:
-  DELETE /network-sites/248
+  DELETE /network-sites/277
   Content-Type: application/vnd.api+json
 
-  {"data":{"type":"network-sites","relationships":{"company":{"data":{"type":"companies","id":575}}},"id":"248"}}
+  {"data":{"type":"network-sites","relationships":{"company":{"data":{"type":"companies","id":645}}},"id":"277"}}
 
 Response:
   Status: 204 No Content
+
+
 

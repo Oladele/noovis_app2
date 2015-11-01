@@ -1,57 +1,3 @@
-Delete a company
-----------------
-
-Parameters:
-  * type - Should always be set to <code>companies</code>
-  * name - Company Name
-  * id - The id of the company
-
-Request:
-  DELETE /companies/564
-  Content-Type: application/vnd.api+json
-
-  {"data":{"type":"companies","id":"564"}}
-
-Response:
-  Status: 204 No Content
-
-
-
-Update a company
-----------------
-
-Parameters:
-  * type - Should always be set to <code>companies</code>
-  * name - Company Name
-  * id - The id of the company
-
-Request:
-  PATCH /companies/565
-  Content-Type: application/vnd.api+json
-
-  {"data":{"type":"companies","attributes":{"name":"New Company Name"},"id":"565"}}
-
-Response:
-  Status: 200 OK
-  Content-Type: application/vnd.api+json
-
-  {"data":{"id":"565","type":"companies","links":{"self":"http://example.org/companies/565"},"attributes":{"name":"New Company Name"}}}
-
-
-List all companies
-------------------
-
-Request:
-  GET /companies
-  Content-Type: application/vnd.api+json
-
-Response:
-  Status: 200 OK
-  Content-Type: application/vnd.api+json
-
-  {"data":[{"id":"566","type":"companies","links":{"self":"http://example.org/companies/566"},"attributes":{"name":"1st company"}},{"id":"567","type":"companies","links":{"self":"http://example.org/companies/567"},"attributes":{"name":"2nd company"}}],"meta":{"record-count":2},"links":{"first":"http://example.org/companies?page%5Blimit%5D=10\u0026page%5Boffset%5D=0","last":"http://example.org/companies?page%5Blimit%5D=10\u0026page%5Boffset%5D=0"}}
-
-
 Create a company
 ----------------
 
@@ -69,6 +15,58 @@ Response:
   Status: 201 Created
   Content-Type: application/vnd.api+json
 
-  {"data":{"id":"568","type":"companies","links":{"self":"http://example.org/companies/568"},"attributes":{"name":"ACME Company"}}}
+  {"data":{"id":"646","type":"companies","links":{"self":"http://example.org/companies/646"},"attributes":{"name":"ACME Company"},"relationships":{"network-sites":{"links":{"self":"http://example.org/companies/646/relationships/network-sites","related":"http://example.org/companies/646/network-sites"}}}}}
 
+
+Update a company
+----------------
+
+Parameters:
+  * type - Should always be set to <code>companies</code>
+  * name - Company Name
+  * id - The id of the company
+
+Request:
+  PATCH /companies/647
+  Content-Type: application/vnd.api+json
+
+  {"data":{"type":"companies","attributes":{"name":"New Company Name"},"id":"647"}}
+
+Response:
+  Status: 200 OK
+  Content-Type: application/vnd.api+json
+
+  {"data":{"id":"647","type":"companies","links":{"self":"http://example.org/companies/647"},"attributes":{"name":"New Company Name"},"relationships":{"network-sites":{"links":{"self":"http://example.org/companies/647/relationships/network-sites","related":"http://example.org/companies/647/network-sites"}}}}}
+
+
+List all companies
+------------------
+
+Request:
+  GET /companies
+  Content-Type: application/vnd.api+json
+
+Response:
+  Status: 200 OK
+  Content-Type: application/vnd.api+json
+
+  {"data":[{"id":"648","type":"companies","links":{"self":"http://example.org/companies/648"},"attributes":{"name":"1st company"},"relationships":{"network-sites":{"links":{"self":"http://example.org/companies/648/relationships/network-sites","related":"http://example.org/companies/648/network-sites"}}}},{"id":"649","type":"companies","links":{"self":"http://example.org/companies/649"},"attributes":{"name":"2nd company"},"relationships":{"network-sites":{"links":{"self":"http://example.org/companies/649/relationships/network-sites","related":"http://example.org/companies/649/network-sites"}}}}],"meta":{"record-count":2},"links":{"first":"http://example.org/companies?page%5Blimit%5D=10\u0026page%5Boffset%5D=0","last":"http://example.org/companies?page%5Blimit%5D=10\u0026page%5Boffset%5D=0"}}
+
+
+Delete a company
+----------------
+
+Parameters:
+  * type - Should always be set to <code>companies</code>
+  * name - Company Name
+  * id - The id of the company
+
+Request:
+  DELETE /companies/650
+  Content-Type: application/vnd.api+json
+
+  {"data":{"type":"companies","id":"650"}}
+
+Response:
+  Status: 204 No Content
 
