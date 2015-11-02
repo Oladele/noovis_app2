@@ -9,6 +9,9 @@ gem 'puma'
 gem 'rspec_api_documentation'
 gem 'jsonapi-resources'
 gem "apitome"
+# Rack CORS gem suggested by Sean Devine
+# In Charity App screencasts #12
+gem 'rack-cors', :require => 'rack/cors'
 
 group :development do
   gem "spring"

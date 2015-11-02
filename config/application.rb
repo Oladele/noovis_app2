@@ -31,5 +31,22 @@ module NoovisApp2
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
+
+    # Rack CORS gem suggested by Sean Devine
+    # In Charity App screencasts #12
+    # Config culled from gem docs Rails 4 Example application.rb
+    # https://github.com/cyu/rack-cors/blob/master/examples/rails4/config/application.rb
+    
+    config.middleware.insert_before 0, "Rack::Cors" do
+      allow do
+        origins '*'
+
+        resource '*', 
+            :headers => :any, 
+            :methods => [:get, :post, :delete, :put, :patch, :options, :head],
+            :max_age => 0
+      end
+    end
+
   end
 end
