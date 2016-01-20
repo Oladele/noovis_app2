@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :buildings
   jsonapi_resources :companies
   jsonapi_resources :network_sites
   # The priority is based upon order of creation: first created -> highest priority.
