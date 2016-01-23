@@ -1,5 +1,5 @@
 class NetworkSiteResource < JSONAPI::Resource
-  attributes :name
+  attributes :name, :lat, :lng
   has_one :company
   
   filter :company
