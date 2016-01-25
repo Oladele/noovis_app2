@@ -21,7 +21,7 @@ Things you may want to cover:
 
 * Deployment instructions
 
-* Integrations (e.g, Asana)
+* Integrations (e.g Asana)
 
 * ...
 
