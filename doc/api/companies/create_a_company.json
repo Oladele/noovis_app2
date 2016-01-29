@@ -33,7 +33,7 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 201,
       "response_status_text": "Created",
-      "response_body": "{\"data\":{\"id\":\"646\",\"type\":\"companies\",\"links\":{\"self\":\"http://example.org/companies/646\"},\"attributes\":{\"name\":\"ACME Company\"},\"relationships\":{\"network-sites\":{\"links\":{\"self\":\"http://example.org/companies/646/relationships/network-sites\",\"related\":\"http://example.org/companies/646/network-sites\"}}}}}",
+      "response_body": "{\"data\":{\"id\":\"39\",\"type\":\"companies\",\"links\":{\"self\":\"http://example.org/companies/39\"},\"attributes\":{\"name\":\"ACME Company\"},\"relationships\":{\"network-sites\":{\"links\":{\"self\":\"http://example.org/companies/39/relationships/network-sites\",\"related\":\"http://example.org/companies/39/network-sites\"}}}}}",
       "response_headers": {
         "Content-Type": "application/vnd.api+json"
       },

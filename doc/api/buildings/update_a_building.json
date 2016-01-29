@@ -1,0 +1,55 @@
+{
+  "resource": "Buildings",
+  "http_method": "PATCH",
+  "route": "/buildings/:building_id",
+  "description": "Update a building",
+  "explanation": null,
+  "parameters": [
+    {
+      "required": true,
+      "scope": "relationships",
+      "name": "network-site",
+      "description": "Network site id"
+    },
+    {
+      "required": true,
+      "name": "type",
+      "description": "Should always be set to <code>buildings</code>"
+    },
+    {
+      "required": true,
+      "scope": "attributes",
+      "name": "name",
+      "description": "Building Name"
+    },
+    {
+      "required": true,
+      "name": "id",
+      "description": "The id of the building"
+    }
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "PATCH",
+      "request_path": "/buildings/13",
+      "request_body": "{\"data\":{\"relationships\":{\"network-site\":{\"data\":{\"type\":\"network-sites\",\"id\":26}}},\"type\":\"buildings\",\"attributes\":{\"name\":\"Updated Building Name\"},\"id\":\"13\"}}",
+      "request_headers": {
+        "Content-Type": "application/vnd.api+json"
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": "application/vnd.api+json",
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "{\"data\":{\"id\":\"13\",\"type\":\"buildings\",\"links\":{\"self\":\"http://example.org/buildings/13\"},\"attributes\":{\"name\":\"Updated Building Name\",\"lat\":\"39.290139\",\"lng\":\"-76.614766\",\"description\":\"MyText\"},\"relationships\":{\"network-site\":{\"links\":{\"self\":\"http://example.org/buildings/13/relationships/network-site\",\"related\":\"http://example.org/buildings/13/network-site\"}}}}}",
+      "response_headers": {
+        "Content-Type": "application/vnd.api+json"
+      },
+      "response_content_type": "application/vnd.api+json",
+      "curl": null
+    }
+  ]
+}

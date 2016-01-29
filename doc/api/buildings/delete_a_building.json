@@ -1,31 +1,31 @@
 {
-  "resource": "NetworkSites",
+  "resource": "Buildings",
   "http_method": "DELETE",
-  "route": "/network-sites/:network_site_id",
-  "description": "Delete a network-site",
+  "route": "/buildings/:building_id",
+  "description": "Delete a building",
   "explanation": null,
   "parameters": [
     {
       "required": true,
-      "name": "type",
-      "description": "Should always be set to <code>network-sites</code>"
+      "scope": "relationships",
+      "name": "network-site",
+      "description": "Network site id"
     },
     {
       "required": true,
-      "scope": "relationships",
-      "name": "company",
-      "description": "Company id"
+      "name": "type",
+      "description": "Should always be set to <code>buildings</code>"
     },
     {
       "required": true,
       "scope": "attributes",
       "name": "name",
-      "description": "Network Site Name"
+      "description": "Building Name"
     },
     {
       "required": true,
       "name": "id",
-      "description": "The id of the network-site"
+      "description": "The id of the building"
     }
   ],
   "response_fields": [
@@ -34,8 +34,8 @@
   "requests": [
     {
       "request_method": "DELETE",
-      "request_path": "/network-sites/29",
-      "request_body": "{\"data\":{\"type\":\"network-sites\",\"relationships\":{\"company\":{\"data\":{\"type\":\"companies\",\"id\":47}}},\"id\":\"29\"}}",
+      "request_path": "/buildings/11",
+      "request_body": "{\"data\":{\"relationships\":{\"network-site\":{\"data\":{\"type\":\"network-sites\",\"id\":23}}},\"type\":\"buildings\",\"id\":\"11\"}}",
       "request_headers": {
         "Content-Type": "application/vnd.api+json"
       },

@@ -1,6 +1,39 @@
 {
   "resources": [
     {
+      "name": "Buildings",
+      "examples": [
+        {
+          "description": "Create a building",
+          "link": "buildings/create_a_building.json",
+          "groups": "all",
+          "route": "/buildings",
+          "method": "post"
+        },
+        {
+          "description": "Delete a building",
+          "link": "buildings/delete_a_building.json",
+          "groups": "all",
+          "route": "/buildings/:building_id",
+          "method": "delete"
+        },
+        {
+          "description": "List all buildings",
+          "link": "buildings/list_all_buildings.json",
+          "groups": "all",
+          "route": "/buildings",
+          "method": "get"
+        },
+        {
+          "description": "Update a building",
+          "link": "buildings/update_a_building.json",
+          "groups": "all",
+          "route": "/buildings/:building_id",
+          "method": "patch"
+        }
+      ]
+    },
+    {
       "name": "Companies",
       "examples": [
         {
