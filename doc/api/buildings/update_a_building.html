@@ -146,6 +146,22 @@ table th, table td {
                 </td>
               </tr>
               <tr>
+                <td>
+                    <span class="name">attributes[lat]</span>
+                </td>
+                <td>
+                  <span class="description">Building Latitude</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">attributes[lng]</span>
+                </td>
+                <td>
+                  <span class="description">Building Longitude</span>
+                </td>
+              </tr>
+              <tr>
                 <td class="required">
                     <span class="name">id</span>
                 </td>
@@ -163,11 +179,11 @@ table th, table td {
             <pre class="request headers">Content-Type: application/vnd.api+json</pre>
 
           <h4>Route</h4>
-          <pre class="request route highlight">PATCH /buildings/13</pre>
+          <pre class="request route highlight">PATCH /buildings/133</pre>
 
 
             <h4>Body</h4>
-            <pre class="request body">{"data":{"relationships":{"network-site":{"data":{"type":"network-sites","id":26}}},"type":"buildings","attributes":{"name":"Updated Building Name"},"id":"13"}}</pre>
+            <pre class="request body">{"data":{"relationships":{"network-site":{"data":{"type":"network-sites","id":391}}},"type":"buildings","attributes":{"name":"Updated Building Name"},"id":"133"}}</pre>
 
 
             <h3>Response</h3>
@@ -176,7 +192,7 @@ table th, table td {
             <h4>Status</h4>
             <pre class="response status">200 OK</pre>
               <h4>Body</h4>
-              <pre class="response body">{&quot;data&quot;:{&quot;id&quot;:&quot;13&quot;,&quot;type&quot;:&quot;buildings&quot;,&quot;links&quot;:{&quot;self&quot;:&quot;http://example.org/buildings/13&quot;},&quot;attributes&quot;:{&quot;name&quot;:&quot;Updated Building Name&quot;,&quot;lat&quot;:&quot;39.290139&quot;,&quot;lng&quot;:&quot;-76.614766&quot;,&quot;description&quot;:&quot;MyText&quot;},&quot;relationships&quot;:{&quot;network-site&quot;:{&quot;links&quot;:{&quot;self&quot;:&quot;http://example.org/buildings/13/relationships/network-site&quot;,&quot;related&quot;:&quot;http://example.org/buildings/13/network-site&quot;}}}}}</pre>
+              <pre class="response body">{&quot;data&quot;:{&quot;id&quot;:&quot;133&quot;,&quot;type&quot;:&quot;buildings&quot;,&quot;links&quot;:{&quot;self&quot;:&quot;http://example.org/buildings/133&quot;},&quot;attributes&quot;:{&quot;name&quot;:&quot;Updated Building Name&quot;,&quot;lat&quot;:&quot;39.290139&quot;,&quot;lng&quot;:&quot;-76.614766&quot;,&quot;description&quot;:&quot;MyText&quot;},&quot;relationships&quot;:{&quot;network-site&quot;:{&quot;links&quot;:{&quot;self&quot;:&quot;http://example.org/buildings/133/relationships/network-site&quot;,&quot;related&quot;:&quot;http://example.org/buildings/133/network-site&quot;}}}}}</pre>
       </div>
     </div>
   </body>

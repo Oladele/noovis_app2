@@ -146,6 +146,22 @@ table th, table td {
                 </td>
               </tr>
               <tr>
+                <td>
+                    <span class="name">attributes[lat]</span>
+                </td>
+                <td>
+                  <span class="description">Network Site Latitude</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">attributes[lng]</span>
+                </td>
+                <td>
+                  <span class="description">Network Site Longitude</span>
+                </td>
+              </tr>
+              <tr>
                 <td class="required">
                     <span class="name">id</span>
                 </td>
@@ -163,11 +179,11 @@ table th, table td {
             <pre class="request headers">Content-Type: application/vnd.api+json</pre>
 
           <h4>Route</h4>
-          <pre class="request route highlight">PATCH /network-sites/30</pre>
+          <pre class="request route highlight">PATCH /network-sites/387</pre>
 
 
             <h4>Body</h4>
-            <pre class="request body">{"data":{"type":"network-sites","relationships":{"company":{"data":{"type":"companies","id":49}}},"attributes":{"name":"Updated Network Site Name"},"id":"30"}}</pre>
+            <pre class="request body">{"data":{"type":"network-sites","relationships":{"company":{"data":{"type":"companies","id":681}}},"attributes":{"name":"Updated Network Site Name"},"id":"387"}}</pre>
 
 
             <h3>Response</h3>
@@ -176,7 +192,7 @@ table th, table td {
             <h4>Status</h4>
             <pre class="response status">200 OK</pre>
               <h4>Body</h4>
-              <pre class="response body">{&quot;data&quot;:{&quot;id&quot;:&quot;30&quot;,&quot;type&quot;:&quot;network-sites&quot;,&quot;links&quot;:{&quot;self&quot;:&quot;http://example.org/network-sites/30&quot;},&quot;attributes&quot;:{&quot;name&quot;:&quot;Updated Network Site Name&quot;,&quot;lat&quot;:&quot;39.290139&quot;,&quot;lng&quot;:&quot;-76.614766&quot;},&quot;relationships&quot;:{&quot;company&quot;:{&quot;links&quot;:{&quot;self&quot;:&quot;http://example.org/network-sites/30/relationships/company&quot;,&quot;related&quot;:&quot;http://example.org/network-sites/30/company&quot;}}}}}</pre>
+              <pre class="response body">{&quot;data&quot;:{&quot;id&quot;:&quot;387&quot;,&quot;type&quot;:&quot;network-sites&quot;,&quot;links&quot;:{&quot;self&quot;:&quot;http://example.org/network-sites/387&quot;},&quot;attributes&quot;:{&quot;name&quot;:&quot;Updated Network Site Name&quot;,&quot;lat&quot;:&quot;39.290139&quot;,&quot;lng&quot;:&quot;-76.614766&quot;},&quot;relationships&quot;:{&quot;company&quot;:{&quot;links&quot;:{&quot;self&quot;:&quot;http://example.org/network-sites/387/relationships/company&quot;,&quot;related&quot;:&quot;http://example.org/network-sites/387/company&quot;}}}}}</pre>
       </div>
     </div>
   </body>

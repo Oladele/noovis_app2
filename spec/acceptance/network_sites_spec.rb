@@ -13,6 +13,12 @@ RSpec.resource "NetworkSites" do
     parameter :name, 
       "Network Site Name", 
       required: true, scope: :attributes
+    parameter :lat,
+      "Network Site Latitude",
+      scope: :attributes
+    parameter :lng,
+      "Network Site Longitude",
+      scope: :attributes
 
     let(:type){ "network-sites"}
     let(:company_id){ (FactoryGirl.create(:company)).id }
