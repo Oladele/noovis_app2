@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160120001841) do
+ActiveRecord::Schema.define(version: 20160130204411) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,6 +49,16 @@ ActiveRecord::Schema.define(version: 20160120001841) do
   add_index "network_sites", ["company_id", "name"], name: "index_network_sites_on_company_id_and_name", using: :btree
   add_index "network_sites", ["company_id"], name: "index_network_sites_on_company_id", using: :btree
 
+  create_table "workbooks", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "network_site_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
+  add_index "workbooks", ["network_site_id"], name: "index_workbooks_on_network_site_id", using: :btree
+
   add_foreign_key "buildings", "network_sites"
   add_foreign_key "network_sites", "companies"
+  add_foreign_key "workbooks", "network_sites"
 end
