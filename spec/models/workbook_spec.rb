@@ -12,6 +12,11 @@ RSpec.describe Workbook, type: :model do
       workbook = network_site.workbooks.build(name: "Lorem ipsum")
       expect(workbook.network_site).to eq network_site
     end
+
+    it "should have many sheets" do
+	  	sheet = subject.sheets.build(name: "sheet1")
+	  	expect(subject.sheets).to eq [sheet]
+    end
   end
 
   describe "validations" do

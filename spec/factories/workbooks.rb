@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :workbook do
-    name "MyString"
+  	sequence(:name)  { |n| "Workbook #{n}" }
     network_site
   end
 
