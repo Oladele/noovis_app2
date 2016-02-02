@@ -23,6 +23,16 @@
       "description": "Network Site Name"
     },
     {
+      "scope": "attributes",
+      "name": "lat",
+      "description": "Network Site Latitude"
+    },
+    {
+      "scope": "attributes",
+      "name": "lng",
+      "description": "Network Site Longitude"
+    },
+    {
       "required": true,
       "name": "id",
       "description": "The id of the network-site"
@@ -34,8 +44,8 @@
   "requests": [
     {
       "request_method": "DELETE",
-      "request_path": "/network-sites/29",
-      "request_body": "{\"data\":{\"type\":\"network-sites\",\"relationships\":{\"company\":{\"data\":{\"type\":\"companies\",\"id\":47}}},\"id\":\"29\"}}",
+      "request_path": "/network-sites/386",
+      "request_body": "{\"data\":{\"type\":\"network-sites\",\"relationships\":{\"company\":{\"data\":{\"type\":\"companies\",\"id\":679}}},\"id\":\"386\"}}",
       "request_headers": {
         "Content-Type": "application/vnd.api+json"
       },

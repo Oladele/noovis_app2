@@ -23,6 +23,16 @@
       "description": "Building Name"
     },
     {
+      "scope": "attributes",
+      "name": "lat",
+      "description": "Building Latitude"
+    },
+    {
+      "scope": "attributes",
+      "name": "lng",
+      "description": "Building Longitude"
+    },
+    {
       "required": true,
       "name": "id",
       "description": "The id of the building"
@@ -34,8 +44,8 @@
   "requests": [
     {
       "request_method": "DELETE",
-      "request_path": "/buildings/11",
-      "request_body": "{\"data\":{\"relationships\":{\"network-site\":{\"data\":{\"type\":\"network-sites\",\"id\":23}}},\"type\":\"buildings\",\"id\":\"11\"}}",
+      "request_path": "/buildings/134",
+      "request_body": "{\"data\":{\"relationships\":{\"network-site\":{\"data\":{\"type\":\"network-sites\",\"id\":393}}},\"type\":\"buildings\",\"id\":\"134\"}}",
       "request_headers": {
         "Content-Type": "application/vnd.api+json"
       },

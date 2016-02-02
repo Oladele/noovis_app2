@@ -13,6 +13,12 @@ RSpec.resource "Buildings" do
    parameter :name, 
      "Building Name", 
      required: true, scope: :attributes
+    parameter :lat,
+      "Building Latitude",
+      scope: :attributes
+    parameter :lng,
+      "Building Longitude",
+      scope: :attributes
 
    let(:type){ "buildings"}
    let(:network_site_id){ (FactoryGirl.create(:network_site)).id }
