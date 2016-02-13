@@ -1,0 +1,56 @@
+{
+  "resource": "Sheets",
+  "http_method": "POST",
+  "route": "/sheets",
+  "description": "Create a sheet",
+  "explanation": null,
+  "parameters": [
+    {
+      "required": true,
+      "scope": "relationships",
+      "name": "workbook",
+      "description": "Workbook id"
+    },
+    {
+      "required": true,
+      "scope": "relationships",
+      "name": "building",
+      "description": "Building id"
+    },
+    {
+      "required": true,
+      "name": "type",
+      "description": "Should always be set to <code>sheets</code>"
+    },
+    {
+      "required": true,
+      "scope": "attributes",
+      "name": "name",
+      "description": "Sheet Name"
+    }
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "POST",
+      "request_path": "/sheets",
+      "request_body": "{\"data\":{\"relationships\":{\"workbook\":{\"data\":{\"type\":\"workbooks\",\"id\":130}},\"building\":{\"data\":{\"type\":\"buildings\",\"id\":131}}},\"type\":\"sheets\",\"attributes\":{\"name\":\"Sheet Name\"}}}",
+      "request_headers": {
+        "Content-Type": "application/vnd.api+json"
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": "application/vnd.api+json",
+      "response_status": 201,
+      "response_status_text": "Created",
+      "response_body": "{\"data\":{\"id\":\"60\",\"type\":\"sheets\",\"links\":{\"self\":\"http://example.org/sheets/60\"},\"attributes\":{\"name\":\"Sheet Name\"},\"relationships\":{\"workbook\":{\"links\":{\"self\":\"http://example.org/sheets/60/relationships/workbook\",\"related\":\"http://example.org/sheets/60/workbook\"}},\"building\":{\"links\":{\"self\":\"http://example.org/sheets/60/relationships/building\",\"related\":\"http://example.org/sheets/60/building\"}}}}}",
+      "response_headers": {
+        "Content-Type": "application/vnd.api+json"
+      },
+      "response_content_type": "application/vnd.api+json",
+      "curl": null
+    }
+  ]
+}

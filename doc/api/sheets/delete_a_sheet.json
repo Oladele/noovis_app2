@@ -1,25 +1,37 @@
 {
-  "resource": "Companies",
+  "resource": "Sheets",
   "http_method": "DELETE",
-  "route": "/companies/:company_id",
-  "description": "Delete a company",
+  "route": "/sheets/:sheet_id",
+  "description": "Delete a sheet",
   "explanation": null,
   "parameters": [
     {
       "required": true,
+      "scope": "relationships",
+      "name": "workbook",
+      "description": "Workbook id"
+    },
+    {
+      "required": true,
+      "scope": "relationships",
+      "name": "building",
+      "description": "Building id"
+    },
+    {
+      "required": true,
       "name": "type",
-      "description": "Should always be set to <code>companies</code>"
+      "description": "Should always be set to <code>sheets</code>"
     },
     {
       "required": true,
       "scope": "attributes",
       "name": "name",
-      "description": "Company Name"
+      "description": "Sheet Name"
     },
     {
       "required": true,
       "name": "id",
-      "description": "The id of the company"
+      "description": "The id of the sheet"
     }
   ],
   "response_fields": [
@@ -28,8 +40,8 @@
   "requests": [
     {
       "request_method": "DELETE",
-      "request_path": "/companies/438",
-      "request_body": "{\"data\":{\"type\":\"companies\",\"id\":\"438\"}}",
+      "request_path": "/sheets/56",
+      "request_body": "{\"data\":{\"relationships\":{\"workbook\":{\"data\":{\"type\":\"workbooks\",\"id\":125}},\"building\":{\"data\":{\"type\":\"buildings\",\"id\":126}}},\"type\":\"sheets\",\"id\":\"56\"}}",
       "request_headers": {
         "Content-Type": "application/vnd.api+json"
       },

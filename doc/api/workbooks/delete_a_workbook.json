@@ -1,25 +1,31 @@
 {
-  "resource": "Companies",
+  "resource": "Workbooks",
   "http_method": "DELETE",
-  "route": "/companies/:company_id",
-  "description": "Delete a company",
+  "route": "/workbooks/:workbook_id",
+  "description": "Delete a workbook",
   "explanation": null,
   "parameters": [
     {
       "required": true,
+      "scope": "relationships",
+      "name": "network-site",
+      "description": "Network site id"
+    },
+    {
+      "required": true,
       "name": "type",
-      "description": "Should always be set to <code>companies</code>"
+      "description": "Should always be set to <code>workbooks</code>"
     },
     {
       "required": true,
       "scope": "attributes",
       "name": "name",
-      "description": "Company Name"
+      "description": "Workbook Name"
     },
     {
       "required": true,
       "name": "id",
-      "description": "The id of the company"
+      "description": "The id of the workbook"
     }
   ],
   "response_fields": [
@@ -28,8 +34,8 @@
   "requests": [
     {
       "request_method": "DELETE",
-      "request_path": "/companies/438",
-      "request_body": "{\"data\":{\"type\":\"companies\",\"id\":\"438\"}}",
+      "request_path": "/workbooks/123",
+      "request_body": "{\"data\":{\"relationships\":{\"network-site\":{\"data\":{\"type\":\"network-sites\",\"id\":338}}},\"type\":\"workbooks\",\"id\":\"123\"}}",
       "request_headers": {
         "Content-Type": "application/vnd.api+json"
       },

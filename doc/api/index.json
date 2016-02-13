@@ -98,6 +98,72 @@
           "method": "patch"
         }
       ]
+    },
+    {
+      "name": "Sheets",
+      "examples": [
+        {
+          "description": "Create a sheet",
+          "link": "sheets/create_a_sheet.json",
+          "groups": "all",
+          "route": "/sheets",
+          "method": "post"
+        },
+        {
+          "description": "Delete a sheet",
+          "link": "sheets/delete_a_sheet.json",
+          "groups": "all",
+          "route": "/sheets/:sheet_id",
+          "method": "delete"
+        },
+        {
+          "description": "List all sheets",
+          "link": "sheets/list_all_sheets.json",
+          "groups": "all",
+          "route": "/sheets",
+          "method": "get"
+        },
+        {
+          "description": "Update a sheet",
+          "link": "sheets/update_a_sheet.json",
+          "groups": "all",
+          "route": "/sheets/:sheet_id",
+          "method": "patch"
+        }
+      ]
+    },
+    {
+      "name": "Workbooks",
+      "examples": [
+        {
+          "description": "Create a workbook",
+          "link": "workbooks/create_a_workbook.json",
+          "groups": "all",
+          "route": "/workbooks",
+          "method": "post"
+        },
+        {
+          "description": "Delete a workbook",
+          "link": "workbooks/delete_a_workbook.json",
+          "groups": "all",
+          "route": "/workbooks/:workbook_id",
+          "method": "delete"
+        },
+        {
+          "description": "List all workbooks",
+          "link": "workbooks/list_all_workbooks.json",
+          "groups": "all",
+          "route": "/workbooks",
+          "method": "get"
+        },
+        {
+          "description": "Update a workbook",
+          "link": "workbooks/update_a_workbook.json",
+          "groups": "all",
+          "route": "/workbooks/:workbook_id",
+          "method": "patch"
+        }
+      ]
     }
   ]
 }

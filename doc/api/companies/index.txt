@@ -1,3 +1,57 @@
+List all companies
+------------------
+
+Request:
+  GET /companies
+  Content-Type: application/vnd.api+json
+
+Response:
+  Status: 200 OK
+  Content-Type: application/vnd.api+json
+
+  {"data":[{"id":"435","type":"companies","links":{"self":"http://example.org/companies/435"},"attributes":{"name":"1st company"},"relationships":{"network-sites":{"links":{"self":"http://example.org/companies/435/relationships/network-sites","related":"http://example.org/companies/435/network-sites"}}}},{"id":"436","type":"companies","links":{"self":"http://example.org/companies/436"},"attributes":{"name":"2nd company"},"relationships":{"network-sites":{"links":{"self":"http://example.org/companies/436/relationships/network-sites","related":"http://example.org/companies/436/network-sites"}}}}],"meta":{"record-count":2},"links":{"first":"http://example.org/companies?page%5Blimit%5D=10\u0026page%5Boffset%5D=0","last":"http://example.org/companies?page%5Blimit%5D=10\u0026page%5Boffset%5D=0"}}
+
+
+Update a company
+----------------
+
+Parameters:
+  * type - Should always be set to <code>companies</code>
+  * name - Company Name
+  * id - The id of the company
+
+Request:
+  PATCH /companies/437
+  Content-Type: application/vnd.api+json
+
+  {"data":{"type":"companies","attributes":{"name":"New Company Name"},"id":"437"}}
+
+Response:
+  Status: 200 OK
+  Content-Type: application/vnd.api+json
+
+  {"data":{"id":"437","type":"companies","links":{"self":"http://example.org/companies/437"},"attributes":{"name":"New Company Name"},"relationships":{"network-sites":{"links":{"self":"http://example.org/companies/437/relationships/network-sites","related":"http://example.org/companies/437/network-sites"}}}}}
+
+
+Delete a company
+----------------
+
+Parameters:
+  * type - Should always be set to <code>companies</code>
+  * name - Company Name
+  * id - The id of the company
+
+Request:
+  DELETE /companies/438
+  Content-Type: application/vnd.api+json
+
+  {"data":{"type":"companies","id":"438"}}
+
+Response:
+  Status: 204 No Content
+
+
+
 Create a company
 ----------------
 
@@ -15,60 +69,6 @@ Response:
   Status: 201 Created
   Content-Type: application/vnd.api+json
 
-  {"data":{"id":"672","type":"companies","links":{"self":"http://example.org/companies/672"},"attributes":{"name":"ACME Company"},"relationships":{"network-sites":{"links":{"self":"http://example.org/companies/672/relationships/network-sites","related":"http://example.org/companies/672/network-sites"}}}}}
-
-
-Update a company
-----------------
-
-Parameters:
-  * type - Should always be set to <code>companies</code>
-  * name - Company Name
-  * id - The id of the company
-
-Request:
-  PATCH /companies/673
-  Content-Type: application/vnd.api+json
-
-  {"data":{"type":"companies","attributes":{"name":"New Company Name"},"id":"673"}}
-
-Response:
-  Status: 200 OK
-  Content-Type: application/vnd.api+json
-
-  {"data":{"id":"673","type":"companies","links":{"self":"http://example.org/companies/673"},"attributes":{"name":"New Company Name"},"relationships":{"network-sites":{"links":{"self":"http://example.org/companies/673/relationships/network-sites","related":"http://example.org/companies/673/network-sites"}}}}}
-
-
-Delete a company
-----------------
-
-Parameters:
-  * type - Should always be set to <code>companies</code>
-  * name - Company Name
-  * id - The id of the company
-
-Request:
-  DELETE /companies/674
-  Content-Type: application/vnd.api+json
-
-  {"data":{"type":"companies","id":"674"}}
-
-Response:
-  Status: 204 No Content
-
-
-
-List all companies
-------------------
-
-Request:
-  GET /companies
-  Content-Type: application/vnd.api+json
-
-Response:
-  Status: 200 OK
-  Content-Type: application/vnd.api+json
-
-  {"data":[{"id":"675","type":"companies","links":{"self":"http://example.org/companies/675"},"attributes":{"name":"1st company"},"relationships":{"network-sites":{"links":{"self":"http://example.org/companies/675/relationships/network-sites","related":"http://example.org/companies/675/network-sites"}}}},{"id":"676","type":"companies","links":{"self":"http://example.org/companies/676"},"attributes":{"name":"2nd company"},"relationships":{"network-sites":{"links":{"self":"http://example.org/companies/676/relationships/network-sites","related":"http://example.org/companies/676/network-sites"}}}}],"meta":{"record-count":2},"links":{"first":"http://example.org/companies?page%5Blimit%5D=10\u0026page%5Boffset%5D=0","last":"http://example.org/companies?page%5Blimit%5D=10\u0026page%5Boffset%5D=0"}}
+  {"data":{"id":"439","type":"companies","links":{"self":"http://example.org/companies/439"},"attributes":{"name":"ACME Company"},"relationships":{"network-sites":{"links":{"self":"http://example.org/companies/439/relationships/network-sites","related":"http://example.org/companies/439/network-sites"}}}}}
 
 

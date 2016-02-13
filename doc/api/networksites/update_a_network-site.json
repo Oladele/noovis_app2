@@ -44,8 +44,8 @@
   "requests": [
     {
       "request_method": "PATCH",
-      "request_path": "/network-sites/387",
-      "request_body": "{\"data\":{\"type\":\"network-sites\",\"relationships\":{\"company\":{\"data\":{\"type\":\"companies\",\"id\":681}}},\"attributes\":{\"name\":\"Updated Network Site Name\"},\"id\":\"387\"}}",
+      "request_path": "/network-sites/360",
+      "request_body": "{\"data\":{\"type\":\"network-sites\",\"relationships\":{\"company\":{\"data\":{\"type\":\"companies\",\"id\":441}}},\"attributes\":{\"name\":\"Updated Network Site Name\"},\"id\":\"360\"}}",
       "request_headers": {
         "Content-Type": "application/vnd.api+json"
       },
@@ -54,7 +54,7 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "{\"data\":{\"id\":\"387\",\"type\":\"network-sites\",\"links\":{\"self\":\"http://example.org/network-sites/387\"},\"attributes\":{\"name\":\"Updated Network Site Name\",\"lat\":\"39.290139\",\"lng\":\"-76.614766\"},\"relationships\":{\"company\":{\"links\":{\"self\":\"http://example.org/network-sites/387/relationships/company\",\"related\":\"http://example.org/network-sites/387/company\"}}}}}",
+      "response_body": "{\"data\":{\"id\":\"360\",\"type\":\"network-sites\",\"links\":{\"self\":\"http://example.org/network-sites/360\"},\"attributes\":{\"name\":\"Updated Network Site Name\",\"lat\":\"39.290139\",\"lng\":\"-76.614766\"},\"relationships\":{\"company\":{\"links\":{\"self\":\"http://example.org/network-sites/360/relationships/company\",\"related\":\"http://example.org/network-sites/360/company\"}}}}}",
       "response_headers": {
         "Content-Type": "application/vnd.api+json"
       },

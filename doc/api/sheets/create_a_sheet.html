@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Buildings API</title>
+    <title>Sheets API</title>
     <meta charset="utf-8">
     <style>
       
@@ -106,11 +106,11 @@ table th, table td {
   </head>
   <body>
     <div class="container">
-      <h1>Buildings API</h1>
+      <h1>Sheets API</h1>
 
       <div class="article">
-        <h2>Update a building</h2>
-        <h3>PATCH /buildings/:building_id</h3>
+        <h2>Create a sheet</h2>
+        <h3>POST /sheets</h3>
 
           <h3>Parameters</h3>
           <table class="parameters table table-striped table-bordered table-condensed">
@@ -123,10 +123,18 @@ table th, table td {
             <tbody>
               <tr>
                 <td class="required">
-                    <span class="name">relationships[network-site]</span>
+                    <span class="name">relationships[workbook]</span>
                 </td>
                 <td>
-                  <span class="description">Network site id</span>
+                  <span class="description">Workbook id</span>
+                </td>
+              </tr>
+              <tr>
+                <td class="required">
+                    <span class="name">relationships[building]</span>
+                </td>
+                <td>
+                  <span class="description">Building id</span>
                 </td>
               </tr>
               <tr>
@@ -134,7 +142,7 @@ table th, table td {
                     <span class="name">type</span>
                 </td>
                 <td>
-                  <span class="description">Should always be set to &lt;code&gt;buildings&lt;/code&gt;</span>
+                  <span class="description">Should always be set to &lt;code&gt;sheets&lt;/code&gt;</span>
                 </td>
               </tr>
               <tr>
@@ -142,31 +150,7 @@ table th, table td {
                     <span class="name">attributes[name]</span>
                 </td>
                 <td>
-                  <span class="description">Building Name</span>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                    <span class="name">attributes[lat]</span>
-                </td>
-                <td>
-                  <span class="description">Building Latitude</span>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                    <span class="name">attributes[lng]</span>
-                </td>
-                <td>
-                  <span class="description">Building Longitude</span>
-                </td>
-              </tr>
-              <tr>
-                <td class="required">
-                    <span class="name">id</span>
-                </td>
-                <td>
-                  <span class="description">The id of the building</span>
+                  <span class="description">Sheet Name</span>
                 </td>
               </tr>
             </tbody>
@@ -179,20 +163,20 @@ table th, table td {
             <pre class="request headers">Content-Type: application/vnd.api+json</pre>
 
           <h4>Route</h4>
-          <pre class="request route highlight">PATCH /buildings/134</pre>
+          <pre class="request route highlight">POST /sheets</pre>
 
 
             <h4>Body</h4>
-            <pre class="request body">{"data":{"relationships":{"network-site":{"data":{"type":"network-sites","id":356}}},"type":"buildings","attributes":{"name":"Updated Building Name"},"id":"134"}}</pre>
+            <pre class="request body">{"data":{"relationships":{"workbook":{"data":{"type":"workbooks","id":130}},"building":{"data":{"type":"buildings","id":131}}},"type":"sheets","attributes":{"name":"Sheet Name"}}}</pre>
 
 
             <h3>Response</h3>
               <h4>Headers</h4>
               <pre class="response headers">Content-Type: application/vnd.api+json</pre>
             <h4>Status</h4>
-            <pre class="response status">200 OK</pre>
+            <pre class="response status">201 Created</pre>
               <h4>Body</h4>
-              <pre class="response body">{&quot;data&quot;:{&quot;id&quot;:&quot;134&quot;,&quot;type&quot;:&quot;buildings&quot;,&quot;links&quot;:{&quot;self&quot;:&quot;http://example.org/buildings/134&quot;},&quot;attributes&quot;:{&quot;name&quot;:&quot;Updated Building Name&quot;,&quot;lat&quot;:&quot;39.290139&quot;,&quot;lng&quot;:&quot;-76.614766&quot;,&quot;description&quot;:&quot;MyText&quot;},&quot;relationships&quot;:{&quot;network-site&quot;:{&quot;links&quot;:{&quot;self&quot;:&quot;http://example.org/buildings/134/relationships/network-site&quot;,&quot;related&quot;:&quot;http://example.org/buildings/134/network-site&quot;}}}}}</pre>
+              <pre class="response body">{&quot;data&quot;:{&quot;id&quot;:&quot;60&quot;,&quot;type&quot;:&quot;sheets&quot;,&quot;links&quot;:{&quot;self&quot;:&quot;http://example.org/sheets/60&quot;},&quot;attributes&quot;:{&quot;name&quot;:&quot;Sheet Name&quot;},&quot;relationships&quot;:{&quot;workbook&quot;:{&quot;links&quot;:{&quot;self&quot;:&quot;http://example.org/sheets/60/relationships/workbook&quot;,&quot;related&quot;:&quot;http://example.org/sheets/60/workbook&quot;}},&quot;building&quot;:{&quot;links&quot;:{&quot;self&quot;:&quot;http://example.org/sheets/60/relationships/building&quot;,&quot;related&quot;:&quot;http://example.org/sheets/60/building&quot;}}}}}</pre>
       </div>
     </div>
   </body>

@@ -20,4 +20,24 @@ RSpec.describe Sheet, type: :model do
       expect(sheet.workbook).to eq workbook
     end
   end
+  
+  describe "validations" do
+    it "validates presence of name" do
+      subject.name =nil
+      subject.valid?
+      expect(subject.errors[:name]).to include "can't be blank"
+    end
+
+    it "validates presence of workbook_id" do
+      subject.workbook_id = nil
+      subject.valid?
+      expect(subject.errors[:workbook_id]).to include "can't be blank"
+    end
+
+    it "validates presence of building_id" do
+      subject.building_id = nil
+      subject.valid?
+      expect(subject.errors[:building_id]).to include "can't be blank"
+    end
+  end
 end

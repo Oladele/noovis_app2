@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Companies API</title>
+    <title>Sheets API</title>
     <meta charset="utf-8">
     <style>
       
@@ -106,47 +106,12 @@ table th, table td {
   </head>
   <body>
     <div class="container">
-      <h1>Companies API</h1>
+      <h1>Sheets API</h1>
 
       <div class="article">
-        <h2>Update a company</h2>
-        <h3>PATCH /companies/:company_id</h3>
+        <h2>List all sheets</h2>
+        <h3>GET /sheets</h3>
 
-          <h3>Parameters</h3>
-          <table class="parameters table table-striped table-bordered table-condensed">
-            <thead>
-              <tr>
-                <th>Name</th>
-                <th>Description</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td class="required">
-                    <span class="name">type</span>
-                </td>
-                <td>
-                  <span class="description">Should always be set to &lt;code&gt;companies&lt;/code&gt;</span>
-                </td>
-              </tr>
-              <tr>
-                <td class="required">
-                    <span class="name">attributes[name]</span>
-                </td>
-                <td>
-                  <span class="description">Company Name</span>
-                </td>
-              </tr>
-              <tr>
-                <td class="required">
-                    <span class="name">id</span>
-                </td>
-                <td>
-                  <span class="description">The id of the company</span>
-                </td>
-              </tr>
-            </tbody>
-          </table>
 
 
           <h3>Request</h3>
@@ -155,11 +120,9 @@ table th, table td {
             <pre class="request headers">Content-Type: application/vnd.api+json</pre>
 
           <h4>Route</h4>
-          <pre class="request route highlight">PATCH /companies/437</pre>
+          <pre class="request route highlight">GET /sheets</pre>
 
 
-            <h4>Body</h4>
-            <pre class="request body">{"data":{"type":"companies","attributes":{"name":"New Company Name"},"id":"437"}}</pre>
 
 
             <h3>Response</h3>
@@ -168,7 +131,7 @@ table th, table td {
             <h4>Status</h4>
             <pre class="response status">200 OK</pre>
               <h4>Body</h4>
-              <pre class="response body">{&quot;data&quot;:{&quot;id&quot;:&quot;437&quot;,&quot;type&quot;:&quot;companies&quot;,&quot;links&quot;:{&quot;self&quot;:&quot;http://example.org/companies/437&quot;},&quot;attributes&quot;:{&quot;name&quot;:&quot;New Company Name&quot;},&quot;relationships&quot;:{&quot;network-sites&quot;:{&quot;links&quot;:{&quot;self&quot;:&quot;http://example.org/companies/437/relationships/network-sites&quot;,&quot;related&quot;:&quot;http://example.org/companies/437/network-sites&quot;}}}}}</pre>
+              <pre class="response body">{&quot;data&quot;:[{&quot;id&quot;:&quot;58&quot;,&quot;type&quot;:&quot;sheets&quot;,&quot;links&quot;:{&quot;self&quot;:&quot;http://example.org/sheets/58&quot;},&quot;attributes&quot;:{&quot;name&quot;:&quot;1st sheet&quot;},&quot;relationships&quot;:{&quot;workbook&quot;:{&quot;links&quot;:{&quot;self&quot;:&quot;http://example.org/sheets/58/relationships/workbook&quot;,&quot;related&quot;:&quot;http://example.org/sheets/58/workbook&quot;}},&quot;building&quot;:{&quot;links&quot;:{&quot;self&quot;:&quot;http://example.org/sheets/58/relationships/building&quot;,&quot;related&quot;:&quot;http://example.org/sheets/58/building&quot;}}}},{&quot;id&quot;:&quot;59&quot;,&quot;type&quot;:&quot;sheets&quot;,&quot;links&quot;:{&quot;self&quot;:&quot;http://example.org/sheets/59&quot;},&quot;attributes&quot;:{&quot;name&quot;:&quot;2nd sheet&quot;},&quot;relationships&quot;:{&quot;workbook&quot;:{&quot;links&quot;:{&quot;self&quot;:&quot;http://example.org/sheets/59/relationships/workbook&quot;,&quot;related&quot;:&quot;http://example.org/sheets/59/workbook&quot;}},&quot;building&quot;:{&quot;links&quot;:{&quot;self&quot;:&quot;http://example.org/sheets/59/relationships/building&quot;,&quot;related&quot;:&quot;http://example.org/sheets/59/building&quot;}}}}],&quot;meta&quot;:{&quot;record-count&quot;:2},&quot;links&quot;:{&quot;first&quot;:&quot;http://example.org/sheets?page%5Blimit%5D=10\u0026page%5Boffset%5D=0&quot;,&quot;last&quot;:&quot;http://example.org/sheets?page%5Blimit%5D=10\u0026page%5Boffset%5D=0&quot;}}</pre>
       </div>
     </div>
   </body>
