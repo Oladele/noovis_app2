@@ -1,6 +1,6 @@
 class ImportCableRunsController < ActionController::Base
   def create
-    importer = ImportCableRun.new(workbook: params[:workbookFile], sheet: params[:sheet])
+    importer = ImportCableRun.new(import_params)
 
     respond_to do |format|
       format.json { render json: { success: importer.save } }
