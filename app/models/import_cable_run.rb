@@ -3,7 +3,7 @@ class ImportCableRun
   include ActiveModel::Conversion
   include ActiveModel::Validations
 
-  attr_accessor :workbook, :sheet, :building_id
+  attr_accessor :workbookFile, :sheet, :building_id
 
   def initialize(attributes = {})
     attributes.each { |name, value| send("#{name}=", value) }
