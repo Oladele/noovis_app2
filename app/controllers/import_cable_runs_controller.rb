@@ -7,7 +7,7 @@ class ImportCableRunsController < ActionController::Base
     )
 
     respond_to do |format|
-      format.json { render json: { success: importer.save } }
+      format.json { render json: { "success": "#{importer.save}" } }
     end
   end
 end
