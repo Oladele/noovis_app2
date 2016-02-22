@@ -32,8 +32,7 @@ RSpec.resource "ImportCableRuns" do
     include_context "import-cable-runs parameters"
 
     example_request "Upload sheet" do
-      expect(status).to eq 200
-      imported = JSON.parse(response_body)
+      expect(status).to eq 201
     end
   end
 end
