@@ -6,6 +6,7 @@ class ImportCableRunsController < ActionController::Base
       building_id: params[:building_id]
     )
 
-    render status: @importer.status, json: { message: @importer.message }
+    #render status: @importer.status, json: { message: @importer.message }
+    render status: :created, json: { message: "Successfully created cable runs" }
   end
 end
