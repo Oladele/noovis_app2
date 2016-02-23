@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160120001841) do
+ActiveRecord::Schema.define(version: 20160211233619) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,6 +27,53 @@ ActiveRecord::Schema.define(version: 20160120001841) do
   end
 
   add_index "buildings", ["network_site_id"], name: "index_buildings_on_network_site_id", using: :btree
+
+  create_table "cable_runs", force: :cascade do |t|
+    t.string   "site"
+    t.string   "building"
+    t.string   "room"
+    t.string   "drop"
+    t.string   "rdt"
+    t.string   "rdt_port"
+    t.string   "fdh_port"
+    t.string   "splitter"
+    t.string   "splitter_fiber"
+    t.string   "lgx_port"
+    t.string   "fsan_sn"
+    t.integer  "sheet_id"
+    t.string   "pon_card"
+    t.string   "pon_port"
+    t.string   "vam_smp"
+    t.string   "fdh"
+    t.string   "test_1310"
+    t.string   "test_1550"
+    t.text     "notes"
+    t.string   "olt_rack"
+    t.string   "olt_chassis"
+    t.string   "vam_shelf"
+    t.string   "vam_module"
+    t.string   "vam_port"
+    t.string   "backbone_shelf"
+    t.string   "backbone_cable"
+    t.string   "backbone_port"
+    t.string   "fdh_location"
+    t.string   "rdt_location"
+    t.string   "ont_model"
+    t.string   "ont_sn"
+    t.string   "rdt_port_count"
+    t.string   "ont_ge_1_device"
+    t.string   "ont_ge_1_mac"
+    t.string   "ont_ge_2_device"
+    t.string   "ont_ge_2_mac"
+    t.string   "ont_ge_3_device"
+    t.string   "ont_ge_3_mac"
+    t.string   "ont_ge_4_device"
+    t.string   "ont_ge_4_mac"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
+  add_index "cable_runs", ["sheet_id"], name: "index_cable_runs_on_sheet_id", using: :btree
 
   create_table "companies", force: :cascade do |t|
     t.string   "name",       null: false
@@ -49,6 +96,30 @@ ActiveRecord::Schema.define(version: 20160120001841) do
   add_index "network_sites", ["company_id", "name"], name: "index_network_sites_on_company_id_and_name", using: :btree
   add_index "network_sites", ["company_id"], name: "index_network_sites_on_company_id", using: :btree
 
+  create_table "sheets", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "workbook_id"
+    t.integer  "building_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "sheets", ["building_id"], name: "index_sheets_on_building_id", using: :btree
+  add_index "sheets", ["workbook_id"], name: "index_sheets_on_workbook_id", using: :btree
+
+  create_table "workbooks", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "network_site_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
+  add_index "workbooks", ["network_site_id"], name: "index_workbooks_on_network_site_id", using: :btree
+
   add_foreign_key "buildings", "network_sites"
+  add_foreign_key "cable_runs", "sheets"
   add_foreign_key "network_sites", "companies"
+  add_foreign_key "sheets", "buildings"
+  add_foreign_key "sheets", "workbooks"
+  add_foreign_key "workbooks", "network_sites"
 end

@@ -1,0 +1,77 @@
+Update a workbook
+-----------------
+
+Parameters:
+  * network-site - Network site id
+  * type - Should always be set to <code>workbooks</code>
+  * name - Workbook Name
+  * id - The id of the workbook
+
+Request:
+  PATCH /workbooks/919
+  Content-Type: application/vnd.api+json
+
+  {"data":{"relationships":{"network-site":{"data":{"type":"network-sites","id":2606}}},"type":"workbooks","attributes":{"name":"Updated Workbook Name"},"id":"919"}}
+
+Response:
+  Status: 200 OK
+  Content-Type: application/vnd.api+json
+
+  {"data":{"id":"919","type":"workbooks","links":{"self":"http://example.org/workbooks/919"},"attributes":{"name":"Updated Workbook Name"},"relationships":{"network-site":{"links":{"self":"http://example.org/workbooks/919/relationships/network-site","related":"http://example.org/workbooks/919/network-site"}}}}}
+
+
+List all workbooks
+------------------
+
+Request:
+  GET /workbooks
+  Content-Type: application/vnd.api+json
+
+Response:
+  Status: 200 OK
+  Content-Type: application/vnd.api+json
+
+  {"data":[{"id":"920","type":"workbooks","links":{"self":"http://example.org/workbooks/920"},"attributes":{"name":"1st workbook"},"relationships":{"network-site":{"links":{"self":"http://example.org/workbooks/920/relationships/network-site","related":"http://example.org/workbooks/920/network-site"}}}},{"id":"921","type":"workbooks","links":{"self":"http://example.org/workbooks/921"},"attributes":{"name":"2nd workbook"},"relationships":{"network-site":{"links":{"self":"http://example.org/workbooks/921/relationships/network-site","related":"http://example.org/workbooks/921/network-site"}}}}],"meta":{"record-count":2},"links":{"first":"http://example.org/workbooks?page%5Blimit%5D=10\u0026page%5Boffset%5D=0","last":"http://example.org/workbooks?page%5Blimit%5D=10\u0026page%5Boffset%5D=0"}}
+
+
+Create a workbook
+-----------------
+
+Parameters:
+  * network-site - Network site id
+  * type - Should always be set to <code>workbooks</code>
+  * name - Workbook Name
+
+Request:
+  POST /workbooks
+  Content-Type: application/vnd.api+json
+
+  {"data":{"relationships":{"network-site":{"data":{"type":"network-sites","id":2609}}},"type":"workbooks","attributes":{"name":"Workbook Name"}}}
+
+Response:
+  Status: 201 Created
+  Content-Type: application/vnd.api+json
+
+  {"data":{"id":"922","type":"workbooks","links":{"self":"http://example.org/workbooks/922"},"attributes":{"name":"Workbook Name"},"relationships":{"network-site":{"links":{"self":"http://example.org/workbooks/922/relationships/network-site","related":"http://example.org/workbooks/922/network-site"}}}}}
+
+
+Delete a workbook
+-----------------
+
+Parameters:
+  * network-site - Network site id
+  * type - Should always be set to <code>workbooks</code>
+  * name - Workbook Name
+  * id - The id of the workbook
+
+Request:
+  DELETE /workbooks/923
+  Content-Type: application/vnd.api+json
+
+  {"data":{"relationships":{"network-site":{"data":{"type":"network-sites","id":2611}}},"type":"workbooks","id":"923"}}
+
+Response:
+  Status: 204 No Content
+
+
+

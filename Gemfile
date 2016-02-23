@@ -12,6 +12,8 @@ gem "apitome"
 # Rack CORS gem suggested by Sean Devine
 # In Charity App screencasts #12
 gem 'rack-cors', :require => 'rack/cors'
+gem 'roo'
+gem 'roo-xls'
 
 group :development do
   gem "spring"

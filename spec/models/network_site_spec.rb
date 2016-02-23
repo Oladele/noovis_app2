@@ -14,6 +14,11 @@ RSpec.describe NetworkSite, type: :model do
 	  	network_site = company.network_sites.build(name: "Lorem ipsum")
 	  	expect(network_site.company).to eq company
 	  end
+
+    it "should have many buildings" do
+	  	building = subject.buildings.build(name: "building1")
+	  	expect(subject.buildings).to eq [building]
+    end
 	end
   
   describe "validations" do

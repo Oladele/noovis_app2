@@ -1,0 +1,43 @@
+{
+  "resource": "ImportCableRuns",
+  "http_method": "POST",
+  "route": "/import_cable_run",
+  "description": "Upload sheet",
+  "explanation": null,
+  "parameters": [
+    {
+      "required": true,
+      "name": "sheet",
+      "description": "Sheet Name"
+    },
+    {
+      "required": true,
+      "name": "building_id",
+      "description": "Building id"
+    }
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "POST",
+      "request_path": "/import_cable_run",
+      "request_body": "{\"data\":{\"sheet\":\"Sheet1\",\"building_id\":1000}}",
+      "request_headers": {
+        "Content-Type": "multipart/form-data"
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": "multipart/form-data",
+      "response_status": 201,
+      "response_status_text": "Created",
+      "response_body": "{\n  \"message\": \"Successfully created cable runs\"\n}",
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": null
+    }
+  ]
+}

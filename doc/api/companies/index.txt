@@ -15,7 +15,7 @@ Response:
   Status: 201 Created
   Content-Type: application/vnd.api+json
 
-  {"data":{"id":"672","type":"companies","links":{"self":"http://example.org/companies/672"},"attributes":{"name":"ACME Company"},"relationships":{"network-sites":{"links":{"self":"http://example.org/companies/672/relationships/network-sites","related":"http://example.org/companies/672/network-sites"}}}}}
+  {"data":{"id":"3184","type":"companies","links":{"self":"http://example.org/companies/3184"},"attributes":{"name":"ACME Company"},"relationships":{"network-sites":{"links":{"self":"http://example.org/companies/3184/relationships/network-sites","related":"http://example.org/companies/3184/network-sites"}}}}}
 
 
 Update a company
@@ -27,16 +27,16 @@ Parameters:
   * id - The id of the company
 
 Request:
-  PATCH /companies/673
+  PATCH /companies/3185
   Content-Type: application/vnd.api+json
 
-  {"data":{"type":"companies","attributes":{"name":"New Company Name"},"id":"673"}}
+  {"data":{"type":"companies","attributes":{"name":"New Company Name"},"id":"3185"}}
 
 Response:
   Status: 200 OK
   Content-Type: application/vnd.api+json
 
-  {"data":{"id":"673","type":"companies","links":{"self":"http://example.org/companies/673"},"attributes":{"name":"New Company Name"},"relationships":{"network-sites":{"links":{"self":"http://example.org/companies/673/relationships/network-sites","related":"http://example.org/companies/673/network-sites"}}}}}
+  {"data":{"id":"3185","type":"companies","links":{"self":"http://example.org/companies/3185"},"attributes":{"name":"New Company Name"},"relationships":{"network-sites":{"links":{"self":"http://example.org/companies/3185/relationships/network-sites","related":"http://example.org/companies/3185/network-sites"}}}}}
 
 
 Delete a company
@@ -48,10 +48,10 @@ Parameters:
   * id - The id of the company
 
 Request:
-  DELETE /companies/674
+  DELETE /companies/3186
   Content-Type: application/vnd.api+json
 
-  {"data":{"type":"companies","id":"674"}}
+  {"data":{"type":"companies","id":"3186"}}
 
 Response:
   Status: 204 No Content
@@ -69,6 +69,4 @@ Response:
   Status: 200 OK
   Content-Type: application/vnd.api+json
 
-  {"data":[{"id":"675","type":"companies","links":{"self":"http://example.org/companies/675"},"attributes":{"name":"1st company"},"relationships":{"network-sites":{"links":{"self":"http://example.org/companies/675/relationships/network-sites","related":"http://example.org/companies/675/network-sites"}}}},{"id":"676","type":"companies","links":{"self":"http://example.org/companies/676"},"attributes":{"name":"2nd company"},"relationships":{"network-sites":{"links":{"self":"http://example.org/companies/676/relationships/network-sites","related":"http://example.org/companies/676/network-sites"}}}}],"meta":{"record-count":2},"links":{"first":"http://example.org/companies?page%5Blimit%5D=10\u0026page%5Boffset%5D=0","last":"http://example.org/companies?page%5Blimit%5D=10\u0026page%5Boffset%5D=0"}}
-
-
+  {"data":[{"id":"3187","type":"companies","links":{"self":"http://example.org/companies/3187"},"attributes":{"name":"1st company"},"relationships":{"network-sites":{"links":{"self":"http://example.org/companies/3187/relationships/network-sites","related":"http://example.org/companies/3187/network-sites"}}}},{"id":"3188","type":"companies","links":{"self":"http://example.org/companies/3188"},"attributes":{"name":"2nd company"},"relationships":{"network-sites":{"links":{"self":"http://example.org/companies/3188/relationships/network-sites","related":"http://example.org/companies/3188/network-sites"}}}}],"meta":{"record-count":2},"links":{"first":"http://example.org/companies?page%5Blimit%5D=10\u0026page%5Boffset%5D=0","last":"http://example.org/companies?page%5Blimit%5D=10\u0026page%5Boffset%5D=0"}}

@@ -14,6 +14,11 @@ RSpec.describe Building, type: :model do
       building = network_site.buildings.build(name: "Lorem ipsum")
       expect(building.network_site).to eq network_site
 	  end
+
+    it "should have many sheets" do
+	  	sheet = subject.sheets.build(name: "sheet1")
+	  	expect(subject.sheets).to eq [sheet]
+    end
 	end
   
   describe "validations" do
