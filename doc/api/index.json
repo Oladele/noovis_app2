@@ -67,6 +67,18 @@
       ]
     },
     {
+      "name": "ImportCableRuns",
+      "examples": [
+        {
+          "description": "Upload sheet",
+          "link": "importcableruns/upload_sheet.json",
+          "groups": "all",
+          "route": "/import_cable_run",
+          "method": "post"
+        }
+      ]
+    },
+    {
       "name": "NetworkSites",
       "examples": [
         {

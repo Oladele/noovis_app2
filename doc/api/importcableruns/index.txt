@@ -1,0 +1,22 @@
+Upload sheet
+------------
+
+Parameters:
+  * sheet - Sheet Name
+  * building_id - Building id
+
+Request:
+  POST /import_cable_run
+  Content-Type: multipart/form-data
+
+  {"data":{"sheet":"Sheet1","building_id":1000}}
+
+Response:
+  Status: 201 Created
+  Content-Type: application/json; charset=utf-8
+
+  {
+    "message": "Successfully created cable runs"
+  }
+
+

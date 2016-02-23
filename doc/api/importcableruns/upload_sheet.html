@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Workbooks API</title>
+    <title>ImportCableRuns API</title>
     <meta charset="utf-8">
     <style>
       
@@ -106,11 +106,11 @@ table th, table td {
   </head>
   <body>
     <div class="container">
-      <h1>Workbooks API</h1>
+      <h1>ImportCableRuns API</h1>
 
       <div class="article">
-        <h2>Delete a workbook</h2>
-        <h3>DELETE /workbooks/:workbook_id</h3>
+        <h2>Upload sheet</h2>
+        <h3>POST /import_cable_run</h3>
 
           <h3>Parameters</h3>
           <table class="parameters table table-striped table-bordered table-condensed">
@@ -123,34 +123,18 @@ table th, table td {
             <tbody>
               <tr>
                 <td class="required">
-                    <span class="name">relationships[network-site]</span>
+                    <span class="name">sheet</span>
                 </td>
                 <td>
-                  <span class="description">Network site id</span>
+                  <span class="description">Sheet Name</span>
                 </td>
               </tr>
               <tr>
                 <td class="required">
-                    <span class="name">type</span>
+                    <span class="name">building_id</span>
                 </td>
                 <td>
-                  <span class="description">Should always be set to &lt;code&gt;workbooks&lt;/code&gt;</span>
-                </td>
-              </tr>
-              <tr>
-                <td class="required">
-                    <span class="name">attributes[name]</span>
-                </td>
-                <td>
-                  <span class="description">Workbook Name</span>
-                </td>
-              </tr>
-              <tr>
-                <td class="required">
-                    <span class="name">id</span>
-                </td>
-                <td>
-                  <span class="description">The id of the workbook</span>
+                  <span class="description">Building id</span>
                 </td>
               </tr>
             </tbody>
@@ -160,19 +144,25 @@ table th, table td {
           <h3>Request</h3>
 
             <h4>Headers</h4>
-            <pre class="request headers">Content-Type: application/vnd.api+json</pre>
+            <pre class="request headers">Content-Type: multipart/form-data</pre>
 
           <h4>Route</h4>
-          <pre class="request route highlight">DELETE /workbooks/923</pre>
+          <pre class="request route highlight">POST /import_cable_run</pre>
 
 
             <h4>Body</h4>
-            <pre class="request body">{"data":{"relationships":{"network-site":{"data":{"type":"network-sites","id":2611}}},"type":"workbooks","id":"923"}}</pre>
+            <pre class="request body">{"data":{"sheet":"Sheet1","building_id":1000}}</pre>
 
 
             <h3>Response</h3>
+              <h4>Headers</h4>
+              <pre class="response headers">Content-Type: application/json; charset=utf-8</pre>
             <h4>Status</h4>
-            <pre class="response status">204 No Content</pre>
+            <pre class="response status">201 Created</pre>
+              <h4>Body</h4>
+              <pre class="response body">{
+  &quot;message&quot;: &quot;Successfully created cable runs&quot;
+}</pre>
       </div>
     </div>
   </body>
