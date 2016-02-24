@@ -9,7 +9,7 @@ Request:
   POST /import_cable_run
   Content-Type: multipart/form-data
 
-  {"data":{"sheet":"Sheet1","building_id":1000}}
+  {"data":{"sheet":"Sheet1","building_id":1040}}
 
 Response:
   Status: 201 Created

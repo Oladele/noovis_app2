@@ -1,24 +1,3 @@
-Delete a sheet
---------------
-
-Parameters:
-  * workbook - Workbook id
-  * building - Building id
-  * type - Should always be set to <code>sheets</code>
-  * name - Sheet Name
-  * id - The id of the sheet
-
-Request:
-  DELETE /sheets/436
-  Content-Type: application/vnd.api+json
-
-  {"data":{"relationships":{"workbook":{"data":{"type":"workbooks","id":913}},"building":{"data":{"type":"buildings","id":994}}},"type":"sheets","id":"436"}}
-
-Response:
-  Status: 204 No Content
-
-
-
 Create a sheet
 --------------
 
@@ -32,13 +11,13 @@ Request:
   POST /sheets
   Content-Type: application/vnd.api+json
 
-  {"data":{"relationships":{"workbook":{"data":{"type":"workbooks","id":914}},"building":{"data":{"type":"buildings","id":995}}},"type":"sheets","attributes":{"name":"Sheet Name"}}}
+  {"data":{"relationships":{"workbook":{"data":{"type":"workbooks","id":944}},"building":{"data":{"type":"buildings","id":1028}}},"type":"sheets","attributes":{"name":"Sheet Name"}}}
 
 Response:
   Status: 201 Created
   Content-Type: application/vnd.api+json
 
-  {"data":{"id":"437","type":"sheets","links":{"self":"http://example.org/sheets/437"},"attributes":{"name":"Sheet Name"},"relationships":{"workbook":{"links":{"self":"http://example.org/sheets/437/relationships/workbook","related":"http://example.org/sheets/437/workbook"}},"building":{"links":{"self":"http://example.org/sheets/437/relationships/building","related":"http://example.org/sheets/437/building"}}}}}
+  {"data":{"id":"451","type":"sheets","links":{"self":"http://example.org/sheets/451"},"attributes":{"name":"Sheet Name"},"relationships":{"workbook":{"links":{"self":"http://example.org/sheets/451/relationships/workbook","related":"http://example.org/sheets/451/workbook"}},"building":{"links":{"self":"http://example.org/sheets/451/relationships/building","related":"http://example.org/sheets/451/building"}}}}}
 
 
 List all sheets
@@ -52,7 +31,28 @@ Response:
   Status: 200 OK
   Content-Type: application/vnd.api+json
 
-  {"data":[{"id":"438","type":"sheets","links":{"self":"http://example.org/sheets/438"},"attributes":{"name":"1st sheet"},"relationships":{"workbook":{"links":{"self":"http://example.org/sheets/438/relationships/workbook","related":"http://example.org/sheets/438/workbook"}},"building":{"links":{"self":"http://example.org/sheets/438/relationships/building","related":"http://example.org/sheets/438/building"}}}},{"id":"439","type":"sheets","links":{"self":"http://example.org/sheets/439"},"attributes":{"name":"2nd sheet"},"relationships":{"workbook":{"links":{"self":"http://example.org/sheets/439/relationships/workbook","related":"http://example.org/sheets/439/workbook"}},"building":{"links":{"self":"http://example.org/sheets/439/relationships/building","related":"http://example.org/sheets/439/building"}}}}],"meta":{"record-count":2},"links":{"first":"http://example.org/sheets?page%5Blimit%5D=10\u0026page%5Boffset%5D=0","last":"http://example.org/sheets?page%5Blimit%5D=10\u0026page%5Boffset%5D=0"}}
+  {"data":[{"id":"452","type":"sheets","links":{"self":"http://example.org/sheets/452"},"attributes":{"name":"1st sheet"},"relationships":{"workbook":{"links":{"self":"http://example.org/sheets/452/relationships/workbook","related":"http://example.org/sheets/452/workbook"}},"building":{"links":{"self":"http://example.org/sheets/452/relationships/building","related":"http://example.org/sheets/452/building"}}}},{"id":"453","type":"sheets","links":{"self":"http://example.org/sheets/453"},"attributes":{"name":"2nd sheet"},"relationships":{"workbook":{"links":{"self":"http://example.org/sheets/453/relationships/workbook","related":"http://example.org/sheets/453/workbook"}},"building":{"links":{"self":"http://example.org/sheets/453/relationships/building","related":"http://example.org/sheets/453/building"}}}}],"meta":{"record-count":2},"links":{"first":"http://example.org/sheets?page%5Blimit%5D=10\u0026page%5Boffset%5D=0","last":"http://example.org/sheets?page%5Blimit%5D=10\u0026page%5Boffset%5D=0"}}
+
+
+Delete a sheet
+--------------
+
+Parameters:
+  * workbook - Workbook id
+  * building - Building id
+  * type - Should always be set to <code>sheets</code>
+  * name - Sheet Name
+  * id - The id of the sheet
+
+Request:
+  DELETE /sheets/454
+  Content-Type: application/vnd.api+json
+
+  {"data":{"relationships":{"workbook":{"data":{"type":"workbooks","id":948}},"building":{"data":{"type":"buildings","id":1032}}},"type":"sheets","id":"454"}}
+
+Response:
+  Status: 204 No Content
+
 
 
 Update a sheet
@@ -66,15 +66,15 @@ Parameters:
   * id - The id of the sheet
 
 Request:
-  PATCH /sheets/440
+  PATCH /sheets/455
   Content-Type: application/vnd.api+json
 
-  {"data":{"relationships":{"workbook":{"data":{"type":"workbooks","id":918}},"building":{"data":{"type":"buildings","id":999}}},"type":"sheets","attributes":{"name":"Updated Sheet Name"},"id":"440"}}
+  {"data":{"relationships":{"workbook":{"data":{"type":"workbooks","id":950}},"building":{"data":{"type":"buildings","id":1034}}},"type":"sheets","attributes":{"name":"Updated Sheet Name"},"id":"455"}}
 
 Response:
   Status: 200 OK
   Content-Type: application/vnd.api+json
 
-  {"data":{"id":"440","type":"sheets","links":{"self":"http://example.org/sheets/440"},"attributes":{"name":"Updated Sheet Name"},"relationships":{"workbook":{"links":{"self":"http://example.org/sheets/440/relationships/workbook","related":"http://example.org/sheets/440/workbook"}},"building":{"links":{"self":"http://example.org/sheets/440/relationships/building","related":"http://example.org/sheets/440/building"}}}}}
+  {"data":{"id":"455","type":"sheets","links":{"self":"http://example.org/sheets/455"},"attributes":{"name":"Updated Sheet Name"},"relationships":{"workbook":{"links":{"self":"http://example.org/sheets/455/relationships/workbook","related":"http://example.org/sheets/455/workbook"}},"building":{"links":{"self":"http://example.org/sheets/455/relationships/building","related":"http://example.org/sheets/455/building"}}}}}
 
 
