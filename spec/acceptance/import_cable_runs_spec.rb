@@ -8,13 +8,15 @@ RSpec.resource "ImportCableRuns" do
     parameter :file,
       "Workbook File",
       required: true,
-      "Type": "Multipart/Form-data"
+      type: "Multipart/Form-data"
     parameter :sheet,
       "Sheet Name",
-      required: true
+      required: true,
+      type: "Multipart/Form-data"
     parameter :building_id,
       "Building id",
-      required: true
+      required: true,
+      type: "Multipart/Form-data"
 
     let(:file) do 
       Rack::Test::UploadedFile.new(
@@ -23,14 +25,6 @@ RSpec.resource "ImportCableRuns" do
         binary: true
       )
     end
-    #file = File.new(File.join(Rails.root, 'spec', 'support', 'test.xls'))
-    #let(:file) do
-    #  ActionDispatch::Http::UploadedFile.new({
-    #    tempfile: file,
-    #    filename: File.basename(file),
-    #    content_type: 'application/vnd.ms-excel'
-    #  })
-    #end
     let(:sheet) { 'Sheet1' }
     let(:building_id) { (FactoryGirl.create(:building)).id }
   end
