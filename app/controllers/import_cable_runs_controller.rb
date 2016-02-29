@@ -1,7 +1,7 @@
 class ImportCableRunsController < ActionController::Base
   def create
     @importer = ImportCableRun.new(
-      workbookFile: params[:workbookFile],
+      workbookFile: params[:file],
       sheet: params[:sheet],
       building_id: params[:building_id]
     )

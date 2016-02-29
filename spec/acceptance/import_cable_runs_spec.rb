@@ -5,7 +5,7 @@ RSpec.resource "ImportCableRuns" do
   header "Content-Type", "multipart/form-data"
 
   shared_context "import-cable-runs parameters" do
-    #parameter :workbookFile,
+    #parameter :file,
     #  "Workbook File",
     #  required: true
     parameter :sheet,
@@ -15,9 +15,9 @@ RSpec.resource "ImportCableRuns" do
       "Building id",
       required: true
 
-    #let(:workbookFile) { Rack::Test::UploadedFile.new(File.join(Rails.root, 'spec', 'support', 'test.xls'), 'application/vnd.ms-excel')}
+    #let(:file) { Rack::Test::UploadedFile.new(File.join(Rails.root, 'spec', 'support', 'test.xls'), 'application/vnd.ms-excel')}
     #file = File.new(File.join(Rails.root, 'spec', 'support', 'test.xls'))
-    #let(:workbookFile) do
+    #let(:file) do
     #  ActionDispatch::Http::UploadedFile.new({
     #    tempfile: file,
     #    filename: File.basename(file),
