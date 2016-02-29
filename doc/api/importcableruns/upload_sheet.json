@@ -7,11 +7,19 @@
   "parameters": [
     {
       "required": true,
+      "type": "Multipart/Form-data",
+      "name": "file",
+      "description": "Workbook File"
+    },
+    {
+      "required": true,
+      "type": "Multipart/Form-data",
       "name": "sheet",
       "description": "Sheet Name"
     },
     {
       "required": true,
+      "type": "Multipart/Form-data",
       "name": "building_id",
       "description": "Building id"
     }
@@ -23,7 +31,7 @@
     {
       "request_method": "POST",
       "request_path": "/import_cable_run",
-      "request_body": "{\"data\":{\"sheet\":\"Sheet1\",\"building_id\":1040}}",
+      "request_body": "{\"data\":{\"file\":{\"content_type\":{\"content_type\":\"application/vnd.ms-excel\",\"binary\":true},\"original_filename\":\"test.xls\",\"tempfile\":[\"This is a test file\\n\"]},\"sheet\":\"Sheet1\",\"building_id\":1311}}",
       "request_headers": {
         "Content-Type": "multipart/form-data"
       },

@@ -2,6 +2,7 @@ Upload sheet
 ------------
 
 Parameters:
+  * file - Workbook File
   * sheet - Sheet Name
   * building_id - Building id
 
@@ -9,7 +10,7 @@ Request:
   POST /import_cable_run
   Content-Type: multipart/form-data
 
-  {"data":{"sheet":"Sheet1","building_id":1040}}
+  {"data":{"file":{"content_type":{"content_type":"application/vnd.ms-excel","binary":true},"original_filename":"test.xls","tempfile":["This is a test file\n"]},"sheet":"Sheet1","building_id":1311}}
 
 Response:
   Status: 201 Created
