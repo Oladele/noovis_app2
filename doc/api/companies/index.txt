@@ -1,22 +1,15 @@
-Update a company
-----------------
-
-Parameters:
-  * type - Should always be set to <code>companies</code>
-  * name - Company Name
-  * id - The id of the company
+List all companies
+------------------
 
 Request:
-  PATCH /companies/4148
+  GET /companies
   Content-Type: application/vnd.api+json
-
-  {"data":{"type":"companies","attributes":{"name":"New Company Name"},"id":"4148"}}
 
 Response:
   Status: 200 OK
   Content-Type: application/vnd.api+json
 
-  {"data":{"id":"4148","type":"companies","links":{"self":"http://example.org/companies/4148"},"attributes":{"name":"New Company Name"},"relationships":{"network-sites":{"links":{"self":"http://example.org/companies/4148/relationships/network-sites","related":"http://example.org/companies/4148/network-sites"}}}}}
+  {"data":[{"id":"6270","type":"companies","links":{"self":"http://example.org/companies/6270"},"attributes":{"name":"1st company"},"relationships":{"network-sites":{"links":{"self":"http://example.org/companies/6270/relationships/network-sites","related":"http://example.org/companies/6270/network-sites"}}}},{"id":"6271","type":"companies","links":{"self":"http://example.org/companies/6271"},"attributes":{"name":"2nd company"},"relationships":{"network-sites":{"links":{"self":"http://example.org/companies/6271/relationships/network-sites","related":"http://example.org/companies/6271/network-sites"}}}}],"meta":{"record-count":2},"links":{"first":"http://example.org/companies?page%5Blimit%5D=10\u0026page%5Boffset%5D=0","last":"http://example.org/companies?page%5Blimit%5D=10\u0026page%5Boffset%5D=0"}}
 
 
 Create a company
@@ -36,7 +29,28 @@ Response:
   Status: 201 Created
   Content-Type: application/vnd.api+json
 
-  {"data":{"id":"4149","type":"companies","links":{"self":"http://example.org/companies/4149"},"attributes":{"name":"ACME Company"},"relationships":{"network-sites":{"links":{"self":"http://example.org/companies/4149/relationships/network-sites","related":"http://example.org/companies/4149/network-sites"}}}}}
+  {"data":{"id":"6272","type":"companies","links":{"self":"http://example.org/companies/6272"},"attributes":{"name":"ACME Company"},"relationships":{"network-sites":{"links":{"self":"http://example.org/companies/6272/relationships/network-sites","related":"http://example.org/companies/6272/network-sites"}}}}}
+
+
+Update a company
+----------------
+
+Parameters:
+  * type - Should always be set to <code>companies</code>
+  * name - Company Name
+  * id - The id of the company
+
+Request:
+  PATCH /companies/6273
+  Content-Type: application/vnd.api+json
+
+  {"data":{"type":"companies","attributes":{"name":"New Company Name"},"id":"6273"}}
+
+Response:
+  Status: 200 OK
+  Content-Type: application/vnd.api+json
+
+  {"data":{"id":"6273","type":"companies","links":{"self":"http://example.org/companies/6273"},"attributes":{"name":"New Company Name"},"relationships":{"network-sites":{"links":{"self":"http://example.org/companies/6273/relationships/network-sites","related":"http://example.org/companies/6273/network-sites"}}}}}
 
 
 Delete a company
@@ -48,27 +62,13 @@ Parameters:
   * id - The id of the company
 
 Request:
-  DELETE /companies/4150
+  DELETE /companies/6274
   Content-Type: application/vnd.api+json
 
-  {"data":{"type":"companies","id":"4150"}}
+  {"data":{"type":"companies","id":"6274"}}
 
 Response:
   Status: 204 No Content
 
-
-
-List all companies
-------------------
-
-Request:
-  GET /companies
-  Content-Type: application/vnd.api+json
-
-Response:
-  Status: 200 OK
-  Content-Type: application/vnd.api+json
-
-  {"data":[{"id":"4151","type":"companies","links":{"self":"http://example.org/companies/4151"},"attributes":{"name":"1st company"},"relationships":{"network-sites":{"links":{"self":"http://example.org/companies/4151/relationships/network-sites","related":"http://example.org/companies/4151/network-sites"}}}},{"id":"4152","type":"companies","links":{"self":"http://example.org/companies/4152"},"attributes":{"name":"2nd company"},"relationships":{"network-sites":{"links":{"self":"http://example.org/companies/4152/relationships/network-sites","related":"http://example.org/companies/4152/network-sites"}}}}],"meta":{"record-count":2},"links":{"first":"http://example.org/companies?page%5Blimit%5D=10\u0026page%5Boffset%5D=0","last":"http://example.org/companies?page%5Blimit%5D=10\u0026page%5Boffset%5D=0"}}
 
 
