@@ -10,14 +10,14 @@ Request:
   POST /import_cable_run
   Content-Type: multipart/form-data
 
-  {"data":{"file":{"content_type":{"content_type":"application/vnd.ms-excel","binary":true},"original_filename":"test.xls","tempfile":["This is a test file\n"]},"sheet":"Sheet1","building_id":1987}}
+  {"data":{"file":{"content_type":{"content_type":"application/vnd.ms-excel","binary":true},"original_filename":"test.xls","tempfile":["This is a test file\n"]},"sheet":"Sheet1","building_id":42}}
 
 Response:
   Status: 400 Bad Request
   Content-Type: application/json; charset=utf-8
 
   {
-    "message": "Sheet requried"
+    "message": "Workbook file required"
   }
 
 
