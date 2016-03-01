@@ -9,7 +9,7 @@ class ImportCableRun
   def initialize(attributes = {})
     attributes.each { |name, value| send("#{name}=", value) }
 
-    #set_status(:bad_request, "Workbook file required") and return unless file
+    set_status(:bad_request, "Workbook file required") and return unless file
     set_status(:bad_request, "Sheet requried") and return unless sheet
     set_status(:bad_request, "Building id required") and return unless building_id
 
