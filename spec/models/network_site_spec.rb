@@ -6,6 +6,7 @@ RSpec.describe NetworkSite, type: :model do
   	it { is_expected.to have_attribute :company_id }
   	it { is_expected.to have_attribute :lat }
   	it { is_expected.to have_attribute :lng }
+  	it { is_expected.to have_attribute :address }
 	end
 
 	describe "associations" do

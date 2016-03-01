@@ -19,6 +19,9 @@ RSpec.resource "NetworkSites" do
     parameter :lng,
       "Network Site Longitude",
       scope: :attributes
+    parameter :address,
+      "Address Field",
+      scope: :attributes
 
     let(:type){ "network-sites"}
     let(:company_id){ (FactoryGirl.create(:company)).id }
