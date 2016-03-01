@@ -33,6 +33,11 @@
       "description": "Network Site Longitude"
     },
     {
+      "scope": "attributes",
+      "name": "address",
+      "description": "Address Field"
+    },
+    {
       "required": true,
       "name": "id",
       "description": "The id of the network-site"
@@ -44,8 +49,8 @@
   "requests": [
     {
       "request_method": "DELETE",
-      "request_path": "/network-sites/2689",
-      "request_body": "{\"data\":{\"type\":\"network-sites\",\"relationships\":{\"company\":{\"data\":{\"type\":\"companies\",\"id\":3284}}},\"id\":\"2689\"}}",
+      "request_path": "/network-sites/108",
+      "request_body": "{\"data\":{\"type\":\"network-sites\",\"relationships\":{\"company\":{\"data\":{\"type\":\"companies\",\"id\":133}}},\"id\":\"108\"}}",
       "request_headers": {
         "Content-Type": "application/vnd.api+json"
       },

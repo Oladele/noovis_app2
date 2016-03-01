@@ -3,13 +3,13 @@ class ImportCableRun
   include ActiveModel::Conversion
   include ActiveModel::Validations
 
-  attr_accessor :workbookFile, :sheet, :building_id
+  attr_accessor :file, :sheet, :building_id
   attr_reader :message, :status, :filename, :workbook, :building
 
   def initialize(attributes = {})
     attributes.each { |name, value| send("#{name}=", value) }
 
-    set_status(:bad_request, "Workbook file required") and return unless workbookFile
+    set_status(:bad_request, "Workbook file required") and return unless file
     set_status(:bad_request, "Sheet requried") and return unless sheet
     set_status(:bad_request, "Building id required") and return unless building_id
 
@@ -31,14 +31,14 @@ class ImportCableRun
   end
 
   def set_filename
-    @filename = workbookFile.original_filename
+    @filename = file.original_filename
   end
 
   def open_workbook
     case File.extname(@filename)
-    when '.csv' then @workbook = Roo::Csv.new(workbookFile)
-    when '.xls' then @workbook = Roo::Spreadsheet.open(workbookFile, extension: :xls)
-    when '.xlsx' then @workbook = Roo::Excelx.new(workbookFile)
+    when '.csv' then @workbook = Roo::Csv.new(file)
+    when '.xls' then @workbook = Roo::Spreadsheet.open(file, extension: :xls)
+    when '.xlsx' then @workbook = Roo::Excelx.new(file)
     else
       set_status(:unsupported_media_type, "Unknown file type: #{@filename}") and return
     end

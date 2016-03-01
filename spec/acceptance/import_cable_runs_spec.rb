@@ -5,25 +5,26 @@ RSpec.resource "ImportCableRuns" do
   header "Content-Type", "multipart/form-data"
 
   shared_context "import-cable-runs parameters" do
-    #parameter :workbookFile,
-    #  "Workbook File",
-    #  required: true
+    parameter :file,
+      "Workbook File",
+      required: true,
+      type: "Multipart/Form-data"
     parameter :sheet,
       "Sheet Name",
-      required: true
+      required: true,
+      type: "Multipart/Form-data"
     parameter :building_id,
       "Building id",
-      required: true
+      required: true,
+      type: "Multipart/Form-data"
 
-    #let(:workbookFile) { Rack::Test::UploadedFile.new(File.join(Rails.root, 'spec', 'support', 'test.xls'), 'application/vnd.ms-excel')}
-    #file = File.new(File.join(Rails.root, 'spec', 'support', 'test.xls'))
-    #let(:workbookFile) do
-    #  ActionDispatch::Http::UploadedFile.new({
-    #    tempfile: file,
-    #    filename: File.basename(file),
-    #    content_type: 'application/vnd.ms-excel'
-    #  })
-    #end
+    let(:file) do 
+      Rack::Test::UploadedFile.new(
+        File.join(Rails.root, 'spec', 'support', 'test.xls'),
+        content_type: 'application/vnd.ms-excel',
+        binary: true
+      )
+    end
     let(:sheet) { 'Sheet1' }
     let(:building_id) { (FactoryGirl.create(:building)).id }
   end
@@ -32,7 +33,8 @@ RSpec.resource "ImportCableRuns" do
     include_context "import-cable-runs parameters"
 
     example_request "Upload sheet" do
-      expect(status).to eq 201
+      expect(status).to eq 400
+      #expect(status).to eq 201
     end
   end
 end

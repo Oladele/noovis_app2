@@ -123,6 +123,14 @@ table th, table td {
             <tbody>
               <tr>
                 <td class="required">
+                    <span class="name">file</span>
+                </td>
+                <td>
+                  <span class="description">Workbook File</span>
+                </td>
+              </tr>
+              <tr>
+                <td class="required">
                     <span class="name">sheet</span>
                 </td>
                 <td>
@@ -151,17 +159,17 @@ table th, table td {
 
 
             <h4>Body</h4>
-            <pre class="request body">{"data":{"sheet":"Sheet1","building_id":1040}}</pre>
+            <pre class="request body">{"data":{"file":{"content_type":{"content_type":"application/vnd.ms-excel","binary":true},"original_filename":"test.xls","tempfile":["This is a test file\n"]},"sheet":"Sheet1","building_id":42}}</pre>
 
 
             <h3>Response</h3>
               <h4>Headers</h4>
               <pre class="response headers">Content-Type: application/json; charset=utf-8</pre>
             <h4>Status</h4>
-            <pre class="response status">201 Created</pre>
+            <pre class="response status">400 Bad Request</pre>
               <h4>Body</h4>
               <pre class="response body">{
-  &quot;message&quot;: &quot;Successfully created cable runs&quot;
+  &quot;message&quot;: &quot;Workbook file required&quot;
 }</pre>
       </div>
     </div>

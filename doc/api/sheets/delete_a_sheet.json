@@ -40,8 +40,8 @@
   "requests": [
     {
       "request_method": "DELETE",
-      "request_path": "/sheets/454",
-      "request_body": "{\"data\":{\"relationships\":{\"workbook\":{\"data\":{\"type\":\"workbooks\",\"id\":948}},\"building\":{\"data\":{\"type\":\"buildings\",\"id\":1032}}},\"type\":\"sheets\",\"id\":\"454\"}}",
+      "request_path": "/sheets/22",
+      "request_body": "{\"data\":{\"relationships\":{\"workbook\":{\"data\":{\"type\":\"workbooks\",\"id\":43}},\"building\":{\"data\":{\"type\":\"buildings\",\"id\":48}}},\"type\":\"sheets\",\"id\":\"22\"}}",
       "request_headers": {
         "Content-Type": "application/vnd.api+json"
       },

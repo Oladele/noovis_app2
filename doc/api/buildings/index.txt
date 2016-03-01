@@ -1,26 +1,3 @@
-Create a building
------------------
-
-Parameters:
-  * network-site - Network site id
-  * type - Should always be set to <code>buildings</code>
-  * name - Building Name
-  * lat - Building Latitude
-  * lng - Building Longitude
-
-Request:
-  POST /buildings
-  Content-Type: application/vnd.api+json
-
-  {"data":{"relationships":{"network-site":{"data":{"type":"network-sites","id":2682}}},"type":"buildings","attributes":{"name":"Building Name"}}}
-
-Response:
-  Status: 201 Created
-  Content-Type: application/vnd.api+json
-
-  {"data":{"id":"1035","type":"buildings","links":{"self":"http://example.org/buildings/1035"},"attributes":{"name":"Building Name","lat":null,"lng":null,"description":null},"relationships":{"network-site":{"links":{"self":"http://example.org/buildings/1035/relationships/network-site","related":"http://example.org/buildings/1035/network-site"}}}}}
-
-
 Update a building
 -----------------
 
@@ -33,16 +10,16 @@ Parameters:
   * id - The id of the building
 
 Request:
-  PATCH /buildings/1036
+  PATCH /buildings/50
   Content-Type: application/vnd.api+json
 
-  {"data":{"relationships":{"network-site":{"data":{"type":"network-sites","id":2684}}},"type":"buildings","attributes":{"name":"Updated Building Name"},"id":"1036"}}
+  {"data":{"relationships":{"network-site":{"data":{"type":"network-sites","id":127}}},"type":"buildings","attributes":{"name":"Updated Building Name"},"id":"50"}}
 
 Response:
   Status: 200 OK
   Content-Type: application/vnd.api+json
 
-  {"data":{"id":"1036","type":"buildings","links":{"self":"http://example.org/buildings/1036"},"attributes":{"name":"Updated Building Name","lat":"39.290139","lng":"-76.614766","description":"MyText"},"relationships":{"network-site":{"links":{"self":"http://example.org/buildings/1036/relationships/network-site","related":"http://example.org/buildings/1036/network-site"}}}}}
+  {"data":{"id":"50","type":"buildings","links":{"self":"http://example.org/buildings/50"},"attributes":{"name":"Updated Building Name","lat":"39.290139","lng":"-76.614766","description":"MyText"},"relationships":{"network-site":{"links":{"self":"http://example.org/buildings/50/relationships/network-site","related":"http://example.org/buildings/50/network-site"}}}}}
 
 
 List all buildings
@@ -56,7 +33,7 @@ Response:
   Status: 200 OK
   Content-Type: application/vnd.api+json
 
-  {"data":[{"id":"1037","type":"buildings","links":{"self":"http://example.org/buildings/1037"},"attributes":{"name":"1st building","lat":"39.290139","lng":"-76.614766","description":"MyText"},"relationships":{"network-site":{"links":{"self":"http://example.org/buildings/1037/relationships/network-site","related":"http://example.org/buildings/1037/network-site"}}}},{"id":"1038","type":"buildings","links":{"self":"http://example.org/buildings/1038"},"attributes":{"name":"2nd building","lat":"39.290139","lng":"-76.614766","description":"MyText"},"relationships":{"network-site":{"links":{"self":"http://example.org/buildings/1038/relationships/network-site","related":"http://example.org/buildings/1038/network-site"}}}}],"meta":{"record-count":2},"links":{"first":"http://example.org/buildings?page%5Blimit%5D=10\u0026page%5Boffset%5D=0","last":"http://example.org/buildings?page%5Blimit%5D=10\u0026page%5Boffset%5D=0"}}
+  {"data":[{"id":"51","type":"buildings","links":{"self":"http://example.org/buildings/51"},"attributes":{"name":"1st building","lat":"39.290139","lng":"-76.614766","description":"MyText"},"relationships":{"network-site":{"links":{"self":"http://example.org/buildings/51/relationships/network-site","related":"http://example.org/buildings/51/network-site"}}}},{"id":"52","type":"buildings","links":{"self":"http://example.org/buildings/52"},"attributes":{"name":"2nd building","lat":"39.290139","lng":"-76.614766","description":"MyText"},"relationships":{"network-site":{"links":{"self":"http://example.org/buildings/52/relationships/network-site","related":"http://example.org/buildings/52/network-site"}}}}],"meta":{"record-count":2},"links":{"first":"http://example.org/buildings?page%5Blimit%5D=10\u0026page%5Boffset%5D=0","last":"http://example.org/buildings?page%5Blimit%5D=10\u0026page%5Boffset%5D=0"}}
 
 
 Delete a building
@@ -71,13 +48,36 @@ Parameters:
   * id - The id of the building
 
 Request:
-  DELETE /buildings/1039
+  DELETE /buildings/53
   Content-Type: application/vnd.api+json
 
-  {"data":{"relationships":{"network-site":{"data":{"type":"network-sites","id":2688}}},"type":"buildings","id":"1039"}}
+  {"data":{"relationships":{"network-site":{"data":{"type":"network-sites","id":131}}},"type":"buildings","id":"53"}}
 
 Response:
   Status: 204 No Content
 
+
+
+Create a building
+-----------------
+
+Parameters:
+  * network-site - Network site id
+  * type - Should always be set to <code>buildings</code>
+  * name - Building Name
+  * lat - Building Latitude
+  * lng - Building Longitude
+
+Request:
+  POST /buildings
+  Content-Type: application/vnd.api+json
+
+  {"data":{"relationships":{"network-site":{"data":{"type":"network-sites","id":132}}},"type":"buildings","attributes":{"name":"Building Name"}}}
+
+Response:
+  Status: 201 Created
+  Content-Type: application/vnd.api+json
+
+  {"data":{"id":"54","type":"buildings","links":{"self":"http://example.org/buildings/54"},"attributes":{"name":"Building Name","lat":null,"lng":null,"description":null},"relationships":{"network-site":{"links":{"self":"http://example.org/buildings/54/relationships/network-site","related":"http://example.org/buildings/54/network-site"}}}}}
 
 

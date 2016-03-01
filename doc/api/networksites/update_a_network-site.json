@@ -33,6 +33,11 @@
       "description": "Network Site Longitude"
     },
     {
+      "scope": "attributes",
+      "name": "address",
+      "description": "Address Field"
+    },
+    {
       "required": true,
       "name": "id",
       "description": "The id of the network-site"
@@ -44,8 +49,8 @@
   "requests": [
     {
       "request_method": "PATCH",
-      "request_path": "/network-sites/2693",
-      "request_body": "{\"data\":{\"type\":\"network-sites\",\"relationships\":{\"company\":{\"data\":{\"type\":\"companies\",\"id\":3289}}},\"attributes\":{\"name\":\"Updated Network Site Name\"},\"id\":\"2693\"}}",
+      "request_path": "/network-sites/111",
+      "request_body": "{\"data\":{\"type\":\"network-sites\",\"relationships\":{\"company\":{\"data\":{\"type\":\"companies\",\"id\":137}}},\"attributes\":{\"name\":\"Updated Network Site Name\"},\"id\":\"111\"}}",
       "request_headers": {
         "Content-Type": "application/vnd.api+json"
       },
@@ -54,7 +59,7 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "{\"data\":{\"id\":\"2693\",\"type\":\"network-sites\",\"links\":{\"self\":\"http://example.org/network-sites/2693\"},\"attributes\":{\"name\":\"Updated Network Site Name\",\"lat\":\"39.290139\",\"lng\":\"-76.614766\"},\"relationships\":{\"company\":{\"links\":{\"self\":\"http://example.org/network-sites/2693/relationships/company\",\"related\":\"http://example.org/network-sites/2693/company\"}},\"buildings\":{\"links\":{\"self\":\"http://example.org/network-sites/2693/relationships/buildings\",\"related\":\"http://example.org/network-sites/2693/buildings\"}}}}}",
+      "response_body": "{\"data\":{\"id\":\"111\",\"type\":\"network-sites\",\"links\":{\"self\":\"http://example.org/network-sites/111\"},\"attributes\":{\"name\":\"Updated Network Site Name\",\"lat\":\"39.290139\",\"lng\":\"-76.614766\",\"address\":\"MyString\"},\"relationships\":{\"company\":{\"links\":{\"self\":\"http://example.org/network-sites/111/relationships/company\",\"related\":\"http://example.org/network-sites/111/company\"}},\"buildings\":{\"links\":{\"self\":\"http://example.org/network-sites/111/relationships/buildings\",\"related\":\"http://example.org/network-sites/111/buildings\"}}}}}",
       "response_headers": {
         "Content-Type": "application/vnd.api+json"
       },
