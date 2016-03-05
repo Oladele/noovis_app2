@@ -8,6 +8,8 @@ RSpec.describe Sheet, type: :model do
   end
 
   describe "associations" do
+    let(:sheet) { FactoryGirl.create(:sheet) }
+
     it "should belong to a building" do
       building = FactoryGirl.create(:building)
       sheet = building.sheets.build(name: "Lorem ipsum")
@@ -18,6 +20,11 @@ RSpec.describe Sheet, type: :model do
       workbook = FactoryGirl.create(:workbook)
       sheet = workbook.sheets.build(name: "Lorem ipsum")
       expect(sheet.workbook).to eq workbook
+    end
+
+	  it "should delete associated cable runs on delete" do
+      sheet.cable_runs.create()
+      expect {sheet.destroy}.to change {CableRun.count}
     end
   end
   
