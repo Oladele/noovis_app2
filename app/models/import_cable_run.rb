@@ -16,7 +16,7 @@ class ImportCableRun
     return unless set_building
     set_filename
     return unless open_workbook
-    set_sheet
+    return unless set_sheet
     save_workbook
   end
 
@@ -45,7 +45,15 @@ class ImportCableRun
   end
 
   def set_sheet
-    @workbook.default_sheet = sheet
+    begin
+      @workbook.default_sheet = sheet
+    rescue RangeError
+      set_status :unprocessable_entity,
+        "Invalid sheet name: #{sheet}"
+      return false
+    end
+
+    return true
   end
 
   def save_cable_run
