@@ -12,14 +12,9 @@ RSpec.describe CableRun, type: :model do
     it { is_expected.to have_attribute :fdh_port }
     it { is_expected.to have_attribute :splitter }
     it { is_expected.to have_attribute :splitter_fiber }
-    it { is_expected.to have_attribute :lgx_port }
-    it { is_expected.to have_attribute :fsan_sn }
     it { is_expected.to have_attribute :pon_card }
     it { is_expected.to have_attribute :pon_port }
-    it { is_expected.to have_attribute :vam_smp }
     it { is_expected.to have_attribute :fdh }
-    it { is_expected.to have_attribute :test_1310 }
-    it { is_expected.to have_attribute :test_1550 }
     it { is_expected.to have_attribute :notes }
     it { is_expected.to have_attribute :olt_rack }
     it { is_expected.to have_attribute :olt_chassis }
