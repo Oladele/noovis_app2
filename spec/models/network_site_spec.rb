@@ -10,6 +10,8 @@ RSpec.describe NetworkSite, type: :model do
 	end
 
 	describe "associations" do
+    let(:network_site) { FactoryGirl.create(:network_site) }
+
 	  it "should belong to a company" do
 	  	company = FactoryGirl.create(:company)
 	  	network_site = company.network_sites.build(name: "Lorem ipsum")
@@ -19,6 +21,16 @@ RSpec.describe NetworkSite, type: :model do
     it "should have many buildings" do
 	  	building = subject.buildings.build(name: "building1")
 	  	expect(subject.buildings).to eq [building]
+    end
+
+	  it "should delete associated building on delete" do
+      network_site.buildings.create(name: "building1")
+      expect {network_site.destroy}.to change {Building.count}
+    end
+
+	  it "should delete associated workbook on delete" do
+      network_site.workbooks.create(name: "workbook1")
+      expect {network_site.destroy}.to change {Workbook.count}
     end
 	end
   

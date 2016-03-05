@@ -7,6 +7,8 @@ RSpec.describe Workbook, type: :model do
   end
 
   describe "associations" do
+    let(:workbook) { FactoryGirl.create(:workbook) }
+
     it "should belong to a network site" do
       network_site = FactoryGirl.create(:network_site)
       workbook = network_site.workbooks.build(name: "Lorem ipsum")
@@ -16,6 +18,11 @@ RSpec.describe Workbook, type: :model do
     it "should have many sheets" do
 	  	sheet = subject.sheets.build(name: "sheet1")
 	  	expect(subject.sheets).to eq [sheet]
+    end
+
+	  it "should delete associated sheets on delete" do
+      workbook.sheets.create(name: "sheet1", building: FactoryGirl.create(:building))
+      expect {workbook.destroy}.to change {Sheet.count}
     end
   end
 
