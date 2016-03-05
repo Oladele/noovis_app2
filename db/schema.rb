@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160211233619) do
+ActiveRecord::Schema.define(version: 20160305175426) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,15 +38,10 @@ ActiveRecord::Schema.define(version: 20160211233619) do
     t.string   "fdh_port"
     t.string   "splitter"
     t.string   "splitter_fiber"
-    t.string   "lgx_port"
-    t.string   "fsan_sn"
     t.integer  "sheet_id"
     t.string   "pon_card"
     t.string   "pon_port"
-    t.string   "vam_smp"
     t.string   "fdh"
-    t.string   "test_1310"
-    t.string   "test_1550"
     t.text     "notes"
     t.string   "olt_rack"
     t.string   "olt_chassis"
