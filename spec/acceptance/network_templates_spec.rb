@@ -5,7 +5,7 @@ RSpec.resource "NetworkTemplates" do
 
   shared_context "network-template parameters" do
     parameter :type,
-      "Should always be set to <code>network-lemplates</code>",
+      "Should always be set to <code>network-templates</code>",
       required: true
     parameter :name, 
       "Network Template Name", 
