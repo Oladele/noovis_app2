@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   jsonapi_resources :buildings
   jsonapi_resources :workbooks
   jsonapi_resources :sheets
+  jsonapi_resources :network_templates
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
