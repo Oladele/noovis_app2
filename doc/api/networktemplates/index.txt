@@ -1,0 +1,80 @@
+Update a network-template
+-------------------------
+
+Parameters:
+  * type - Should always be set to <code>network-lemplates</code>
+  * name - Network Template Name
+  * description - Network Template Description
+  * hierarchy - Network Template Hierarchy
+  * id - The id of the network-template
+
+Request:
+  PATCH /network-templates/15
+  Content-Type: application/vnd.api+json
+
+  {"data":{"type":"network-templates","attributes":{"name":"Updated Network Template Name"},"id":"15"}}
+
+Response:
+  Status: 200 OK
+  Content-Type: application/vnd.api+json
+
+  {"data":{"id":"15","type":"network-templates","links":{"self":"http://example.org/network-templates/15"},"attributes":{"name":"Updated Network Template Name","description":"MyString","hierarchy":["olt_chassis","pon_card","building","fdh","splitter","rdt","room","ont_sn","ont_ge_mac"]}}}
+
+
+List all network-templates
+--------------------------
+
+Request:
+  GET /network-templates
+  Content-Type: application/vnd.api+json
+
+Response:
+  Status: 200 OK
+  Content-Type: application/vnd.api+json
+
+  {"data":[{"id":"16","type":"network-templates","links":{"self":"http://example.org/network-templates/16"},"attributes":{"name":"1st template","description":"MyString","hierarchy":["olt_chassis","pon_card","building","fdh","splitter","rdt","room","ont_sn","ont_ge_mac"]}},{"id":"17","type":"network-templates","links":{"self":"http://example.org/network-templates/17"},"attributes":{"name":"2nd template","description":"MyString","hierarchy":["olt_chassis","pon_card","building","fdh","splitter","rdt","room","ont_sn","ont_ge_mac"]}}],"meta":{"record-count":2},"links":{"first":"http://example.org/network-templates?page%5Blimit%5D=10\u0026page%5Boffset%5D=0","last":"http://example.org/network-templates?page%5Blimit%5D=10\u0026page%5Boffset%5D=0"}}
+
+
+Delete a network-template
+-------------------------
+
+Parameters:
+  * type - Should always be set to <code>network-lemplates</code>
+  * name - Network Template Name
+  * description - Network Template Description
+  * hierarchy - Network Template Hierarchy
+  * id - The id of the network-template
+
+Request:
+  DELETE /network-templates/18
+  Content-Type: application/vnd.api+json
+
+  {"data":{"type":"network-templates","id":"18"}}
+
+Response:
+  Status: 204 No Content
+
+
+
+Create a network template
+-------------------------
+
+Parameters:
+  * type - Should always be set to <code>network-lemplates</code>
+  * name - Network Template Name
+  * description - Network Template Description
+  * hierarchy - Network Template Hierarchy
+
+Request:
+  POST /network-templates
+  Content-Type: application/vnd.api+json
+
+  {"data":{"type":"network-templates","attributes":{"name":"Site Name"}}}
+
+Response:
+  Status: 201 Created
+  Content-Type: application/vnd.api+json
+
+  {"data":{"id":"19","type":"network-templates","links":{"self":"http://example.org/network-templates/19"},"attributes":{"name":"Site Name","description":null,"hierarchy":[]}}}
+
+

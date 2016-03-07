@@ -112,6 +112,39 @@
       ]
     },
     {
+      "name": "NetworkTemplates",
+      "examples": [
+        {
+          "description": "Create a network template",
+          "link": "networktemplates/create_a_network_template.json",
+          "groups": "all",
+          "route": "/network-templates",
+          "method": "post"
+        },
+        {
+          "description": "Delete a network-template",
+          "link": "networktemplates/delete_a_network-template.json",
+          "groups": "all",
+          "route": "/network-templates/:network_template_id",
+          "method": "delete"
+        },
+        {
+          "description": "List all network-templates",
+          "link": "networktemplates/list_all_network-templates.json",
+          "groups": "all",
+          "route": "/network-templates",
+          "method": "get"
+        },
+        {
+          "description": "Update a network-template",
+          "link": "networktemplates/update_a_network-template.json",
+          "groups": "all",
+          "route": "/network-templates/:network_template_id",
+          "method": "patch"
+        }
+      ]
+    },
+    {
       "name": "Sheets",
       "examples": [
         {

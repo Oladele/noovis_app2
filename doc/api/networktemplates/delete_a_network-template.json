@@ -1,25 +1,35 @@
 {
-  "resource": "Companies",
+  "resource": "NetworkTemplates",
   "http_method": "DELETE",
-  "route": "/companies/:company_id",
-  "description": "Delete a company",
+  "route": "/network-templates/:network_template_id",
+  "description": "Delete a network-template",
   "explanation": null,
   "parameters": [
     {
       "required": true,
       "name": "type",
-      "description": "Should always be set to <code>companies</code>"
+      "description": "Should always be set to <code>network-lemplates</code>"
     },
     {
       "required": true,
       "scope": "attributes",
       "name": "name",
-      "description": "Company Name"
+      "description": "Network Template Name"
+    },
+    {
+      "scope": "attributes",
+      "name": "description",
+      "description": "Network Template Description"
+    },
+    {
+      "scope": "attributes",
+      "name": "hierarchy",
+      "description": "Network Template Hierarchy"
     },
     {
       "required": true,
       "name": "id",
-      "description": "The id of the company"
+      "description": "The id of the network-template"
     }
   ],
   "response_fields": [
@@ -28,8 +38,8 @@
   "requests": [
     {
       "request_method": "DELETE",
-      "request_path": "/companies/317",
-      "request_body": "{\"data\":{\"type\":\"companies\",\"id\":\"317\"}}",
+      "request_path": "/network-templates/18",
+      "request_body": "{\"data\":{\"type\":\"network-templates\",\"id\":\"18\"}}",
       "request_headers": {
         "Content-Type": "application/vnd.api+json"
       },
