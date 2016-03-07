@@ -1,23 +1,3 @@
-Delete a workbook
------------------
-
-Parameters:
-  * network-site - Network site id
-  * type - Should always be set to <code>workbooks</code>
-  * name - Workbook Name
-  * id - The id of the workbook
-
-Request:
-  DELETE /workbooks/45
-  Content-Type: application/vnd.api+json
-
-  {"data":{"relationships":{"network-site":{"data":{"type":"network-sites","id":134}}},"type":"workbooks","id":"45"}}
-
-Response:
-  Status: 204 No Content
-
-
-
 List all workbooks
 ------------------
 
@@ -29,7 +9,29 @@ Response:
   Status: 200 OK
   Content-Type: application/vnd.api+json
 
-  {"data":[{"id":"46","type":"workbooks","links":{"self":"http://example.org/workbooks/46"},"attributes":{"name":"1st workbook"},"relationships":{"network-site":{"links":{"self":"http://example.org/workbooks/46/relationships/network-site","related":"http://example.org/workbooks/46/network-site"}}}},{"id":"47","type":"workbooks","links":{"self":"http://example.org/workbooks/47"},"attributes":{"name":"2nd workbook"},"relationships":{"network-site":{"links":{"self":"http://example.org/workbooks/47/relationships/network-site","related":"http://example.org/workbooks/47/network-site"}}}}],"meta":{"record-count":2},"links":{"first":"http://example.org/workbooks?page%5Blimit%5D=10\u0026page%5Boffset%5D=0","last":"http://example.org/workbooks?page%5Blimit%5D=10\u0026page%5Boffset%5D=0"}}
+  {"data":[{"id":"518","type":"workbooks","links":{"self":"http://example.org/workbooks/518"},"attributes":{"name":"1st workbook"},"relationships":{"network-site":{"links":{"self":"http://example.org/workbooks/518/relationships/network-site","related":"http://example.org/workbooks/518/network-site"}}}},{"id":"519","type":"workbooks","links":{"self":"http://example.org/workbooks/519"},"attributes":{"name":"2nd workbook"},"relationships":{"network-site":{"links":{"self":"http://example.org/workbooks/519/relationships/network-site","related":"http://example.org/workbooks/519/network-site"}}}}],"meta":{"record-count":2},"links":{"first":"http://example.org/workbooks?page%5Blimit%5D=10\u0026page%5Boffset%5D=0","last":"http://example.org/workbooks?page%5Blimit%5D=10\u0026page%5Boffset%5D=0"}}
+
+
+Update a workbook
+-----------------
+
+Parameters:
+  * network-site - Network site id
+  * type - Should always be set to <code>workbooks</code>
+  * name - Workbook Name
+  * id - The id of the workbook
+
+Request:
+  PATCH /workbooks/520
+  Content-Type: application/vnd.api+json
+
+  {"data":{"relationships":{"network-site":{"data":{"type":"network-sites","id":1360}}},"type":"workbooks","attributes":{"name":"Updated Workbook Name"},"id":"520"}}
+
+Response:
+  Status: 200 OK
+  Content-Type: application/vnd.api+json
+
+  {"data":{"id":"520","type":"workbooks","links":{"self":"http://example.org/workbooks/520"},"attributes":{"name":"Updated Workbook Name"},"relationships":{"network-site":{"links":{"self":"http://example.org/workbooks/520/relationships/network-site","related":"http://example.org/workbooks/520/network-site"}}}}}
 
 
 Create a workbook
@@ -44,16 +46,16 @@ Request:
   POST /workbooks
   Content-Type: application/vnd.api+json
 
-  {"data":{"relationships":{"network-site":{"data":{"type":"network-sites","id":137}}},"type":"workbooks","attributes":{"name":"Workbook Name"}}}
+  {"data":{"relationships":{"network-site":{"data":{"type":"network-sites","id":1361}}},"type":"workbooks","attributes":{"name":"Workbook Name"}}}
 
 Response:
   Status: 201 Created
   Content-Type: application/vnd.api+json
 
-  {"data":{"id":"48","type":"workbooks","links":{"self":"http://example.org/workbooks/48"},"attributes":{"name":"Workbook Name"},"relationships":{"network-site":{"links":{"self":"http://example.org/workbooks/48/relationships/network-site","related":"http://example.org/workbooks/48/network-site"}}}}}
+  {"data":{"id":"521","type":"workbooks","links":{"self":"http://example.org/workbooks/521"},"attributes":{"name":"Workbook Name"},"relationships":{"network-site":{"links":{"self":"http://example.org/workbooks/521/relationships/network-site","related":"http://example.org/workbooks/521/network-site"}}}}}
 
 
-Update a workbook
+Delete a workbook
 -----------------
 
 Parameters:
@@ -63,13 +65,13 @@ Parameters:
   * id - The id of the workbook
 
 Request:
-  PATCH /workbooks/49
+  DELETE /workbooks/522
   Content-Type: application/vnd.api+json
 
-  {"data":{"relationships":{"network-site":{"data":{"type":"network-sites","id":139}}},"type":"workbooks","attributes":{"name":"Updated Workbook Name"},"id":"49"}}
+  {"data":{"relationships":{"network-site":{"data":{"type":"network-sites","id":1363}}},"type":"workbooks","id":"522"}}
 
 Response:
-  Status: 200 OK
-  Content-Type: application/vnd.api+json
+  Status: 204 No Content
 
-  {"data":{"id":"49","type":"workbooks","links":{"self":"http://example.org/workbooks/49"},"attributes":{"name":"Updated Workbook Name"},"relationships":{"network-site":{"links":{"self":"http://example.org/workbooks/49/relationships/network-site","related":"http://example.org/workbooks/49/network-site"}}}}}
+
+
