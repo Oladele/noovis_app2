@@ -33,7 +33,7 @@ RSpec.resource "NetworkTemplates" do
   post "/network-templates" do
     include_context "network-template parameters"
 
-    let(:name){ "Site Name"}
+    let(:name){ "Template Name"}
     
     example_request "Create a network template" do
       expect(status).to eq 201
