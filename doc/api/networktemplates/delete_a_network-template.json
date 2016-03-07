@@ -8,7 +8,7 @@
     {
       "required": true,
       "name": "type",
-      "description": "Should always be set to <code>network-lemplates</code>"
+      "description": "Should always be set to <code>network-templates</code>"
     },
     {
       "required": true,
@@ -38,8 +38,8 @@
   "requests": [
     {
       "request_method": "DELETE",
-      "request_path": "/network-templates/18",
-      "request_body": "{\"data\":{\"type\":\"network-templates\",\"id\":\"18\"}}",
+      "request_path": "/network-templates/239",
+      "request_body": "{\"data\":{\"type\":\"network-templates\",\"id\":\"239\"}}",
       "request_headers": {
         "Content-Type": "application/vnd.api+json"
       },

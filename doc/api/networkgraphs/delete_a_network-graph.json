@@ -1,37 +1,31 @@
 {
-  "resource": "Sheets",
+  "resource": "NetworkGraphs",
   "http_method": "DELETE",
-  "route": "/sheets/:sheet_id",
-  "description": "Delete a sheet",
+  "route": "/network-graphs/:network_graph_id",
+  "description": "Delete a network-graph",
   "explanation": null,
   "parameters": [
     {
       "required": true,
-      "scope": "relationships",
-      "name": "workbook",
-      "description": "Workbook id"
-    },
-    {
-      "required": true,
-      "scope": "relationships",
-      "name": "building",
-      "description": "Building id"
-    },
-    {
-      "required": true,
       "name": "type",
-      "description": "Should always be set to <code>sheets</code>"
+      "description": "Should always be set to <code>network-graphs</code>"
     },
     {
       "required": true,
-      "scope": "attributes",
-      "name": "name",
-      "description": "Sheet Name"
+      "scope": "relationships",
+      "name": "sheet",
+      "description": "Sheet id"
+    },
+    {
+      "required": true,
+      "scope": "relationships",
+      "name": "network-template",
+      "description": "Network Template id"
     },
     {
       "required": true,
       "name": "id",
-      "description": "The id of the sheet"
+      "description": "The id of the network-graph"
     }
   ],
   "response_fields": [
@@ -40,8 +34,8 @@
   "requests": [
     {
       "request_method": "DELETE",
-      "request_path": "/sheets/316",
-      "request_body": "{\"data\":{\"relationships\":{\"workbook\":{\"data\":{\"type\":\"workbooks\",\"id\":512}},\"building\":{\"data\":{\"type\":\"buildings\",\"id\":555}}},\"type\":\"sheets\",\"id\":\"316\"}}",
+      "request_path": "/network-graphs/102",
+      "request_body": "{\"data\":{\"type\":\"network-graphs\",\"relationships\":{\"sheet\":{\"data\":{\"type\":\"sheets\",\"id\":327}},\"network-template\":{\"data\":{\"type\":\"network-templates\",\"id\":246}}},\"id\":\"102\"}}",
       "request_headers": {
         "Content-Type": "application/vnd.api+json"
       },

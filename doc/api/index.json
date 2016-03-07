@@ -79,6 +79,39 @@
       ]
     },
     {
+      "name": "NetworkGraphs",
+      "examples": [
+        {
+          "description": "Create a network graph",
+          "link": "networkgraphs/create_a_network_graph.json",
+          "groups": "all",
+          "route": "/network-graphs",
+          "method": "post"
+        },
+        {
+          "description": "Delete a network-graph",
+          "link": "networkgraphs/delete_a_network-graph.json",
+          "groups": "all",
+          "route": "/network-graphs/:network_graph_id",
+          "method": "delete"
+        },
+        {
+          "description": "List all network-graphs",
+          "link": "networkgraphs/list_all_network-graphs.json",
+          "groups": "all",
+          "route": "/network-graphs",
+          "method": "get"
+        },
+        {
+          "description": "Update a network-graph",
+          "link": "networkgraphs/update_a_network-graph.json",
+          "groups": "all",
+          "route": "/network-graphs/:network_graph_id",
+          "method": "patch"
+        }
+      ]
+    },
+    {
       "name": "NetworkSites",
       "examples": [
         {

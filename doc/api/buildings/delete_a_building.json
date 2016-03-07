@@ -44,8 +44,8 @@
   "requests": [
     {
       "request_method": "DELETE",
-      "request_path": "/buildings/94",
-      "request_body": "{\"data\":{\"relationships\":{\"network-site\":{\"data\":{\"type\":\"network-sites\",\"id\":247}}},\"type\":\"buildings\",\"id\":\"94\"}}",
+      "request_path": "/buildings/551",
+      "request_body": "{\"data\":{\"relationships\":{\"network-site\":{\"data\":{\"type\":\"network-sites\",\"id\":1333}}},\"type\":\"buildings\",\"id\":\"551\"}}",
       "request_headers": {
         "Content-Type": "application/vnd.api+json"
       },

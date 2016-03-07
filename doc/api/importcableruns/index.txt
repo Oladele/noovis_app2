@@ -10,7 +10,7 @@ Request:
   POST /import_cable_run
   Content-Type: multipart/form-data
 
-  {"data":{"file":{"content_type":{"content_type":"application/vnd.ms-excel","binary":true},"original_filename":"test.xls","tempfile":["This is a test file\n"]},"sheet":"Sheet1","building_id":97}}
+  {"data":{"file":{"content_type":{"content_type":"application/vnd.ms-excel","binary":true},"original_filename":"test.xls","tempfile":["This is a test file\n"]},"sheet":"Sheet1","building_id":561}}
 
 Response:
   Status: 400 Bad Request

@@ -8,7 +8,7 @@
     {
       "required": true,
       "name": "type",
-      "description": "Should always be set to <code>network-lemplates</code>"
+      "description": "Should always be set to <code>network-templates</code>"
     },
     {
       "required": true,
@@ -34,7 +34,7 @@
     {
       "request_method": "POST",
       "request_path": "/network-templates",
-      "request_body": "{\"data\":{\"type\":\"network-templates\",\"attributes\":{\"name\":\"Site Name\"}}}",
+      "request_body": "{\"data\":{\"type\":\"network-templates\",\"attributes\":{\"name\":\"Template Name\"}}}",
       "request_headers": {
         "Content-Type": "application/vnd.api+json"
       },
@@ -43,7 +43,7 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 201,
       "response_status_text": "Created",
-      "response_body": "{\"data\":{\"id\":\"19\",\"type\":\"network-templates\",\"links\":{\"self\":\"http://example.org/network-templates/19\"},\"attributes\":{\"name\":\"Site Name\",\"description\":null,\"hierarchy\":[]}}}",
+      "response_body": "{\"data\":{\"id\":\"235\",\"type\":\"network-templates\",\"links\":{\"self\":\"http://example.org/network-templates/235\"},\"attributes\":{\"name\":\"Template Name\",\"description\":null,\"hierarchy\":[]}}}",
       "response_headers": {
         "Content-Type": "application/vnd.api+json"
       },

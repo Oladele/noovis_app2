@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>NetworkSites API</title>
+    <title>NetworkGraphs API</title>
     <meta charset="utf-8">
     <style>
       
@@ -106,11 +106,11 @@ table th, table td {
   </head>
   <body>
     <div class="container">
-      <h1>NetworkSites API</h1>
+      <h1>NetworkGraphs API</h1>
 
       <div class="article">
-        <h2>Create a network site</h2>
-        <h3>POST /network-sites</h3>
+        <h2>Create a network graph</h2>
+        <h3>POST /network-graphs</h3>
 
           <h3>Parameters</h3>
           <table class="parameters table table-striped table-bordered table-condensed">
@@ -126,47 +126,23 @@ table th, table td {
                     <span class="name">type</span>
                 </td>
                 <td>
-                  <span class="description">Should always be set to &lt;code&gt;network-sites&lt;/code&gt;</span>
+                  <span class="description">Should always be set to &lt;code&gt;network-graphs&lt;/code&gt;</span>
                 </td>
               </tr>
               <tr>
                 <td class="required">
-                    <span class="name">relationships[company]</span>
+                    <span class="name">relationships[sheet]</span>
                 </td>
                 <td>
-                  <span class="description">Company id</span>
+                  <span class="description">Sheet id</span>
                 </td>
               </tr>
               <tr>
                 <td class="required">
-                    <span class="name">attributes[name]</span>
+                    <span class="name">relationships[network-template]</span>
                 </td>
                 <td>
-                  <span class="description">Network Site Name</span>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                    <span class="name">attributes[lat]</span>
-                </td>
-                <td>
-                  <span class="description">Network Site Latitude</span>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                    <span class="name">attributes[lng]</span>
-                </td>
-                <td>
-                  <span class="description">Network Site Longitude</span>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                    <span class="name">attributes[address]</span>
-                </td>
-                <td>
-                  <span class="description">Address Field</span>
+                  <span class="description">Network Template id</span>
                 </td>
               </tr>
             </tbody>
@@ -179,11 +155,11 @@ table th, table td {
             <pre class="request headers">Content-Type: application/vnd.api+json</pre>
 
           <h4>Route</h4>
-          <pre class="request route highlight">POST /network-sites</pre>
+          <pre class="request route highlight">POST /network-graphs</pre>
 
 
             <h4>Body</h4>
-            <pre class="request body">{"data":{"type":"network-sites","relationships":{"company":{"data":{"type":"companies","id":1570}}},"attributes":{"name":"Site Name"}}}</pre>
+            <pre class="request body">{"data":{"type":"network-graphs","relationships":{"sheet":{"data":{"type":"sheets","id":325}},"network-template":{"data":{"type":"network-templates","id":244}}}}}</pre>
 
 
             <h3>Response</h3>
@@ -192,7 +168,7 @@ table th, table td {
             <h4>Status</h4>
             <pre class="response status">201 Created</pre>
               <h4>Body</h4>
-              <pre class="response body">{&quot;data&quot;:{&quot;id&quot;:&quot;1355&quot;,&quot;type&quot;:&quot;network-sites&quot;,&quot;links&quot;:{&quot;self&quot;:&quot;http://example.org/network-sites/1355&quot;},&quot;attributes&quot;:{&quot;name&quot;:&quot;Site Name&quot;,&quot;lat&quot;:null,&quot;lng&quot;:null,&quot;address&quot;:null},&quot;relationships&quot;:{&quot;company&quot;:{&quot;links&quot;:{&quot;self&quot;:&quot;http://example.org/network-sites/1355/relationships/company&quot;,&quot;related&quot;:&quot;http://example.org/network-sites/1355/company&quot;}},&quot;buildings&quot;:{&quot;links&quot;:{&quot;self&quot;:&quot;http://example.org/network-sites/1355/relationships/buildings&quot;,&quot;related&quot;:&quot;http://example.org/network-sites/1355/buildings&quot;}}}}}</pre>
+              <pre class="response body">{&quot;data&quot;:{&quot;id&quot;:&quot;101&quot;,&quot;type&quot;:&quot;network-graphs&quot;,&quot;links&quot;:{&quot;self&quot;:&quot;http://example.org/network-graphs/101&quot;},&quot;relationships&quot;:{&quot;sheet&quot;:{&quot;links&quot;:{&quot;self&quot;:&quot;http://example.org/network-graphs/101/relationships/sheet&quot;,&quot;related&quot;:&quot;http://example.org/network-graphs/101/sheet&quot;}},&quot;network-template&quot;:{&quot;links&quot;:{&quot;self&quot;:&quot;http://example.org/network-graphs/101/relationships/network-template&quot;,&quot;related&quot;:&quot;http://example.org/network-graphs/101/network-template&quot;}}}}}</pre>
       </div>
     </div>
   </body>
