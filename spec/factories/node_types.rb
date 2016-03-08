@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :node_type do
-    name "MyString"
+  	sequence(:name)  { |n| "Company #{n}" }
     picture "Picture URL"
   end
 
