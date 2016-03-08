@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :node_type do
     name "MyString"
-    url "URL"
+    picture "Picture URL"
   end
 
 end
