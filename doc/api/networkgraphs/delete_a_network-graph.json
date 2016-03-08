@@ -34,8 +34,8 @@
   "requests": [
     {
       "request_method": "DELETE",
-      "request_path": "/network-graphs/102",
-      "request_body": "{\"data\":{\"type\":\"network-graphs\",\"relationships\":{\"sheet\":{\"data\":{\"type\":\"sheets\",\"id\":327}},\"network-template\":{\"data\":{\"type\":\"network-templates\",\"id\":246}}},\"id\":\"102\"}}",
+      "request_path": "/network-graphs/16",
+      "request_body": "{\"data\":{\"type\":\"network-graphs\",\"relationships\":{\"sheet\":{\"data\":{\"type\":\"sheets\",\"id\":43}},\"network-template\":{\"data\":{\"type\":\"network-templates\",\"id\":39}}},\"id\":\"16\"}}",
       "request_headers": {
         "Content-Type": "application/vnd.api+json"
       },

@@ -17,44 +17,7 @@ Response:
   Status: 201 Created
   Content-Type: application/vnd.api+json
 
-  {"data":{"id":"235","type":"network-templates","links":{"self":"http://example.org/network-templates/235"},"attributes":{"name":"Template Name","description":null,"hierarchy":[]}}}
-
-
-Update a network-template
--------------------------
-
-Parameters:
-  * type - Should always be set to <code>network-templates</code>
-  * name - Network Template Name
-  * description - Network Template Description
-  * hierarchy - Network Template Hierarchy
-  * id - The id of the network-template
-
-Request:
-  PATCH /network-templates/236
-  Content-Type: application/vnd.api+json
-
-  {"data":{"type":"network-templates","attributes":{"name":"Updated Network Template Name"},"id":"236"}}
-
-Response:
-  Status: 200 OK
-  Content-Type: application/vnd.api+json
-
-  {"data":{"id":"236","type":"network-templates","links":{"self":"http://example.org/network-templates/236"},"attributes":{"name":"Updated Network Template Name","description":"MyString","hierarchy":["olt_chassis","pon_card","building","fdh","splitter","rdt","room","ont_sn","ont_ge_mac"]}}}
-
-
-List all network-templates
---------------------------
-
-Request:
-  GET /network-templates
-  Content-Type: application/vnd.api+json
-
-Response:
-  Status: 200 OK
-  Content-Type: application/vnd.api+json
-
-  {"data":[{"id":"237","type":"network-templates","links":{"self":"http://example.org/network-templates/237"},"attributes":{"name":"1st template","description":"MyString","hierarchy":["olt_chassis","pon_card","building","fdh","splitter","rdt","room","ont_sn","ont_ge_mac"]}},{"id":"238","type":"network-templates","links":{"self":"http://example.org/network-templates/238"},"attributes":{"name":"2nd template","description":"MyString","hierarchy":["olt_chassis","pon_card","building","fdh","splitter","rdt","room","ont_sn","ont_ge_mac"]}}],"meta":{"record-count":2},"links":{"first":"http://example.org/network-templates?page%5Blimit%5D=10\u0026page%5Boffset%5D=0","last":"http://example.org/network-templates?page%5Blimit%5D=10\u0026page%5Boffset%5D=0"}}
+  {"data":{"id":"31","type":"network-templates","links":{"self":"http://example.org/network-templates/31"},"attributes":{"name":"Template Name","description":null,"hierarchy":[]}}}
 
 
 Delete a network-template
@@ -68,13 +31,50 @@ Parameters:
   * id - The id of the network-template
 
 Request:
-  DELETE /network-templates/239
+  DELETE /network-templates/32
   Content-Type: application/vnd.api+json
 
-  {"data":{"type":"network-templates","id":"239"}}
+  {"data":{"type":"network-templates","id":"32"}}
 
 Response:
   Status: 204 No Content
 
+
+
+Update a network-template
+-------------------------
+
+Parameters:
+  * type - Should always be set to <code>network-templates</code>
+  * name - Network Template Name
+  * description - Network Template Description
+  * hierarchy - Network Template Hierarchy
+  * id - The id of the network-template
+
+Request:
+  PATCH /network-templates/33
+  Content-Type: application/vnd.api+json
+
+  {"data":{"type":"network-templates","attributes":{"name":"Updated Network Template Name"},"id":"33"}}
+
+Response:
+  Status: 200 OK
+  Content-Type: application/vnd.api+json
+
+  {"data":{"id":"33","type":"network-templates","links":{"self":"http://example.org/network-templates/33"},"attributes":{"name":"Updated Network Template Name","description":"MyString","hierarchy":["olt_chassis","pon_card","building","fdh","splitter","rdt","room","ont_sn","ont_ge_mac"]}}}
+
+
+List all network-templates
+--------------------------
+
+Request:
+  GET /network-templates
+  Content-Type: application/vnd.api+json
+
+Response:
+  Status: 200 OK
+  Content-Type: application/vnd.api+json
+
+  {"data":[{"id":"34","type":"network-templates","links":{"self":"http://example.org/network-templates/34"},"attributes":{"name":"1st template","description":"MyString","hierarchy":["olt_chassis","pon_card","building","fdh","splitter","rdt","room","ont_sn","ont_ge_mac"]}},{"id":"35","type":"network-templates","links":{"self":"http://example.org/network-templates/35"},"attributes":{"name":"2nd template","description":"MyString","hierarchy":["olt_chassis","pon_card","building","fdh","splitter","rdt","room","ont_sn","ont_ge_mac"]}}],"meta":{"record-count":2},"links":{"first":"http://example.org/network-templates?page%5Blimit%5D=10\u0026page%5Boffset%5D=0","last":"http://example.org/network-templates?page%5Blimit%5D=10\u0026page%5Boffset%5D=0"}}
 
 

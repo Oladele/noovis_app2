@@ -9,7 +9,27 @@ Response:
   Status: 200 OK
   Content-Type: application/vnd.api+json
 
-  {"data":[{"id":"98","type":"network-graphs","links":{"self":"http://example.org/network-graphs/98"},"relationships":{"sheet":{"links":{"self":"http://example.org/network-graphs/98/relationships/sheet","related":"http://example.org/network-graphs/98/sheet"}},"network-template":{"links":{"self":"http://example.org/network-graphs/98/relationships/network-template","related":"http://example.org/network-graphs/98/network-template"}}}},{"id":"99","type":"network-graphs","links":{"self":"http://example.org/network-graphs/99"},"relationships":{"sheet":{"links":{"self":"http://example.org/network-graphs/99/relationships/sheet","related":"http://example.org/network-graphs/99/sheet"}},"network-template":{"links":{"self":"http://example.org/network-graphs/99/relationships/network-template","related":"http://example.org/network-graphs/99/network-template"}}}}],"meta":{"record-count":2},"links":{"first":"http://example.org/network-graphs?page%5Blimit%5D=10\u0026page%5Boffset%5D=0","last":"http://example.org/network-graphs?page%5Blimit%5D=10\u0026page%5Boffset%5D=0"}}
+  {"data":[{"id":"14","type":"network-graphs","links":{"self":"http://example.org/network-graphs/14"},"relationships":{"sheet":{"links":{"self":"http://example.org/network-graphs/14/relationships/sheet","related":"http://example.org/network-graphs/14/sheet"}},"network-template":{"links":{"self":"http://example.org/network-graphs/14/relationships/network-template","related":"http://example.org/network-graphs/14/network-template"}}}},{"id":"15","type":"network-graphs","links":{"self":"http://example.org/network-graphs/15"},"relationships":{"sheet":{"links":{"self":"http://example.org/network-graphs/15/relationships/sheet","related":"http://example.org/network-graphs/15/sheet"}},"network-template":{"links":{"self":"http://example.org/network-graphs/15/relationships/network-template","related":"http://example.org/network-graphs/15/network-template"}}}}],"meta":{"record-count":2},"links":{"first":"http://example.org/network-graphs?page%5Blimit%5D=10\u0026page%5Boffset%5D=0","last":"http://example.org/network-graphs?page%5Blimit%5D=10\u0026page%5Boffset%5D=0"}}
+
+
+Delete a network-graph
+----------------------
+
+Parameters:
+  * type - Should always be set to <code>network-graphs</code>
+  * sheet - Sheet id
+  * network-template - Network Template id
+  * id - The id of the network-graph
+
+Request:
+  DELETE /network-graphs/16
+  Content-Type: application/vnd.api+json
+
+  {"data":{"type":"network-graphs","relationships":{"sheet":{"data":{"type":"sheets","id":43}},"network-template":{"data":{"type":"network-templates","id":39}}},"id":"16"}}
+
+Response:
+  Status: 204 No Content
+
 
 
 Update a network-graph
@@ -22,16 +42,16 @@ Parameters:
   * id - The id of the network-graph
 
 Request:
-  PATCH /network-graphs/100
+  PATCH /network-graphs/17
   Content-Type: application/vnd.api+json
 
-  {"data":{"type":"network-graphs","relationships":{"sheet":{"data":{"type":"sheets","id":324}},"network-template":{"data":{"type":"network-templates","id":243}}},"id":"100"}}
+  {"data":{"type":"network-graphs","relationships":{"sheet":{"data":{"type":"sheets","id":45}},"network-template":{"data":{"type":"network-templates","id":41}}},"id":"17"}}
 
 Response:
   Status: 200 OK
   Content-Type: application/vnd.api+json
 
-  {"data":{"id":"100","type":"network-graphs","links":{"self":"http://example.org/network-graphs/100"},"relationships":{"sheet":{"links":{"self":"http://example.org/network-graphs/100/relationships/sheet","related":"http://example.org/network-graphs/100/sheet"}},"network-template":{"links":{"self":"http://example.org/network-graphs/100/relationships/network-template","related":"http://example.org/network-graphs/100/network-template"}}}}}
+  {"data":{"id":"17","type":"network-graphs","links":{"self":"http://example.org/network-graphs/17"},"relationships":{"sheet":{"links":{"self":"http://example.org/network-graphs/17/relationships/sheet","related":"http://example.org/network-graphs/17/sheet"}},"network-template":{"links":{"self":"http://example.org/network-graphs/17/relationships/network-template","related":"http://example.org/network-graphs/17/network-template"}}}}}
 
 
 Create a network graph
@@ -46,32 +66,12 @@ Request:
   POST /network-graphs
   Content-Type: application/vnd.api+json
 
-  {"data":{"type":"network-graphs","relationships":{"sheet":{"data":{"type":"sheets","id":325}},"network-template":{"data":{"type":"network-templates","id":244}}}}}
+  {"data":{"type":"network-graphs","relationships":{"sheet":{"data":{"type":"sheets","id":46}},"network-template":{"data":{"type":"network-templates","id":42}}}}}
 
 Response:
   Status: 201 Created
   Content-Type: application/vnd.api+json
 
-  {"data":{"id":"101","type":"network-graphs","links":{"self":"http://example.org/network-graphs/101"},"relationships":{"sheet":{"links":{"self":"http://example.org/network-graphs/101/relationships/sheet","related":"http://example.org/network-graphs/101/sheet"}},"network-template":{"links":{"self":"http://example.org/network-graphs/101/relationships/network-template","related":"http://example.org/network-graphs/101/network-template"}}}}}
-
-
-Delete a network-graph
-----------------------
-
-Parameters:
-  * type - Should always be set to <code>network-graphs</code>
-  * sheet - Sheet id
-  * network-template - Network Template id
-  * id - The id of the network-graph
-
-Request:
-  DELETE /network-graphs/102
-  Content-Type: application/vnd.api+json
-
-  {"data":{"type":"network-graphs","relationships":{"sheet":{"data":{"type":"sheets","id":327}},"network-template":{"data":{"type":"network-templates","id":246}}},"id":"102"}}
-
-Response:
-  Status: 204 No Content
-
+  {"data":{"id":"18","type":"network-graphs","links":{"self":"http://example.org/network-graphs/18"},"relationships":{"sheet":{"links":{"self":"http://example.org/network-graphs/18/relationships/sheet","related":"http://example.org/network-graphs/18/sheet"}},"network-template":{"links":{"self":"http://example.org/network-graphs/18/relationships/network-template","related":"http://example.org/network-graphs/18/network-template"}}}}}
 
 

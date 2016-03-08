@@ -1,25 +1,30 @@
 {
-  "resource": "Companies",
+  "resource": "NodeTypes",
   "http_method": "PATCH",
-  "route": "/companies/:company_id",
-  "description": "Update a company",
+  "route": "/node-types/:node_type_id",
+  "description": "Update a node-type",
   "explanation": null,
   "parameters": [
     {
       "required": true,
       "name": "type",
-      "description": "Should always be set to <code>companies</code>"
+      "description": "Should always be set to <code>node-types</code>"
     },
     {
       "required": true,
       "scope": "attributes",
       "name": "name",
-      "description": "Company Name"
+      "description": "Node Type Name"
+    },
+    {
+      "scope": "attributes",
+      "name": "picture",
+      "description": "Node Type Picture URL"
     },
     {
       "required": true,
       "name": "id",
-      "description": "The id of the company"
+      "description": "The id of the node-type"
     }
   ],
   "response_fields": [
@@ -28,8 +33,8 @@
   "requests": [
     {
       "request_method": "PATCH",
-      "request_path": "/companies/196",
-      "request_body": "{\"data\":{\"type\":\"companies\",\"attributes\":{\"name\":\"New Company Name\"},\"id\":\"196\"}}",
+      "request_path": "/node-types/15",
+      "request_body": "{\"data\":{\"type\":\"node-types\",\"attributes\":{\"name\":\"Updated Node Type Name\"},\"id\":\"15\"}}",
       "request_headers": {
         "Content-Type": "application/vnd.api+json"
       },
@@ -38,7 +43,7 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "{\"data\":{\"id\":\"196\",\"type\":\"companies\",\"links\":{\"self\":\"http://example.org/companies/196\"},\"attributes\":{\"name\":\"New Company Name\"},\"relationships\":{\"network-sites\":{\"links\":{\"self\":\"http://example.org/companies/196/relationships/network-sites\",\"related\":\"http://example.org/companies/196/network-sites\"}}}}}",
+      "response_body": "{\"data\":{\"id\":\"15\",\"type\":\"node-types\",\"links\":{\"self\":\"http://example.org/node-types/15\"},\"attributes\":{\"name\":\"Updated Node Type Name\",\"picture\":\"Picture URL\"}}}",
       "response_headers": {
         "Content-Type": "application/vnd.api+json"
       },

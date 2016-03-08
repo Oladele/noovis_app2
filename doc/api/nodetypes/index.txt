@@ -1,0 +1,77 @@
+Delete a node-type
+------------------
+
+Parameters:
+  * type - Should always be set to <code>node-types</code>
+  * name - Node Type Name
+  * picture - Node Type Picture URL
+  * id - The id of the node-type
+
+Request:
+  DELETE /node-types/11
+  Content-Type: application/vnd.api+json
+
+  {"data":{"type":"node-types","id":"11"}}
+
+Response:
+  Status: 204 No Content
+
+
+
+Create a node type
+------------------
+
+Parameters:
+  * type - Should always be set to <code>node-types</code>
+  * name - Node Type Name
+  * picture - Node Type Picture URL
+
+Request:
+  POST /node-types
+  Content-Type: application/vnd.api+json
+
+  {"data":{"type":"node-types","attributes":{"name":"Node Type Name"}}}
+
+Response:
+  Status: 201 Created
+  Content-Type: application/vnd.api+json
+
+  {"data":{"id":"12","type":"node-types","links":{"self":"http://example.org/node-types/12"},"attributes":{"name":"Node Type Name","picture":null}}}
+
+
+List all node-types
+-------------------
+
+Request:
+  GET /node-types
+  Content-Type: application/vnd.api+json
+
+Response:
+  Status: 200 OK
+  Content-Type: application/vnd.api+json
+
+  {"data":[{"id":"13","type":"node-types","links":{"self":"http://example.org/node-types/13"},"attributes":{"name":"1st node type","picture":"Picture URL"}},{"id":"14","type":"node-types","links":{"self":"http://example.org/node-types/14"},"attributes":{"name":"2nd node type","picture":"Picture URL"}}],"meta":{"record-count":2},"links":{"first":"http://example.org/node-types?page%5Blimit%5D=10\u0026page%5Boffset%5D=0","last":"http://example.org/node-types?page%5Blimit%5D=10\u0026page%5Boffset%5D=0"}}
+
+
+Update a node-type
+------------------
+
+Parameters:
+  * type - Should always be set to <code>node-types</code>
+  * name - Node Type Name
+  * picture - Node Type Picture URL
+  * id - The id of the node-type
+
+Request:
+  PATCH /node-types/15
+  Content-Type: application/vnd.api+json
+
+  {"data":{"type":"node-types","attributes":{"name":"Updated Node Type Name"},"id":"15"}}
+
+Response:
+  Status: 200 OK
+  Content-Type: application/vnd.api+json
+
+  {"data":{"id":"15","type":"node-types","links":{"self":"http://example.org/node-types/15"},"attributes":{"name":"Updated Node Type Name","picture":"Picture URL"}}}
+
+

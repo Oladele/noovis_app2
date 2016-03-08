@@ -34,8 +34,8 @@
   "requests": [
     {
       "request_method": "DELETE",
-      "request_path": "/workbooks/522",
-      "request_body": "{\"data\":{\"relationships\":{\"network-site\":{\"data\":{\"type\":\"network-sites\",\"id\":1363}}},\"type\":\"workbooks\",\"id\":\"522\"}}",
+      "request_path": "/workbooks/63",
+      "request_body": "{\"data\":{\"relationships\":{\"network-site\":{\"data\":{\"type\":\"network-sites\",\"id\":157}}},\"type\":\"workbooks\",\"id\":\"63\"}}",
       "request_headers": {
         "Content-Type": "application/vnd.api+json"
       },

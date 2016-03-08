@@ -1,35 +1,30 @@
 {
-  "resource": "NetworkTemplates",
+  "resource": "NodeTypes",
   "http_method": "DELETE",
-  "route": "/network-templates/:network_template_id",
-  "description": "Delete a network-template",
+  "route": "/node-types/:node_type_id",
+  "description": "Delete a node-type",
   "explanation": null,
   "parameters": [
     {
       "required": true,
       "name": "type",
-      "description": "Should always be set to <code>network-templates</code>"
+      "description": "Should always be set to <code>node-types</code>"
     },
     {
       "required": true,
       "scope": "attributes",
       "name": "name",
-      "description": "Network Template Name"
+      "description": "Node Type Name"
     },
     {
       "scope": "attributes",
-      "name": "description",
-      "description": "Network Template Description"
-    },
-    {
-      "scope": "attributes",
-      "name": "hierarchy",
-      "description": "Network Template Hierarchy"
+      "name": "picture",
+      "description": "Node Type Picture URL"
     },
     {
       "required": true,
       "name": "id",
-      "description": "The id of the network-template"
+      "description": "The id of the node-type"
     }
   ],
   "response_fields": [
@@ -38,8 +33,8 @@
   "requests": [
     {
       "request_method": "DELETE",
-      "request_path": "/network-templates/32",
-      "request_body": "{\"data\":{\"type\":\"network-templates\",\"id\":\"32\"}}",
+      "request_path": "/node-types/11",
+      "request_body": "{\"data\":{\"type\":\"node-types\",\"id\":\"11\"}}",
       "request_headers": {
         "Content-Type": "application/vnd.api+json"
       },

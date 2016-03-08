@@ -1,20 +1,25 @@
 {
-  "resource": "Companies",
+  "resource": "NodeTypes",
   "http_method": "POST",
-  "route": "/companies",
-  "description": "Create a company",
+  "route": "/node-types",
+  "description": "Create a node type",
   "explanation": null,
   "parameters": [
     {
       "required": true,
       "name": "type",
-      "description": "Should always be set to <code>companies</code>"
+      "description": "Should always be set to <code>node-types</code>"
     },
     {
       "required": true,
       "scope": "attributes",
       "name": "name",
-      "description": "Company Name"
+      "description": "Node Type Name"
+    },
+    {
+      "scope": "attributes",
+      "name": "picture",
+      "description": "Node Type Picture URL"
     }
   ],
   "response_fields": [
@@ -23,8 +28,8 @@
   "requests": [
     {
       "request_method": "POST",
-      "request_path": "/companies",
-      "request_body": "{\"data\":{\"type\":\"companies\",\"attributes\":{\"name\":\"ACME Company\"}}}",
+      "request_path": "/node-types",
+      "request_body": "{\"data\":{\"type\":\"node-types\",\"attributes\":{\"name\":\"Node Type Name\"}}}",
       "request_headers": {
         "Content-Type": "application/vnd.api+json"
       },
@@ -33,7 +38,7 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 201,
       "response_status_text": "Created",
-      "response_body": "{\"data\":{\"id\":\"195\",\"type\":\"companies\",\"links\":{\"self\":\"http://example.org/companies/195\"},\"attributes\":{\"name\":\"ACME Company\"},\"relationships\":{\"network-sites\":{\"links\":{\"self\":\"http://example.org/companies/195/relationships/network-sites\",\"related\":\"http://example.org/companies/195/network-sites\"}}}}}",
+      "response_body": "{\"data\":{\"id\":\"12\",\"type\":\"node-types\",\"links\":{\"self\":\"http://example.org/node-types/12\"},\"attributes\":{\"name\":\"Node Type Name\",\"picture\":null}}}",
       "response_headers": {
         "Content-Type": "application/vnd.api+json"
       },

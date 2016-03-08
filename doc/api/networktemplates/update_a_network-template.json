@@ -38,8 +38,8 @@
   "requests": [
     {
       "request_method": "PATCH",
-      "request_path": "/network-templates/236",
-      "request_body": "{\"data\":{\"type\":\"network-templates\",\"attributes\":{\"name\":\"Updated Network Template Name\"},\"id\":\"236\"}}",
+      "request_path": "/network-templates/33",
+      "request_body": "{\"data\":{\"type\":\"network-templates\",\"attributes\":{\"name\":\"Updated Network Template Name\"},\"id\":\"33\"}}",
       "request_headers": {
         "Content-Type": "application/vnd.api+json"
       },
@@ -48,7 +48,7 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "{\"data\":{\"id\":\"236\",\"type\":\"network-templates\",\"links\":{\"self\":\"http://example.org/network-templates/236\"},\"attributes\":{\"name\":\"Updated Network Template Name\",\"description\":\"MyString\",\"hierarchy\":[\"olt_chassis\",\"pon_card\",\"building\",\"fdh\",\"splitter\",\"rdt\",\"room\",\"ont_sn\",\"ont_ge_mac\"]}}}",
+      "response_body": "{\"data\":{\"id\":\"33\",\"type\":\"network-templates\",\"links\":{\"self\":\"http://example.org/network-templates/33\"},\"attributes\":{\"name\":\"Updated Network Template Name\",\"description\":\"MyString\",\"hierarchy\":[\"olt_chassis\",\"pon_card\",\"building\",\"fdh\",\"splitter\",\"rdt\",\"room\",\"ont_sn\",\"ont_ge_mac\"]}}}",
       "response_headers": {
         "Content-Type": "application/vnd.api+json"
       },
