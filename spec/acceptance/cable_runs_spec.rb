@@ -25,22 +25,22 @@ RSpec.resource "CableRuns" do
     parameter :rdt,
       "RDT", 
       scope: :attributes
-    parameter :rdt_port,
+    parameter :"rdt-port",
       "RDT Port", 
       scope: :attributes
-    parameter :fdh_port,
+    parameter :"fdh-port",
       "FDH Port", 
       scope: :attributes
     parameter :splitter,
       "Splitter", 
       scope: :attributes
-    parameter :splitter_fiber,
+    parameter :"splitter-fiber",
       "Splitter Fiber", 
       scope: :attributes
-    parameter :pon_card,
+    parameter :"pon-card",
       "PON Card", 
       scope: :attributes
-    parameter :pon_port,
+    parameter :"pon-port",
       "PON Port", 
       scope: :attributes
     parameter :fdh,
@@ -49,65 +49,65 @@ RSpec.resource "CableRuns" do
     parameter :notes,
       "Notes", 
       scope: :attributes
-    parameter :olt_rack,
+    parameter :"olt-rack",
       "OLT Rack", 
       scope: :attributes
-    parameter :olt_chassis,
+    parameter :"olt-chassis",
       "OLT Chassis", 
       scope: :attributes
-    parameter :vam_shelf,
+    parameter :"vam-shelf",
       "VAM Shelf", 
       scope: :attributes
-    parameter :vam_module,
+    parameter :"vam-module",
       "VAM Module", 
       scope: :attributes
-    parameter :vam_port,
+    parameter :"vam-port",
       "VAM Port", 
       "Backbone Shelf", 
       scope: :attributes
-    parameter :backbone_cable,
+    parameter :"backbone-cable",
       "Backbone Cable", 
       scope: :attributes
-    parameter :backbone_port,
+    parameter :"backbone-port",
       "Backbone Port", 
       scope: :attributes
-    parameter :fdh_location,
+    parameter :"fdh-location",
       "FDG Location", 
       scope: :attributes
-    parameter :rdt_location,
+    parameter :"rdt-location",
       "RDT Location", 
       scope: :attributes
-    parameter :ont_model,
+    parameter :"ont-model",
       "ONT Model", 
       scope: :attributes
-    parameter :ont_sn,
+    parameter :"ont-sn",
       "ONT SN", 
       scope: :attributes
-    parameter :rdt_port_count,
+    parameter :"rdt-port-count",
       "RDT Port Count", 
       scope: :attributes
-    parameter :ont_ge_1_device,
+    parameter :"ont-ge-1-device",
       "ONT GE 1 Device", 
       scope: :attributes
-    parameter :ont_ge_1_mac,
+    parameter :"ont-ge-1-mac",
       "ONT GE 1 MAC", 
       scope: :attributes
-    parameter :ont_ge_2_device,
+    parameter :"ont-ge-2-device",
       "ONT GE 2 Device", 
       scope: :attributes
-    parameter :ont_ge_2_mac,
+    parameter :"ont-ge-2-mac",
       "ONT GE 2 MAC", 
       scope: :attributes
-    parameter :ont_ge_3_device,
+    parameter :"ont-ge-3-device",
       "ONT GE 3 Device", 
       scope: :attributes
-    parameter :ont_ge_3_mac,
+    parameter :"ont-ge-3-mac",
       "ONT GE 3 MAC", 
       scope: :attributes
-    parameter :ont_ge_4_device,
+    parameter :"ont-ge-4-device",
       "ONT GE 4 Device", 
       scope: :attributes
-    parameter :ont_ge_4_mac,
+    parameter :"ont-ge-4-mac",
       "ONT GE 4 MAC", 
       scope: :attributes
 

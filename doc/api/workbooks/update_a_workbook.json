@@ -34,8 +34,8 @@
   "requests": [
     {
       "request_method": "PATCH",
-      "request_path": "/workbooks/188",
-      "request_body": "{\"data\":{\"relationships\":{\"network-site\":{\"data\":{\"type\":\"network-sites\",\"id\":472}}},\"type\":\"workbooks\",\"attributes\":{\"name\":\"Updated Workbook Name\"},\"id\":\"188\"}}",
+      "request_path": "/workbooks/1492",
+      "request_body": "{\"data\":{\"relationships\":{\"network-site\":{\"data\":{\"type\":\"network-sites\",\"id\":3532}}},\"type\":\"workbooks\",\"attributes\":{\"name\":\"Updated Workbook Name\"},\"id\":\"1492\"}}",
       "request_headers": {
         "Content-Type": "application/vnd.api+json"
       },
@@ -44,7 +44,7 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "{\"data\":{\"id\":\"188\",\"type\":\"workbooks\",\"links\":{\"self\":\"http://example.org/workbooks/188\"},\"attributes\":{\"name\":\"Updated Workbook Name\"},\"relationships\":{\"network-site\":{\"links\":{\"self\":\"http://example.org/workbooks/188/relationships/network-site\",\"related\":\"http://example.org/workbooks/188/network-site\"}}}}}",
+      "response_body": "{\"data\":{\"id\":\"1492\",\"type\":\"workbooks\",\"links\":{\"self\":\"http://example.org/workbooks/1492\"},\"attributes\":{\"name\":\"Updated Workbook Name\"},\"relationships\":{\"network-site\":{\"links\":{\"self\":\"http://example.org/workbooks/1492/relationships/network-site\",\"related\":\"http://example.org/workbooks/1492/network-site\"}}}}}",
       "response_headers": {
         "Content-Type": "application/vnd.api+json"
       },

@@ -28,8 +28,8 @@
   "requests": [
     {
       "request_method": "PATCH",
-      "request_path": "/companies/532",
-      "request_body": "{\"data\":{\"type\":\"companies\",\"attributes\":{\"name\":\"New Company Name\"},\"id\":\"532\"}}",
+      "request_path": "/companies/3915",
+      "request_body": "{\"data\":{\"type\":\"companies\",\"attributes\":{\"name\":\"New Company Name\"},\"id\":\"3915\"}}",
       "request_headers": {
         "Content-Type": "application/vnd.api+json"
       },
@@ -38,7 +38,7 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "{\"data\":{\"id\":\"532\",\"type\":\"companies\",\"links\":{\"self\":\"http://example.org/companies/532\"},\"attributes\":{\"name\":\"New Company Name\"},\"relationships\":{\"network-sites\":{\"links\":{\"self\":\"http://example.org/companies/532/relationships/network-sites\",\"related\":\"http://example.org/companies/532/network-sites\"}}}}}",
+      "response_body": "{\"data\":{\"id\":\"3915\",\"type\":\"companies\",\"links\":{\"self\":\"http://example.org/companies/3915\"},\"attributes\":{\"name\":\"New Company Name\"},\"relationships\":{\"network-sites\":{\"links\":{\"self\":\"http://example.org/companies/3915/relationships/network-sites\",\"related\":\"http://example.org/companies/3915/network-sites\"}}}}}",
       "response_headers": {
         "Content-Type": "application/vnd.api+json"
       },

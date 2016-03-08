@@ -244,6 +244,39 @@
       ]
     },
     {
+      "name": "Nodes",
+      "examples": [
+        {
+          "description": "Create a node type",
+          "link": "nodes/create_a_node_type.json",
+          "groups": "all",
+          "route": "/nodes",
+          "method": "post"
+        },
+        {
+          "description": "Delete a node",
+          "link": "nodes/delete_a_node.json",
+          "groups": "all",
+          "route": "/nodes/:node_id",
+          "method": "delete"
+        },
+        {
+          "description": "List all nodes",
+          "link": "nodes/list_all_nodes.json",
+          "groups": "all",
+          "route": "/nodes",
+          "method": "get"
+        },
+        {
+          "description": "Update a node",
+          "link": "nodes/update_a_node.json",
+          "groups": "all",
+          "route": "/nodes/:node_id",
+          "method": "patch"
+        }
+      ]
+    },
+    {
       "name": "Sheets",
       "examples": [
         {

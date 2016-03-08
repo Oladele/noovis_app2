@@ -43,12 +43,12 @@
     },
     {
       "scope": "attributes",
-      "name": "rdt_port",
+      "name": "rdt-port",
       "description": "RDT Port"
     },
     {
       "scope": "attributes",
-      "name": "fdh_port",
+      "name": "fdh-port",
       "description": "FDH Port"
     },
     {
@@ -58,17 +58,17 @@
     },
     {
       "scope": "attributes",
-      "name": "splitter_fiber",
+      "name": "splitter-fiber",
       "description": "Splitter Fiber"
     },
     {
       "scope": "attributes",
-      "name": "pon_card",
+      "name": "pon-card",
       "description": "PON Card"
     },
     {
       "scope": "attributes",
-      "name": "pon_port",
+      "name": "pon-port",
       "description": "PON Port"
     },
     {
@@ -83,102 +83,102 @@
     },
     {
       "scope": "attributes",
-      "name": "olt_rack",
+      "name": "olt-rack",
       "description": "OLT Rack"
     },
     {
       "scope": "attributes",
-      "name": "olt_chassis",
+      "name": "olt-chassis",
       "description": "OLT Chassis"
     },
     {
       "scope": "attributes",
-      "name": "vam_shelf",
+      "name": "vam-shelf",
       "description": "VAM Shelf"
     },
     {
       "scope": "attributes",
-      "name": "vam_module",
+      "name": "vam-module",
       "description": "VAM Module"
     },
     {
       "scope": "attributes",
-      "name": "vam_port",
+      "name": "vam-port",
       "description": "Backbone Shelf"
     },
     {
       "scope": "attributes",
-      "name": "backbone_cable",
+      "name": "backbone-cable",
       "description": "Backbone Cable"
     },
     {
       "scope": "attributes",
-      "name": "backbone_port",
+      "name": "backbone-port",
       "description": "Backbone Port"
     },
     {
       "scope": "attributes",
-      "name": "fdh_location",
+      "name": "fdh-location",
       "description": "FDG Location"
     },
     {
       "scope": "attributes",
-      "name": "rdt_location",
+      "name": "rdt-location",
       "description": "RDT Location"
     },
     {
       "scope": "attributes",
-      "name": "ont_model",
+      "name": "ont-model",
       "description": "ONT Model"
     },
     {
       "scope": "attributes",
-      "name": "ont_sn",
+      "name": "ont-sn",
       "description": "ONT SN"
     },
     {
       "scope": "attributes",
-      "name": "rdt_port_count",
+      "name": "rdt-port-count",
       "description": "RDT Port Count"
     },
     {
       "scope": "attributes",
-      "name": "ont_ge_1_device",
+      "name": "ont-ge-1-device",
       "description": "ONT GE 1 Device"
     },
     {
       "scope": "attributes",
-      "name": "ont_ge_1_mac",
+      "name": "ont-ge-1-mac",
       "description": "ONT GE 1 MAC"
     },
     {
       "scope": "attributes",
-      "name": "ont_ge_2_device",
+      "name": "ont-ge-2-device",
       "description": "ONT GE 2 Device"
     },
     {
       "scope": "attributes",
-      "name": "ont_ge_2_mac",
+      "name": "ont-ge-2-mac",
       "description": "ONT GE 2 MAC"
     },
     {
       "scope": "attributes",
-      "name": "ont_ge_3_device",
+      "name": "ont-ge-3-device",
       "description": "ONT GE 3 Device"
     },
     {
       "scope": "attributes",
-      "name": "ont_ge_3_mac",
+      "name": "ont-ge-3-mac",
       "description": "ONT GE 3 MAC"
     },
     {
       "scope": "attributes",
-      "name": "ont_ge_4_device",
+      "name": "ont-ge-4-device",
       "description": "ONT GE 4 Device"
     },
     {
       "scope": "attributes",
-      "name": "ont_ge_4_mac",
+      "name": "ont-ge-4-mac",
       "description": "ONT GE 4 MAC"
     },
     {
@@ -193,8 +193,8 @@
   "requests": [
     {
       "request_method": "PATCH",
-      "request_path": "/cable-runs/30",
-      "request_body": "{\"data\":{\"type\":\"cable-runs\",\"relationships\":{\"sheet\":{\"data\":{\"type\":\"sheets\",\"id\":136}}},\"attributes\":{\"site\":\"Updated Site\"},\"id\":\"30\"}}",
+      "request_path": "/cable-runs/241",
+      "request_body": "{\"data\":{\"type\":\"cable-runs\",\"relationships\":{\"sheet\":{\"data\":{\"type\":\"sheets\",\"id\":1148}}},\"attributes\":{\"site\":\"Updated Site\"},\"id\":\"241\"}}",
       "request_headers": {
         "Content-Type": "application/vnd.api+json"
       },
@@ -203,7 +203,7 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "{\"data\":{\"id\":\"30\",\"type\":\"cable-runs\",\"links\":{\"self\":\"http://example.org/cable-runs/30\"},\"attributes\":{\"site\":\"Updated Site\",\"building\":\"MyString\",\"room\":\"MyString\",\"drop\":\"MyString\",\"rdt\":\"MyString\",\"rdt-port\":\"MyString\",\"fdh-port\":\"MyString\",\"splitter\":\"MyString\",\"splitter-fiber\":\"MyString\",\"pon-card\":\"MyString\",\"pon-port\":\"MyString\",\"fdh\":\"MyString\",\"notes\":\"MyText\",\"olt-rack\":\"MyString\",\"olt-chassis\":\"MyString\",\"vam-shelf\":\"MyString\",\"vam-module\":\"MyString\",\"vam-port\":\"MyString\",\"backbone-shelf\":\"MyString\",\"backbone-cable\":\"MyString\",\"backbone-port\":\"MyString\",\"fdh-location\":\"MyString\",\"rdt-location\":\"MyString\",\"ont-model\":\"MyString\",\"ont-sn\":\"MyString\",\"rdt-port-count\":\"MyString\",\"ont-ge-1-device\":\"MyString\",\"ont-ge-1-mac\":\"MyString\",\"ont-ge-2-device\":\"MyString\",\"ont-ge-2-mac\":\"MyString\",\"ont-ge-3-device\":\"MyString\",\"ont-ge-3-mac\":\"MyString\",\"ont-ge-4-device\":\"MyString\",\"ont-ge-4-mac\":\"MyString\"},\"relationships\":{\"sheet\":{\"links\":{\"self\":\"http://example.org/cable-runs/30/relationships/sheet\",\"related\":\"http://example.org/cable-runs/30/sheet\"}}}}}",
+      "response_body": "{\"data\":{\"id\":\"241\",\"type\":\"cable-runs\",\"links\":{\"self\":\"http://example.org/cable-runs/241\"},\"attributes\":{\"site\":\"Updated Site\",\"building\":\"MyString\",\"room\":\"MyString\",\"drop\":\"MyString\",\"rdt\":\"MyString\",\"rdt-port\":\"MyString\",\"fdh-port\":\"MyString\",\"splitter\":\"MyString\",\"splitter-fiber\":\"MyString\",\"pon-card\":\"MyString\",\"pon-port\":\"MyString\",\"fdh\":\"MyString\",\"notes\":\"MyText\",\"olt-rack\":\"MyString\",\"olt-chassis\":\"MyString\",\"vam-shelf\":\"MyString\",\"vam-module\":\"MyString\",\"vam-port\":\"MyString\",\"backbone-shelf\":\"MyString\",\"backbone-cable\":\"MyString\",\"backbone-port\":\"MyString\",\"fdh-location\":\"MyString\",\"rdt-location\":\"MyString\",\"ont-model\":\"MyString\",\"ont-sn\":\"MyString\",\"rdt-port-count\":\"MyString\",\"ont-ge-1-device\":\"MyString\",\"ont-ge-1-mac\":\"MyString\",\"ont-ge-2-device\":\"MyString\",\"ont-ge-2-mac\":\"MyString\",\"ont-ge-3-device\":\"MyString\",\"ont-ge-3-mac\":\"MyString\",\"ont-ge-4-device\":\"MyString\",\"ont-ge-4-mac\":\"MyString\"},\"relationships\":{\"sheet\":{\"links\":{\"self\":\"http://example.org/cable-runs/241/relationships/sheet\",\"related\":\"http://example.org/cable-runs/241/sheet\"}}}}}",
       "response_headers": {
         "Content-Type": "application/vnd.api+json"
       },

@@ -33,8 +33,8 @@
   "requests": [
     {
       "request_method": "PATCH",
-      "request_path": "/node-types/37",
-      "request_body": "{\"data\":{\"type\":\"node-types\",\"attributes\":{\"name\":\"Updated Node Type Name\"},\"id\":\"37\"}}",
+      "request_path": "/node-types/523",
+      "request_body": "{\"data\":{\"type\":\"node-types\",\"attributes\":{\"name\":\"Updated Node Type Name\"},\"id\":\"523\"}}",
       "request_headers": {
         "Content-Type": "application/vnd.api+json"
       },
@@ -43,7 +43,7 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "{\"data\":{\"id\":\"37\",\"type\":\"node-types\",\"links\":{\"self\":\"http://example.org/node-types/37\"},\"attributes\":{\"name\":\"Updated Node Type Name\",\"picture\":\"Picture URL\"}}}",
+      "response_body": "{\"data\":{\"id\":\"523\",\"type\":\"node-types\",\"links\":{\"self\":\"http://example.org/node-types/523\"},\"attributes\":{\"name\":\"Updated Node Type Name\",\"picture\":\"Picture URL\"},\"relationships\":{\"nodes\":{\"links\":{\"self\":\"http://example.org/node-types/523/relationships/nodes\",\"related\":\"http://example.org/node-types/523/nodes\"}}}}}",
       "response_headers": {
         "Content-Type": "application/vnd.api+json"
       },

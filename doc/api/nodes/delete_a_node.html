@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>NodeTypes API</title>
+    <title>Nodes API</title>
     <meta charset="utf-8">
     <style>
       
@@ -106,11 +106,11 @@ table th, table td {
   </head>
   <body>
     <div class="container">
-      <h1>NodeTypes API</h1>
+      <h1>Nodes API</h1>
 
       <div class="article">
-        <h2>Update a node-type</h2>
-        <h3>PATCH /node-types/:node_type_id</h3>
+        <h2>Delete a node</h2>
+        <h3>DELETE /nodes/:node_id</h3>
 
           <h3>Parameters</h3>
           <table class="parameters table table-striped table-bordered table-condensed">
@@ -126,23 +126,55 @@ table th, table td {
                     <span class="name">type</span>
                 </td>
                 <td>
-                  <span class="description">Should always be set to &lt;code&gt;node-types&lt;/code&gt;</span>
+                  <span class="description">Should always be set to &lt;code&gt;nodes&lt;/code&gt;</span>
                 </td>
               </tr>
               <tr>
                 <td class="required">
-                    <span class="name">attributes[name]</span>
+                    <span class="name">relationships[network-graph]</span>
                 </td>
                 <td>
-                  <span class="description">Node Type Name</span>
+                  <span class="description">Network Graph id</span>
+                </td>
+              </tr>
+              <tr>
+                <td class="required">
+                    <span class="name">relationships[node-type]</span>
+                </td>
+                <td>
+                  <span class="description">Node Type id</span>
                 </td>
               </tr>
               <tr>
                 <td>
-                    <span class="name">attributes[picture]</span>
+                    <span class="name">attributes[node-value]</span>
                 </td>
                 <td>
-                  <span class="description">Node Type Picture URL</span>
+                  <span class="description">Node Value</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">attributes[node-level]</span>
+                </td>
+                <td>
+                  <span class="description">Node Level</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">attributes[x-pos]</span>
+                </td>
+                <td>
+                  <span class="description">Node X Position</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">attributes[y-pos]</span>
+                </td>
+                <td>
+                  <span class="description">Node Y Position</span>
                 </td>
               </tr>
               <tr>
@@ -150,7 +182,7 @@ table th, table td {
                     <span class="name">id</span>
                 </td>
                 <td>
-                  <span class="description">The id of the node-type</span>
+                  <span class="description">The id of the node</span>
                 </td>
               </tr>
             </tbody>
@@ -163,20 +195,16 @@ table th, table td {
             <pre class="request headers">Content-Type: application/vnd.api+json</pre>
 
           <h4>Route</h4>
-          <pre class="request route highlight">PATCH /node-types/523</pre>
+          <pre class="request route highlight">DELETE /nodes/173</pre>
 
 
             <h4>Body</h4>
-            <pre class="request body">{"data":{"type":"node-types","attributes":{"name":"Updated Node Type Name"},"id":"523"}}</pre>
+            <pre class="request body">{"data":{"type":"nodes","relationships":{"network-graph":{"data":{"type":"network-graphs","id":500}},"node-type":{"data":{"type":"node-types","id":534}}},"id":"173"}}</pre>
 
 
             <h3>Response</h3>
-              <h4>Headers</h4>
-              <pre class="response headers">Content-Type: application/vnd.api+json</pre>
             <h4>Status</h4>
-            <pre class="response status">200 OK</pre>
-              <h4>Body</h4>
-              <pre class="response body">{&quot;data&quot;:{&quot;id&quot;:&quot;523&quot;,&quot;type&quot;:&quot;node-types&quot;,&quot;links&quot;:{&quot;self&quot;:&quot;http://example.org/node-types/523&quot;},&quot;attributes&quot;:{&quot;name&quot;:&quot;Updated Node Type Name&quot;,&quot;picture&quot;:&quot;Picture URL&quot;},&quot;relationships&quot;:{&quot;nodes&quot;:{&quot;links&quot;:{&quot;self&quot;:&quot;http://example.org/node-types/523/relationships/nodes&quot;,&quot;related&quot;:&quot;http://example.org/node-types/523/nodes&quot;}}}}}</pre>
+            <pre class="response status">204 No Content</pre>
       </div>
     </div>
   </body>

@@ -44,8 +44,8 @@
   "requests": [
     {
       "request_method": "PATCH",
-      "request_path": "/buildings/198",
-      "request_body": "{\"data\":{\"relationships\":{\"network-site\":{\"data\":{\"type\":\"network-sites\",\"id\":465}}},\"type\":\"buildings\",\"attributes\":{\"name\":\"Updated Building Name\"},\"id\":\"198\"}}",
+      "request_path": "/buildings/1559",
+      "request_body": "{\"data\":{\"relationships\":{\"network-site\":{\"data\":{\"type\":\"network-sites\",\"id\":3526}}},\"type\":\"buildings\",\"attributes\":{\"name\":\"Updated Building Name\"},\"id\":\"1559\"}}",
       "request_headers": {
         "Content-Type": "application/vnd.api+json"
       },
@@ -54,7 +54,7 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "{\"data\":{\"id\":\"198\",\"type\":\"buildings\",\"links\":{\"self\":\"http://example.org/buildings/198\"},\"attributes\":{\"name\":\"Updated Building Name\",\"lat\":\"39.290139\",\"lng\":\"-76.614766\",\"description\":\"MyText\"},\"relationships\":{\"network-site\":{\"links\":{\"self\":\"http://example.org/buildings/198/relationships/network-site\",\"related\":\"http://example.org/buildings/198/network-site\"}}}}}",
+      "response_body": "{\"data\":{\"id\":\"1559\",\"type\":\"buildings\",\"links\":{\"self\":\"http://example.org/buildings/1559\"},\"attributes\":{\"name\":\"Updated Building Name\",\"lat\":\"39.290139\",\"lng\":\"-76.614766\",\"description\":\"MyText\"},\"relationships\":{\"network-site\":{\"links\":{\"self\":\"http://example.org/buildings/1559/relationships/network-site\",\"related\":\"http://example.org/buildings/1559/network-site\"}}}}}",
       "response_headers": {
         "Content-Type": "application/vnd.api+json"
       },

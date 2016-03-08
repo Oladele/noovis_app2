@@ -1,46 +1,51 @@
 {
-  "resource": "NetworkSites",
+  "resource": "Nodes",
   "http_method": "DELETE",
-  "route": "/network-sites/:network_site_id",
-  "description": "Delete a network-site",
+  "route": "/nodes/:node_id",
+  "description": "Delete a node",
   "explanation": null,
   "parameters": [
     {
       "required": true,
       "name": "type",
-      "description": "Should always be set to <code>network-sites</code>"
+      "description": "Should always be set to <code>nodes</code>"
     },
     {
       "required": true,
       "scope": "relationships",
-      "name": "company",
-      "description": "Company id"
+      "name": "network-graph",
+      "description": "Network Graph id"
     },
     {
       "required": true,
-      "scope": "attributes",
-      "name": "name",
-      "description": "Network Site Name"
+      "scope": "relationships",
+      "name": "node-type",
+      "description": "Node Type id"
     },
     {
       "scope": "attributes",
-      "name": "lat",
-      "description": "Network Site Latitude"
+      "name": "node-value",
+      "description": "Node Value"
     },
     {
       "scope": "attributes",
-      "name": "lng",
-      "description": "Network Site Longitude"
+      "name": "node-level",
+      "description": "Node Level"
     },
     {
       "scope": "attributes",
-      "name": "address",
-      "description": "Address Field"
+      "name": "x-pos",
+      "description": "Node X Position"
+    },
+    {
+      "scope": "attributes",
+      "name": "y-pos",
+      "description": "Node Y Position"
     },
     {
       "required": true,
       "name": "id",
-      "description": "The id of the network-site"
+      "description": "The id of the node"
     }
   ],
   "response_fields": [
@@ -49,8 +54,8 @@
   "requests": [
     {
       "request_method": "DELETE",
-      "request_path": "/network-sites/3519",
-      "request_body": "{\"data\":{\"type\":\"network-sites\",\"relationships\":{\"company\":{\"data\":{\"type\":\"companies\",\"id\":3890}}},\"id\":\"3519\"}}",
+      "request_path": "/nodes/173",
+      "request_body": "{\"data\":{\"type\":\"nodes\",\"relationships\":{\"network-graph\":{\"data\":{\"type\":\"network-graphs\",\"id\":500}},\"node-type\":{\"data\":{\"type\":\"node-types\",\"id\":534}}},\"id\":\"173\"}}",
       "request_headers": {
         "Content-Type": "application/vnd.api+json"
       },

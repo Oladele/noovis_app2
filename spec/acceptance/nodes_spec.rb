@@ -13,16 +13,16 @@ RSpec.resource "Nodes" do
     parameter :"node-type",
       "Node Type id", 
       required: true, scope: :relationships
-    parameter :node_value,
+    parameter :"node-value",
       "Node Value", 
       scope: :attributes
-    parameter :node_level,
+    parameter :"node-level",
       "Node Level",
       scope: :attributes
-    parameter :x_pos,
+    parameter :"x-pos",
       "Node X Position",
       scope: :attributes
-    parameter :y_pos,
+    parameter :"y-pos",
       "Node Y Position",
       scope: :attributes
 
