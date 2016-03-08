@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160308001532) do
+ActiveRecord::Schema.define(version: 20160308002359) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -110,6 +110,13 @@ ActiveRecord::Schema.define(version: 20160308001532) do
   end
 
   add_index "network_templates", ["hierarchy"], name: "index_network_templates_on_hierarchy", using: :gin
+
+  create_table "node_types", force: :cascade do |t|
+    t.string   "name"
+    t.string   "url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "sheets", force: :cascade do |t|
     t.string   "name"

@@ -1,0 +1,2 @@
+class NodeTypesController < ApplicationController
+end
