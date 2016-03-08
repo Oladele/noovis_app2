@@ -12,106 +12,104 @@ RSpec.resource "CableRuns" do
       required: true, scope: :relationships
     parameter :site,
       "Site", 
-      required: true, scope: :attributes
+      scope: :attributes
     parameter :building,
       "Building", 
-      required: true, scope: :attributes
+      scope: :attributes
     parameter :room,
       "Room", 
-      required: true, scope: :attributes
+      scope: :attributes
     parameter :drop,
       "Drop", 
-      required: true, scope: :attributes
+      scope: :attributes
     parameter :rdt,
       "RDT", 
-      required: true, scope: :attributes
+      scope: :attributes
     parameter :rdt_port,
       "RDT Port", 
-      required: true, scope: :attributes
+      scope: :attributes
     parameter :fdh_port,
       "FDH Port", 
-      required: true, scope: :attributes
+      scope: :attributes
     parameter :splitter,
       "Splitter", 
-      required: true, scope: :attributes
+      scope: :attributes
     parameter :splitter_fiber,
       "Splitter Fiber", 
-      required: true, scope: :attributes
+      scope: :attributes
     parameter :pon_card,
       "PON Card", 
-      required: true, scope: :attributes
+      scope: :attributes
     parameter :pon_port,
       "PON Port", 
-      required: true, scope: :attributes
+      scope: :attributes
     parameter :fdh,
       "FDH", 
-      required: true, scope: :attributes
+      scope: :attributes
     parameter :notes,
       "Notes", 
-      required: true, scope: :attributes
+      scope: :attributes
     parameter :olt_rack,
       "OLT Rack", 
-      required: true, scope: :attributes
+      scope: :attributes
     parameter :olt_chassis,
       "OLT Chassis", 
-      required: true, scope: :attributes
+      scope: :attributes
     parameter :vam_shelf,
       "VAM Shelf", 
-      required: true, scope: :attributes
+      scope: :attributes
     parameter :vam_module,
       "VAM Module", 
-      required: true, scope: :attributes
+      scope: :attributes
     parameter :vam_port,
       "VAM Port", 
-      required: true, scope: :attributes
-    parameter :backbone_shelf,
       "Backbone Shelf", 
-      required: true, scope: :attributes
+      scope: :attributes
     parameter :backbone_cable,
       "Backbone Cable", 
-      required: true, scope: :attributes
+      scope: :attributes
     parameter :backbone_port,
       "Backbone Port", 
-      required: true, scope: :attributes
+      scope: :attributes
     parameter :fdh_location,
       "FDG Location", 
-      required: true, scope: :attributes
+      scope: :attributes
     parameter :rdt_location,
       "RDT Location", 
-      required: true, scope: :attributes
+      scope: :attributes
     parameter :ont_model,
       "ONT Model", 
-      required: true, scope: :attributes
+      scope: :attributes
     parameter :ont_sn,
       "ONT SN", 
-      required: true, scope: :attributes
+      scope: :attributes
     parameter :rdt_port_count,
       "RDT Port Count", 
-      required: true, scope: :attributes
+      scope: :attributes
     parameter :ont_ge_1_device,
       "ONT GE 1 Device", 
-      required: true, scope: :attributes
+      scope: :attributes
     parameter :ont_ge_1_mac,
       "ONT GE 1 MAC", 
-      required: true, scope: :attributes
+      scope: :attributes
     parameter :ont_ge_2_device,
       "ONT GE 2 Device", 
-      required: true, scope: :attributes
+      scope: :attributes
     parameter :ont_ge_2_mac,
       "ONT GE 2 MAC", 
-      required: true, scope: :attributes
+      scope: :attributes
     parameter :ont_ge_3_device,
       "ONT GE 3 Device", 
-      required: true, scope: :attributes
+      scope: :attributes
     parameter :ont_ge_3_mac,
       "ONT GE 3 MAC", 
-      required: true, scope: :attributes
+      scope: :attributes
     parameter :ont_ge_4_device,
       "ONT GE 4 Device", 
-      required: true, scope: :attributes
+      scope: :attributes
     parameter :ont_ge_4_mac,
       "ONT GE 4 MAC", 
-      required: true, scope: :attributes
+      scope: :attributes
 
     let(:type){ "cable-runs"}
     let(:sheet_id){ (FactoryGirl.create(:sheet)).id }

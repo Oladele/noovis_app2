@@ -49,8 +49,8 @@
   "requests": [
     {
       "request_method": "PATCH",
-      "request_path": "/network-sites/197",
-      "request_body": "{\"data\":{\"type\":\"network-sites\",\"relationships\":{\"company\":{\"data\":{\"type\":\"companies\",\"id\":226}}},\"attributes\":{\"name\":\"Updated Network Site Name\"},\"id\":\"197\"}}",
+      "request_path": "/network-sites/457",
+      "request_body": "{\"data\":{\"type\":\"network-sites\",\"relationships\":{\"company\":{\"data\":{\"type\":\"companies\",\"id\":520}}},\"attributes\":{\"name\":\"Updated Network Site Name\"},\"id\":\"457\"}}",
       "request_headers": {
         "Content-Type": "application/vnd.api+json"
       },
@@ -59,7 +59,7 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "{\"data\":{\"id\":\"197\",\"type\":\"network-sites\",\"links\":{\"self\":\"http://example.org/network-sites/197\"},\"attributes\":{\"name\":\"Updated Network Site Name\",\"lat\":\"39.290139\",\"lng\":\"-76.614766\",\"address\":\"MyString\"},\"relationships\":{\"company\":{\"links\":{\"self\":\"http://example.org/network-sites/197/relationships/company\",\"related\":\"http://example.org/network-sites/197/company\"}},\"buildings\":{\"links\":{\"self\":\"http://example.org/network-sites/197/relationships/buildings\",\"related\":\"http://example.org/network-sites/197/buildings\"}}}}}",
+      "response_body": "{\"data\":{\"id\":\"457\",\"type\":\"network-sites\",\"links\":{\"self\":\"http://example.org/network-sites/457\"},\"attributes\":{\"name\":\"Updated Network Site Name\",\"lat\":\"39.290139\",\"lng\":\"-76.614766\",\"address\":\"MyString\"},\"relationships\":{\"company\":{\"links\":{\"self\":\"http://example.org/network-sites/457/relationships/company\",\"related\":\"http://example.org/network-sites/457/company\"}},\"buildings\":{\"links\":{\"self\":\"http://example.org/network-sites/457/relationships/buildings\",\"related\":\"http://example.org/network-sites/457/buildings\"}}}}}",
       "response_headers": {
         "Content-Type": "application/vnd.api+json"
       },

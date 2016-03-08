@@ -49,8 +49,8 @@
   "requests": [
     {
       "request_method": "DELETE",
-      "request_path": "/network-sites/198",
-      "request_body": "{\"data\":{\"type\":\"network-sites\",\"relationships\":{\"company\":{\"data\":{\"type\":\"companies\",\"id\":228}}},\"id\":\"198\"}}",
+      "request_path": "/network-sites/456",
+      "request_body": "{\"data\":{\"type\":\"network-sites\",\"relationships\":{\"company\":{\"data\":{\"type\":\"companies\",\"id\":518}}},\"id\":\"456\"}}",
       "request_headers": {
         "Content-Type": "application/vnd.api+json"
       },

@@ -43,7 +43,7 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 201,
       "response_status_text": "Created",
-      "response_body": "{\"data\":{\"id\":\"31\",\"type\":\"network-templates\",\"links\":{\"self\":\"http://example.org/network-templates/31\"},\"attributes\":{\"name\":\"Template Name\",\"description\":null,\"hierarchy\":[]}}}",
+      "response_body": "{\"data\":{\"id\":\"91\",\"type\":\"network-templates\",\"links\":{\"self\":\"http://example.org/network-templates/91\"},\"attributes\":{\"name\":\"Template Name\",\"description\":null,\"hierarchy\":[]}}}",
       "response_headers": {
         "Content-Type": "application/vnd.api+json"
       },

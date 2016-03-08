@@ -1,4 +1,4 @@
-Delete a node-type
+Update a node-type
 ------------------
 
 Parameters:
@@ -8,14 +8,16 @@ Parameters:
   * id - The id of the node-type
 
 Request:
-  DELETE /node-types/11
+  PATCH /node-types/37
   Content-Type: application/vnd.api+json
 
-  {"data":{"type":"node-types","id":"11"}}
+  {"data":{"type":"node-types","attributes":{"name":"Updated Node Type Name"},"id":"37"}}
 
 Response:
-  Status: 204 No Content
+  Status: 200 OK
+  Content-Type: application/vnd.api+json
 
+  {"data":{"id":"37","type":"node-types","links":{"self":"http://example.org/node-types/37"},"attributes":{"name":"Updated Node Type Name","picture":"Picture URL"}}}
 
 
 Create a node type
@@ -36,7 +38,27 @@ Response:
   Status: 201 Created
   Content-Type: application/vnd.api+json
 
-  {"data":{"id":"12","type":"node-types","links":{"self":"http://example.org/node-types/12"},"attributes":{"name":"Node Type Name","picture":null}}}
+  {"data":{"id":"38","type":"node-types","links":{"self":"http://example.org/node-types/38"},"attributes":{"name":"Node Type Name","picture":null}}}
+
+
+Delete a node-type
+------------------
+
+Parameters:
+  * type - Should always be set to <code>node-types</code>
+  * name - Node Type Name
+  * picture - Node Type Picture URL
+  * id - The id of the node-type
+
+Request:
+  DELETE /node-types/39
+  Content-Type: application/vnd.api+json
+
+  {"data":{"type":"node-types","id":"39"}}
+
+Response:
+  Status: 204 No Content
+
 
 
 List all node-types
@@ -50,28 +72,6 @@ Response:
   Status: 200 OK
   Content-Type: application/vnd.api+json
 
-  {"data":[{"id":"13","type":"node-types","links":{"self":"http://example.org/node-types/13"},"attributes":{"name":"1st node type","picture":"Picture URL"}},{"id":"14","type":"node-types","links":{"self":"http://example.org/node-types/14"},"attributes":{"name":"2nd node type","picture":"Picture URL"}}],"meta":{"record-count":2},"links":{"first":"http://example.org/node-types?page%5Blimit%5D=10\u0026page%5Boffset%5D=0","last":"http://example.org/node-types?page%5Blimit%5D=10\u0026page%5Boffset%5D=0"}}
-
-
-Update a node-type
-------------------
-
-Parameters:
-  * type - Should always be set to <code>node-types</code>
-  * name - Node Type Name
-  * picture - Node Type Picture URL
-  * id - The id of the node-type
-
-Request:
-  PATCH /node-types/15
-  Content-Type: application/vnd.api+json
-
-  {"data":{"type":"node-types","attributes":{"name":"Updated Node Type Name"},"id":"15"}}
-
-Response:
-  Status: 200 OK
-  Content-Type: application/vnd.api+json
-
-  {"data":{"id":"15","type":"node-types","links":{"self":"http://example.org/node-types/15"},"attributes":{"name":"Updated Node Type Name","picture":"Picture URL"}}}
+  {"data":[{"id":"40","type":"node-types","links":{"self":"http://example.org/node-types/40"},"attributes":{"name":"1st node type","picture":"Picture URL"}},{"id":"41","type":"node-types","links":{"self":"http://example.org/node-types/41"},"attributes":{"name":"2nd node type","picture":"Picture URL"}}],"meta":{"record-count":2},"links":{"first":"http://example.org/node-types?page%5Blimit%5D=10\u0026page%5Boffset%5D=0","last":"http://example.org/node-types?page%5Blimit%5D=10\u0026page%5Boffset%5D=0"}}
 
 

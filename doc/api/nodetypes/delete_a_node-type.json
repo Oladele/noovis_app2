@@ -33,8 +33,8 @@
   "requests": [
     {
       "request_method": "DELETE",
-      "request_path": "/node-types/11",
-      "request_body": "{\"data\":{\"type\":\"node-types\",\"id\":\"11\"}}",
+      "request_path": "/node-types/39",
+      "request_body": "{\"data\":{\"type\":\"node-types\",\"id\":\"39\"}}",
       "request_headers": {
         "Content-Type": "application/vnd.api+json"
       },

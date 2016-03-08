@@ -34,6 +34,39 @@
       ]
     },
     {
+      "name": "CableRuns",
+      "examples": [
+        {
+          "description": "Create a network site",
+          "link": "cableruns/create_a_network_site.json",
+          "groups": "all",
+          "route": "/cable-runs",
+          "method": "post"
+        },
+        {
+          "description": "Delete a cable-run",
+          "link": "cableruns/delete_a_cable-run.json",
+          "groups": "all",
+          "route": "/cable-runs/:cable_run_id",
+          "method": "delete"
+        },
+        {
+          "description": "List all cable-runs",
+          "link": "cableruns/list_all_cable-runs.json",
+          "groups": "all",
+          "route": "/cable-runs",
+          "method": "get"
+        },
+        {
+          "description": "Update a cable-run",
+          "link": "cableruns/update_a_cable-run.json",
+          "groups": "all",
+          "route": "/cable-runs/:cable_run_id",
+          "method": "patch"
+        }
+      ]
+    },
+    {
       "name": "Companies",
       "examples": [
         {

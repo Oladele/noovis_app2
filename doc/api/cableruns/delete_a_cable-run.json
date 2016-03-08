@@ -1,0 +1,213 @@
+{
+  "resource": "CableRuns",
+  "http_method": "DELETE",
+  "route": "/cable-runs/:cable_run_id",
+  "description": "Delete a cable-run",
+  "explanation": null,
+  "parameters": [
+    {
+      "required": true,
+      "name": "type",
+      "description": "Should always be set to <code>cable-runs</code>"
+    },
+    {
+      "required": true,
+      "scope": "relationships",
+      "name": "sheet",
+      "description": "Sheet id"
+    },
+    {
+      "scope": "attributes",
+      "name": "site",
+      "description": "Site"
+    },
+    {
+      "scope": "attributes",
+      "name": "building",
+      "description": "Building"
+    },
+    {
+      "scope": "attributes",
+      "name": "room",
+      "description": "Room"
+    },
+    {
+      "scope": "attributes",
+      "name": "drop",
+      "description": "Drop"
+    },
+    {
+      "scope": "attributes",
+      "name": "rdt",
+      "description": "RDT"
+    },
+    {
+      "scope": "attributes",
+      "name": "rdt_port",
+      "description": "RDT Port"
+    },
+    {
+      "scope": "attributes",
+      "name": "fdh_port",
+      "description": "FDH Port"
+    },
+    {
+      "scope": "attributes",
+      "name": "splitter",
+      "description": "Splitter"
+    },
+    {
+      "scope": "attributes",
+      "name": "splitter_fiber",
+      "description": "Splitter Fiber"
+    },
+    {
+      "scope": "attributes",
+      "name": "pon_card",
+      "description": "PON Card"
+    },
+    {
+      "scope": "attributes",
+      "name": "pon_port",
+      "description": "PON Port"
+    },
+    {
+      "scope": "attributes",
+      "name": "fdh",
+      "description": "FDH"
+    },
+    {
+      "scope": "attributes",
+      "name": "notes",
+      "description": "Notes"
+    },
+    {
+      "scope": "attributes",
+      "name": "olt_rack",
+      "description": "OLT Rack"
+    },
+    {
+      "scope": "attributes",
+      "name": "olt_chassis",
+      "description": "OLT Chassis"
+    },
+    {
+      "scope": "attributes",
+      "name": "vam_shelf",
+      "description": "VAM Shelf"
+    },
+    {
+      "scope": "attributes",
+      "name": "vam_module",
+      "description": "VAM Module"
+    },
+    {
+      "scope": "attributes",
+      "name": "vam_port",
+      "description": "Backbone Shelf"
+    },
+    {
+      "scope": "attributes",
+      "name": "backbone_cable",
+      "description": "Backbone Cable"
+    },
+    {
+      "scope": "attributes",
+      "name": "backbone_port",
+      "description": "Backbone Port"
+    },
+    {
+      "scope": "attributes",
+      "name": "fdh_location",
+      "description": "FDG Location"
+    },
+    {
+      "scope": "attributes",
+      "name": "rdt_location",
+      "description": "RDT Location"
+    },
+    {
+      "scope": "attributes",
+      "name": "ont_model",
+      "description": "ONT Model"
+    },
+    {
+      "scope": "attributes",
+      "name": "ont_sn",
+      "description": "ONT SN"
+    },
+    {
+      "scope": "attributes",
+      "name": "rdt_port_count",
+      "description": "RDT Port Count"
+    },
+    {
+      "scope": "attributes",
+      "name": "ont_ge_1_device",
+      "description": "ONT GE 1 Device"
+    },
+    {
+      "scope": "attributes",
+      "name": "ont_ge_1_mac",
+      "description": "ONT GE 1 MAC"
+    },
+    {
+      "scope": "attributes",
+      "name": "ont_ge_2_device",
+      "description": "ONT GE 2 Device"
+    },
+    {
+      "scope": "attributes",
+      "name": "ont_ge_2_mac",
+      "description": "ONT GE 2 MAC"
+    },
+    {
+      "scope": "attributes",
+      "name": "ont_ge_3_device",
+      "description": "ONT GE 3 Device"
+    },
+    {
+      "scope": "attributes",
+      "name": "ont_ge_3_mac",
+      "description": "ONT GE 3 MAC"
+    },
+    {
+      "scope": "attributes",
+      "name": "ont_ge_4_device",
+      "description": "ONT GE 4 Device"
+    },
+    {
+      "scope": "attributes",
+      "name": "ont_ge_4_mac",
+      "description": "ONT GE 4 MAC"
+    },
+    {
+      "required": true,
+      "name": "id",
+      "description": "The id of the cable-run"
+    }
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "DELETE",
+      "request_path": "/cable-runs/31",
+      "request_body": "{\"data\":{\"type\":\"cable-runs\",\"relationships\":{\"sheet\":{\"data\":{\"type\":\"sheets\",\"id\":138}}},\"id\":\"31\"}}",
+      "request_headers": {
+        "Content-Type": "application/vnd.api+json"
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": "application/vnd.api+json",
+      "response_status": 204,
+      "response_status_text": "No Content",
+      "response_body": null,
+      "response_headers": {
+      },
+      "response_content_type": null,
+      "curl": null
+    }
+  ]
+}
