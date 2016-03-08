@@ -34,6 +34,39 @@
       ]
     },
     {
+      "name": "CableRuns",
+      "examples": [
+        {
+          "description": "Create a network site",
+          "link": "cableruns/create_a_network_site.json",
+          "groups": "all",
+          "route": "/cable-runs",
+          "method": "post"
+        },
+        {
+          "description": "Delete a cable-run",
+          "link": "cableruns/delete_a_cable-run.json",
+          "groups": "all",
+          "route": "/cable-runs/:cable_run_id",
+          "method": "delete"
+        },
+        {
+          "description": "List all cable-runs",
+          "link": "cableruns/list_all_cable-runs.json",
+          "groups": "all",
+          "route": "/cable-runs",
+          "method": "get"
+        },
+        {
+          "description": "Update a cable-run",
+          "link": "cableruns/update_a_cable-run.json",
+          "groups": "all",
+          "route": "/cable-runs/:cable_run_id",
+          "method": "patch"
+        }
+      ]
+    },
+    {
       "name": "Companies",
       "examples": [
         {
@@ -173,6 +206,72 @@
           "link": "networktemplates/update_a_network-template.json",
           "groups": "all",
           "route": "/network-templates/:network_template_id",
+          "method": "patch"
+        }
+      ]
+    },
+    {
+      "name": "NodeTypes",
+      "examples": [
+        {
+          "description": "Create a node type",
+          "link": "nodetypes/create_a_node_type.json",
+          "groups": "all",
+          "route": "/node-types",
+          "method": "post"
+        },
+        {
+          "description": "Delete a node-type",
+          "link": "nodetypes/delete_a_node-type.json",
+          "groups": "all",
+          "route": "/node-types/:node_type_id",
+          "method": "delete"
+        },
+        {
+          "description": "List all node-types",
+          "link": "nodetypes/list_all_node-types.json",
+          "groups": "all",
+          "route": "/node-types",
+          "method": "get"
+        },
+        {
+          "description": "Update a node-type",
+          "link": "nodetypes/update_a_node-type.json",
+          "groups": "all",
+          "route": "/node-types/:node_type_id",
+          "method": "patch"
+        }
+      ]
+    },
+    {
+      "name": "Nodes",
+      "examples": [
+        {
+          "description": "Create a node type",
+          "link": "nodes/create_a_node_type.json",
+          "groups": "all",
+          "route": "/nodes",
+          "method": "post"
+        },
+        {
+          "description": "Delete a node",
+          "link": "nodes/delete_a_node.json",
+          "groups": "all",
+          "route": "/nodes/:node_id",
+          "method": "delete"
+        },
+        {
+          "description": "List all nodes",
+          "link": "nodes/list_all_nodes.json",
+          "groups": "all",
+          "route": "/nodes",
+          "method": "get"
+        },
+        {
+          "description": "Update a node",
+          "link": "nodes/update_a_node.json",
+          "groups": "all",
+          "route": "/nodes/:node_id",
           "method": "patch"
         }
       ]

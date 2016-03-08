@@ -1,0 +1,214 @@
+{
+  "resource": "CableRuns",
+  "http_method": "PATCH",
+  "route": "/cable-runs/:cable_run_id",
+  "description": "Update a cable-run",
+  "explanation": null,
+  "parameters": [
+    {
+      "required": true,
+      "name": "type",
+      "description": "Should always be set to <code>cable-runs</code>"
+    },
+    {
+      "required": true,
+      "scope": "relationships",
+      "name": "sheet",
+      "description": "Sheet id"
+    },
+    {
+      "scope": "attributes",
+      "name": "site",
+      "description": "Site"
+    },
+    {
+      "scope": "attributes",
+      "name": "building",
+      "description": "Building"
+    },
+    {
+      "scope": "attributes",
+      "name": "room",
+      "description": "Room"
+    },
+    {
+      "scope": "attributes",
+      "name": "drop",
+      "description": "Drop"
+    },
+    {
+      "scope": "attributes",
+      "name": "rdt",
+      "description": "RDT"
+    },
+    {
+      "scope": "attributes",
+      "name": "rdt-port",
+      "description": "RDT Port"
+    },
+    {
+      "scope": "attributes",
+      "name": "fdh-port",
+      "description": "FDH Port"
+    },
+    {
+      "scope": "attributes",
+      "name": "splitter",
+      "description": "Splitter"
+    },
+    {
+      "scope": "attributes",
+      "name": "splitter-fiber",
+      "description": "Splitter Fiber"
+    },
+    {
+      "scope": "attributes",
+      "name": "pon-card",
+      "description": "PON Card"
+    },
+    {
+      "scope": "attributes",
+      "name": "pon-port",
+      "description": "PON Port"
+    },
+    {
+      "scope": "attributes",
+      "name": "fdh",
+      "description": "FDH"
+    },
+    {
+      "scope": "attributes",
+      "name": "notes",
+      "description": "Notes"
+    },
+    {
+      "scope": "attributes",
+      "name": "olt-rack",
+      "description": "OLT Rack"
+    },
+    {
+      "scope": "attributes",
+      "name": "olt-chassis",
+      "description": "OLT Chassis"
+    },
+    {
+      "scope": "attributes",
+      "name": "vam-shelf",
+      "description": "VAM Shelf"
+    },
+    {
+      "scope": "attributes",
+      "name": "vam-module",
+      "description": "VAM Module"
+    },
+    {
+      "scope": "attributes",
+      "name": "vam-port",
+      "description": "Backbone Shelf"
+    },
+    {
+      "scope": "attributes",
+      "name": "backbone-cable",
+      "description": "Backbone Cable"
+    },
+    {
+      "scope": "attributes",
+      "name": "backbone-port",
+      "description": "Backbone Port"
+    },
+    {
+      "scope": "attributes",
+      "name": "fdh-location",
+      "description": "FDG Location"
+    },
+    {
+      "scope": "attributes",
+      "name": "rdt-location",
+      "description": "RDT Location"
+    },
+    {
+      "scope": "attributes",
+      "name": "ont-model",
+      "description": "ONT Model"
+    },
+    {
+      "scope": "attributes",
+      "name": "ont-sn",
+      "description": "ONT SN"
+    },
+    {
+      "scope": "attributes",
+      "name": "rdt-port-count",
+      "description": "RDT Port Count"
+    },
+    {
+      "scope": "attributes",
+      "name": "ont-ge-1-device",
+      "description": "ONT GE 1 Device"
+    },
+    {
+      "scope": "attributes",
+      "name": "ont-ge-1-mac",
+      "description": "ONT GE 1 MAC"
+    },
+    {
+      "scope": "attributes",
+      "name": "ont-ge-2-device",
+      "description": "ONT GE 2 Device"
+    },
+    {
+      "scope": "attributes",
+      "name": "ont-ge-2-mac",
+      "description": "ONT GE 2 MAC"
+    },
+    {
+      "scope": "attributes",
+      "name": "ont-ge-3-device",
+      "description": "ONT GE 3 Device"
+    },
+    {
+      "scope": "attributes",
+      "name": "ont-ge-3-mac",
+      "description": "ONT GE 3 MAC"
+    },
+    {
+      "scope": "attributes",
+      "name": "ont-ge-4-device",
+      "description": "ONT GE 4 Device"
+    },
+    {
+      "scope": "attributes",
+      "name": "ont-ge-4-mac",
+      "description": "ONT GE 4 MAC"
+    },
+    {
+      "required": true,
+      "name": "id",
+      "description": "The id of the cable-run"
+    }
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "PATCH",
+      "request_path": "/cable-runs/241",
+      "request_body": "{\"data\":{\"type\":\"cable-runs\",\"relationships\":{\"sheet\":{\"data\":{\"type\":\"sheets\",\"id\":1148}}},\"attributes\":{\"site\":\"Updated Site\"},\"id\":\"241\"}}",
+      "request_headers": {
+        "Content-Type": "application/vnd.api+json"
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": "application/vnd.api+json",
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "{\"data\":{\"id\":\"241\",\"type\":\"cable-runs\",\"links\":{\"self\":\"http://example.org/cable-runs/241\"},\"attributes\":{\"site\":\"Updated Site\",\"building\":\"MyString\",\"room\":\"MyString\",\"drop\":\"MyString\",\"rdt\":\"MyString\",\"rdt-port\":\"MyString\",\"fdh-port\":\"MyString\",\"splitter\":\"MyString\",\"splitter-fiber\":\"MyString\",\"pon-card\":\"MyString\",\"pon-port\":\"MyString\",\"fdh\":\"MyString\",\"notes\":\"MyText\",\"olt-rack\":\"MyString\",\"olt-chassis\":\"MyString\",\"vam-shelf\":\"MyString\",\"vam-module\":\"MyString\",\"vam-port\":\"MyString\",\"backbone-shelf\":\"MyString\",\"backbone-cable\":\"MyString\",\"backbone-port\":\"MyString\",\"fdh-location\":\"MyString\",\"rdt-location\":\"MyString\",\"ont-model\":\"MyString\",\"ont-sn\":\"MyString\",\"rdt-port-count\":\"MyString\",\"ont-ge-1-device\":\"MyString\",\"ont-ge-1-mac\":\"MyString\",\"ont-ge-2-device\":\"MyString\",\"ont-ge-2-mac\":\"MyString\",\"ont-ge-3-device\":\"MyString\",\"ont-ge-3-mac\":\"MyString\",\"ont-ge-4-device\":\"MyString\",\"ont-ge-4-mac\":\"MyString\"},\"relationships\":{\"sheet\":{\"links\":{\"self\":\"http://example.org/cable-runs/241/relationships/sheet\",\"related\":\"http://example.org/cable-runs/241/sheet\"}}}}}",
+      "response_headers": {
+        "Content-Type": "application/vnd.api+json"
+      },
+      "response_content_type": "application/vnd.api+json",
+      "curl": null
+    }
+  ]
+}

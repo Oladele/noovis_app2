@@ -1,0 +1,34 @@
+{
+  "resource": "Nodes",
+  "http_method": "GET",
+  "route": "/nodes",
+  "description": "List all nodes",
+  "explanation": null,
+  "parameters": [
+
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "GET",
+      "request_path": "/nodes",
+      "request_body": null,
+      "request_headers": {
+        "Content-Type": "application/vnd.api+json"
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": "application/vnd.api+json",
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "{\"data\":[{\"id\":\"171\",\"type\":\"nodes\",\"links\":{\"self\":\"http://example.org/nodes/171\"},\"attributes\":{\"node-value\":\"MyString\",\"node-level\":1,\"x-pos\":\"9.99\",\"y-pos\":\"9.99\"},\"relationships\":{\"network-graph\":{\"links\":{\"self\":\"http://example.org/nodes/171/relationships/network-graph\",\"related\":\"http://example.org/nodes/171/network-graph\"}},\"node-type\":{\"links\":{\"self\":\"http://example.org/nodes/171/relationships/node-type\",\"related\":\"http://example.org/nodes/171/node-type\"}}}},{\"id\":\"172\",\"type\":\"nodes\",\"links\":{\"self\":\"http://example.org/nodes/172\"},\"attributes\":{\"node-value\":\"MyString\",\"node-level\":1,\"x-pos\":\"9.99\",\"y-pos\":\"9.99\"},\"relationships\":{\"network-graph\":{\"links\":{\"self\":\"http://example.org/nodes/172/relationships/network-graph\",\"related\":\"http://example.org/nodes/172/network-graph\"}},\"node-type\":{\"links\":{\"self\":\"http://example.org/nodes/172/relationships/node-type\",\"related\":\"http://example.org/nodes/172/node-type\"}}}}],\"meta\":{\"record-count\":2},\"links\":{\"first\":\"http://example.org/nodes?page%5Blimit%5D=10\\u0026page%5Boffset%5D=0\",\"last\":\"http://example.org/nodes?page%5Blimit%5D=10\\u0026page%5Boffset%5D=0\"}}",
+      "response_headers": {
+        "Content-Type": "application/vnd.api+json"
+      },
+      "response_content_type": "application/vnd.api+json",
+      "curl": null
+    }
+  ]
+}
