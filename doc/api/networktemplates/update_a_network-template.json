@@ -1,0 +1,59 @@
+{
+  "resource": "NetworkTemplates",
+  "http_method": "PATCH",
+  "route": "/network-templates/:network_template_id",
+  "description": "Update a network-template",
+  "explanation": null,
+  "parameters": [
+    {
+      "required": true,
+      "name": "type",
+      "description": "Should always be set to <code>network-templates</code>"
+    },
+    {
+      "required": true,
+      "scope": "attributes",
+      "name": "name",
+      "description": "Network Template Name"
+    },
+    {
+      "scope": "attributes",
+      "name": "description",
+      "description": "Network Template Description"
+    },
+    {
+      "scope": "attributes",
+      "name": "hierarchy",
+      "description": "Network Template Hierarchy"
+    },
+    {
+      "required": true,
+      "name": "id",
+      "description": "The id of the network-template"
+    }
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "PATCH",
+      "request_path": "/network-templates/824",
+      "request_body": "{\"data\":{\"type\":\"network-templates\",\"attributes\":{\"name\":\"Updated Network Template Name\"},\"id\":\"824\"}}",
+      "request_headers": {
+        "Content-Type": "application/vnd.api+json"
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": "application/vnd.api+json",
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "{\"data\":{\"id\":\"824\",\"type\":\"network-templates\",\"links\":{\"self\":\"http://example.org/network-templates/824\"},\"attributes\":{\"name\":\"Updated Network Template Name\",\"description\":\"MyString\",\"hierarchy\":[\"olt_chassis\",\"pon_card\",\"building\",\"fdh\",\"splitter\",\"rdt\",\"room\",\"ont_sn\",\"ont_ge_mac\"]},\"relationships\":{\"network-graphs\":{\"links\":{\"self\":\"http://example.org/network-templates/824/relationships/network-graphs\",\"related\":\"http://example.org/network-templates/824/network-graphs\"}}}}}",
+      "response_headers": {
+        "Content-Type": "application/vnd.api+json"
+      },
+      "response_content_type": "application/vnd.api+json",
+      "curl": null
+    }
+  ]
+}

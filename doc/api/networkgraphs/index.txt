@@ -1,0 +1,77 @@
+Create a network graph
+----------------------
+
+Parameters:
+  * type - Should always be set to <code>network-graphs</code>
+  * sheet - Sheet id
+  * network-template - Network Template id
+
+Request:
+  POST /network-graphs
+  Content-Type: application/vnd.api+json
+
+  {"data":{"type":"network-graphs","relationships":{"sheet":{"data":{"type":"sheets","id":1207}},"network-template":{"data":{"type":"network-templates","id":814}}}}}
+
+Response:
+  Status: 201 Created
+  Content-Type: application/vnd.api+json
+
+  {"data":{"id":"524","type":"network-graphs","links":{"self":"http://example.org/network-graphs/524"},"relationships":{"sheet":{"links":{"self":"http://example.org/network-graphs/524/relationships/sheet","related":"http://example.org/network-graphs/524/sheet"}},"network-template":{"links":{"self":"http://example.org/network-graphs/524/relationships/network-template","related":"http://example.org/network-graphs/524/network-template"}},"nodes":{"links":{"self":"http://example.org/network-graphs/524/relationships/nodes","related":"http://example.org/network-graphs/524/nodes"}}}}}
+
+
+Delete a network-graph
+----------------------
+
+Parameters:
+  * type - Should always be set to <code>network-graphs</code>
+  * sheet - Sheet id
+  * network-template - Network Template id
+  * id - The id of the network-graph
+
+Request:
+  DELETE /network-graphs/525
+  Content-Type: application/vnd.api+json
+
+  {"data":{"type":"network-graphs","relationships":{"sheet":{"data":{"type":"sheets","id":1209}},"network-template":{"data":{"type":"network-templates","id":816}}},"id":"525"}}
+
+Response:
+  Status: 204 No Content
+
+
+
+List all network-graphs
+-----------------------
+
+Request:
+  GET /network-graphs
+  Content-Type: application/vnd.api+json
+
+Response:
+  Status: 200 OK
+  Content-Type: application/vnd.api+json
+
+  {"data":[{"id":"526","type":"network-graphs","links":{"self":"http://example.org/network-graphs/526"},"relationships":{"sheet":{"links":{"self":"http://example.org/network-graphs/526/relationships/sheet","related":"http://example.org/network-graphs/526/sheet"}},"network-template":{"links":{"self":"http://example.org/network-graphs/526/relationships/network-template","related":"http://example.org/network-graphs/526/network-template"}},"nodes":{"links":{"self":"http://example.org/network-graphs/526/relationships/nodes","related":"http://example.org/network-graphs/526/nodes"}}}},{"id":"527","type":"network-graphs","links":{"self":"http://example.org/network-graphs/527"},"relationships":{"sheet":{"links":{"self":"http://example.org/network-graphs/527/relationships/sheet","related":"http://example.org/network-graphs/527/sheet"}},"network-template":{"links":{"self":"http://example.org/network-graphs/527/relationships/network-template","related":"http://example.org/network-graphs/527/network-template"}},"nodes":{"links":{"self":"http://example.org/network-graphs/527/relationships/nodes","related":"http://example.org/network-graphs/527/nodes"}}}}],"meta":{"record-count":2},"links":{"first":"http://example.org/network-graphs?page%5Blimit%5D=10\u0026page%5Boffset%5D=0","last":"http://example.org/network-graphs?page%5Blimit%5D=10\u0026page%5Boffset%5D=0"}}
+
+
+Update a network-graph
+----------------------
+
+Parameters:
+  * type - Should always be set to <code>network-graphs</code>
+  * sheet - Sheet id
+  * network-template - Network Template id
+  * id - The id of the network-graph
+
+Request:
+  PATCH /network-graphs/528
+  Content-Type: application/vnd.api+json
+
+  {"data":{"type":"network-graphs","relationships":{"sheet":{"data":{"type":"sheets","id":1213}},"network-template":{"data":{"type":"network-templates","id":820}}},"id":"528"}}
+
+Response:
+  Status: 200 OK
+  Content-Type: application/vnd.api+json
+
+  {"data":{"id":"528","type":"network-graphs","links":{"self":"http://example.org/network-graphs/528"},"relationships":{"sheet":{"links":{"self":"http://example.org/network-graphs/528/relationships/sheet","related":"http://example.org/network-graphs/528/sheet"}},"network-template":{"links":{"self":"http://example.org/network-graphs/528/relationships/network-template","related":"http://example.org/network-graphs/528/network-template"}},"nodes":{"links":{"self":"http://example.org/network-graphs/528/relationships/nodes","related":"http://example.org/network-graphs/528/nodes"}}}}}
+
+

@@ -1,0 +1,60 @@
+{
+  "resource": "Buildings",
+  "http_method": "POST",
+  "route": "/buildings",
+  "description": "Create a building",
+  "explanation": null,
+  "parameters": [
+    {
+      "required": true,
+      "scope": "relationships",
+      "name": "network-site",
+      "description": "Network site id"
+    },
+    {
+      "required": true,
+      "name": "type",
+      "description": "Should always be set to <code>buildings</code>"
+    },
+    {
+      "required": true,
+      "scope": "attributes",
+      "name": "name",
+      "description": "Building Name"
+    },
+    {
+      "scope": "attributes",
+      "name": "lat",
+      "description": "Building Latitude"
+    },
+    {
+      "scope": "attributes",
+      "name": "lng",
+      "description": "Building Longitude"
+    }
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "POST",
+      "request_path": "/buildings",
+      "request_body": "{\"data\":{\"relationships\":{\"network-site\":{\"data\":{\"type\":\"network-sites\",\"id\":3687}}},\"type\":\"buildings\",\"attributes\":{\"name\":\"Building Name\"}}}",
+      "request_headers": {
+        "Content-Type": "application/vnd.api+json"
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": "application/vnd.api+json",
+      "response_status": 201,
+      "response_status_text": "Created",
+      "response_body": "{\"data\":{\"id\":\"1630\",\"type\":\"buildings\",\"links\":{\"self\":\"http://example.org/buildings/1630\"},\"attributes\":{\"name\":\"Building Name\",\"lat\":null,\"lng\":null,\"description\":null},\"relationships\":{\"network-site\":{\"links\":{\"self\":\"http://example.org/buildings/1630/relationships/network-site\",\"related\":\"http://example.org/buildings/1630/network-site\"}},\"sheets\":{\"links\":{\"self\":\"http://example.org/buildings/1630/relationships/sheets\",\"related\":\"http://example.org/buildings/1630/sheets\"}}}}}",
+      "response_headers": {
+        "Content-Type": "application/vnd.api+json"
+      },
+      "response_content_type": "application/vnd.api+json",
+      "curl": null
+    }
+  ]
+}

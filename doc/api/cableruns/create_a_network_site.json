@@ -1,0 +1,209 @@
+{
+  "resource": "CableRuns",
+  "http_method": "POST",
+  "route": "/cable-runs",
+  "description": "Create a network site",
+  "explanation": null,
+  "parameters": [
+    {
+      "required": true,
+      "name": "type",
+      "description": "Should always be set to <code>cable-runs</code>"
+    },
+    {
+      "required": true,
+      "scope": "relationships",
+      "name": "sheet",
+      "description": "Sheet id"
+    },
+    {
+      "scope": "attributes",
+      "name": "site",
+      "description": "Site"
+    },
+    {
+      "scope": "attributes",
+      "name": "building",
+      "description": "Building"
+    },
+    {
+      "scope": "attributes",
+      "name": "room",
+      "description": "Room"
+    },
+    {
+      "scope": "attributes",
+      "name": "drop",
+      "description": "Drop"
+    },
+    {
+      "scope": "attributes",
+      "name": "rdt",
+      "description": "RDT"
+    },
+    {
+      "scope": "attributes",
+      "name": "rdt-port",
+      "description": "RDT Port"
+    },
+    {
+      "scope": "attributes",
+      "name": "fdh-port",
+      "description": "FDH Port"
+    },
+    {
+      "scope": "attributes",
+      "name": "splitter",
+      "description": "Splitter"
+    },
+    {
+      "scope": "attributes",
+      "name": "splitter-fiber",
+      "description": "Splitter Fiber"
+    },
+    {
+      "scope": "attributes",
+      "name": "pon-card",
+      "description": "PON Card"
+    },
+    {
+      "scope": "attributes",
+      "name": "pon-port",
+      "description": "PON Port"
+    },
+    {
+      "scope": "attributes",
+      "name": "fdh",
+      "description": "FDH"
+    },
+    {
+      "scope": "attributes",
+      "name": "notes",
+      "description": "Notes"
+    },
+    {
+      "scope": "attributes",
+      "name": "olt-rack",
+      "description": "OLT Rack"
+    },
+    {
+      "scope": "attributes",
+      "name": "olt-chassis",
+      "description": "OLT Chassis"
+    },
+    {
+      "scope": "attributes",
+      "name": "vam-shelf",
+      "description": "VAM Shelf"
+    },
+    {
+      "scope": "attributes",
+      "name": "vam-module",
+      "description": "VAM Module"
+    },
+    {
+      "scope": "attributes",
+      "name": "vam-port",
+      "description": "Backbone Shelf"
+    },
+    {
+      "scope": "attributes",
+      "name": "backbone-cable",
+      "description": "Backbone Cable"
+    },
+    {
+      "scope": "attributes",
+      "name": "backbone-port",
+      "description": "Backbone Port"
+    },
+    {
+      "scope": "attributes",
+      "name": "fdh-location",
+      "description": "FDG Location"
+    },
+    {
+      "scope": "attributes",
+      "name": "rdt-location",
+      "description": "RDT Location"
+    },
+    {
+      "scope": "attributes",
+      "name": "ont-model",
+      "description": "ONT Model"
+    },
+    {
+      "scope": "attributes",
+      "name": "ont-sn",
+      "description": "ONT SN"
+    },
+    {
+      "scope": "attributes",
+      "name": "rdt-port-count",
+      "description": "RDT Port Count"
+    },
+    {
+      "scope": "attributes",
+      "name": "ont-ge-1-device",
+      "description": "ONT GE 1 Device"
+    },
+    {
+      "scope": "attributes",
+      "name": "ont-ge-1-mac",
+      "description": "ONT GE 1 MAC"
+    },
+    {
+      "scope": "attributes",
+      "name": "ont-ge-2-device",
+      "description": "ONT GE 2 Device"
+    },
+    {
+      "scope": "attributes",
+      "name": "ont-ge-2-mac",
+      "description": "ONT GE 2 MAC"
+    },
+    {
+      "scope": "attributes",
+      "name": "ont-ge-3-device",
+      "description": "ONT GE 3 Device"
+    },
+    {
+      "scope": "attributes",
+      "name": "ont-ge-3-mac",
+      "description": "ONT GE 3 MAC"
+    },
+    {
+      "scope": "attributes",
+      "name": "ont-ge-4-device",
+      "description": "ONT GE 4 Device"
+    },
+    {
+      "scope": "attributes",
+      "name": "ont-ge-4-mac",
+      "description": "ONT GE 4 MAC"
+    }
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "POST",
+      "request_path": "/cable-runs",
+      "request_body": "{\"data\":{\"type\":\"cable-runs\",\"relationships\":{\"sheet\":{\"data\":{\"type\":\"sheets\",\"id\":1193}}},\"attributes\":{\"site\":\"Site Name\"}}}",
+      "request_headers": {
+        "Content-Type": "application/vnd.api+json"
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": "application/vnd.api+json",
+      "response_status": 201,
+      "response_status_text": "Created",
+      "response_body": "{\"data\":{\"id\":\"251\",\"type\":\"cable-runs\",\"links\":{\"self\":\"http://example.org/cable-runs/251\"},\"attributes\":{\"site\":\"Site Name\",\"building\":null,\"room\":null,\"drop\":null,\"rdt\":null,\"rdt-port\":null,\"fdh-port\":null,\"splitter\":null,\"splitter-fiber\":null,\"pon-card\":null,\"pon-port\":null,\"fdh\":null,\"notes\":null,\"olt-rack\":null,\"olt-chassis\":null,\"vam-shelf\":null,\"vam-module\":null,\"vam-port\":null,\"backbone-shelf\":null,\"backbone-cable\":null,\"backbone-port\":null,\"fdh-location\":null,\"rdt-location\":null,\"ont-model\":null,\"ont-sn\":null,\"rdt-port-count\":null,\"ont-ge-1-device\":null,\"ont-ge-1-mac\":null,\"ont-ge-2-device\":null,\"ont-ge-2-mac\":null,\"ont-ge-3-device\":null,\"ont-ge-3-mac\":null,\"ont-ge-4-device\":null,\"ont-ge-4-mac\":null},\"relationships\":{\"sheet\":{\"links\":{\"self\":\"http://example.org/cable-runs/251/relationships/sheet\",\"related\":\"http://example.org/cable-runs/251/sheet\"}}}}}",
+      "response_headers": {
+        "Content-Type": "application/vnd.api+json"
+      },
+      "response_content_type": "application/vnd.api+json",
+      "curl": null
+    }
+  ]
+}

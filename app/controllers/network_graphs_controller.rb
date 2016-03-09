@@ -1,0 +1,2 @@
+class NetworkGraphsController < ApplicationController
+end

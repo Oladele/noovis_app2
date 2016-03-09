@@ -1,0 +1,55 @@
+{
+  "resource": "NetworkGraphs",
+  "http_method": "PATCH",
+  "route": "/network-graphs/:network_graph_id",
+  "description": "Update a network-graph",
+  "explanation": null,
+  "parameters": [
+    {
+      "required": true,
+      "name": "type",
+      "description": "Should always be set to <code>network-graphs</code>"
+    },
+    {
+      "required": true,
+      "scope": "relationships",
+      "name": "sheet",
+      "description": "Sheet id"
+    },
+    {
+      "required": true,
+      "scope": "relationships",
+      "name": "network-template",
+      "description": "Network Template id"
+    },
+    {
+      "required": true,
+      "name": "id",
+      "description": "The id of the network-graph"
+    }
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "PATCH",
+      "request_path": "/network-graphs/528",
+      "request_body": "{\"data\":{\"type\":\"network-graphs\",\"relationships\":{\"sheet\":{\"data\":{\"type\":\"sheets\",\"id\":1213}},\"network-template\":{\"data\":{\"type\":\"network-templates\",\"id\":820}}},\"id\":\"528\"}}",
+      "request_headers": {
+        "Content-Type": "application/vnd.api+json"
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": "application/vnd.api+json",
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "{\"data\":{\"id\":\"528\",\"type\":\"network-graphs\",\"links\":{\"self\":\"http://example.org/network-graphs/528\"},\"relationships\":{\"sheet\":{\"links\":{\"self\":\"http://example.org/network-graphs/528/relationships/sheet\",\"related\":\"http://example.org/network-graphs/528/sheet\"}},\"network-template\":{\"links\":{\"self\":\"http://example.org/network-graphs/528/relationships/network-template\",\"related\":\"http://example.org/network-graphs/528/network-template\"}},\"nodes\":{\"links\":{\"self\":\"http://example.org/network-graphs/528/relationships/nodes\",\"related\":\"http://example.org/network-graphs/528/nodes\"}}}}}",
+      "response_headers": {
+        "Content-Type": "application/vnd.api+json"
+      },
+      "response_content_type": "application/vnd.api+json",
+      "curl": null
+    }
+  ]
+}

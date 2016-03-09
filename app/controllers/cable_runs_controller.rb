@@ -1,0 +1,2 @@
+class CableRunsController < ApplicationController
+end

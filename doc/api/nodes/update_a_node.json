@@ -1,0 +1,75 @@
+{
+  "resource": "Nodes",
+  "http_method": "PATCH",
+  "route": "/nodes/:node_id",
+  "description": "Update a node",
+  "explanation": null,
+  "parameters": [
+    {
+      "required": true,
+      "name": "type",
+      "description": "Should always be set to <code>nodes</code>"
+    },
+    {
+      "required": true,
+      "scope": "relationships",
+      "name": "network-graph",
+      "description": "Network Graph id"
+    },
+    {
+      "required": true,
+      "scope": "relationships",
+      "name": "node-type",
+      "description": "Node Type id"
+    },
+    {
+      "scope": "attributes",
+      "name": "node-value",
+      "description": "Node Value"
+    },
+    {
+      "scope": "attributes",
+      "name": "node-level",
+      "description": "Node Level"
+    },
+    {
+      "scope": "attributes",
+      "name": "x-pos",
+      "description": "Node X Position"
+    },
+    {
+      "scope": "attributes",
+      "name": "y-pos",
+      "description": "Node Y Position"
+    },
+    {
+      "required": true,
+      "name": "id",
+      "description": "The id of the node"
+    }
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "PATCH",
+      "request_path": "/nodes/185",
+      "request_body": "{\"data\":{\"type\":\"nodes\",\"relationships\":{\"network-graph\":{\"data\":{\"type\":\"network-graphs\",\"id\":523}},\"node-type\":{\"data\":{\"type\":\"node-types\",\"id\":562}}},\"id\":\"185\"}}",
+      "request_headers": {
+        "Content-Type": "application/vnd.api+json"
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": "application/vnd.api+json",
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "{\"data\":{\"id\":\"185\",\"type\":\"nodes\",\"links\":{\"self\":\"http://example.org/nodes/185\"},\"attributes\":{\"node-value\":\"MyString\",\"node-level\":1,\"x-pos\":\"9.99\",\"y-pos\":\"9.99\"},\"relationships\":{\"network-graph\":{\"links\":{\"self\":\"http://example.org/nodes/185/relationships/network-graph\",\"related\":\"http://example.org/nodes/185/network-graph\"}},\"node-type\":{\"links\":{\"self\":\"http://example.org/nodes/185/relationships/node-type\",\"related\":\"http://example.org/nodes/185/node-type\"}}}}}",
+      "response_headers": {
+        "Content-Type": "application/vnd.api+json"
+      },
+      "response_content_type": "application/vnd.api+json",
+      "curl": null
+    }
+  ]
+}

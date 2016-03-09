@@ -1,0 +1,58 @@
+{
+  "resource": "NetworkTemplates",
+  "http_method": "DELETE",
+  "route": "/network-templates/:network_template_id",
+  "description": "Delete a network-template",
+  "explanation": null,
+  "parameters": [
+    {
+      "required": true,
+      "name": "type",
+      "description": "Should always be set to <code>network-templates</code>"
+    },
+    {
+      "required": true,
+      "scope": "attributes",
+      "name": "name",
+      "description": "Network Template Name"
+    },
+    {
+      "scope": "attributes",
+      "name": "description",
+      "description": "Network Template Description"
+    },
+    {
+      "scope": "attributes",
+      "name": "hierarchy",
+      "description": "Network Template Hierarchy"
+    },
+    {
+      "required": true,
+      "name": "id",
+      "description": "The id of the network-template"
+    }
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "DELETE",
+      "request_path": "/network-templates/821",
+      "request_body": "{\"data\":{\"type\":\"network-templates\",\"id\":\"821\"}}",
+      "request_headers": {
+        "Content-Type": "application/vnd.api+json"
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": "application/vnd.api+json",
+      "response_status": 204,
+      "response_status_text": "No Content",
+      "response_body": null,
+      "response_headers": {
+      },
+      "response_content_type": null,
+      "curl": null
+    }
+  ]
+}

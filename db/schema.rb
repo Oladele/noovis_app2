@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160120001841) do
+ActiveRecord::Schema.define(version: 20160308014633) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,6 +28,48 @@ ActiveRecord::Schema.define(version: 20160120001841) do
 
   add_index "buildings", ["network_site_id"], name: "index_buildings_on_network_site_id", using: :btree
 
+  create_table "cable_runs", force: :cascade do |t|
+    t.string   "site"
+    t.string   "building"
+    t.string   "room"
+    t.string   "drop"
+    t.string   "rdt"
+    t.string   "rdt_port"
+    t.string   "fdh_port"
+    t.string   "splitter"
+    t.string   "splitter_fiber"
+    t.integer  "sheet_id"
+    t.string   "pon_card"
+    t.string   "pon_port"
+    t.string   "fdh"
+    t.text     "notes"
+    t.string   "olt_rack"
+    t.string   "olt_chassis"
+    t.string   "vam_shelf"
+    t.string   "vam_module"
+    t.string   "vam_port"
+    t.string   "backbone_shelf"
+    t.string   "backbone_cable"
+    t.string   "backbone_port"
+    t.string   "fdh_location"
+    t.string   "rdt_location"
+    t.string   "ont_model"
+    t.string   "ont_sn"
+    t.string   "rdt_port_count"
+    t.string   "ont_ge_1_device"
+    t.string   "ont_ge_1_mac"
+    t.string   "ont_ge_2_device"
+    t.string   "ont_ge_2_mac"
+    t.string   "ont_ge_3_device"
+    t.string   "ont_ge_3_mac"
+    t.string   "ont_ge_4_device"
+    t.string   "ont_ge_4_mac"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
+  add_index "cable_runs", ["sheet_id"], name: "index_cable_runs_on_sheet_id", using: :btree
+
   create_table "companies", force: :cascade do |t|
     t.string   "name",       null: false
     t.datetime "created_at", null: false
@@ -35,6 +77,16 @@ ActiveRecord::Schema.define(version: 20160120001841) do
   end
 
   add_index "companies", ["name"], name: "index_companies_on_name", unique: true, using: :btree
+
+  create_table "network_graphs", force: :cascade do |t|
+    t.integer  "sheet_id"
+    t.integer  "network_template_id"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+  end
+
+  add_index "network_graphs", ["network_template_id"], name: "index_network_graphs_on_network_template_id", using: :btree
+  add_index "network_graphs", ["sheet_id"], name: "index_network_graphs_on_sheet_id", using: :btree
 
   create_table "network_sites", force: :cascade do |t|
     t.string   "name",                                null: false
@@ -49,6 +101,65 @@ ActiveRecord::Schema.define(version: 20160120001841) do
   add_index "network_sites", ["company_id", "name"], name: "index_network_sites_on_company_id_and_name", using: :btree
   add_index "network_sites", ["company_id"], name: "index_network_sites_on_company_id", using: :btree
 
+  create_table "network_templates", force: :cascade do |t|
+    t.string   "name"
+    t.string   "description"
+    t.string   "hierarchy",   default: [],              array: true
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+  end
+
+  add_index "network_templates", ["hierarchy"], name: "index_network_templates_on_hierarchy", using: :gin
+
+  create_table "node_types", force: :cascade do |t|
+    t.string   "name"
+    t.string   "picture"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "nodes", force: :cascade do |t|
+    t.integer  "network_graph_id"
+    t.integer  "node_type_id"
+    t.string   "node_value"
+    t.decimal  "x_pos",            precision: 8, scale: 2
+    t.decimal  "y_pos",            precision: 8, scale: 2
+    t.integer  "node_level"
+    t.datetime "created_at",                               null: false
+    t.datetime "updated_at",                               null: false
+  end
+
+  add_index "nodes", ["network_graph_id"], name: "index_nodes_on_network_graph_id", using: :btree
+  add_index "nodes", ["node_type_id"], name: "index_nodes_on_node_type_id", using: :btree
+
+  create_table "sheets", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "workbook_id"
+    t.integer  "building_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "sheets", ["building_id"], name: "index_sheets_on_building_id", using: :btree
+  add_index "sheets", ["workbook_id"], name: "index_sheets_on_workbook_id", using: :btree
+
+  create_table "workbooks", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "network_site_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
+  add_index "workbooks", ["network_site_id"], name: "index_workbooks_on_network_site_id", using: :btree
+
   add_foreign_key "buildings", "network_sites"
+  add_foreign_key "cable_runs", "sheets"
+  add_foreign_key "network_graphs", "network_templates"
+  add_foreign_key "network_graphs", "sheets"
   add_foreign_key "network_sites", "companies"
+  add_foreign_key "nodes", "network_graphs"
+  add_foreign_key "nodes", "node_types"
+  add_foreign_key "sheets", "buildings"
+  add_foreign_key "sheets", "workbooks"
+  add_foreign_key "workbooks", "network_sites"
 end

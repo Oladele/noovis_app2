@@ -1,0 +1,51 @@
+{
+  "resource": "ImportCableRuns",
+  "http_method": "POST",
+  "route": "/import_cable_run",
+  "description": "Upload sheet",
+  "explanation": null,
+  "parameters": [
+    {
+      "required": true,
+      "type": "Multipart/Form-data",
+      "name": "file",
+      "description": "Workbook File"
+    },
+    {
+      "required": true,
+      "type": "Multipart/Form-data",
+      "name": "sheet",
+      "description": "Sheet Name"
+    },
+    {
+      "required": true,
+      "type": "Multipart/Form-data",
+      "name": "building_id",
+      "description": "Building id"
+    }
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "POST",
+      "request_path": "/import_cable_run",
+      "request_body": "{\"data\":{\"file\":{\"content_type\":{\"content_type\":\"application/vnd.ms-excel\",\"binary\":true},\"original_filename\":\"test.xls\",\"tempfile\":[\"This is a test file\\n\"]},\"sheet\":\"Sheet1\",\"building_id\":1615}}",
+      "request_headers": {
+        "Content-Type": "multipart/form-data"
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": "multipart/form-data",
+      "response_status": 400,
+      "response_status_text": "Bad Request",
+      "response_body": "{\n  \"message\": \"Workbook file required\"\n}",
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": null
+    }
+  ]
+}

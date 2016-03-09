@@ -1,0 +1,61 @@
+{
+  "resource": "Sheets",
+  "http_method": "PATCH",
+  "route": "/sheets/:sheet_id",
+  "description": "Update a sheet",
+  "explanation": null,
+  "parameters": [
+    {
+      "required": true,
+      "scope": "relationships",
+      "name": "workbook",
+      "description": "Workbook id"
+    },
+    {
+      "required": true,
+      "scope": "relationships",
+      "name": "building",
+      "description": "Building id"
+    },
+    {
+      "required": true,
+      "name": "type",
+      "description": "Should always be set to <code>sheets</code>"
+    },
+    {
+      "required": true,
+      "scope": "attributes",
+      "name": "name",
+      "description": "Sheet Name"
+    },
+    {
+      "required": true,
+      "name": "id",
+      "description": "The id of the sheet"
+    }
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "PATCH",
+      "request_path": "/sheets/1216",
+      "request_body": "{\"data\":{\"relationships\":{\"workbook\":{\"data\":{\"type\":\"workbooks\",\"id\":1577}},\"building\":{\"data\":{\"type\":\"buildings\",\"id\":1646}}},\"type\":\"sheets\",\"attributes\":{\"name\":\"Updated Sheet Name\"},\"id\":\"1216\"}}",
+      "request_headers": {
+        "Content-Type": "application/vnd.api+json"
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": "application/vnd.api+json",
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "{\"data\":{\"id\":\"1216\",\"type\":\"sheets\",\"links\":{\"self\":\"http://example.org/sheets/1216\"},\"attributes\":{\"name\":\"Updated Sheet Name\"},\"relationships\":{\"workbook\":{\"links\":{\"self\":\"http://example.org/sheets/1216/relationships/workbook\",\"related\":\"http://example.org/sheets/1216/workbook\"}},\"building\":{\"links\":{\"self\":\"http://example.org/sheets/1216/relationships/building\",\"related\":\"http://example.org/sheets/1216/building\"}},\"cable-runs\":{\"links\":{\"self\":\"http://example.org/sheets/1216/relationships/cable-runs\",\"related\":\"http://example.org/sheets/1216/cable-runs\"}},\"network-graphs\":{\"links\":{\"self\":\"http://example.org/sheets/1216/relationships/network-graphs\",\"related\":\"http://example.org/sheets/1216/network-graphs\"}}}}}",
+      "response_headers": {
+        "Content-Type": "application/vnd.api+json"
+      },
+      "response_content_type": "application/vnd.api+json",
+      "curl": null
+    }
+  ]
+}
