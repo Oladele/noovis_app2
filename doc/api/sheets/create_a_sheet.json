@@ -36,7 +36,7 @@
     {
       "request_method": "POST",
       "request_path": "/sheets",
-      "request_body": "{\"data\":{\"relationships\":{\"workbook\":{\"data\":{\"type\":\"workbooks\",\"id\":1473}},\"building\":{\"data\":{\"type\":\"buildings\",\"id\":1539}}},\"type\":\"sheets\",\"attributes\":{\"name\":\"Sheet Name\"}}}",
+      "request_body": "{\"data\":{\"relationships\":{\"workbook\":{\"data\":{\"type\":\"workbooks\",\"id\":1575}},\"building\":{\"data\":{\"type\":\"buildings\",\"id\":1644}}},\"type\":\"sheets\",\"attributes\":{\"name\":\"Sheet Name\"}}}",
       "request_headers": {
         "Content-Type": "application/vnd.api+json"
       },
@@ -45,7 +45,7 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 201,
       "response_status_text": "Created",
-      "response_body": "{\"data\":{\"id\":\"1134\",\"type\":\"sheets\",\"links\":{\"self\":\"http://example.org/sheets/1134\"},\"attributes\":{\"name\":\"Sheet Name\"},\"relationships\":{\"workbook\":{\"links\":{\"self\":\"http://example.org/sheets/1134/relationships/workbook\",\"related\":\"http://example.org/sheets/1134/workbook\"}},\"building\":{\"links\":{\"self\":\"http://example.org/sheets/1134/relationships/building\",\"related\":\"http://example.org/sheets/1134/building\"}}}}}",
+      "response_body": "{\"data\":{\"id\":\"1215\",\"type\":\"sheets\",\"links\":{\"self\":\"http://example.org/sheets/1215\"},\"attributes\":{\"name\":\"Sheet Name\"},\"relationships\":{\"workbook\":{\"links\":{\"self\":\"http://example.org/sheets/1215/relationships/workbook\",\"related\":\"http://example.org/sheets/1215/workbook\"}},\"building\":{\"links\":{\"self\":\"http://example.org/sheets/1215/relationships/building\",\"related\":\"http://example.org/sheets/1215/building\"}},\"cable-runs\":{\"links\":{\"self\":\"http://example.org/sheets/1215/relationships/cable-runs\",\"related\":\"http://example.org/sheets/1215/cable-runs\"}},\"network-graphs\":{\"links\":{\"self\":\"http://example.org/sheets/1215/relationships/network-graphs\",\"related\":\"http://example.org/sheets/1215/network-graphs\"}}}}}",
       "response_headers": {
         "Content-Type": "application/vnd.api+json"
       },
