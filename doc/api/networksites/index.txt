@@ -11,10 +11,10 @@ Parameters:
   * id - The id of the network-site
 
 Request:
-  DELETE /network-sites/3519
+  DELETE /network-sites/3722
   Content-Type: application/vnd.api+json
 
-  {"data":{"type":"network-sites","relationships":{"company":{"data":{"type":"companies","id":3890}}},"id":"3519"}}
+  {"data":{"type":"network-sites","relationships":{"company":{"data":{"type":"companies","id":4114}}},"id":"3722"}}
 
 Response:
   Status: 204 No Content
@@ -32,7 +32,32 @@ Response:
   Status: 200 OK
   Content-Type: application/vnd.api+json
 
-  {"data":[{"id":"3520","type":"network-sites","links":{"self":"http://example.org/network-sites/3520"},"attributes":{"name":"1st site","lat":"39.290139","lng":"-76.614766","address":"MyString"},"relationships":{"company":{"links":{"self":"http://example.org/network-sites/3520/relationships/company","related":"http://example.org/network-sites/3520/company"}},"buildings":{"links":{"self":"http://example.org/network-sites/3520/relationships/buildings","related":"http://example.org/network-sites/3520/buildings"}}}},{"id":"3521","type":"network-sites","links":{"self":"http://example.org/network-sites/3521"},"attributes":{"name":"2nd site","lat":"39.290139","lng":"-76.614766","address":"MyString"},"relationships":{"company":{"links":{"self":"http://example.org/network-sites/3521/relationships/company","related":"http://example.org/network-sites/3521/company"}},"buildings":{"links":{"self":"http://example.org/network-sites/3521/relationships/buildings","related":"http://example.org/network-sites/3521/buildings"}}}}],"meta":{"record-count":2},"links":{"first":"http://example.org/network-sites?page%5Blimit%5D=10\u0026page%5Boffset%5D=0","last":"http://example.org/network-sites?page%5Blimit%5D=10\u0026page%5Boffset%5D=0"}}
+  {"data":[{"id":"3723","type":"network-sites","links":{"self":"http://example.org/network-sites/3723"},"attributes":{"name":"1st site","lat":"39.290139","lng":"-76.614766","address":"MyString"},"relationships":{"company":{"links":{"self":"http://example.org/network-sites/3723/relationships/company","related":"http://example.org/network-sites/3723/company"}},"buildings":{"links":{"self":"http://example.org/network-sites/3723/relationships/buildings","related":"http://example.org/network-sites/3723/buildings"}},"workbooks":{"links":{"self":"http://example.org/network-sites/3723/relationships/workbooks","related":"http://example.org/network-sites/3723/workbooks"}}}},{"id":"3724","type":"network-sites","links":{"self":"http://example.org/network-sites/3724"},"attributes":{"name":"2nd site","lat":"39.290139","lng":"-76.614766","address":"MyString"},"relationships":{"company":{"links":{"self":"http://example.org/network-sites/3724/relationships/company","related":"http://example.org/network-sites/3724/company"}},"buildings":{"links":{"self":"http://example.org/network-sites/3724/relationships/buildings","related":"http://example.org/network-sites/3724/buildings"}},"workbooks":{"links":{"self":"http://example.org/network-sites/3724/relationships/workbooks","related":"http://example.org/network-sites/3724/workbooks"}}}}],"meta":{"record-count":2},"links":{"first":"http://example.org/network-sites?page%5Blimit%5D=10\u0026page%5Boffset%5D=0","last":"http://example.org/network-sites?page%5Blimit%5D=10\u0026page%5Boffset%5D=0"}}
+
+
+Update a network-site
+---------------------
+
+Parameters:
+  * type - Should always be set to <code>network-sites</code>
+  * company - Company id
+  * name - Network Site Name
+  * lat - Network Site Latitude
+  * lng - Network Site Longitude
+  * address - Address Field
+  * id - The id of the network-site
+
+Request:
+  PATCH /network-sites/3725
+  Content-Type: application/vnd.api+json
+
+  {"data":{"type":"network-sites","relationships":{"company":{"data":{"type":"companies","id":4118}}},"attributes":{"name":"Updated Network Site Name"},"id":"3725"}}
+
+Response:
+  Status: 200 OK
+  Content-Type: application/vnd.api+json
+
+  {"data":{"id":"3725","type":"network-sites","links":{"self":"http://example.org/network-sites/3725"},"attributes":{"name":"Updated Network Site Name","lat":"39.290139","lng":"-76.614766","address":"MyString"},"relationships":{"company":{"links":{"self":"http://example.org/network-sites/3725/relationships/company","related":"http://example.org/network-sites/3725/company"}},"buildings":{"links":{"self":"http://example.org/network-sites/3725/relationships/buildings","related":"http://example.org/network-sites/3725/buildings"}},"workbooks":{"links":{"self":"http://example.org/network-sites/3725/relationships/workbooks","related":"http://example.org/network-sites/3725/workbooks"}}}}}
 
 
 Create a network site
@@ -50,37 +75,10 @@ Request:
   POST /network-sites
   Content-Type: application/vnd.api+json
 
-  {"data":{"type":"network-sites","relationships":{"company":{"data":{"type":"companies","id":3893}}},"attributes":{"name":"Site Name"}}}
+  {"data":{"type":"network-sites","relationships":{"company":{"data":{"type":"companies","id":4119}}},"attributes":{"name":"Site Name"}}}
 
 Response:
   Status: 201 Created
   Content-Type: application/vnd.api+json
 
-  {"data":{"id":"3522","type":"network-sites","links":{"self":"http://example.org/network-sites/3522"},"attributes":{"name":"Site Name","lat":null,"lng":null,"address":null},"relationships":{"company":{"links":{"self":"http://example.org/network-sites/3522/relationships/company","related":"http://example.org/network-sites/3522/company"}},"buildings":{"links":{"self":"http://example.org/network-sites/3522/relationships/buildings","related":"http://example.org/network-sites/3522/buildings"}}}}}
-
-
-Update a network-site
----------------------
-
-Parameters:
-  * type - Should always be set to <code>network-sites</code>
-  * company - Company id
-  * name - Network Site Name
-  * lat - Network Site Latitude
-  * lng - Network Site Longitude
-  * address - Address Field
-  * id - The id of the network-site
-
-Request:
-  PATCH /network-sites/3523
-  Content-Type: application/vnd.api+json
-
-  {"data":{"type":"network-sites","relationships":{"company":{"data":{"type":"companies","id":3895}}},"attributes":{"name":"Updated Network Site Name"},"id":"3523"}}
-
-Response:
-  Status: 200 OK
-  Content-Type: application/vnd.api+json
-
-  {"data":{"id":"3523","type":"network-sites","links":{"self":"http://example.org/network-sites/3523"},"attributes":{"name":"Updated Network Site Name","lat":"39.290139","lng":"-76.614766","address":"MyString"},"relationships":{"company":{"links":{"self":"http://example.org/network-sites/3523/relationships/company","related":"http://example.org/network-sites/3523/company"}},"buildings":{"links":{"self":"http://example.org/network-sites/3523/relationships/buildings","related":"http://example.org/network-sites/3523/buildings"}}}}}
-
-
+  {"data":{"id":"3726","type":"network-sites","links":{"self":"http://example.org/network-sites/3726"},"attributes":{"name":"Site Name","lat":null,"lng":null,"address":null},"relationships":{"company":{"links":{"self":"http://example.org/network-sites/3726/relationships/company","related":"http://example.org/network-sites/3726/company"}},"buildings":{"links":{"self":"http://example.org/network-sites/3726/relationships/buildings","related":"http://example.org/network-sites/3726/buildings"}},"workbooks":{"links":{"self":"http://example.org/network-sites/3726/relationships/workbooks","related":"http://example.org/network-sites/3726/workbooks"}}}}}

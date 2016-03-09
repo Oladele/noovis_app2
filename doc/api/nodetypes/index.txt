@@ -1,59 +1,3 @@
-Update a node-type
-------------------
-
-Parameters:
-  * type - Should always be set to <code>node-types</code>
-  * name - Node Type Name
-  * picture - Node Type Picture URL
-  * id - The id of the node-type
-
-Request:
-  PATCH /node-types/523
-  Content-Type: application/vnd.api+json
-
-  {"data":{"type":"node-types","attributes":{"name":"Updated Node Type Name"},"id":"523"}}
-
-Response:
-  Status: 200 OK
-  Content-Type: application/vnd.api+json
-
-  {"data":{"id":"523","type":"node-types","links":{"self":"http://example.org/node-types/523"},"attributes":{"name":"Updated Node Type Name","picture":"Picture URL"},"relationships":{"nodes":{"links":{"self":"http://example.org/node-types/523/relationships/nodes","related":"http://example.org/node-types/523/nodes"}}}}}
-
-
-Delete a node-type
-------------------
-
-Parameters:
-  * type - Should always be set to <code>node-types</code>
-  * name - Node Type Name
-  * picture - Node Type Picture URL
-  * id - The id of the node-type
-
-Request:
-  DELETE /node-types/524
-  Content-Type: application/vnd.api+json
-
-  {"data":{"type":"node-types","id":"524"}}
-
-Response:
-  Status: 204 No Content
-
-
-
-List all node-types
--------------------
-
-Request:
-  GET /node-types
-  Content-Type: application/vnd.api+json
-
-Response:
-  Status: 200 OK
-  Content-Type: application/vnd.api+json
-
-  {"data":[{"id":"525","type":"node-types","links":{"self":"http://example.org/node-types/525"},"attributes":{"name":"1st node type","picture":"Picture URL"},"relationships":{"nodes":{"links":{"self":"http://example.org/node-types/525/relationships/nodes","related":"http://example.org/node-types/525/nodes"}}}},{"id":"526","type":"node-types","links":{"self":"http://example.org/node-types/526"},"attributes":{"name":"2nd node type","picture":"Picture URL"},"relationships":{"nodes":{"links":{"self":"http://example.org/node-types/526/relationships/nodes","related":"http://example.org/node-types/526/nodes"}}}}],"meta":{"record-count":2},"links":{"first":"http://example.org/node-types?page%5Blimit%5D=10\u0026page%5Boffset%5D=0","last":"http://example.org/node-types?page%5Blimit%5D=10\u0026page%5Boffset%5D=0"}}
-
-
 Create a node type
 ------------------
 
@@ -72,6 +16,62 @@ Response:
   Status: 201 Created
   Content-Type: application/vnd.api+json
 
-  {"data":{"id":"527","type":"node-types","links":{"self":"http://example.org/node-types/527"},"attributes":{"name":"Node Type Name","picture":null},"relationships":{"nodes":{"links":{"self":"http://example.org/node-types/527/relationships/nodes","related":"http://example.org/node-types/527/nodes"}}}}}
+  {"data":{"id":"551","type":"node-types","links":{"self":"http://example.org/node-types/551"},"attributes":{"name":"Node Type Name","picture":null},"relationships":{"nodes":{"links":{"self":"http://example.org/node-types/551/relationships/nodes","related":"http://example.org/node-types/551/nodes"}}}}}
+
+
+List all node-types
+-------------------
+
+Request:
+  GET /node-types
+  Content-Type: application/vnd.api+json
+
+Response:
+  Status: 200 OK
+  Content-Type: application/vnd.api+json
+
+  {"data":[{"id":"552","type":"node-types","links":{"self":"http://example.org/node-types/552"},"attributes":{"name":"1st node type","picture":"Picture URL"},"relationships":{"nodes":{"links":{"self":"http://example.org/node-types/552/relationships/nodes","related":"http://example.org/node-types/552/nodes"}}}},{"id":"553","type":"node-types","links":{"self":"http://example.org/node-types/553"},"attributes":{"name":"2nd node type","picture":"Picture URL"},"relationships":{"nodes":{"links":{"self":"http://example.org/node-types/553/relationships/nodes","related":"http://example.org/node-types/553/nodes"}}}}],"meta":{"record-count":2},"links":{"first":"http://example.org/node-types?page%5Blimit%5D=10\u0026page%5Boffset%5D=0","last":"http://example.org/node-types?page%5Blimit%5D=10\u0026page%5Boffset%5D=0"}}
+
+
+Update a node-type
+------------------
+
+Parameters:
+  * type - Should always be set to <code>node-types</code>
+  * name - Node Type Name
+  * picture - Node Type Picture URL
+  * id - The id of the node-type
+
+Request:
+  PATCH /node-types/554
+  Content-Type: application/vnd.api+json
+
+  {"data":{"type":"node-types","attributes":{"name":"Updated Node Type Name"},"id":"554"}}
+
+Response:
+  Status: 200 OK
+  Content-Type: application/vnd.api+json
+
+  {"data":{"id":"554","type":"node-types","links":{"self":"http://example.org/node-types/554"},"attributes":{"name":"Updated Node Type Name","picture":"Picture URL"},"relationships":{"nodes":{"links":{"self":"http://example.org/node-types/554/relationships/nodes","related":"http://example.org/node-types/554/nodes"}}}}}
+
+
+Delete a node-type
+------------------
+
+Parameters:
+  * type - Should always be set to <code>node-types</code>
+  * name - Node Type Name
+  * picture - Node Type Picture URL
+  * id - The id of the node-type
+
+Request:
+  DELETE /node-types/555
+  Content-Type: application/vnd.api+json
+
+  {"data":{"type":"node-types","id":"555"}}
+
+Response:
+  Status: 204 No Content
+
 
 
