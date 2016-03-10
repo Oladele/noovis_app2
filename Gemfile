@@ -25,6 +25,7 @@ group :development, :test do
   #app-specific gems
   gem 'rspec-rails', '~> 3.0'
   gem "factory_girl_rails"
+  gem 'annotate'
 end
 
 #app-specific gems
