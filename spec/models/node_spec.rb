@@ -26,11 +26,11 @@ RSpec.describe Node, type: :model do
 	end
 
 	describe "associations" do
-	  it "should belong to a network graph" do
-      network_graph = FactoryGirl.create(:network_graph)
-      node = network_graph.nodes.build()
-      expect(node.network_graph).to eq network_graph
-	  end
+	  # it "should belong to a network graph" do
+   #    network_graph = FactoryGirl.create(:network_graph)
+   #    node = network_graph.nodes.build()
+   #    expect(node.network_graph).to eq network_graph
+	  # end
 	  
 	  it "should belong to a node type" do
       node_type = FactoryGirl.create(:node_type)
