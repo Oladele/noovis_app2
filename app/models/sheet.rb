@@ -19,4 +19,8 @@ class Sheet < ActiveRecord::Base
   validates :name, presence: true
   validates :workbook_id, presence: true
   validates :building_id, presence: true
+
+  def Sheet.which_have_graphs
+  	select {|sheet| !sheet.network_graphs.empty?}
+  end
 end
