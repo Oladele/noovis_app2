@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160308014633) do
+ActiveRecord::Schema.define(version: 20160316094324) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -77,6 +77,17 @@ ActiveRecord::Schema.define(version: 20160308014633) do
   end
 
   add_index "companies", ["name"], name: "index_companies_on_name", unique: true, using: :btree
+
+  create_table "edges", force: :cascade do |t|
+    t.integer  "network_graph_id"
+    t.integer  "to_node"
+    t.integer  "from_node"
+    t.integer  "level"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
+
+  add_index "edges", ["network_graph_id"], name: "index_edges_on_network_graph_id", using: :btree
 
   create_table "network_graphs", force: :cascade do |t|
     t.integer  "sheet_id"
@@ -154,6 +165,7 @@ ActiveRecord::Schema.define(version: 20160308014633) do
 
   add_foreign_key "buildings", "network_sites"
   add_foreign_key "cable_runs", "sheets"
+  add_foreign_key "edges", "network_graphs"
   add_foreign_key "network_graphs", "network_templates"
   add_foreign_key "network_graphs", "sheets"
   add_foreign_key "network_sites", "companies"
