@@ -107,8 +107,6 @@ class ImportCableRun
   end
 
   def save_sheet(book)
-    Sheet.where(name: @sheet, workbook: book).destroy_all
-
     @workbook_sheet = Sheet.new(name: @sheet, workbook: book, building_id: @building_id)
     
     if @workbook_sheet.save
