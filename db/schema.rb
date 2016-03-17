@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160316094324) do
+ActiveRecord::Schema.define(version: 20160317155821) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -80,9 +80,9 @@ ActiveRecord::Schema.define(version: 20160316094324) do
 
   create_table "edges", force: :cascade do |t|
     t.integer  "network_graph_id"
-    t.integer  "to_node"
-    t.integer  "from_node"
-    t.integer  "level"
+    t.integer  "to_node_id"
+    t.integer  "from_node_id"
+    t.integer  "edge_level"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
   end
@@ -131,17 +131,18 @@ ActiveRecord::Schema.define(version: 20160316094324) do
 
   create_table "nodes", force: :cascade do |t|
     t.integer  "network_graph_id"
-    t.integer  "node_type_id"
     t.string   "node_value"
-    t.decimal  "x_pos",            precision: 8, scale: 2
-    t.decimal  "y_pos",            precision: 8, scale: 2
     t.integer  "node_level"
-    t.datetime "created_at",                               null: false
-    t.datetime "updated_at",                               null: false
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.integer  "parent_id"
+    t.integer  "cable_run_id"
+    t.string   "node_type"
   end
 
+  add_index "nodes", ["cable_run_id"], name: "index_nodes_on_cable_run_id", using: :btree
   add_index "nodes", ["network_graph_id"], name: "index_nodes_on_network_graph_id", using: :btree
-  add_index "nodes", ["node_type_id"], name: "index_nodes_on_node_type_id", using: :btree
+  add_index "nodes", ["parent_id"], name: "index_nodes_on_parent_id", using: :btree
 
   create_table "sheets", force: :cascade do |t|
     t.string   "name"
@@ -170,7 +171,6 @@ ActiveRecord::Schema.define(version: 20160316094324) do
   add_foreign_key "network_graphs", "sheets"
   add_foreign_key "network_sites", "companies"
   add_foreign_key "nodes", "network_graphs"
-  add_foreign_key "nodes", "node_types"
   add_foreign_key "sheets", "buildings"
   add_foreign_key "sheets", "workbooks"
   add_foreign_key "workbooks", "network_sites"

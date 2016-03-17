@@ -9,7 +9,6 @@ Rails.application.routes.draw do
   jsonapi_resources :sheets
   jsonapi_resources :network_templates
   jsonapi_resources :network_graphs
-  jsonapi_resources :node_types
 
 
   get 'buildings/:id/latest_network_graph', to: 'buildings#latest_network_graph'
