@@ -111,6 +111,11 @@ class ImportCableRun
     
     if @workbook_sheet.save
       save_cable_run
+      # create network_graph, nodes, edges
+      if network_template = NetworkTemplate.first
+        network_graph = @workbook_sheet.network_graphs.create network_template: network_template
+        network_graph.make_nodes_edges
+      end
     else
       set_status :unprocessable_entity,
         "Cannot create sheet #{@sheet} for workbook #{@filename}: #{@workbook_sheet.errors.full_messages}"
