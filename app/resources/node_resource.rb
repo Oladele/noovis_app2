@@ -1,7 +1,6 @@
 class NodeResource < JSONAPI::Resource
-  attributes :node_value, :node_level, :x_pos, :y_pos
+  attributes :node_value, :node_level, :node_type
   has_one :network_graph
-  has_one :node_type
 
-  filter :network_graph, :node_type
+  filter :network_graph
 end

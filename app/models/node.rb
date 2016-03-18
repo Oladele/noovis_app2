@@ -29,6 +29,7 @@ class Node < ActiveRecord::Base
   belongs_to :cable_run
 
   validates :network_graph_id, presence: true
+  validates :node_type, presence: true
 
   def is_blank
     @node_value == "" or node_value == nil or (/blank/ =~ node_value) == 0
