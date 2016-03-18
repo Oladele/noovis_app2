@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160317155821) do
+ActiveRecord::Schema.define(version: 20160317213903) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -85,6 +85,9 @@ ActiveRecord::Schema.define(version: 20160317155821) do
     t.integer  "edge_level"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
+    t.integer  "level"
+    t.integer  "to"
+    t.integer  "from"
   end
 
   add_index "edges", ["network_graph_id"], name: "index_edges_on_network_graph_id", using: :btree
@@ -138,6 +141,8 @@ ActiveRecord::Schema.define(version: 20160317155821) do
     t.integer  "parent_id"
     t.integer  "cable_run_id"
     t.string   "node_type"
+    t.string   "label"
+    t.string   "level"
   end
 
   add_index "nodes", ["cable_run_id"], name: "index_nodes_on_cable_run_id", using: :btree

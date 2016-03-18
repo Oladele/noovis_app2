@@ -9,6 +9,9 @@
 #  edge_level       :integer
 #  created_at       :datetime         not null
 #  updated_at       :datetime         not null
+#  level            :integer
+#  to               :integer
+#  from             :integer
 #
 
 require 'rails_helper'

@@ -11,6 +11,8 @@
 #  parent_id        :integer
 #  cable_run_id     :integer
 #  node_type        :string
+#  label            :string
+#  level            :string
 #
 
 require 'rails_helper'

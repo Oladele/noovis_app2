@@ -63,7 +63,7 @@ class NetworkGraph < ActiveRecord::Base
     set_nodes_edges
   end
 
-  private
+  # private
 
     def fill_blanks_and_sort(rows)
 
@@ -130,7 +130,9 @@ class NetworkGraph < ActiveRecord::Base
           node_type: node_type, 
           node_level: level,
           cable_run_id: cable_run_id,
-          parent: parent
+          parent: parent,
+          label: value, #TODO: should be presentation concern
+          level: level #TODO: should be presentation concern
         }
 
         node = create_node node_params, row
@@ -178,9 +180,10 @@ class NetworkGraph < ActiveRecord::Base
         end
       end
 
-      if @node_types_whose_values_should_include_parent_value.include? node.node_type
-        node.node_value = "#{node.parent.node_value}/#{node.node_value}"
-      end
+      # TODO: Review why this code cuses pon_port to be counted as unique for each row
+      # if @node_types_whose_values_should_include_parent_value.include? node.node_type
+      #   node.node_value = "#{node.parent.node_value}/#{node.node_value}"
+      # end
 
 
       @nodes_in_memory << node
@@ -235,7 +238,10 @@ class NetworkGraph < ActiveRecord::Base
           to_node_id: to_id,
           from_node_id: node.id,
           edge_level: node.node_level,
-          network_graph_id: id
+          network_graph_id: id,
+          to: to_id, #TODO: should be presentation concern
+          from: node.id, #TODO: should be presentation concern
+          level: node.node_level #TODO: should be presentation concern
         }
         edge = edges.create edge_params
         node_edges << edge
