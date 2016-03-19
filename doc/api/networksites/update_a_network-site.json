@@ -49,8 +49,8 @@
   "requests": [
     {
       "request_method": "PATCH",
-      "request_path": "/network-sites/3725",
-      "request_body": "{\"data\":{\"type\":\"network-sites\",\"relationships\":{\"company\":{\"data\":{\"type\":\"companies\",\"id\":4118}}},\"attributes\":{\"name\":\"Updated Network Site Name\"},\"id\":\"3725\"}}",
+      "request_path": "/network-sites/3966",
+      "request_body": "{\"data\":{\"type\":\"network-sites\",\"relationships\":{\"company\":{\"data\":{\"type\":\"companies\",\"id\":4384}}},\"attributes\":{\"name\":\"Updated Network Site Name\"},\"id\":\"3966\"}}",
       "request_headers": {
         "Content-Type": "application/vnd.api+json"
       },
@@ -59,7 +59,7 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "{\"data\":{\"id\":\"3725\",\"type\":\"network-sites\",\"links\":{\"self\":\"http://example.org/network-sites/3725\"},\"attributes\":{\"name\":\"Updated Network Site Name\",\"lat\":\"39.290139\",\"lng\":\"-76.614766\",\"address\":\"MyString\"},\"relationships\":{\"company\":{\"links\":{\"self\":\"http://example.org/network-sites/3725/relationships/company\",\"related\":\"http://example.org/network-sites/3725/company\"}},\"buildings\":{\"links\":{\"self\":\"http://example.org/network-sites/3725/relationships/buildings\",\"related\":\"http://example.org/network-sites/3725/buildings\"}},\"workbooks\":{\"links\":{\"self\":\"http://example.org/network-sites/3725/relationships/workbooks\",\"related\":\"http://example.org/network-sites/3725/workbooks\"}}}}}",
+      "response_body": "{\"data\":{\"id\":\"3966\",\"type\":\"network-sites\",\"links\":{\"self\":\"http://example.org/network-sites/3966\"},\"attributes\":{\"name\":\"Updated Network Site Name\",\"lat\":\"39.290139\",\"lng\":\"-76.614766\",\"address\":\"MyString\"},\"relationships\":{\"company\":{\"links\":{\"self\":\"http://example.org/network-sites/3966/relationships/company\",\"related\":\"http://example.org/network-sites/3966/company\"}},\"buildings\":{\"links\":{\"self\":\"http://example.org/network-sites/3966/relationships/buildings\",\"related\":\"http://example.org/network-sites/3966/buildings\"}},\"workbooks\":{\"links\":{\"self\":\"http://example.org/network-sites/3966/relationships/workbooks\",\"related\":\"http://example.org/network-sites/3966/workbooks\"}}}}}",
       "response_headers": {
         "Content-Type": "application/vnd.api+json"
       },

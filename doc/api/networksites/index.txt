@@ -11,10 +11,10 @@ Parameters:
   * id - The id of the network-site
 
 Request:
-  DELETE /network-sites/3722
+  DELETE /network-sites/3963
   Content-Type: application/vnd.api+json
 
-  {"data":{"type":"network-sites","relationships":{"company":{"data":{"type":"companies","id":4114}}},"id":"3722"}}
+  {"data":{"type":"network-sites","relationships":{"company":{"data":{"type":"companies","id":4380}}},"id":"3963"}}
 
 Response:
   Status: 204 No Content
@@ -32,7 +32,7 @@ Response:
   Status: 200 OK
   Content-Type: application/vnd.api+json
 
-  {"data":[{"id":"3723","type":"network-sites","links":{"self":"http://example.org/network-sites/3723"},"attributes":{"name":"1st site","lat":"39.290139","lng":"-76.614766","address":"MyString"},"relationships":{"company":{"links":{"self":"http://example.org/network-sites/3723/relationships/company","related":"http://example.org/network-sites/3723/company"}},"buildings":{"links":{"self":"http://example.org/network-sites/3723/relationships/buildings","related":"http://example.org/network-sites/3723/buildings"}},"workbooks":{"links":{"self":"http://example.org/network-sites/3723/relationships/workbooks","related":"http://example.org/network-sites/3723/workbooks"}}}},{"id":"3724","type":"network-sites","links":{"self":"http://example.org/network-sites/3724"},"attributes":{"name":"2nd site","lat":"39.290139","lng":"-76.614766","address":"MyString"},"relationships":{"company":{"links":{"self":"http://example.org/network-sites/3724/relationships/company","related":"http://example.org/network-sites/3724/company"}},"buildings":{"links":{"self":"http://example.org/network-sites/3724/relationships/buildings","related":"http://example.org/network-sites/3724/buildings"}},"workbooks":{"links":{"self":"http://example.org/network-sites/3724/relationships/workbooks","related":"http://example.org/network-sites/3724/workbooks"}}}}],"meta":{"record-count":2},"links":{"first":"http://example.org/network-sites?page%5Blimit%5D=10\u0026page%5Boffset%5D=0","last":"http://example.org/network-sites?page%5Blimit%5D=10\u0026page%5Boffset%5D=0"}}
+  {"data":[{"id":"3964","type":"network-sites","links":{"self":"http://example.org/network-sites/3964"},"attributes":{"name":"1st site","lat":"39.290139","lng":"-76.614766","address":"MyString"},"relationships":{"company":{"links":{"self":"http://example.org/network-sites/3964/relationships/company","related":"http://example.org/network-sites/3964/company"}},"buildings":{"links":{"self":"http://example.org/network-sites/3964/relationships/buildings","related":"http://example.org/network-sites/3964/buildings"}},"workbooks":{"links":{"self":"http://example.org/network-sites/3964/relationships/workbooks","related":"http://example.org/network-sites/3964/workbooks"}}}},{"id":"3965","type":"network-sites","links":{"self":"http://example.org/network-sites/3965"},"attributes":{"name":"2nd site","lat":"39.290139","lng":"-76.614766","address":"MyString"},"relationships":{"company":{"links":{"self":"http://example.org/network-sites/3965/relationships/company","related":"http://example.org/network-sites/3965/company"}},"buildings":{"links":{"self":"http://example.org/network-sites/3965/relationships/buildings","related":"http://example.org/network-sites/3965/buildings"}},"workbooks":{"links":{"self":"http://example.org/network-sites/3965/relationships/workbooks","related":"http://example.org/network-sites/3965/workbooks"}}}}],"meta":{"record-count":2},"links":{"first":"http://example.org/network-sites?page%5Blimit%5D=10\u0026page%5Boffset%5D=0","last":"http://example.org/network-sites?page%5Blimit%5D=10\u0026page%5Boffset%5D=0"}}
 
 
 Update a network-site
@@ -48,16 +48,16 @@ Parameters:
   * id - The id of the network-site
 
 Request:
-  PATCH /network-sites/3725
+  PATCH /network-sites/3966
   Content-Type: application/vnd.api+json
 
-  {"data":{"type":"network-sites","relationships":{"company":{"data":{"type":"companies","id":4118}}},"attributes":{"name":"Updated Network Site Name"},"id":"3725"}}
+  {"data":{"type":"network-sites","relationships":{"company":{"data":{"type":"companies","id":4384}}},"attributes":{"name":"Updated Network Site Name"},"id":"3966"}}
 
 Response:
   Status: 200 OK
   Content-Type: application/vnd.api+json
 
-  {"data":{"id":"3725","type":"network-sites","links":{"self":"http://example.org/network-sites/3725"},"attributes":{"name":"Updated Network Site Name","lat":"39.290139","lng":"-76.614766","address":"MyString"},"relationships":{"company":{"links":{"self":"http://example.org/network-sites/3725/relationships/company","related":"http://example.org/network-sites/3725/company"}},"buildings":{"links":{"self":"http://example.org/network-sites/3725/relationships/buildings","related":"http://example.org/network-sites/3725/buildings"}},"workbooks":{"links":{"self":"http://example.org/network-sites/3725/relationships/workbooks","related":"http://example.org/network-sites/3725/workbooks"}}}}}
+  {"data":{"id":"3966","type":"network-sites","links":{"self":"http://example.org/network-sites/3966"},"attributes":{"name":"Updated Network Site Name","lat":"39.290139","lng":"-76.614766","address":"MyString"},"relationships":{"company":{"links":{"self":"http://example.org/network-sites/3966/relationships/company","related":"http://example.org/network-sites/3966/company"}},"buildings":{"links":{"self":"http://example.org/network-sites/3966/relationships/buildings","related":"http://example.org/network-sites/3966/buildings"}},"workbooks":{"links":{"self":"http://example.org/network-sites/3966/relationships/workbooks","related":"http://example.org/network-sites/3966/workbooks"}}}}}
 
 
 Create a network site
@@ -75,10 +75,12 @@ Request:
   POST /network-sites
   Content-Type: application/vnd.api+json
 
-  {"data":{"type":"network-sites","relationships":{"company":{"data":{"type":"companies","id":4119}}},"attributes":{"name":"Site Name"}}}
+  {"data":{"type":"network-sites","relationships":{"company":{"data":{"type":"companies","id":4385}}},"attributes":{"name":"Site Name"}}}
 
 Response:
   Status: 201 Created
   Content-Type: application/vnd.api+json
 
-  {"data":{"id":"3726","type":"network-sites","links":{"self":"http://example.org/network-sites/3726"},"attributes":{"name":"Site Name","lat":null,"lng":null,"address":null},"relationships":{"company":{"links":{"self":"http://example.org/network-sites/3726/relationships/company","related":"http://example.org/network-sites/3726/company"}},"buildings":{"links":{"self":"http://example.org/network-sites/3726/relationships/buildings","related":"http://example.org/network-sites/3726/buildings"}},"workbooks":{"links":{"self":"http://example.org/network-sites/3726/relationships/workbooks","related":"http://example.org/network-sites/3726/workbooks"}}}}}
+  {"data":{"id":"3967","type":"network-sites","links":{"self":"http://example.org/network-sites/3967"},"attributes":{"name":"Site Name","lat":null,"lng":null,"address":null},"relationships":{"company":{"links":{"self":"http://example.org/network-sites/3967/relationships/company","related":"http://example.org/network-sites/3967/company"}},"buildings":{"links":{"self":"http://example.org/network-sites/3967/relationships/buildings","related":"http://example.org/network-sites/3967/buildings"}},"workbooks":{"links":{"self":"http://example.org/network-sites/3967/relationships/workbooks","related":"http://example.org/network-sites/3967/workbooks"}}}}}
+
+

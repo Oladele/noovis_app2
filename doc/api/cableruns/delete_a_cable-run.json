@@ -193,8 +193,8 @@
   "requests": [
     {
       "request_method": "DELETE",
-      "request_path": "/cable-runs/252",
-      "request_body": "{\"data\":{\"type\":\"cable-runs\",\"relationships\":{\"sheet\":{\"data\":{\"type\":\"sheets\",\"id\":1195}}},\"id\":\"252\"}}",
+      "request_path": "/cable-runs/271",
+      "request_body": "{\"data\":{\"type\":\"cable-runs\",\"relationships\":{\"sheet\":{\"data\":{\"type\":\"sheets\",\"id\":1302}}},\"id\":\"271\"}}",
       "request_headers": {
         "Content-Type": "application/vnd.api+json"
       },

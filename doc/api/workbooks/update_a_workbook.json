@@ -34,8 +34,8 @@
   "requests": [
     {
       "request_method": "PATCH",
-      "request_path": "/workbooks/1565",
-      "request_body": "{\"data\":{\"relationships\":{\"network-site\":{\"data\":{\"type\":\"network-sites\",\"id\":3686}}},\"type\":\"workbooks\",\"attributes\":{\"name\":\"Updated Workbook Name\"},\"id\":\"1565\"}}",
+      "request_path": "/workbooks/1701",
+      "request_body": "{\"data\":{\"relationships\":{\"network-site\":{\"data\":{\"type\":\"network-sites\",\"id\":4015}}},\"type\":\"workbooks\",\"attributes\":{\"name\":\"Updated Workbook Name\"},\"id\":\"1701\"}}",
       "request_headers": {
         "Content-Type": "application/vnd.api+json"
       },
@@ -44,7 +44,7 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "{\"data\":{\"id\":\"1565\",\"type\":\"workbooks\",\"links\":{\"self\":\"http://example.org/workbooks/1565\"},\"attributes\":{\"name\":\"Updated Workbook Name\"},\"relationships\":{\"network-site\":{\"links\":{\"self\":\"http://example.org/workbooks/1565/relationships/network-site\",\"related\":\"http://example.org/workbooks/1565/network-site\"}},\"sheets\":{\"links\":{\"self\":\"http://example.org/workbooks/1565/relationships/sheets\",\"related\":\"http://example.org/workbooks/1565/sheets\"}}}}}",
+      "response_body": "{\"data\":{\"id\":\"1701\",\"type\":\"workbooks\",\"links\":{\"self\":\"http://example.org/workbooks/1701\"},\"attributes\":{\"name\":\"Updated Workbook Name\"},\"relationships\":{\"network-site\":{\"links\":{\"self\":\"http://example.org/workbooks/1701/relationships/network-site\",\"related\":\"http://example.org/workbooks/1701/network-site\"}},\"sheets\":{\"links\":{\"self\":\"http://example.org/workbooks/1701/relationships/sheets\",\"related\":\"http://example.org/workbooks/1701/sheets\"}}}}}",
       "response_headers": {
         "Content-Type": "application/vnd.api+json"
       },
