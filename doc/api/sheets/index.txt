@@ -1,28 +1,3 @@
-Create a sheet
---------------
-
-Parameters:
-  * workbook - Workbook id
-  * building - Building id
-  * type - Should always be set to <code>sheets</code>
-  * name - Sheet Name
-  * created-at - Sheet created at
-  * updated-at - Sheet created at
-  * record-count - Cable Run count for Sheet
-
-Request:
-  POST /sheets
-  Content-Type: application/vnd.api+json
-
-  {"data":{"relationships":{"workbook":{"data":{"type":"workbooks","id":1723}},"building":{"data":{"type":"buildings","id":1797}}},"type":"sheets","attributes":{"name":"Sheet Name"}}}
-
-Response:
-  Status: 201 Created
-  Content-Type: application/vnd.api+json
-
-  {"data":{"id":"1333","type":"sheets","links":{"self":"http://example.org/sheets/1333"},"attributes":{"name":"Sheet Name","created-at":"2016-03-20T12:41:07.452Z","updated-at":"2016-03-20T12:41:07.452Z","record-count":0},"relationships":{"workbook":{"links":{"self":"http://example.org/sheets/1333/relationships/workbook","related":"http://example.org/sheets/1333/workbook"}},"building":{"links":{"self":"http://example.org/sheets/1333/relationships/building","related":"http://example.org/sheets/1333/building"}},"cable-runs":{"links":{"self":"http://example.org/sheets/1333/relationships/cable-runs","related":"http://example.org/sheets/1333/cable-runs"}},"network-graphs":{"links":{"self":"http://example.org/sheets/1333/relationships/network-graphs","related":"http://example.org/sheets/1333/network-graphs"}}}}}
-
-
 List all sheets
 ---------------
 
@@ -34,7 +9,7 @@ Response:
   Status: 200 OK
   Content-Type: application/vnd.api+json
 
-  {"data":[{"id":"1334","type":"sheets","links":{"self":"http://example.org/sheets/1334"},"attributes":{"name":"1st sheet","created-at":"2016-03-20T12:41:07.477Z","updated-at":"2016-03-20T12:41:07.477Z","record-count":0},"relationships":{"workbook":{"links":{"self":"http://example.org/sheets/1334/relationships/workbook","related":"http://example.org/sheets/1334/workbook"}},"building":{"links":{"self":"http://example.org/sheets/1334/relationships/building","related":"http://example.org/sheets/1334/building"}},"cable-runs":{"links":{"self":"http://example.org/sheets/1334/relationships/cable-runs","related":"http://example.org/sheets/1334/cable-runs"}},"network-graphs":{"links":{"self":"http://example.org/sheets/1334/relationships/network-graphs","related":"http://example.org/sheets/1334/network-graphs"}}}},{"id":"1335","type":"sheets","links":{"self":"http://example.org/sheets/1335"},"attributes":{"name":"2nd sheet","created-at":"2016-03-20T12:41:07.494Z","updated-at":"2016-03-20T12:41:07.494Z","record-count":0},"relationships":{"workbook":{"links":{"self":"http://example.org/sheets/1335/relationships/workbook","related":"http://example.org/sheets/1335/workbook"}},"building":{"links":{"self":"http://example.org/sheets/1335/relationships/building","related":"http://example.org/sheets/1335/building"}},"cable-runs":{"links":{"self":"http://example.org/sheets/1335/relationships/cable-runs","related":"http://example.org/sheets/1335/cable-runs"}},"network-graphs":{"links":{"self":"http://example.org/sheets/1335/relationships/network-graphs","related":"http://example.org/sheets/1335/network-graphs"}}}}],"meta":{"record-count":2},"links":{"first":"http://example.org/sheets?page%5Blimit%5D=10\u0026page%5Boffset%5D=0","last":"http://example.org/sheets?page%5Blimit%5D=10\u0026page%5Boffset%5D=0"}}
+  {"data":[{"id":"19","type":"sheets","links":{"self":"http://example.org/sheets/19"},"attributes":{"name":"1st sheet","created-at":"2016-03-20T13:19:30.099Z","updated-at":"2016-03-20T13:19:30.099Z","record-count":0},"relationships":{"workbook":{"links":{"self":"http://example.org/sheets/19/relationships/workbook","related":"http://example.org/sheets/19/workbook"}},"building":{"links":{"self":"http://example.org/sheets/19/relationships/building","related":"http://example.org/sheets/19/building"}},"cable-runs":{"links":{"self":"http://example.org/sheets/19/relationships/cable-runs","related":"http://example.org/sheets/19/cable-runs"}},"network-graphs":{"links":{"self":"http://example.org/sheets/19/relationships/network-graphs","related":"http://example.org/sheets/19/network-graphs"}}}},{"id":"20","type":"sheets","links":{"self":"http://example.org/sheets/20"},"attributes":{"name":"2nd sheet","created-at":"2016-03-20T13:19:30.114Z","updated-at":"2016-03-20T13:19:30.114Z","record-count":0},"relationships":{"workbook":{"links":{"self":"http://example.org/sheets/20/relationships/workbook","related":"http://example.org/sheets/20/workbook"}},"building":{"links":{"self":"http://example.org/sheets/20/relationships/building","related":"http://example.org/sheets/20/building"}},"cable-runs":{"links":{"self":"http://example.org/sheets/20/relationships/cable-runs","related":"http://example.org/sheets/20/cable-runs"}},"network-graphs":{"links":{"self":"http://example.org/sheets/20/relationships/network-graphs","related":"http://example.org/sheets/20/network-graphs"}}}}],"meta":{"record-count":2}}
 
 
 Update a sheet
@@ -51,16 +26,41 @@ Parameters:
   * id - The id of the sheet
 
 Request:
-  PATCH /sheets/1336
+  PATCH /sheets/21
   Content-Type: application/vnd.api+json
 
-  {"data":{"relationships":{"workbook":{"data":{"type":"workbooks","id":1727}},"building":{"data":{"type":"buildings","id":1801}}},"type":"sheets","attributes":{"name":"Updated Sheet Name"},"id":"1336"}}
+  {"data":{"relationships":{"workbook":{"data":{"type":"workbooks","id":28}},"building":{"data":{"type":"buildings","id":29}}},"type":"sheets","attributes":{"name":"Updated Sheet Name"},"id":"21"}}
 
 Response:
   Status: 200 OK
   Content-Type: application/vnd.api+json
 
-  {"data":{"id":"1336","type":"sheets","links":{"self":"http://example.org/sheets/1336"},"attributes":{"name":"Updated Sheet Name","created-at":"2016-03-20T12:41:07.538Z","updated-at":"2016-03-20T12:41:07.564Z","record-count":0},"relationships":{"workbook":{"links":{"self":"http://example.org/sheets/1336/relationships/workbook","related":"http://example.org/sheets/1336/workbook"}},"building":{"links":{"self":"http://example.org/sheets/1336/relationships/building","related":"http://example.org/sheets/1336/building"}},"cable-runs":{"links":{"self":"http://example.org/sheets/1336/relationships/cable-runs","related":"http://example.org/sheets/1336/cable-runs"}},"network-graphs":{"links":{"self":"http://example.org/sheets/1336/relationships/network-graphs","related":"http://example.org/sheets/1336/network-graphs"}}}}}
+  {"data":{"id":"21","type":"sheets","links":{"self":"http://example.org/sheets/21"},"attributes":{"name":"Updated Sheet Name","created-at":"2016-03-20T13:19:30.141Z","updated-at":"2016-03-20T13:19:30.160Z","record-count":0},"relationships":{"workbook":{"links":{"self":"http://example.org/sheets/21/relationships/workbook","related":"http://example.org/sheets/21/workbook"}},"building":{"links":{"self":"http://example.org/sheets/21/relationships/building","related":"http://example.org/sheets/21/building"}},"cable-runs":{"links":{"self":"http://example.org/sheets/21/relationships/cable-runs","related":"http://example.org/sheets/21/cable-runs"}},"network-graphs":{"links":{"self":"http://example.org/sheets/21/relationships/network-graphs","related":"http://example.org/sheets/21/network-graphs"}}}}}
+
+
+Create a sheet
+--------------
+
+Parameters:
+  * workbook - Workbook id
+  * building - Building id
+  * type - Should always be set to <code>sheets</code>
+  * name - Sheet Name
+  * created-at - Sheet created at
+  * updated-at - Sheet created at
+  * record-count - Cable Run count for Sheet
+
+Request:
+  POST /sheets
+  Content-Type: application/vnd.api+json
+
+  {"data":{"relationships":{"workbook":{"data":{"type":"workbooks","id":29}},"building":{"data":{"type":"buildings","id":30}}},"type":"sheets","attributes":{"name":"Sheet Name"}}}
+
+Response:
+  Status: 201 Created
+  Content-Type: application/vnd.api+json
+
+  {"data":{"id":"22","type":"sheets","links":{"self":"http://example.org/sheets/22"},"attributes":{"name":"Sheet Name","created-at":"2016-03-20T13:19:30.192Z","updated-at":"2016-03-20T13:19:30.192Z","record-count":0},"relationships":{"workbook":{"links":{"self":"http://example.org/sheets/22/relationships/workbook","related":"http://example.org/sheets/22/workbook"}},"building":{"links":{"self":"http://example.org/sheets/22/relationships/building","related":"http://example.org/sheets/22/building"}},"cable-runs":{"links":{"self":"http://example.org/sheets/22/relationships/cable-runs","related":"http://example.org/sheets/22/cable-runs"}},"network-graphs":{"links":{"self":"http://example.org/sheets/22/relationships/network-graphs","related":"http://example.org/sheets/22/network-graphs"}}}}}
 
 
 Delete a sheet
@@ -77,10 +77,10 @@ Parameters:
   * id - The id of the sheet
 
 Request:
-  DELETE /sheets/1337
+  DELETE /sheets/23
   Content-Type: application/vnd.api+json
 
-  {"data":{"relationships":{"workbook":{"data":{"type":"workbooks","id":1729}},"building":{"data":{"type":"buildings","id":1803}}},"type":"sheets","id":"1337"}}
+  {"data":{"relationships":{"workbook":{"data":{"type":"workbooks","id":31}},"building":{"data":{"type":"buildings","id":32}}},"type":"sheets","id":"23"}}
 
 Response:
   Status: 204 No Content

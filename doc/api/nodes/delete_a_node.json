@@ -18,9 +18,9 @@
     },
     {
       "required": true,
-      "scope": "relationships",
+      "scope": "attributes",
       "name": "node-type",
-      "description": "Node Type id"
+      "description": "Node Type"
     },
     {
       "scope": "attributes",
@@ -31,16 +31,6 @@
       "scope": "attributes",
       "name": "node-level",
       "description": "Node Level"
-    },
-    {
-      "scope": "attributes",
-      "name": "x-pos",
-      "description": "Node X Position"
-    },
-    {
-      "scope": "attributes",
-      "name": "y-pos",
-      "description": "Node Y Position"
     },
     {
       "required": true,
@@ -54,8 +44,8 @@
   "requests": [
     {
       "request_method": "DELETE",
-      "request_path": "/nodes/206",
-      "request_body": "{\"data\":{\"type\":\"nodes\",\"relationships\":{\"network-graph\":{\"data\":{\"type\":\"network-graphs\",\"id\":576}},\"node-type\":{\"data\":{\"type\":\"node-types\",\"id\":619}}},\"id\":\"206\"}}",
+      "request_path": "/nodes/5",
+      "request_body": "{\"data\":{\"type\":\"nodes\",\"relationships\":{\"network-graph\":{\"data\":{\"type\":\"network-graphs\",\"id\":8}}},\"attributes\":{\"node-type\":\"some_node_type\"},\"id\":\"5\"}}",
       "request_headers": {
         "Content-Type": "application/vnd.api+json"
       },
