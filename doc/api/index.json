@@ -211,39 +211,6 @@
       ]
     },
     {
-      "name": "NodeTypes",
-      "examples": [
-        {
-          "description": "Create a node type",
-          "link": "nodetypes/create_a_node_type.json",
-          "groups": "all",
-          "route": "/node-types",
-          "method": "post"
-        },
-        {
-          "description": "Delete a node-type",
-          "link": "nodetypes/delete_a_node-type.json",
-          "groups": "all",
-          "route": "/node-types/:node_type_id",
-          "method": "delete"
-        },
-        {
-          "description": "List all node-types",
-          "link": "nodetypes/list_all_node-types.json",
-          "groups": "all",
-          "route": "/node-types",
-          "method": "get"
-        },
-        {
-          "description": "Update a node-type",
-          "link": "nodetypes/update_a_node-type.json",
-          "groups": "all",
-          "route": "/node-types/:node_type_id",
-          "method": "patch"
-        }
-      ]
-    },
-    {
       "name": "Nodes",
       "examples": [
         {

@@ -139,10 +139,10 @@ table th, table td {
               </tr>
               <tr>
                 <td class="required">
-                    <span class="name">relationships[node-type]</span>
+                    <span class="name">attributes[node-type]</span>
                 </td>
                 <td>
-                  <span class="description">Node Type id</span>
+                  <span class="description">Node Type</span>
                 </td>
               </tr>
               <tr>
@@ -159,22 +159,6 @@ table th, table td {
                 </td>
                 <td>
                   <span class="description">Node Level</span>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                    <span class="name">attributes[x-pos]</span>
-                </td>
-                <td>
-                  <span class="description">Node X Position</span>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                    <span class="name">attributes[y-pos]</span>
-                </td>
-                <td>
-                  <span class="description">Node Y Position</span>
                 </td>
               </tr>
               <tr>
@@ -195,11 +179,11 @@ table th, table td {
             <pre class="request headers">Content-Type: application/vnd.api+json</pre>
 
           <h4>Route</h4>
-          <pre class="request route highlight">DELETE /nodes/206</pre>
+          <pre class="request route highlight">DELETE /nodes/5</pre>
 
 
             <h4>Body</h4>
-            <pre class="request body">{"data":{"type":"nodes","relationships":{"network-graph":{"data":{"type":"network-graphs","id":576}},"node-type":{"data":{"type":"node-types","id":619}}},"id":"206"}}</pre>
+            <pre class="request body">{"data":{"type":"nodes","relationships":{"network-graph":{"data":{"type":"network-graphs","id":8}}},"attributes":{"node-type":"some_node_type"},"id":"5"}}</pre>
 
 
             <h3>Response</h3>

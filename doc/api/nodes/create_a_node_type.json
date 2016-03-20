@@ -18,9 +18,9 @@
     },
     {
       "required": true,
-      "scope": "relationships",
+      "scope": "attributes",
       "name": "node-type",
-      "description": "Node Type id"
+      "description": "Node Type"
     },
     {
       "scope": "attributes",
@@ -31,16 +31,6 @@
       "scope": "attributes",
       "name": "node-level",
       "description": "Node Level"
-    },
-    {
-      "scope": "attributes",
-      "name": "x-pos",
-      "description": "Node X Position"
-    },
-    {
-      "scope": "attributes",
-      "name": "y-pos",
-      "description": "Node Y Position"
     }
   ],
   "response_fields": [
@@ -50,7 +40,7 @@
     {
       "request_method": "POST",
       "request_path": "/nodes",
-      "request_body": "{\"data\":{\"type\":\"nodes\",\"relationships\":{\"network-graph\":{\"data\":{\"type\":\"network-graphs\",\"id\":577}},\"node-type\":{\"data\":{\"type\":\"node-types\",\"id\":620}}}}}",
+      "request_body": "{\"data\":{\"type\":\"nodes\",\"relationships\":{\"network-graph\":{\"data\":{\"type\":\"network-graphs\",\"id\":9}}},\"attributes\":{\"node-type\":\"some_node_type\"}}}",
       "request_headers": {
         "Content-Type": "application/vnd.api+json"
       },
@@ -59,7 +49,7 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 201,
       "response_status_text": "Created",
-      "response_body": "{\"data\":{\"id\":\"207\",\"type\":\"nodes\",\"links\":{\"self\":\"http://example.org/nodes/207\"},\"attributes\":{\"node-value\":null,\"node-level\":null,\"x-pos\":null,\"y-pos\":null},\"relationships\":{\"network-graph\":{\"links\":{\"self\":\"http://example.org/nodes/207/relationships/network-graph\",\"related\":\"http://example.org/nodes/207/network-graph\"}},\"node-type\":{\"links\":{\"self\":\"http://example.org/nodes/207/relationships/node-type\",\"related\":\"http://example.org/nodes/207/node-type\"}}}}}",
+      "response_body": "{\"data\":{\"id\":\"6\",\"type\":\"nodes\",\"links\":{\"self\":\"http://example.org/nodes/6\"},\"attributes\":{\"node-value\":null,\"node-level\":null,\"node-type\":\"some_node_type\"},\"relationships\":{\"network-graph\":{\"links\":{\"self\":\"http://example.org/nodes/6/relationships/network-graph\",\"related\":\"http://example.org/nodes/6/network-graph\"}}}}}",
       "response_headers": {
         "Content-Type": "application/vnd.api+json"
       },
