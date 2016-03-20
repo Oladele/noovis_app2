@@ -54,8 +54,8 @@
   "requests": [
     {
       "request_method": "PATCH",
-      "request_path": "/nodes/203",
-      "request_body": "{\"data\":{\"type\":\"nodes\",\"relationships\":{\"network-graph\":{\"data\":{\"type\":\"network-graphs\",\"id\":570}},\"node-type\":{\"data\":{\"type\":\"node-types\",\"id\":608}}},\"id\":\"203\"}}",
+      "request_path": "/nodes/205",
+      "request_body": "{\"data\":{\"type\":\"nodes\",\"relationships\":{\"network-graph\":{\"data\":{\"type\":\"network-graphs\",\"id\":574}},\"node-type\":{\"data\":{\"type\":\"node-types\",\"id\":617}}},\"id\":\"205\"}}",
       "request_headers": {
         "Content-Type": "application/vnd.api+json"
       },
@@ -64,7 +64,7 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "{\"data\":{\"id\":\"203\",\"type\":\"nodes\",\"links\":{\"self\":\"http://example.org/nodes/203\"},\"attributes\":{\"node-value\":\"MyString\",\"node-level\":1,\"x-pos\":\"9.99\",\"y-pos\":\"9.99\"},\"relationships\":{\"network-graph\":{\"links\":{\"self\":\"http://example.org/nodes/203/relationships/network-graph\",\"related\":\"http://example.org/nodes/203/network-graph\"}},\"node-type\":{\"links\":{\"self\":\"http://example.org/nodes/203/relationships/node-type\",\"related\":\"http://example.org/nodes/203/node-type\"}}}}}",
+      "response_body": "{\"data\":{\"id\":\"205\",\"type\":\"nodes\",\"links\":{\"self\":\"http://example.org/nodes/205\"},\"attributes\":{\"node-value\":\"MyString\",\"node-level\":1,\"x-pos\":\"9.99\",\"y-pos\":\"9.99\"},\"relationships\":{\"network-graph\":{\"links\":{\"self\":\"http://example.org/nodes/205/relationships/network-graph\",\"related\":\"http://example.org/nodes/205/network-graph\"}},\"node-type\":{\"links\":{\"self\":\"http://example.org/nodes/205/relationships/node-type\",\"related\":\"http://example.org/nodes/205/node-type\"}}}}}",
       "response_headers": {
         "Content-Type": "application/vnd.api+json"
       },

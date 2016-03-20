@@ -38,7 +38,7 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 201,
       "response_status_text": "Created",
-      "response_body": "{\"data\":{\"id\":\"597\",\"type\":\"node-types\",\"links\":{\"self\":\"http://example.org/node-types/597\"},\"attributes\":{\"name\":\"Node Type Name\",\"picture\":null},\"relationships\":{\"nodes\":{\"links\":{\"self\":\"http://example.org/node-types/597/relationships/nodes\",\"related\":\"http://example.org/node-types/597/nodes\"}}}}}",
+      "response_body": "{\"data\":{\"id\":\"613\",\"type\":\"node-types\",\"links\":{\"self\":\"http://example.org/node-types/613\"},\"attributes\":{\"name\":\"Node Type Name\",\"picture\":null},\"relationships\":{\"nodes\":{\"links\":{\"self\":\"http://example.org/node-types/613/relationships/nodes\",\"related\":\"http://example.org/node-types/613/nodes\"}}}}}",
       "response_headers": {
         "Content-Type": "application/vnd.api+json"
       },

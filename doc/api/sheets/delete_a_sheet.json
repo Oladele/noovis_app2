@@ -39,6 +39,11 @@
       "description": "Sheet created at"
     },
     {
+      "scope": "attributes",
+      "name": "record-count",
+      "description": "Cable Run count for Sheet"
+    },
+    {
       "required": true,
       "name": "id",
       "description": "The id of the sheet"
@@ -50,8 +55,8 @@
   "requests": [
     {
       "request_method": "DELETE",
-      "request_path": "/sheets/1299",
-      "request_body": "{\"data\":{\"relationships\":{\"workbook\":{\"data\":{\"type\":\"workbooks\",\"id\":1683}},\"building\":{\"data\":{\"type\":\"buildings\",\"id\":1761}}},\"type\":\"sheets\",\"id\":\"1299\"}}",
+      "request_path": "/sheets/1337",
+      "request_body": "{\"data\":{\"relationships\":{\"workbook\":{\"data\":{\"type\":\"workbooks\",\"id\":1729}},\"building\":{\"data\":{\"type\":\"buildings\",\"id\":1803}}},\"type\":\"sheets\",\"id\":\"1337\"}}",
       "request_headers": {
         "Content-Type": "application/vnd.api+json"
       },
