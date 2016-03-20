@@ -23,4 +23,8 @@ class Sheet < ActiveRecord::Base
   def Sheet.which_have_graphs
   	select {|sheet| !sheet.network_graphs.empty?}
   end
+
+  def record_count
+    self.cable_runs.count
+  end
 end
