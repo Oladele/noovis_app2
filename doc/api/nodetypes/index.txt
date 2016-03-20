@@ -1,3 +1,45 @@
+Update a node-type
+------------------
+
+Parameters:
+  * type - Should always be set to <code>node-types</code>
+  * name - Node Type Name
+  * picture - Node Type Picture URL
+  * id - The id of the node-type
+
+Request:
+  PATCH /node-types/611
+  Content-Type: application/vnd.api+json
+
+  {"data":{"type":"node-types","attributes":{"name":"Updated Node Type Name"},"id":"611"}}
+
+Response:
+  Status: 200 OK
+  Content-Type: application/vnd.api+json
+
+  {"data":{"id":"611","type":"node-types","links":{"self":"http://example.org/node-types/611"},"attributes":{"name":"Updated Node Type Name","picture":"Picture URL"},"relationships":{"nodes":{"links":{"self":"http://example.org/node-types/611/relationships/nodes","related":"http://example.org/node-types/611/nodes"}}}}}
+
+
+Delete a node-type
+------------------
+
+Parameters:
+  * type - Should always be set to <code>node-types</code>
+  * name - Node Type Name
+  * picture - Node Type Picture URL
+  * id - The id of the node-type
+
+Request:
+  DELETE /node-types/612
+  Content-Type: application/vnd.api+json
+
+  {"data":{"type":"node-types","id":"612"}}
+
+Response:
+  Status: 204 No Content
+
+
+
 Create a node type
 ------------------
 
@@ -16,7 +58,7 @@ Response:
   Status: 201 Created
   Content-Type: application/vnd.api+json
 
-  {"data":{"id":"551","type":"node-types","links":{"self":"http://example.org/node-types/551"},"attributes":{"name":"Node Type Name","picture":null},"relationships":{"nodes":{"links":{"self":"http://example.org/node-types/551/relationships/nodes","related":"http://example.org/node-types/551/nodes"}}}}}
+  {"data":{"id":"613","type":"node-types","links":{"self":"http://example.org/node-types/613"},"attributes":{"name":"Node Type Name","picture":null},"relationships":{"nodes":{"links":{"self":"http://example.org/node-types/613/relationships/nodes","related":"http://example.org/node-types/613/nodes"}}}}}
 
 
 List all node-types
@@ -30,48 +72,6 @@ Response:
   Status: 200 OK
   Content-Type: application/vnd.api+json
 
-  {"data":[{"id":"552","type":"node-types","links":{"self":"http://example.org/node-types/552"},"attributes":{"name":"1st node type","picture":"Picture URL"},"relationships":{"nodes":{"links":{"self":"http://example.org/node-types/552/relationships/nodes","related":"http://example.org/node-types/552/nodes"}}}},{"id":"553","type":"node-types","links":{"self":"http://example.org/node-types/553"},"attributes":{"name":"2nd node type","picture":"Picture URL"},"relationships":{"nodes":{"links":{"self":"http://example.org/node-types/553/relationships/nodes","related":"http://example.org/node-types/553/nodes"}}}}],"meta":{"record-count":2},"links":{"first":"http://example.org/node-types?page%5Blimit%5D=10\u0026page%5Boffset%5D=0","last":"http://example.org/node-types?page%5Blimit%5D=10\u0026page%5Boffset%5D=0"}}
-
-
-Update a node-type
-------------------
-
-Parameters:
-  * type - Should always be set to <code>node-types</code>
-  * name - Node Type Name
-  * picture - Node Type Picture URL
-  * id - The id of the node-type
-
-Request:
-  PATCH /node-types/554
-  Content-Type: application/vnd.api+json
-
-  {"data":{"type":"node-types","attributes":{"name":"Updated Node Type Name"},"id":"554"}}
-
-Response:
-  Status: 200 OK
-  Content-Type: application/vnd.api+json
-
-  {"data":{"id":"554","type":"node-types","links":{"self":"http://example.org/node-types/554"},"attributes":{"name":"Updated Node Type Name","picture":"Picture URL"},"relationships":{"nodes":{"links":{"self":"http://example.org/node-types/554/relationships/nodes","related":"http://example.org/node-types/554/nodes"}}}}}
-
-
-Delete a node-type
-------------------
-
-Parameters:
-  * type - Should always be set to <code>node-types</code>
-  * name - Node Type Name
-  * picture - Node Type Picture URL
-  * id - The id of the node-type
-
-Request:
-  DELETE /node-types/555
-  Content-Type: application/vnd.api+json
-
-  {"data":{"type":"node-types","id":"555"}}
-
-Response:
-  Status: 204 No Content
-
+  {"data":[{"id":"614","type":"node-types","links":{"self":"http://example.org/node-types/614"},"attributes":{"name":"1st node type","picture":"Picture URL"},"relationships":{"nodes":{"links":{"self":"http://example.org/node-types/614/relationships/nodes","related":"http://example.org/node-types/614/nodes"}}}},{"id":"615","type":"node-types","links":{"self":"http://example.org/node-types/615"},"attributes":{"name":"2nd node type","picture":"Picture URL"},"relationships":{"nodes":{"links":{"self":"http://example.org/node-types/615/relationships/nodes","related":"http://example.org/node-types/615/nodes"}}}}],"meta":{"record-count":2},"links":{"first":"http://example.org/node-types?page%5Blimit%5D=10\u0026page%5Boffset%5D=0","last":"http://example.org/node-types?page%5Blimit%5D=10\u0026page%5Boffset%5D=0"}}
 
 

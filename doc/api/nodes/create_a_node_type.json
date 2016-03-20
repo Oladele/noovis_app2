@@ -50,7 +50,7 @@
     {
       "request_method": "POST",
       "request_path": "/nodes",
-      "request_body": "{\"data\":{\"type\":\"nodes\",\"relationships\":{\"network-graph\":{\"data\":{\"type\":\"network-graphs\",\"id\":519}},\"node-type\":{\"data\":{\"type\":\"node-types\",\"id\":558}}}}}",
+      "request_body": "{\"data\":{\"type\":\"nodes\",\"relationships\":{\"network-graph\":{\"data\":{\"type\":\"network-graphs\",\"id\":577}},\"node-type\":{\"data\":{\"type\":\"node-types\",\"id\":620}}}}}",
       "request_headers": {
         "Content-Type": "application/vnd.api+json"
       },
@@ -59,7 +59,7 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 201,
       "response_status_text": "Created",
-      "response_body": "{\"data\":{\"id\":\"182\",\"type\":\"nodes\",\"links\":{\"self\":\"http://example.org/nodes/182\"},\"attributes\":{\"node-value\":null,\"node-level\":null,\"x-pos\":null,\"y-pos\":null},\"relationships\":{\"network-graph\":{\"links\":{\"self\":\"http://example.org/nodes/182/relationships/network-graph\",\"related\":\"http://example.org/nodes/182/network-graph\"}},\"node-type\":{\"links\":{\"self\":\"http://example.org/nodes/182/relationships/node-type\",\"related\":\"http://example.org/nodes/182/node-type\"}}}}}",
+      "response_body": "{\"data\":{\"id\":\"207\",\"type\":\"nodes\",\"links\":{\"self\":\"http://example.org/nodes/207\"},\"attributes\":{\"node-value\":null,\"node-level\":null,\"x-pos\":null,\"y-pos\":null},\"relationships\":{\"network-graph\":{\"links\":{\"self\":\"http://example.org/nodes/207/relationships/network-graph\",\"related\":\"http://example.org/nodes/207/network-graph\"}},\"node-type\":{\"links\":{\"self\":\"http://example.org/nodes/207/relationships/node-type\",\"related\":\"http://example.org/nodes/207/node-type\"}}}}}",
       "response_headers": {
         "Content-Type": "application/vnd.api+json"
       },

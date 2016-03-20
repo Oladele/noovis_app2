@@ -16,6 +16,15 @@ RSpec.resource "Sheets" do
     parameter :name,
       "Sheet Name",
       required: true, scope: :attributes
+    parameter :"created-at",
+      "Sheet created at",
+      scope: :attributes
+    parameter :"updated-at",
+      "Sheet created at",
+      scope: :attributes
+    parameter :"record-count",
+      "Cable Run count for Sheet",
+      scope: :attributes
 
     let(:type){ "sheets" }
     let(:workbook_id){ FactoryGirl.create(:workbook).id }

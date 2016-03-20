@@ -27,6 +27,21 @@
       "scope": "attributes",
       "name": "name",
       "description": "Sheet Name"
+    },
+    {
+      "scope": "attributes",
+      "name": "created-at",
+      "description": "Sheet created at"
+    },
+    {
+      "scope": "attributes",
+      "name": "updated-at",
+      "description": "Sheet created at"
+    },
+    {
+      "scope": "attributes",
+      "name": "record-count",
+      "description": "Cable Run count for Sheet"
     }
   ],
   "response_fields": [
@@ -36,7 +51,7 @@
     {
       "request_method": "POST",
       "request_path": "/sheets",
-      "request_body": "{\"data\":{\"relationships\":{\"workbook\":{\"data\":{\"type\":\"workbooks\",\"id\":1575}},\"building\":{\"data\":{\"type\":\"buildings\",\"id\":1644}}},\"type\":\"sheets\",\"attributes\":{\"name\":\"Sheet Name\"}}}",
+      "request_body": "{\"data\":{\"relationships\":{\"workbook\":{\"data\":{\"type\":\"workbooks\",\"id\":1723}},\"building\":{\"data\":{\"type\":\"buildings\",\"id\":1797}}},\"type\":\"sheets\",\"attributes\":{\"name\":\"Sheet Name\"}}}",
       "request_headers": {
         "Content-Type": "application/vnd.api+json"
       },
@@ -45,7 +60,7 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 201,
       "response_status_text": "Created",
-      "response_body": "{\"data\":{\"id\":\"1215\",\"type\":\"sheets\",\"links\":{\"self\":\"http://example.org/sheets/1215\"},\"attributes\":{\"name\":\"Sheet Name\"},\"relationships\":{\"workbook\":{\"links\":{\"self\":\"http://example.org/sheets/1215/relationships/workbook\",\"related\":\"http://example.org/sheets/1215/workbook\"}},\"building\":{\"links\":{\"self\":\"http://example.org/sheets/1215/relationships/building\",\"related\":\"http://example.org/sheets/1215/building\"}},\"cable-runs\":{\"links\":{\"self\":\"http://example.org/sheets/1215/relationships/cable-runs\",\"related\":\"http://example.org/sheets/1215/cable-runs\"}},\"network-graphs\":{\"links\":{\"self\":\"http://example.org/sheets/1215/relationships/network-graphs\",\"related\":\"http://example.org/sheets/1215/network-graphs\"}}}}}",
+      "response_body": "{\"data\":{\"id\":\"1333\",\"type\":\"sheets\",\"links\":{\"self\":\"http://example.org/sheets/1333\"},\"attributes\":{\"name\":\"Sheet Name\",\"created-at\":\"2016-03-20T12:41:07.452Z\",\"updated-at\":\"2016-03-20T12:41:07.452Z\",\"record-count\":0},\"relationships\":{\"workbook\":{\"links\":{\"self\":\"http://example.org/sheets/1333/relationships/workbook\",\"related\":\"http://example.org/sheets/1333/workbook\"}},\"building\":{\"links\":{\"self\":\"http://example.org/sheets/1333/relationships/building\",\"related\":\"http://example.org/sheets/1333/building\"}},\"cable-runs\":{\"links\":{\"self\":\"http://example.org/sheets/1333/relationships/cable-runs\",\"related\":\"http://example.org/sheets/1333/cable-runs\"}},\"network-graphs\":{\"links\":{\"self\":\"http://example.org/sheets/1333/relationships/network-graphs\",\"related\":\"http://example.org/sheets/1333/network-graphs\"}}}}}",
       "response_headers": {
         "Content-Type": "application/vnd.api+json"
       },

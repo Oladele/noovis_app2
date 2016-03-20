@@ -9,7 +9,7 @@ Response:
   Status: 200 OK
   Content-Type: application/vnd.api+json
 
-  {"data":[{"id":"1561","type":"workbooks","links":{"self":"http://example.org/workbooks/1561"},"attributes":{"name":"1st workbook"},"relationships":{"network-site":{"links":{"self":"http://example.org/workbooks/1561/relationships/network-site","related":"http://example.org/workbooks/1561/network-site"}},"sheets":{"links":{"self":"http://example.org/workbooks/1561/relationships/sheets","related":"http://example.org/workbooks/1561/sheets"}}}},{"id":"1562","type":"workbooks","links":{"self":"http://example.org/workbooks/1562"},"attributes":{"name":"2nd workbook"},"relationships":{"network-site":{"links":{"self":"http://example.org/workbooks/1562/relationships/network-site","related":"http://example.org/workbooks/1562/network-site"}},"sheets":{"links":{"self":"http://example.org/workbooks/1562/relationships/sheets","related":"http://example.org/workbooks/1562/sheets"}}}}],"meta":{"record-count":2},"links":{"first":"http://example.org/workbooks?page%5Blimit%5D=10\u0026page%5Boffset%5D=0","last":"http://example.org/workbooks?page%5Blimit%5D=10\u0026page%5Boffset%5D=0"}}
+  {"data":[{"id":"1730","type":"workbooks","links":{"self":"http://example.org/workbooks/1730"},"attributes":{"name":"1st workbook"},"relationships":{"network-site":{"links":{"self":"http://example.org/workbooks/1730/relationships/network-site","related":"http://example.org/workbooks/1730/network-site"}},"sheets":{"links":{"self":"http://example.org/workbooks/1730/relationships/sheets","related":"http://example.org/workbooks/1730/sheets"}}}},{"id":"1731","type":"workbooks","links":{"self":"http://example.org/workbooks/1731"},"attributes":{"name":"2nd workbook"},"relationships":{"network-site":{"links":{"self":"http://example.org/workbooks/1731/relationships/network-site","related":"http://example.org/workbooks/1731/network-site"}},"sheets":{"links":{"self":"http://example.org/workbooks/1731/relationships/sheets","related":"http://example.org/workbooks/1731/sheets"}}}}],"meta":{"record-count":2},"links":{"first":"http://example.org/workbooks?page%5Blimit%5D=10\u0026page%5Boffset%5D=0","last":"http://example.org/workbooks?page%5Blimit%5D=10\u0026page%5Boffset%5D=0"}}
 
 
 Create a workbook
@@ -24,13 +24,13 @@ Request:
   POST /workbooks
   Content-Type: application/vnd.api+json
 
-  {"data":{"relationships":{"network-site":{"data":{"type":"network-sites","id":3682}}},"type":"workbooks","attributes":{"name":"Workbook Name"}}}
+  {"data":{"relationships":{"network-site":{"data":{"type":"network-sites","id":4085}}},"type":"workbooks","attributes":{"name":"Workbook Name"}}}
 
 Response:
   Status: 201 Created
   Content-Type: application/vnd.api+json
 
-  {"data":{"id":"1563","type":"workbooks","links":{"self":"http://example.org/workbooks/1563"},"attributes":{"name":"Workbook Name"},"relationships":{"network-site":{"links":{"self":"http://example.org/workbooks/1563/relationships/network-site","related":"http://example.org/workbooks/1563/network-site"}},"sheets":{"links":{"self":"http://example.org/workbooks/1563/relationships/sheets","related":"http://example.org/workbooks/1563/sheets"}}}}}
+  {"data":{"id":"1732","type":"workbooks","links":{"self":"http://example.org/workbooks/1732"},"attributes":{"name":"Workbook Name"},"relationships":{"network-site":{"links":{"self":"http://example.org/workbooks/1732/relationships/network-site","related":"http://example.org/workbooks/1732/network-site"}},"sheets":{"links":{"self":"http://example.org/workbooks/1732/relationships/sheets","related":"http://example.org/workbooks/1732/sheets"}}}}}
 
 
 Delete a workbook
@@ -43,10 +43,10 @@ Parameters:
   * id - The id of the workbook
 
 Request:
-  DELETE /workbooks/1564
+  DELETE /workbooks/1733
   Content-Type: application/vnd.api+json
 
-  {"data":{"relationships":{"network-site":{"data":{"type":"network-sites","id":3684}}},"type":"workbooks","id":"1564"}}
+  {"data":{"relationships":{"network-site":{"data":{"type":"network-sites","id":4087}}},"type":"workbooks","id":"1733"}}
 
 Response:
   Status: 204 No Content
@@ -63,15 +63,15 @@ Parameters:
   * id - The id of the workbook
 
 Request:
-  PATCH /workbooks/1565
+  PATCH /workbooks/1734
   Content-Type: application/vnd.api+json
 
-  {"data":{"relationships":{"network-site":{"data":{"type":"network-sites","id":3686}}},"type":"workbooks","attributes":{"name":"Updated Workbook Name"},"id":"1565"}}
+  {"data":{"relationships":{"network-site":{"data":{"type":"network-sites","id":4089}}},"type":"workbooks","attributes":{"name":"Updated Workbook Name"},"id":"1734"}}
 
 Response:
   Status: 200 OK
   Content-Type: application/vnd.api+json
 
-  {"data":{"id":"1565","type":"workbooks","links":{"self":"http://example.org/workbooks/1565"},"attributes":{"name":"Updated Workbook Name"},"relationships":{"network-site":{"links":{"self":"http://example.org/workbooks/1565/relationships/network-site","related":"http://example.org/workbooks/1565/network-site"}},"sheets":{"links":{"self":"http://example.org/workbooks/1565/relationships/sheets","related":"http://example.org/workbooks/1565/sheets"}}}}}
+  {"data":{"id":"1734","type":"workbooks","links":{"self":"http://example.org/workbooks/1734"},"attributes":{"name":"Updated Workbook Name"},"relationships":{"network-site":{"links":{"self":"http://example.org/workbooks/1734/relationships/network-site","related":"http://example.org/workbooks/1734/network-site"}},"sheets":{"links":{"self":"http://example.org/workbooks/1734/relationships/sheets","related":"http://example.org/workbooks/1734/sheets"}}}}}
 
 
