@@ -11,26 +11,20 @@ RSpec.resource "Nodes" do
       "Network Graph id", 
       required: true, scope: :relationships
     parameter :"node-type",
-      "Node Type id", 
-      required: true, scope: :relationships
+      "Node Type", 
+      required: true, scope: :attributes
     parameter :"node-value",
       "Node Value", 
       scope: :attributes
     parameter :"node-level",
       "Node Level",
       scope: :attributes
-    parameter :"x-pos",
-      "Node X Position",
-      scope: :attributes
-    parameter :"y-pos",
-      "Node Y Position",
-      scope: :attributes
+
 
     let(:type){ "nodes"}
     let(:network_graph_id){ (FactoryGirl.create(:network_graph)).id }
     let(:"network-graph"){{"data"=>{"type"=>"network-graphs", "id"=> network_graph_id}}}
-    let(:node_type_id){ (FactoryGirl.create(:node_type)).id }
-    let(:"node-type"){{"data"=>{"type"=>"node-types", "id"=> node_type_id}}}
+    let(:"node-type"){ "some_node_type" }
   end
 
   shared_context "for a persisted node" do

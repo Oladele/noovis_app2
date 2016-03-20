@@ -44,6 +44,7 @@
 
 class CableRun < ActiveRecord::Base
   belongs_to :sheet
+  has_many :nodes
 
   def self.header_to_fields(header)
     fields = {
