@@ -39,14 +39,14 @@ class Node < ActiveRecord::Base
     (/N\/A/ =~ node_value) == 0
   end
 
-  # def label
-  #   if is_blank
-  #     label = "\n#{node_type.upcase}:\n blank"
-  #   elsif is_na
-  #     label = "\n#{node_type.upcase}:\n N/A"
-  #   else
-  #     label = "\n#{node_type.upcase}:\n #{node_value}"
-  #   end
-  #   label
-  # end
+  def label
+    if is_blank
+      label = "\n#{node_type.upcase}:\n blank"
+    elsif is_na
+      label = "\n#{node_type.upcase}:\n N/A"
+    else
+      label = "\n#{node_type.upcase}:\n #{node_value}"
+    end
+    label
+  end
 end

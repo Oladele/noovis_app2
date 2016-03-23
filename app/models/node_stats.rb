@@ -24,11 +24,7 @@ class	NodeStats
 
 		# return counts
 		node_counts = node_types.map do |node_type|
-			{
-				node_type: node_type,
-				node_type_pretty: node_type.capitalize,
-				count: node_type_counts[node_type]
-			}
+			NodeCount.new node_type, node_type_counts[node_type]
 		end
 		
 	end
