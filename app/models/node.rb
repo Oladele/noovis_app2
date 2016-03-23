@@ -49,4 +49,31 @@ class Node < ActiveRecord::Base
     end
     label
   end
+
+
+  def Node.all_for model_or_models
+    nodes = []
+
+    if model_or_models.respond_to?(:to_ary)
+      nodes = Node.all_for_array model_or_models
+    else
+      nodes = Node.all_for_single model_or_models
+    end
+
+  end
+
+
+  def Node.all_for_array(network_graphs)
+    nodes = []
+    network_graphs.each do |network_graph|
+      nodes << Node.all_for_single(network_graph)
+    end
+    nodes.flatten
+  end
+
+  def Node.all_for_single(network_graph)
+    nodes = network_graph.nodes
+  end
+
+
 end

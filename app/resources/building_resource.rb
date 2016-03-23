@@ -23,7 +23,7 @@ class BuildingResource < JSONAPI::Resource
 			stats = NodeStats.new nodes
 			node_counts = stats.node_counts node_types
 		else
-			node_counts = nil
+			node_counts = []
 		end
   end
 end

@@ -20,6 +20,34 @@ class NetworkGraph < ActiveRecord::Base
 
   attr_reader :nodes_in_memory
 
+  def NetworkGraph.all_for model_or_models
+    network_graphs = []
+
+    if model_or_models.respond_to?(:to_ary)
+      network_graphs = NetworkGraph.all_for_array model_or_models
+    else
+      network_graphs = NetworkGraph.all_for_single model_or_models
+    end
+
+  end
+
+  def NetworkGraph.all_for_array(models)
+    network_graphs = []
+    models.each do |model|
+      network_graphs << NetworkGraph.all_for_single(model)
+    end
+    network_graphs.flatten
+  end
+
+  def NetworkGraph.all_for_single(model)
+    network_graphs = []
+    buildings = model.buildings
+    network_graphs = buildings.map do |building| 
+      NetworkGraph.latest_for building
+    end
+    network_graphs.compact
+  end
+
   def NetworkGraph.latest_for(building)
 
   	sheets_with_graphs = building.sheets.which_have_graphs
