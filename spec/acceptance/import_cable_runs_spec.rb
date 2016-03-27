@@ -21,20 +21,21 @@ RSpec.resource "ImportCableRuns" do
     let(:file) do 
       Rack::Test::UploadedFile.new(
         File.join(Rails.root, 'spec', 'support', 'test.xls'),
-        content_type: 'application/vnd.ms-excel',
-        binary: true
+        content_type: 'application/vnd.ms-excel'
       )
     end
     let(:sheet) { 'Sheet1' }
     let(:building_id) { (FactoryGirl.create(:building)).id }
+
+    let(:raw_post) { params }
+
   end
 
   post "/import_cable_run" do
     include_context "import-cable-runs parameters"
 
     example_request "Upload sheet" do
-      expect(status).to eq 400
-      #expect(status).to eq 201
+      expect(status).to eq 201
     end
   end
 end

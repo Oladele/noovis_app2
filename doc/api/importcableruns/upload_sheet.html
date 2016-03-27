@@ -152,24 +152,38 @@ table th, table td {
           <h3>Request</h3>
 
             <h4>Headers</h4>
-            <pre class="request headers">Content-Type: multipart/form-data</pre>
+            <pre class="request headers">Content-Type: multipart/form-data; boundary=----------XnJLe9ZIbbGUYtzPQJ16u1</pre>
 
           <h4>Route</h4>
           <pre class="request route highlight">POST /import_cable_run</pre>
 
 
             <h4>Body</h4>
-            <pre class="request body">{"data":{"file":{"content_type":{"content_type":"application/vnd.ms-excel","binary":true},"original_filename":"test.xls","tempfile":["This is a test file\n"]},"sheet":"Sheet1","building_id":18}}</pre>
+            <pre class="request body">------------XnJLe9ZIbbGUYtzPQJ16u1
+Content-Disposition: form-data; name="file"; filename="test.xls"
+Content-Type: {:content_type=>"application/vnd.ms-excel"}
+Content-Length: 20480
+
+[uploaded data]
+------------XnJLe9ZIbbGUYtzPQJ16u1
+Content-Disposition: form-data; name="sheet"
+
+Sheet1
+------------XnJLe9ZIbbGUYtzPQJ16u1
+Content-Disposition: form-data; name="building_id"
+
+348
+------------XnJLe9ZIbbGUYtzPQJ16u1--</pre>
 
 
             <h3>Response</h3>
               <h4>Headers</h4>
               <pre class="response headers">Content-Type: application/json; charset=utf-8</pre>
             <h4>Status</h4>
-            <pre class="response status">400 Bad Request</pre>
+            <pre class="response status">201 Created</pre>
               <h4>Body</h4>
               <pre class="response body">{
-  &quot;message&quot;: &quot;Workbook file required&quot;
+  &quot;message&quot;: &quot;Successfully created cable runs&quot;
 }</pre>
       </div>
     </div>
