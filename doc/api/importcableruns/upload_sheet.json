@@ -31,16 +31,16 @@
     {
       "request_method": "POST",
       "request_path": "/import_cable_run",
-      "request_body": "{\"data\":{\"file\":{\"content_type\":{\"content_type\":\"application/vnd.ms-excel\",\"binary\":true},\"original_filename\":\"test.xls\",\"tempfile\":[\"This is a test file\\n\"]},\"sheet\":\"Sheet1\",\"building_id\":18}}",
+      "request_body": "------------XnJLe9ZIbbGUYtzPQJ16u1\r\nContent-Disposition: form-data; name=\"file\"; filename=\"test.xls\"\r\nContent-Type: {:content_type=>\"application/vnd.ms-excel\"}\r\nContent-Length: 20480\r\n\r\n[uploaded data]\r\n------------XnJLe9ZIbbGUYtzPQJ16u1\r\nContent-Disposition: form-data; name=\"sheet\"\r\n\r\nSheet1\r\n------------XnJLe9ZIbbGUYtzPQJ16u1\r\nContent-Disposition: form-data; name=\"building_id\"\r\n\r\n348\r\n------------XnJLe9ZIbbGUYtzPQJ16u1--\r",
       "request_headers": {
-        "Content-Type": "multipart/form-data"
+        "Content-Type": "multipart/form-data; boundary=----------XnJLe9ZIbbGUYtzPQJ16u1"
       },
       "request_query_parameters": {
       },
-      "request_content_type": "multipart/form-data",
-      "response_status": 400,
-      "response_status_text": "Bad Request",
-      "response_body": "{\n  \"message\": \"Workbook file required\"\n}",
+      "request_content_type": "multipart/form-data; boundary=----------XnJLe9ZIbbGUYtzPQJ16u1",
+      "response_status": 201,
+      "response_status_text": "Created",
+      "response_body": "{\n  \"message\": \"Successfully created cable runs\"\n}",
       "response_headers": {
         "Content-Type": "application/json; charset=utf-8"
       },

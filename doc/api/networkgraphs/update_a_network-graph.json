@@ -34,8 +34,8 @@
   "requests": [
     {
       "request_method": "PATCH",
-      "request_path": "/network-graphs/11",
-      "request_body": "{\"data\":{\"type\":\"network-graphs\",\"relationships\":{\"sheet\":{\"data\":{\"type\":\"sheets\",\"id\":26}},\"network-template\":{\"data\":{\"type\":\"network-templates\",\"id\":18}}},\"id\":\"11\"}}",
+      "request_path": "/network-graphs/120",
+      "request_body": "{\"data\":{\"type\":\"network-graphs\",\"relationships\":{\"sheet\":{\"data\":{\"type\":\"sheets\",\"id\":263}},\"network-template\":{\"data\":{\"type\":\"network-templates\",\"id\":184}}},\"id\":\"120\"}}",
       "request_headers": {
         "Content-Type": "application/vnd.api+json"
       },
@@ -44,7 +44,7 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "{\"data\":{\"id\":\"11\",\"type\":\"network-graphs\",\"links\":{\"self\":\"http://example.org/network-graphs/11\"},\"attributes\":{\"nodes\":[],\"edges\":[]},\"relationships\":{\"sheet\":{\"links\":{\"self\":\"http://example.org/network-graphs/11/relationships/sheet\",\"related\":\"http://example.org/network-graphs/11/sheet\"}},\"network-template\":{\"links\":{\"self\":\"http://example.org/network-graphs/11/relationships/network-template\",\"related\":\"http://example.org/network-graphs/11/network-template\"}},\"nodes\":{\"links\":{\"self\":\"http://example.org/network-graphs/11/relationships/nodes\",\"related\":\"http://example.org/network-graphs/11/nodes\"}}}}}",
+      "response_body": "{\"data\":{\"id\":\"120\",\"type\":\"network-graphs\",\"links\":{\"self\":\"http://example.org/network-graphs/120\"},\"attributes\":{\"nodes\":[],\"edges\":[]},\"relationships\":{\"sheet\":{\"links\":{\"self\":\"http://example.org/network-graphs/120/relationships/sheet\",\"related\":\"http://example.org/network-graphs/120/sheet\"}},\"network-template\":{\"links\":{\"self\":\"http://example.org/network-graphs/120/relationships/network-template\",\"related\":\"http://example.org/network-graphs/120/network-template\"}},\"nodes\":{\"links\":{\"self\":\"http://example.org/network-graphs/120/relationships/nodes\",\"related\":\"http://example.org/network-graphs/120/nodes\"}}}}}",
       "response_headers": {
         "Content-Type": "application/vnd.api+json"
       },
