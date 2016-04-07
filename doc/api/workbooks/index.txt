@@ -1,59 +1,3 @@
-List all workbooks
-------------------
-
-Request:
-  GET /workbooks
-  Content-Type: application/vnd.api+json
-
-Response:
-  Status: 200 OK
-  Content-Type: application/vnd.api+json
-
-  {"data":[{"id":"320","type":"workbooks","links":{"self":"http://example.org/workbooks/320"},"attributes":{"name":"1st workbook"},"relationships":{"network-site":{"links":{"self":"http://example.org/workbooks/320/relationships/network-site","related":"http://example.org/workbooks/320/network-site"}},"sheets":{"links":{"self":"http://example.org/workbooks/320/relationships/sheets","related":"http://example.org/workbooks/320/sheets"}}}},{"id":"321","type":"workbooks","links":{"self":"http://example.org/workbooks/321"},"attributes":{"name":"2nd workbook"},"relationships":{"network-site":{"links":{"self":"http://example.org/workbooks/321/relationships/network-site","related":"http://example.org/workbooks/321/network-site"}},"sheets":{"links":{"self":"http://example.org/workbooks/321/relationships/sheets","related":"http://example.org/workbooks/321/sheets"}}}}],"meta":{"record-count":2}}
-
-
-Delete a workbook
------------------
-
-Parameters:
-  * network-site - Network site id
-  * type - Should always be set to <code>workbooks</code>
-  * name - Workbook Name
-  * id - The id of the workbook
-
-Request:
-  DELETE /workbooks/322
-  Content-Type: application/vnd.api+json
-
-  {"data":{"relationships":{"network-site":{"data":{"type":"network-sites","id":724}}},"type":"workbooks","id":"322"}}
-
-Response:
-  Status: 204 No Content
-
-
-
-Update a workbook
------------------
-
-Parameters:
-  * network-site - Network site id
-  * type - Should always be set to <code>workbooks</code>
-  * name - Workbook Name
-  * id - The id of the workbook
-
-Request:
-  PATCH /workbooks/323
-  Content-Type: application/vnd.api+json
-
-  {"data":{"relationships":{"network-site":{"data":{"type":"network-sites","id":726}}},"type":"workbooks","attributes":{"name":"Updated Workbook Name"},"id":"323"}}
-
-Response:
-  Status: 200 OK
-  Content-Type: application/vnd.api+json
-
-  {"data":{"id":"323","type":"workbooks","links":{"self":"http://example.org/workbooks/323"},"attributes":{"name":"Updated Workbook Name"},"relationships":{"network-site":{"links":{"self":"http://example.org/workbooks/323/relationships/network-site","related":"http://example.org/workbooks/323/network-site"}},"sheets":{"links":{"self":"http://example.org/workbooks/323/relationships/sheets","related":"http://example.org/workbooks/323/sheets"}}}}}
-
-
 Create a workbook
 -----------------
 
@@ -66,12 +10,68 @@ Request:
   POST /workbooks
   Content-Type: application/vnd.api+json
 
-  {"data":{"relationships":{"network-site":{"data":{"type":"network-sites","id":727}}},"type":"workbooks","attributes":{"name":"Workbook Name"}}}
+  {"data":{"relationships":{"network-site":{"data":{"type":"network-sites","id":40}}},"type":"workbooks","attributes":{"name":"Workbook Name"}}}
 
 Response:
   Status: 201 Created
   Content-Type: application/vnd.api+json
 
-  {"data":{"id":"324","type":"workbooks","links":{"self":"http://example.org/workbooks/324"},"attributes":{"name":"Workbook Name"},"relationships":{"network-site":{"links":{"self":"http://example.org/workbooks/324/relationships/network-site","related":"http://example.org/workbooks/324/network-site"}},"sheets":{"links":{"self":"http://example.org/workbooks/324/relationships/sheets","related":"http://example.org/workbooks/324/sheets"}}}}}
+  {"data":{"id":"11","type":"workbooks","links":{"self":"http://example.org/workbooks/11"},"attributes":{"name":"Workbook Name"},"relationships":{"network-site":{"links":{"self":"http://example.org/workbooks/11/relationships/network-site","related":"http://example.org/workbooks/11/network-site"}},"sheets":{"links":{"self":"http://example.org/workbooks/11/relationships/sheets","related":"http://example.org/workbooks/11/sheets"}}}}}
+
+
+Update a workbook
+-----------------
+
+Parameters:
+  * network-site - Network site id
+  * type - Should always be set to <code>workbooks</code>
+  * name - Workbook Name
+  * id - The id of the workbook
+
+Request:
+  PATCH /workbooks/12
+  Content-Type: application/vnd.api+json
+
+  {"data":{"relationships":{"network-site":{"data":{"type":"network-sites","id":42}}},"type":"workbooks","attributes":{"name":"Updated Workbook Name"},"id":"12"}}
+
+Response:
+  Status: 200 OK
+  Content-Type: application/vnd.api+json
+
+  {"data":{"id":"12","type":"workbooks","links":{"self":"http://example.org/workbooks/12"},"attributes":{"name":"Updated Workbook Name"},"relationships":{"network-site":{"links":{"self":"http://example.org/workbooks/12/relationships/network-site","related":"http://example.org/workbooks/12/network-site"}},"sheets":{"links":{"self":"http://example.org/workbooks/12/relationships/sheets","related":"http://example.org/workbooks/12/sheets"}}}}}
+
+
+Delete a workbook
+-----------------
+
+Parameters:
+  * network-site - Network site id
+  * type - Should always be set to <code>workbooks</code>
+  * name - Workbook Name
+  * id - The id of the workbook
+
+Request:
+  DELETE /workbooks/13
+  Content-Type: application/vnd.api+json
+
+  {"data":{"relationships":{"network-site":{"data":{"type":"network-sites","id":44}}},"type":"workbooks","id":"13"}}
+
+Response:
+  Status: 204 No Content
+
+
+
+List all workbooks
+------------------
+
+Request:
+  GET /workbooks
+  Content-Type: application/vnd.api+json
+
+Response:
+  Status: 200 OK
+  Content-Type: application/vnd.api+json
+
+  {"data":[{"id":"14","type":"workbooks","links":{"self":"http://example.org/workbooks/14"},"attributes":{"name":"1st workbook"},"relationships":{"network-site":{"links":{"self":"http://example.org/workbooks/14/relationships/network-site","related":"http://example.org/workbooks/14/network-site"}},"sheets":{"links":{"self":"http://example.org/workbooks/14/relationships/sheets","related":"http://example.org/workbooks/14/sheets"}}}},{"id":"15","type":"workbooks","links":{"self":"http://example.org/workbooks/15"},"attributes":{"name":"2nd workbook"},"relationships":{"network-site":{"links":{"self":"http://example.org/workbooks/15/relationships/network-site","related":"http://example.org/workbooks/15/network-site"}},"sheets":{"links":{"self":"http://example.org/workbooks/15/relationships/sheets","related":"http://example.org/workbooks/15/sheets"}}}}],"meta":{"record-count":2}}
 
 

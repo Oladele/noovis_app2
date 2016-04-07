@@ -73,6 +73,7 @@ RSpec.resource "NetworkSites" do
       expect(status).to eq 200
       network_sites = JSON.parse(response_body)
       expect(network_sites["data"].size).to eq 2
+      expect(network_sites["data"].first["attributes"]["node-counts"].first["node_type"]).to eq "buildings"
     end
   end
 
