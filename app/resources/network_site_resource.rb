@@ -27,5 +27,7 @@ class NetworkSiteResource < JSONAPI::Resource
 		else
 			node_counts = []
 		end
+
+    node_counts.unshift({node_type: "buildings", count: buildings.count, node_type_pretty: "Buildings"})
   end
 end
