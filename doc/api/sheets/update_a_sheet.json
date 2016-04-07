@@ -55,8 +55,8 @@
   "requests": [
     {
       "request_method": "PATCH",
-      "request_path": "/sheets/250",
-      "request_body": "{\"data\":{\"relationships\":{\"workbook\":{\"data\":{\"type\":\"workbooks\",\"id\":314}},\"building\":{\"data\":{\"type\":\"buildings\",\"id\":323}}},\"type\":\"sheets\",\"attributes\":{\"name\":\"Updated Sheet Name\"},\"id\":\"250\"}}",
+      "request_path": "/sheets/35",
+      "request_body": "{\"data\":{\"relationships\":{\"workbook\":{\"data\":{\"type\":\"workbooks\",\"id\":44}},\"building\":{\"data\":{\"type\":\"buildings\",\"id\":44}}},\"type\":\"sheets\",\"attributes\":{\"name\":\"Updated Sheet Name\"},\"id\":\"35\"}}",
       "request_headers": {
         "Content-Type": "application/vnd.api+json"
       },
@@ -65,7 +65,7 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "{\"data\":{\"id\":\"250\",\"type\":\"sheets\",\"links\":{\"self\":\"http://example.org/sheets/250\"},\"attributes\":{\"name\":\"Updated Sheet Name\",\"created-at\":\"2016-03-27T23:46:39.897Z\",\"updated-at\":\"2016-03-27T23:46:39.930Z\",\"record-count\":0},\"relationships\":{\"workbook\":{\"links\":{\"self\":\"http://example.org/sheets/250/relationships/workbook\",\"related\":\"http://example.org/sheets/250/workbook\"}},\"building\":{\"links\":{\"self\":\"http://example.org/sheets/250/relationships/building\",\"related\":\"http://example.org/sheets/250/building\"}},\"cable-runs\":{\"links\":{\"self\":\"http://example.org/sheets/250/relationships/cable-runs\",\"related\":\"http://example.org/sheets/250/cable-runs\"}},\"network-graphs\":{\"links\":{\"self\":\"http://example.org/sheets/250/relationships/network-graphs\",\"related\":\"http://example.org/sheets/250/network-graphs\"}}}}}",
+      "response_body": "{\"data\":{\"id\":\"35\",\"type\":\"sheets\",\"links\":{\"self\":\"http://example.org/sheets/35\"},\"attributes\":{\"name\":\"Updated Sheet Name\",\"created-at\":\"2016-04-07T01:47:25.892Z\",\"updated-at\":\"2016-04-07T01:47:25.904Z\",\"record-count\":0},\"relationships\":{\"workbook\":{\"links\":{\"self\":\"http://example.org/sheets/35/relationships/workbook\",\"related\":\"http://example.org/sheets/35/workbook\"}},\"building\":{\"links\":{\"self\":\"http://example.org/sheets/35/relationships/building\",\"related\":\"http://example.org/sheets/35/building\"}},\"cable-runs\":{\"links\":{\"self\":\"http://example.org/sheets/35/relationships/cable-runs\",\"related\":\"http://example.org/sheets/35/cable-runs\"}},\"network-graphs\":{\"links\":{\"self\":\"http://example.org/sheets/35/relationships/network-graphs\",\"related\":\"http://example.org/sheets/35/network-graphs\"}}}}}",
       "response_headers": {
         "Content-Type": "application/vnd.api+json"
       },
