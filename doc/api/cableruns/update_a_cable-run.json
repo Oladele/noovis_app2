@@ -193,8 +193,8 @@
   "requests": [
     {
       "request_method": "PATCH",
-      "request_path": "/cable-runs/3",
-      "request_body": "{\"data\":{\"type\":\"cable-runs\",\"relationships\":{\"sheet\":{\"data\":{\"type\":\"sheets\",\"id\":17}}},\"attributes\":{\"site\":\"Updated Site\"},\"id\":\"3\"}}",
+      "request_path": "/cable-runs/157",
+      "request_body": "{\"data\":{\"type\":\"cable-runs\",\"relationships\":{\"sheet\":{\"data\":{\"type\":\"sheets\",\"id\":292}}},\"attributes\":{\"site\":\"Updated Site\"},\"id\":\"157\"}}",
       "request_headers": {
         "Content-Type": "application/vnd.api+json"
       },
@@ -203,7 +203,7 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "{\"data\":{\"id\":\"3\",\"type\":\"cable-runs\",\"links\":{\"self\":\"http://example.org/cable-runs/3\"},\"attributes\":{\"site\":\"Updated Site\",\"building\":\"MyString\",\"room\":\"MyString\",\"drop\":\"MyString\",\"rdt\":\"MyString\",\"rdt-port\":\"MyString\",\"fdh-port\":\"MyString\",\"splitter\":\"MyString\",\"splitter-fiber\":\"MyString\",\"pon-card\":\"MyString\",\"pon-port\":\"MyString\",\"fdh\":\"MyString\",\"notes\":\"MyText\",\"olt-rack\":\"MyString\",\"olt-chassis\":\"MyString\",\"vam-shelf\":\"MyString\",\"vam-module\":\"MyString\",\"vam-port\":\"MyString\",\"backbone-shelf\":\"MyString\",\"backbone-cable\":\"MyString\",\"backbone-port\":\"MyString\",\"fdh-location\":\"MyString\",\"rdt-location\":\"MyString\",\"ont-model\":\"MyString\",\"ont-sn\":\"MyString\",\"rdt-port-count\":\"MyString\",\"ont-ge-1-device\":\"MyString\",\"ont-ge-1-mac\":\"MyString\",\"ont-ge-2-device\":\"MyString\",\"ont-ge-2-mac\":\"MyString\",\"ont-ge-3-device\":\"MyString\",\"ont-ge-3-mac\":\"MyString\",\"ont-ge-4-device\":\"MyString\",\"ont-ge-4-mac\":\"MyString\"},\"relationships\":{\"sheet\":{\"links\":{\"self\":\"http://example.org/cable-runs/3/relationships/sheet\",\"related\":\"http://example.org/cable-runs/3/sheet\"}}}}}",
+      "response_body": "{\"data\":{\"id\":\"157\",\"type\":\"cable-runs\",\"links\":{\"self\":\"http://example.org/cable-runs/157\"},\"attributes\":{\"site\":\"Updated Site\",\"building\":\"MyString\",\"room\":\"MyString\",\"drop\":\"MyString\",\"rdt\":\"MyString\",\"rdt-port\":\"MyString\",\"fdh-port\":\"MyString\",\"splitter\":\"MyString\",\"splitter-fiber\":\"MyString\",\"pon-card\":\"MyString\",\"pon-port\":\"MyString\",\"fdh\":\"MyString\",\"notes\":\"MyText\",\"olt-rack\":\"MyString\",\"olt-chassis\":\"MyString\",\"vam-shelf\":\"MyString\",\"vam-module\":\"MyString\",\"vam-port\":\"MyString\",\"backbone-shelf\":\"MyString\",\"backbone-cable\":\"MyString\",\"backbone-port\":\"MyString\",\"fdh-location\":\"MyString\",\"rdt-location\":\"MyString\",\"ont-model\":\"MyString\",\"ont-sn\":\"MyString\",\"rdt-port-count\":\"MyString\",\"ont-ge-1-device\":\"MyString\",\"ont-ge-1-mac\":\"MyString\",\"ont-ge-2-device\":\"MyString\",\"ont-ge-2-mac\":\"MyString\",\"ont-ge-3-device\":\"MyString\",\"ont-ge-3-mac\":\"MyString\",\"ont-ge-4-device\":\"MyString\",\"ont-ge-4-mac\":\"MyString\"},\"relationships\":{\"sheet\":{\"links\":{\"self\":\"http://example.org/cable-runs/157/relationships/sheet\",\"related\":\"http://example.org/cable-runs/157/sheet\"}}}}}",
       "response_headers": {
         "Content-Type": "application/vnd.api+json"
       },

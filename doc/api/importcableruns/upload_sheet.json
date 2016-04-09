@@ -31,7 +31,7 @@
     {
       "request_method": "POST",
       "request_path": "/import_cable_run",
-      "request_body": "------------XnJLe9ZIbbGUYtzPQJ16u1\r\nContent-Disposition: form-data; name=\"file\"; filename=\"test.xls\"\r\nContent-Type: {:content_type=>\"application/vnd.ms-excel\"}\r\nContent-Length: 20480\r\n\r\n[uploaded data]\r\n------------XnJLe9ZIbbGUYtzPQJ16u1\r\nContent-Disposition: form-data; name=\"sheet\"\r\n\r\nSheet1\r\n------------XnJLe9ZIbbGUYtzPQJ16u1\r\nContent-Disposition: form-data; name=\"building_id\"\r\n\r\n30\r\n------------XnJLe9ZIbbGUYtzPQJ16u1--\r",
+      "request_body": "------------XnJLe9ZIbbGUYtzPQJ16u1\r\nContent-Disposition: form-data; name=\"file\"; filename=\"test.xls\"\r\nContent-Type: {:content_type=>\"application/vnd.ms-excel\"}\r\nContent-Length: 20480\r\n\r\n[uploaded data]\r\n------------XnJLe9ZIbbGUYtzPQJ16u1\r\nContent-Disposition: form-data; name=\"sheet\"\r\n\r\nSheet1\r\n------------XnJLe9ZIbbGUYtzPQJ16u1\r\nContent-Disposition: form-data; name=\"building_id\"\r\n\r\n366\r\n------------XnJLe9ZIbbGUYtzPQJ16u1--\r",
       "request_headers": {
         "Content-Type": "multipart/form-data; boundary=----------XnJLe9ZIbbGUYtzPQJ16u1"
       },

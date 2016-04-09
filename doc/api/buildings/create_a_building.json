@@ -40,7 +40,7 @@
     {
       "request_method": "POST",
       "request_path": "/buildings",
-      "request_body": "{\"data\":{\"relationships\":{\"network-site\":{\"data\":{\"type\":\"network-sites\",\"id\":28}}},\"type\":\"buildings\",\"attributes\":{\"name\":\"Building Name\"}}}",
+      "request_body": "{\"data\":{\"relationships\":{\"network-site\":{\"data\":{\"type\":\"network-sites\",\"id\":843}}},\"type\":\"buildings\",\"attributes\":{\"name\":\"Building Name\"}}}",
       "request_headers": {
         "Content-Type": "application/vnd.api+json"
       },
@@ -49,7 +49,7 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 201,
       "response_status_text": "Created",
-      "response_body": "{\"data\":{\"id\":\"11\",\"type\":\"buildings\",\"links\":{\"self\":\"http://example.org/buildings/11\"},\"attributes\":{\"name\":\"Building Name\",\"lat\":null,\"lng\":null,\"description\":null,\"node-counts\":[]},\"relationships\":{\"network-site\":{\"links\":{\"self\":\"http://example.org/buildings/11/relationships/network-site\",\"related\":\"http://example.org/buildings/11/network-site\"}},\"sheets\":{\"links\":{\"self\":\"http://example.org/buildings/11/relationships/sheets\",\"related\":\"http://example.org/buildings/11/sheets\"}}}}}",
+      "response_body": "{\"data\":{\"id\":\"382\",\"type\":\"buildings\",\"links\":{\"self\":\"http://example.org/buildings/382\"},\"attributes\":{\"name\":\"Building Name\",\"lat\":null,\"lng\":null,\"description\":null,\"node-counts\":[]},\"relationships\":{\"network-site\":{\"links\":{\"self\":\"http://example.org/buildings/382/relationships/network-site\",\"related\":\"http://example.org/buildings/382/network-site\"}},\"sheets\":{\"links\":{\"self\":\"http://example.org/buildings/382/relationships/sheets\",\"related\":\"http://example.org/buildings/382/sheets\"}}}}}",
       "response_headers": {
         "Content-Type": "application/vnd.api+json"
       },
