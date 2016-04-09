@@ -59,6 +59,7 @@ RSpec.resource "Companies" do
       expect(status).to eq 200
       companies = JSON.parse(response_body)
       expect(companies["data"].size).to eq 2
+      expect(companies["data"].first["attributes"]["node-counts"].first["node_type"]).to eq "network-sites"
     end
   end
 
