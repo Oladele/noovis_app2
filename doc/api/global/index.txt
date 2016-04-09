@@ -1,0 +1,14 @@
+List Global Attributes
+----------------------
+
+Request:
+  GET /global
+  Content-Type: application/vnd.api+json
+
+Response:
+  Status: 200 OK
+  Content-Type: application/vnd.api+json
+
+  {"data":{"id":"162f2d27-96af-4887-8fb2-3bf47637c6b3","type":"globals","links":{"self":"http://example.org/globals/162f2d27-96af-4887-8fb2-3bf47637c6b3"},"attributes":{"node-counts":[{"node_type":"network-sites","count":null,"node_type_pretty":"Sites"},{"node_type":"buildings","count":null,"node_type_pretty":"Buildings"}]}}}
+
+

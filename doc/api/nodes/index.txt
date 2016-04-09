@@ -1,3 +1,17 @@
+List all nodes
+--------------
+
+Request:
+  GET /nodes
+  Content-Type: application/vnd.api+json
+
+Response:
+  Status: 200 OK
+  Content-Type: application/vnd.api+json
+
+  {"data":[{"id":"70","type":"nodes","links":{"self":"http://example.org/nodes/70"},"attributes":{"node-value":"MyString","node-level":1,"node-type":"MyString"},"relationships":{"network-graph":{"links":{"self":"http://example.org/nodes/70/relationships/network-graph","related":"http://example.org/nodes/70/network-graph"}}}},{"id":"71","type":"nodes","links":{"self":"http://example.org/nodes/71"},"attributes":{"node-value":"MyString","node-level":1,"node-type":"MyString"},"relationships":{"network-graph":{"links":{"self":"http://example.org/nodes/71/relationships/network-graph","related":"http://example.org/nodes/71/network-graph"}}}}],"meta":{"record-count":2}}
+
+
 Update a node
 -------------
 
@@ -10,30 +24,16 @@ Parameters:
   * id - The id of the node
 
 Request:
-  PATCH /nodes/57
+  PATCH /nodes/72
   Content-Type: application/vnd.api+json
 
-  {"data":{"type":"nodes","relationships":{"network-graph":{"data":{"type":"network-graphs","id":130}}},"attributes":{"node-type":"some_node_type"},"id":"57"}}
+  {"data":{"type":"nodes","relationships":{"network-graph":{"data":{"type":"network-graphs","id":167}}},"attributes":{"node-type":"some_node_type"},"id":"72"}}
 
 Response:
   Status: 200 OK
   Content-Type: application/vnd.api+json
 
-  {"data":{"id":"57","type":"nodes","links":{"self":"http://example.org/nodes/57"},"attributes":{"node-value":"MyString","node-level":1,"node-type":"some_node_type"},"relationships":{"network-graph":{"links":{"self":"http://example.org/nodes/57/relationships/network-graph","related":"http://example.org/nodes/57/network-graph"}}}}}
-
-
-List all nodes
---------------
-
-Request:
-  GET /nodes
-  Content-Type: application/vnd.api+json
-
-Response:
-  Status: 200 OK
-  Content-Type: application/vnd.api+json
-
-  {"data":[{"id":"58","type":"nodes","links":{"self":"http://example.org/nodes/58"},"attributes":{"node-value":"MyString","node-level":1,"node-type":"MyString"},"relationships":{"network-graph":{"links":{"self":"http://example.org/nodes/58/relationships/network-graph","related":"http://example.org/nodes/58/network-graph"}}}},{"id":"59","type":"nodes","links":{"self":"http://example.org/nodes/59"},"attributes":{"node-value":"MyString","node-level":1,"node-type":"MyString"},"relationships":{"network-graph":{"links":{"self":"http://example.org/nodes/59/relationships/network-graph","related":"http://example.org/nodes/59/network-graph"}}}}],"meta":{"record-count":2}}
+  {"data":{"id":"72","type":"nodes","links":{"self":"http://example.org/nodes/72"},"attributes":{"node-value":"MyString","node-level":1,"node-type":"some_node_type"},"relationships":{"network-graph":{"links":{"self":"http://example.org/nodes/72/relationships/network-graph","related":"http://example.org/nodes/72/network-graph"}}}}}
 
 
 Create a node type
@@ -50,13 +50,13 @@ Request:
   POST /nodes
   Content-Type: application/vnd.api+json
 
-  {"data":{"type":"nodes","relationships":{"network-graph":{"data":{"type":"network-graphs","id":133}}},"attributes":{"node-type":"some_node_type"}}}
+  {"data":{"type":"nodes","relationships":{"network-graph":{"data":{"type":"network-graphs","id":168}}},"attributes":{"node-type":"some_node_type"}}}
 
 Response:
   Status: 201 Created
   Content-Type: application/vnd.api+json
 
-  {"data":{"id":"60","type":"nodes","links":{"self":"http://example.org/nodes/60"},"attributes":{"node-value":null,"node-level":null,"node-type":"some_node_type"},"relationships":{"network-graph":{"links":{"self":"http://example.org/nodes/60/relationships/network-graph","related":"http://example.org/nodes/60/network-graph"}}}}}
+  {"data":{"id":"73","type":"nodes","links":{"self":"http://example.org/nodes/73"},"attributes":{"node-value":null,"node-level":null,"node-type":"some_node_type"},"relationships":{"network-graph":{"links":{"self":"http://example.org/nodes/73/relationships/network-graph","related":"http://example.org/nodes/73/network-graph"}}}}}
 
 
 Delete a node
@@ -71,10 +71,10 @@ Parameters:
   * id - The id of the node
 
 Request:
-  DELETE /nodes/61
+  DELETE /nodes/74
   Content-Type: application/vnd.api+json
 
-  {"data":{"type":"nodes","relationships":{"network-graph":{"data":{"type":"network-graphs","id":135}}},"attributes":{"node-type":"some_node_type"},"id":"61"}}
+  {"data":{"type":"nodes","relationships":{"network-graph":{"data":{"type":"network-graphs","id":170}}},"attributes":{"node-type":"some_node_type"},"id":"74"}}
 
 Response:
   Status: 204 No Content

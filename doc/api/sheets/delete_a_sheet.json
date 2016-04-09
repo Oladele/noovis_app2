@@ -55,8 +55,8 @@
   "requests": [
     {
       "request_method": "DELETE",
-      "request_path": "/sheets/287",
-      "request_body": "{\"data\":{\"relationships\":{\"workbook\":{\"data\":{\"type\":\"workbooks\",\"id\":366}},\"building\":{\"data\":{\"type\":\"buildings\",\"id\":370}}},\"type\":\"sheets\",\"id\":\"287\"}}",
+      "request_path": "/sheets/356",
+      "request_body": "{\"data\":{\"relationships\":{\"workbook\":{\"data\":{\"type\":\"workbooks\",\"id\":454}},\"building\":{\"data\":{\"type\":\"buildings\",\"id\":464}}},\"type\":\"sheets\",\"id\":\"356\"}}",
       "request_headers": {
         "Content-Type": "application/vnd.api+json"
       },

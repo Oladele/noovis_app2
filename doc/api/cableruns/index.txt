@@ -1,55 +1,15 @@
-Update a cable-run
-------------------
-
-Parameters:
-  * type - Should always be set to <code>cable-runs</code>
-  * sheet - Sheet id
-  * site - Site
-  * building - Building
-  * room - Room
-  * drop - Drop
-  * rdt - RDT
-  * rdt-port - RDT Port
-  * fdh-port - FDH Port
-  * splitter - Splitter
-  * splitter-fiber - Splitter Fiber
-  * pon-card - PON Card
-  * pon-port - PON Port
-  * fdh - FDH
-  * notes - Notes
-  * olt-rack - OLT Rack
-  * olt-chassis - OLT Chassis
-  * vam-shelf - VAM Shelf
-  * vam-module - VAM Module
-  * vam-port - Backbone Shelf
-  * backbone-cable - Backbone Cable
-  * backbone-port - Backbone Port
-  * fdh-location - FDG Location
-  * rdt-location - RDT Location
-  * ont-model - ONT Model
-  * ont-sn - ONT SN
-  * rdt-port-count - RDT Port Count
-  * ont-ge-1-device - ONT GE 1 Device
-  * ont-ge-1-mac - ONT GE 1 MAC
-  * ont-ge-2-device - ONT GE 2 Device
-  * ont-ge-2-mac - ONT GE 2 MAC
-  * ont-ge-3-device - ONT GE 3 Device
-  * ont-ge-3-mac - ONT GE 3 MAC
-  * ont-ge-4-device - ONT GE 4 Device
-  * ont-ge-4-mac - ONT GE 4 MAC
-  * id - The id of the cable-run
+List all cable-runs
+-------------------
 
 Request:
-  PATCH /cable-runs/157
+  GET /cable-runs
   Content-Type: application/vnd.api+json
-
-  {"data":{"type":"cable-runs","relationships":{"sheet":{"data":{"type":"sheets","id":292}}},"attributes":{"site":"Updated Site"},"id":"157"}}
 
 Response:
   Status: 200 OK
   Content-Type: application/vnd.api+json
 
-  {"data":{"id":"157","type":"cable-runs","links":{"self":"http://example.org/cable-runs/157"},"attributes":{"site":"Updated Site","building":"MyString","room":"MyString","drop":"MyString","rdt":"MyString","rdt-port":"MyString","fdh-port":"MyString","splitter":"MyString","splitter-fiber":"MyString","pon-card":"MyString","pon-port":"MyString","fdh":"MyString","notes":"MyText","olt-rack":"MyString","olt-chassis":"MyString","vam-shelf":"MyString","vam-module":"MyString","vam-port":"MyString","backbone-shelf":"MyString","backbone-cable":"MyString","backbone-port":"MyString","fdh-location":"MyString","rdt-location":"MyString","ont-model":"MyString","ont-sn":"MyString","rdt-port-count":"MyString","ont-ge-1-device":"MyString","ont-ge-1-mac":"MyString","ont-ge-2-device":"MyString","ont-ge-2-mac":"MyString","ont-ge-3-device":"MyString","ont-ge-3-mac":"MyString","ont-ge-4-device":"MyString","ont-ge-4-mac":"MyString"},"relationships":{"sheet":{"links":{"self":"http://example.org/cable-runs/157/relationships/sheet","related":"http://example.org/cable-runs/157/sheet"}}}}}
+  {"data":[{"id":"211","type":"cable-runs","links":{"self":"http://example.org/cable-runs/211"},"attributes":{"site":"MyString","building":"MyString","room":"MyString","drop":"MyString","rdt":"MyString","rdt-port":"MyString","fdh-port":"MyString","splitter":"MyString","splitter-fiber":"MyString","pon-card":"MyString","pon-port":"MyString","fdh":"MyString","notes":"MyText","olt-rack":"MyString","olt-chassis":"MyString","vam-shelf":"MyString","vam-module":"MyString","vam-port":"MyString","backbone-shelf":"MyString","backbone-cable":"MyString","backbone-port":"MyString","fdh-location":"MyString","rdt-location":"MyString","ont-model":"MyString","ont-sn":"MyString","rdt-port-count":"MyString","ont-ge-1-device":"MyString","ont-ge-1-mac":"MyString","ont-ge-2-device":"MyString","ont-ge-2-mac":"MyString","ont-ge-3-device":"MyString","ont-ge-3-mac":"MyString","ont-ge-4-device":"MyString","ont-ge-4-mac":"MyString"},"relationships":{"sheet":{"links":{"self":"http://example.org/cable-runs/211/relationships/sheet","related":"http://example.org/cable-runs/211/sheet"}}}},{"id":"212","type":"cable-runs","links":{"self":"http://example.org/cable-runs/212"},"attributes":{"site":"MyString","building":"MyString","room":"MyString","drop":"MyString","rdt":"MyString","rdt-port":"MyString","fdh-port":"MyString","splitter":"MyString","splitter-fiber":"MyString","pon-card":"MyString","pon-port":"MyString","fdh":"MyString","notes":"MyText","olt-rack":"MyString","olt-chassis":"MyString","vam-shelf":"MyString","vam-module":"MyString","vam-port":"MyString","backbone-shelf":"MyString","backbone-cable":"MyString","backbone-port":"MyString","fdh-location":"MyString","rdt-location":"MyString","ont-model":"MyString","ont-sn":"MyString","rdt-port-count":"MyString","ont-ge-1-device":"MyString","ont-ge-1-mac":"MyString","ont-ge-2-device":"MyString","ont-ge-2-mac":"MyString","ont-ge-3-device":"MyString","ont-ge-3-mac":"MyString","ont-ge-4-device":"MyString","ont-ge-4-mac":"MyString"},"relationships":{"sheet":{"links":{"self":"http://example.org/cable-runs/212/relationships/sheet","related":"http://example.org/cable-runs/212/sheet"}}}}],"meta":{"record-count":2}}
 
 
 Delete a cable-run
@@ -94,28 +54,68 @@ Parameters:
   * id - The id of the cable-run
 
 Request:
-  DELETE /cable-runs/158
+  DELETE /cable-runs/213
   Content-Type: application/vnd.api+json
 
-  {"data":{"type":"cable-runs","relationships":{"sheet":{"data":{"type":"sheets","id":294}}},"id":"158"}}
+  {"data":{"type":"cable-runs","relationships":{"sheet":{"data":{"type":"sheets","id":370}}},"id":"213"}}
 
 Response:
   Status: 204 No Content
 
 
 
-List all cable-runs
--------------------
+Update a cable-run
+------------------
+
+Parameters:
+  * type - Should always be set to <code>cable-runs</code>
+  * sheet - Sheet id
+  * site - Site
+  * building - Building
+  * room - Room
+  * drop - Drop
+  * rdt - RDT
+  * rdt-port - RDT Port
+  * fdh-port - FDH Port
+  * splitter - Splitter
+  * splitter-fiber - Splitter Fiber
+  * pon-card - PON Card
+  * pon-port - PON Port
+  * fdh - FDH
+  * notes - Notes
+  * olt-rack - OLT Rack
+  * olt-chassis - OLT Chassis
+  * vam-shelf - VAM Shelf
+  * vam-module - VAM Module
+  * vam-port - Backbone Shelf
+  * backbone-cable - Backbone Cable
+  * backbone-port - Backbone Port
+  * fdh-location - FDG Location
+  * rdt-location - RDT Location
+  * ont-model - ONT Model
+  * ont-sn - ONT SN
+  * rdt-port-count - RDT Port Count
+  * ont-ge-1-device - ONT GE 1 Device
+  * ont-ge-1-mac - ONT GE 1 MAC
+  * ont-ge-2-device - ONT GE 2 Device
+  * ont-ge-2-mac - ONT GE 2 MAC
+  * ont-ge-3-device - ONT GE 3 Device
+  * ont-ge-3-mac - ONT GE 3 MAC
+  * ont-ge-4-device - ONT GE 4 Device
+  * ont-ge-4-mac - ONT GE 4 MAC
+  * id - The id of the cable-run
 
 Request:
-  GET /cable-runs
+  PATCH /cable-runs/214
   Content-Type: application/vnd.api+json
+
+  {"data":{"type":"cable-runs","relationships":{"sheet":{"data":{"type":"sheets","id":372}}},"attributes":{"site":"Updated Site"},"id":"214"}}
 
 Response:
   Status: 200 OK
   Content-Type: application/vnd.api+json
 
-  {"data":[{"id":"159","type":"cable-runs","links":{"self":"http://example.org/cable-runs/159"},"attributes":{"site":"MyString","building":"MyString","room":"MyString","drop":"MyString","rdt":"MyString","rdt-port":"MyString","fdh-port":"MyString","splitter":"MyString","splitter-fiber":"MyString","pon-card":"MyString","pon-port":"MyString","fdh":"MyString","notes":"MyText","olt-rack":"MyString","olt-chassis":"MyString","vam-shelf":"MyString","vam-module":"MyString","vam-port":"MyString","backbone-shelf":"MyString","backbone-cable":"MyString","backbone-port":"MyString","fdh-location":"MyString","rdt-location":"MyString","ont-model":"MyString","ont-sn":"MyString","rdt-port-count":"MyString","ont-ge-1-device":"MyString","ont-ge-1-mac":"MyString","ont-ge-2-device":"MyString","ont-ge-2-mac":"MyString","ont-ge-3-device":"MyString","ont-ge-3-mac":"MyString","ont-ge-4-device":"MyString","ont-ge-4-mac":"MyString"},"relationships":{"sheet":{"links":{"self":"http://example.org/cable-runs/159/relationships/sheet","related":"http://example.org/cable-runs/159/sheet"}}}},{"id":"160","type":"cable-runs","links":{"self":"http://example.org/cable-runs/160"},"attributes":{"site":"MyString","building":"MyString","room":"MyString","drop":"MyString","rdt":"MyString","rdt-port":"MyString","fdh-port":"MyString","splitter":"MyString","splitter-fiber":"MyString","pon-card":"MyString","pon-port":"MyString","fdh":"MyString","notes":"MyText","olt-rack":"MyString","olt-chassis":"MyString","vam-shelf":"MyString","vam-module":"MyString","vam-port":"MyString","backbone-shelf":"MyString","backbone-cable":"MyString","backbone-port":"MyString","fdh-location":"MyString","rdt-location":"MyString","ont-model":"MyString","ont-sn":"MyString","rdt-port-count":"MyString","ont-ge-1-device":"MyString","ont-ge-1-mac":"MyString","ont-ge-2-device":"MyString","ont-ge-2-mac":"MyString","ont-ge-3-device":"MyString","ont-ge-3-mac":"MyString","ont-ge-4-device":"MyString","ont-ge-4-mac":"MyString"},"relationships":{"sheet":{"links":{"self":"http://example.org/cable-runs/160/relationships/sheet","related":"http://example.org/cable-runs/160/sheet"}}}}],"meta":{"record-count":2}}
+  {"data":{"id":"214","type":"cable-runs","links":{"self":"http://example.org/cable-runs/214"},"attributes":{"site":"Updated Site","building":"MyString","room":"MyString","drop":"MyString","rdt":"MyString","rdt-port":"MyString","fdh-port":"MyString","splitter":"MyString","splitter-fiber":"MyString","pon-card":"MyString","pon-port":"MyString","fdh":"MyString","notes":"MyText","olt-rack":"MyString","olt-chassis":"MyString","vam-shelf":"MyString","vam-module":"MyString","vam-port":"MyString","backbone-shelf":"MyString","backbone-cable":"MyString","backbone-port":"MyString","fdh-location":"MyString","rdt-location":"MyString","ont-model":"MyString","ont-sn":"MyString","rdt-port-count":"MyString","ont-ge-1-device":"MyString","ont-ge-1-mac":"MyString","ont-ge-2-device":"MyString","ont-ge-2-mac":"MyString","ont-ge-3-device":"MyString","ont-ge-3-mac":"MyString","ont-ge-4-device":"MyString","ont-ge-4-mac":"MyString"},"relationships":{"sheet":{"links":{"self":"http://example.org/cable-runs/214/relationships/sheet","related":"http://example.org/cable-runs/214/sheet"}}}}}
 
 
 Create a network site
@@ -162,12 +162,10 @@ Request:
   POST /cable-runs
   Content-Type: application/vnd.api+json
 
-  {"data":{"type":"cable-runs","relationships":{"sheet":{"data":{"type":"sheets","id":297}}},"attributes":{"site":"Site Name"}}}
+  {"data":{"type":"cable-runs","relationships":{"sheet":{"data":{"type":"sheets","id":373}}},"attributes":{"site":"Site Name"}}}
 
 Response:
   Status: 201 Created
   Content-Type: application/vnd.api+json
 
-  {"data":{"id":"161","type":"cable-runs","links":{"self":"http://example.org/cable-runs/161"},"attributes":{"site":"Site Name","building":null,"room":null,"drop":null,"rdt":null,"rdt-port":null,"fdh-port":null,"splitter":null,"splitter-fiber":null,"pon-card":null,"pon-port":null,"fdh":null,"notes":null,"olt-rack":null,"olt-chassis":null,"vam-shelf":null,"vam-module":null,"vam-port":null,"backbone-shelf":null,"backbone-cable":null,"backbone-port":null,"fdh-location":null,"rdt-location":null,"ont-model":null,"ont-sn":null,"rdt-port-count":null,"ont-ge-1-device":null,"ont-ge-1-mac":null,"ont-ge-2-device":null,"ont-ge-2-mac":null,"ont-ge-3-device":null,"ont-ge-3-mac":null,"ont-ge-4-device":null,"ont-ge-4-mac":null},"relationships":{"sheet":{"links":{"self":"http://example.org/cable-runs/161/relationships/sheet","related":"http://example.org/cable-runs/161/sheet"}}}}}
-
-
+  {"data":{"id":"215","type":"cable-runs","links":{"self":"http://example.org/cable-runs/215"},"attributes":{"site":"Site Name","building":null,"room":null,"drop":null,"rdt":null,"rdt-port":null,"fdh-port":null,"splitter":null,"splitter-fiber":null,"pon-card":null,"pon-port":null,"fdh":null,"notes":null,"olt-rack":null,"olt-chassis":null,"vam-shelf":null,"vam-module":null,"vam-port":null,"backbone-shelf":null,"backbone-cable":null,"backbone-port":null,"fdh-location":null,"rdt-location":null,"ont-model":null,"ont-sn":null,"rdt-port-count":null,"ont-ge-1-device":null,"ont-ge-1-mac":null,"ont-ge-2-device":null,"ont-ge-2-mac":null,"ont-ge-3-device":null,"ont-ge-3-mac":null,"ont-ge-4-device":null,"ont-ge-4-mac":null},"relationships":{"sheet":{"links":{"self":"http://example.org/cable-runs/215/relationships/sheet","related":"http://example.org/cable-runs/215/sheet"}}}}}
