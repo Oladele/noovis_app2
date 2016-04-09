@@ -100,6 +100,18 @@
       ]
     },
     {
+      "name": "Global",
+      "examples": [
+        {
+          "description": "List Global Attributes",
+          "link": "global/list_global_attributes.json",
+          "groups": "all",
+          "route": "/global",
+          "method": "get"
+        }
+      ]
+    },
+    {
       "name": "ImportCableRuns",
       "examples": [
         {
