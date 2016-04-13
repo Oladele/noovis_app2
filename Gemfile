@@ -14,6 +14,7 @@ gem "apitome"
 gem 'rack-cors', :require => 'rack/cors'
 gem 'roo'
 gem 'roo-xls'
+gem 'devise_token_auth'
 
 group :development do
   gem "spring"
