@@ -1,6 +1,6 @@
 class CompanyResource < JSONAPI::Resource
   attributes :name, :node_counts
-  has_many :network_sites, :buildings
+  has_many :network_sites, :buildings, :users
 
   def node_counts
   	network_graphs = NetworkGraph.all_for @model
