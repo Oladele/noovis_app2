@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160317213903) do
+ActiveRecord::Schema.define(version: 20160413001839) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -160,6 +160,15 @@ ActiveRecord::Schema.define(version: 20160317213903) do
   add_index "sheets", ["building_id"], name: "index_sheets_on_building_id", using: :btree
   add_index "sheets", ["workbook_id"], name: "index_sheets_on_workbook_id", using: :btree
 
+  create_table "users", force: :cascade do |t|
+    t.string   "email"
+    t.integer  "company_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "users", ["company_id"], name: "index_users_on_company_id", using: :btree
+
   create_table "workbooks", force: :cascade do |t|
     t.string   "name"
     t.integer  "network_site_id"
@@ -178,5 +187,6 @@ ActiveRecord::Schema.define(version: 20160317213903) do
   add_foreign_key "nodes", "network_graphs"
   add_foreign_key "sheets", "buildings"
   add_foreign_key "sheets", "workbooks"
+  add_foreign_key "users", "companies"
   add_foreign_key "workbooks", "network_sites"
 end

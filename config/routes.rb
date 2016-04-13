@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   resources :nodes
   resource :import_cable_run
+  jsonapi_resources :users
   jsonapi_resource :global
   jsonapi_resources :cable_runs
   jsonapi_resources :companies
