@@ -1,5 +1,5 @@
 class UserResource < JSONAPI::Resource
-  attributes :email
+  attributes :email, :password
   has_one :company
   
   filter :company

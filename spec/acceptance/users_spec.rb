@@ -13,6 +13,9 @@ RSpec.resource "Users" do
    parameter :email, 
      "User email", 
      required: true, scope: :attributes
+   parameter :password,
+     "User password",
+     required: true, scope: :attributes
 
    let(:type){ "users"}
    let(:company_id){ (FactoryGirl.create(:company)).id }
@@ -33,6 +36,7 @@ RSpec.resource "Users" do
    include_context "user parameters"
 
    let(:email){ "test@example.com"}
+   let(:password){ "password" }
    
    example_request "Create a user" do
      expect(status).to eq 201
