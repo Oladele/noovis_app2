@@ -27,6 +27,11 @@ RSpec.describe Company, type: :model do
       company.network_sites.create(name: "site1")
       expect {company.destroy}.to change {NetworkSite.count}
     end
+
+	  it "should delete associated users on delete" do
+      company.users.create(email: "test@example.com")
+      expect {company.destroy}.to change {User.count}
+    end
 	end
   
   describe "validations" do
