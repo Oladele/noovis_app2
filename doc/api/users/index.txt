@@ -12,47 +12,13 @@ Request:
   POST /users
   Content-Type: application/vnd.api+json
 
-  {"data":{"relationships":{"company":{"data":{"type":"companies","id":1823}}},"type":"users","attributes":{"email":"test@example.com","password":"password","password-confirmation":"password"}}}
+  {"data":{"relationships":{"company":{"data":{"type":"companies","id":2171}}},"type":"users","attributes":{"email":"test@example.com","password":"password","password-confirmation":"password"}}}
 
 Response:
   Status: 201 Created
   Content-Type: application/vnd.api+json
 
-  {"data":{"id":"109","type":"users","links":{"self":"http://example.org/users/109"},"attributes":{"email":"test@example.com","password":"password","password-confirmation":"password"},"relationships":{"company":{"links":{"self":"http://example.org/users/109/relationships/company","related":"http://example.org/users/109/company"}}}}}
-
-
-List all users
---------------
-
-Request:
-  GET /users
-  Content-Type: application/vnd.api+json
-
-Response:
-  Status: 200 OK
-  Content-Type: application/vnd.api+json
-
-  {"data":[{"id":"110","type":"users","links":{"self":"http://example.org/users/110"},"attributes":{"email":"test1@example.com","password":null,"password-confirmation":null},"relationships":{"company":{"links":{"self":"http://example.org/users/110/relationships/company","related":"http://example.org/users/110/company"}}}},{"id":"111","type":"users","links":{"self":"http://example.org/users/111"},"attributes":{"email":"test2@example.com","password":null,"password-confirmation":null},"relationships":{"company":{"links":{"self":"http://example.org/users/111/relationships/company","related":"http://example.org/users/111/company"}}}}],"meta":{"record-count":2}}
-
-
-Delete a user
--------------
-
-Parameters:
-  * company - Company id
-  * type - Should always be set to <code>users</code>
-  * email - User email
-  * id - The id of the user
-
-Request:
-  DELETE /users/112
-  Content-Type: application/vnd.api+json
-
-  {"data":{"relationships":{"company":{"data":{"type":"companies","id":1827}}},"type":"users","id":"112"}}
-
-Response:
-  Status: 204 No Content
-
+  {"data":{"id":"131","type":"users","links":{"self":"http://example.org/users/131"},"attributes":{"email":"test@example.com"},"relationships":{"company":{"links":{"self":"http://example.org/users/131/relationships/company","related":"http://example.org/users/131/company"}}}}}
 
 
 Update a user
@@ -67,15 +33,49 @@ Parameters:
   * id - The id of the user
 
 Request:
-  PATCH /users/113
+  PATCH /users/132
   Content-Type: application/vnd.api+json
 
-  {"data":{"relationships":{"company":{"data":{"type":"companies","id":1829}}},"type":"users","attributes":{"email":"updated@example.com"},"id":"113"}}
+  {"data":{"relationships":{"company":{"data":{"type":"companies","id":2173}}},"type":"users","attributes":{"email":"updated@example.com"},"id":"132"}}
 
 Response:
   Status: 200 OK
   Content-Type: application/vnd.api+json
 
-  {"data":{"id":"113","type":"users","links":{"self":"http://example.org/users/113"},"attributes":{"email":"updated@example.com","password":null,"password-confirmation":null},"relationships":{"company":{"links":{"self":"http://example.org/users/113/relationships/company","related":"http://example.org/users/113/company"}}}}}
+  {"data":{"id":"132","type":"users","links":{"self":"http://example.org/users/132"},"attributes":{"email":"updated@example.com"},"relationships":{"company":{"links":{"self":"http://example.org/users/132/relationships/company","related":"http://example.org/users/132/company"}}}}}
+
+
+List all users
+--------------
+
+Request:
+  GET /users
+  Content-Type: application/vnd.api+json
+
+Response:
+  Status: 200 OK
+  Content-Type: application/vnd.api+json
+
+  {"data":[{"id":"133","type":"users","links":{"self":"http://example.org/users/133"},"attributes":{"email":"test1@example.com"},"relationships":{"company":{"links":{"self":"http://example.org/users/133/relationships/company","related":"http://example.org/users/133/company"}}}},{"id":"134","type":"users","links":{"self":"http://example.org/users/134"},"attributes":{"email":"test2@example.com"},"relationships":{"company":{"links":{"self":"http://example.org/users/134/relationships/company","related":"http://example.org/users/134/company"}}}}],"meta":{"record-count":2}}
+
+
+Delete a user
+-------------
+
+Parameters:
+  * company - Company id
+  * type - Should always be set to <code>users</code>
+  * email - User email
+  * id - The id of the user
+
+Request:
+  DELETE /users/135
+  Content-Type: application/vnd.api+json
+
+  {"data":{"relationships":{"company":{"data":{"type":"companies","id":2177}}},"type":"users","id":"135"}}
+
+Response:
+  Status: 204 No Content
+
 
 

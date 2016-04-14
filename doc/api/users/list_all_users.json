@@ -23,7 +23,7 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "{\"data\":[{\"id\":\"110\",\"type\":\"users\",\"links\":{\"self\":\"http://example.org/users/110\"},\"attributes\":{\"email\":\"test1@example.com\",\"password\":null,\"password-confirmation\":null},\"relationships\":{\"company\":{\"links\":{\"self\":\"http://example.org/users/110/relationships/company\",\"related\":\"http://example.org/users/110/company\"}}}},{\"id\":\"111\",\"type\":\"users\",\"links\":{\"self\":\"http://example.org/users/111\"},\"attributes\":{\"email\":\"test2@example.com\",\"password\":null,\"password-confirmation\":null},\"relationships\":{\"company\":{\"links\":{\"self\":\"http://example.org/users/111/relationships/company\",\"related\":\"http://example.org/users/111/company\"}}}}],\"meta\":{\"record-count\":2}}",
+      "response_body": "{\"data\":[{\"id\":\"133\",\"type\":\"users\",\"links\":{\"self\":\"http://example.org/users/133\"},\"attributes\":{\"email\":\"test1@example.com\"},\"relationships\":{\"company\":{\"links\":{\"self\":\"http://example.org/users/133/relationships/company\",\"related\":\"http://example.org/users/133/company\"}}}},{\"id\":\"134\",\"type\":\"users\",\"links\":{\"self\":\"http://example.org/users/134\"},\"attributes\":{\"email\":\"test2@example.com\"},\"relationships\":{\"company\":{\"links\":{\"self\":\"http://example.org/users/134/relationships/company\",\"related\":\"http://example.org/users/134/company\"}}}}],\"meta\":{\"record-count\":2}}",
       "response_headers": {
         "Content-Type": "application/vnd.api+json"
       },

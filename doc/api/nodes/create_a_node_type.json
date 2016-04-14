@@ -40,7 +40,7 @@
     {
       "request_method": "POST",
       "request_path": "/nodes",
-      "request_body": "{\"data\":{\"type\":\"nodes\",\"relationships\":{\"network-graph\":{\"data\":{\"type\":\"network-graphs\",\"id\":214}}},\"attributes\":{\"node-type\":\"some_node_type\"}}}",
+      "request_body": "{\"data\":{\"type\":\"nodes\",\"relationships\":{\"network-graph\":{\"data\":{\"type\":\"network-graphs\",\"id\":254}}},\"attributes\":{\"node-type\":\"some_node_type\"}}}",
       "request_headers": {
         "Content-Type": "application/vnd.api+json"
       },
@@ -49,7 +49,7 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 201,
       "response_status_text": "Created",
-      "response_body": "{\"data\":{\"id\":\"92\",\"type\":\"nodes\",\"links\":{\"self\":\"http://example.org/nodes/92\"},\"attributes\":{\"node-value\":null,\"node-level\":null,\"node-type\":\"some_node_type\"},\"relationships\":{\"network-graph\":{\"links\":{\"self\":\"http://example.org/nodes/92/relationships/network-graph\",\"related\":\"http://example.org/nodes/92/network-graph\"}}}}}",
+      "response_body": "{\"data\":{\"id\":\"109\",\"type\":\"nodes\",\"links\":{\"self\":\"http://example.org/nodes/109\"},\"attributes\":{\"node-value\":null,\"node-level\":null,\"node-type\":\"some_node_type\"},\"relationships\":{\"network-graph\":{\"links\":{\"self\":\"http://example.org/nodes/109/relationships/network-graph\",\"related\":\"http://example.org/nodes/109/network-graph\"}}}}}",
       "response_headers": {
         "Content-Type": "application/vnd.api+json"
       },

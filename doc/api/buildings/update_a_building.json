@@ -44,8 +44,8 @@
   "requests": [
     {
       "request_method": "PATCH",
-      "request_path": "/buildings/666",
-      "request_body": "{\"data\":{\"relationships\":{\"network-site\":{\"data\":{\"type\":\"network-sites\",\"id\":1513}}},\"type\":\"buildings\",\"attributes\":{\"name\":\"Updated Building Name\"},\"id\":\"666\"}}",
+      "request_path": "/buildings/803",
+      "request_body": "{\"data\":{\"relationships\":{\"network-site\":{\"data\":{\"type\":\"network-sites\",\"id\":1819}}},\"type\":\"buildings\",\"attributes\":{\"name\":\"Updated Building Name\"},\"id\":\"803\"}}",
       "request_headers": {
         "Content-Type": "application/vnd.api+json"
       },
@@ -54,7 +54,7 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "{\"data\":{\"id\":\"666\",\"type\":\"buildings\",\"links\":{\"self\":\"http://example.org/buildings/666\"},\"attributes\":{\"name\":\"Updated Building Name\",\"lat\":\"39.290139\",\"lng\":\"-76.614766\",\"description\":\"MyText\",\"node-counts\":[]},\"relationships\":{\"network-site\":{\"links\":{\"self\":\"http://example.org/buildings/666/relationships/network-site\",\"related\":\"http://example.org/buildings/666/network-site\"}},\"sheets\":{\"links\":{\"self\":\"http://example.org/buildings/666/relationships/sheets\",\"related\":\"http://example.org/buildings/666/sheets\"}}}}}",
+      "response_body": "{\"data\":{\"id\":\"803\",\"type\":\"buildings\",\"links\":{\"self\":\"http://example.org/buildings/803\"},\"attributes\":{\"name\":\"Updated Building Name\",\"lat\":\"39.290139\",\"lng\":\"-76.614766\",\"description\":\"MyText\",\"node-counts\":[]},\"relationships\":{\"network-site\":{\"links\":{\"self\":\"http://example.org/buildings/803/relationships/network-site\",\"related\":\"http://example.org/buildings/803/network-site\"}},\"sheets\":{\"links\":{\"self\":\"http://example.org/buildings/803/relationships/sheets\",\"related\":\"http://example.org/buildings/803/sheets\"}}}}}",
       "response_headers": {
         "Content-Type": "application/vnd.api+json"
       },

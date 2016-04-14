@@ -46,8 +46,8 @@
   "requests": [
     {
       "request_method": "PATCH",
-      "request_path": "/users/113",
-      "request_body": "{\"data\":{\"relationships\":{\"company\":{\"data\":{\"type\":\"companies\",\"id\":1829}}},\"type\":\"users\",\"attributes\":{\"email\":\"updated@example.com\"},\"id\":\"113\"}}",
+      "request_path": "/users/132",
+      "request_body": "{\"data\":{\"relationships\":{\"company\":{\"data\":{\"type\":\"companies\",\"id\":2173}}},\"type\":\"users\",\"attributes\":{\"email\":\"updated@example.com\"},\"id\":\"132\"}}",
       "request_headers": {
         "Content-Type": "application/vnd.api+json"
       },
@@ -56,7 +56,7 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "{\"data\":{\"id\":\"113\",\"type\":\"users\",\"links\":{\"self\":\"http://example.org/users/113\"},\"attributes\":{\"email\":\"updated@example.com\",\"password\":null,\"password-confirmation\":null},\"relationships\":{\"company\":{\"links\":{\"self\":\"http://example.org/users/113/relationships/company\",\"related\":\"http://example.org/users/113/company\"}}}}}",
+      "response_body": "{\"data\":{\"id\":\"132\",\"type\":\"users\",\"links\":{\"self\":\"http://example.org/users/132\"},\"attributes\":{\"email\":\"updated@example.com\"},\"relationships\":{\"company\":{\"links\":{\"self\":\"http://example.org/users/132/relationships/company\",\"related\":\"http://example.org/users/132/company\"}}}}}",
       "response_headers": {
         "Content-Type": "application/vnd.api+json"
       },
