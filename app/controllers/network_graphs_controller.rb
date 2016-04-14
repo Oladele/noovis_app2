@@ -1,2 +1,2 @@
-class NetworkGraphsController < ApplicationController
+class NetworkGraphsController < ApiController
 end

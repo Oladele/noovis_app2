@@ -1,2 +1,2 @@
-class NetworkTemplatesController < ApplicationController
+class NetworkTemplatesController < ApiController
 end

@@ -1,2 +1,2 @@
-class NetworkSitesController < ApplicationController
+class NetworkSitesController < ApiController
 end
