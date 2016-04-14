@@ -1,18 +1,4 @@
-List all nodes
---------------
-
-Request:
-  GET /nodes
-  Content-Type: application/vnd.api+json
-
-Response:
-  Status: 200 OK
-  Content-Type: application/vnd.api+json
-
-  {"data":[{"id":"70","type":"nodes","links":{"self":"http://example.org/nodes/70"},"attributes":{"node-value":"MyString","node-level":1,"node-type":"MyString"},"relationships":{"network-graph":{"links":{"self":"http://example.org/nodes/70/relationships/network-graph","related":"http://example.org/nodes/70/network-graph"}}}},{"id":"71","type":"nodes","links":{"self":"http://example.org/nodes/71"},"attributes":{"node-value":"MyString","node-level":1,"node-type":"MyString"},"relationships":{"network-graph":{"links":{"self":"http://example.org/nodes/71/relationships/network-graph","related":"http://example.org/nodes/71/network-graph"}}}}],"meta":{"record-count":2}}
-
-
-Update a node
+Delete a node
 -------------
 
 Parameters:
@@ -24,16 +10,28 @@ Parameters:
   * id - The id of the node
 
 Request:
-  PATCH /nodes/72
+  DELETE /nodes/89
   Content-Type: application/vnd.api+json
 
-  {"data":{"type":"nodes","relationships":{"network-graph":{"data":{"type":"network-graphs","id":167}}},"attributes":{"node-type":"some_node_type"},"id":"72"}}
+  {"data":{"type":"nodes","relationships":{"network-graph":{"data":{"type":"network-graphs","id":211}}},"attributes":{"node-type":"some_node_type"},"id":"89"}}
+
+Response:
+  Status: 204 No Content
+
+
+
+List all nodes
+--------------
+
+Request:
+  GET /nodes
+  Content-Type: application/vnd.api+json
 
 Response:
   Status: 200 OK
   Content-Type: application/vnd.api+json
 
-  {"data":{"id":"72","type":"nodes","links":{"self":"http://example.org/nodes/72"},"attributes":{"node-value":"MyString","node-level":1,"node-type":"some_node_type"},"relationships":{"network-graph":{"links":{"self":"http://example.org/nodes/72/relationships/network-graph","related":"http://example.org/nodes/72/network-graph"}}}}}
+  {"data":[{"id":"90","type":"nodes","links":{"self":"http://example.org/nodes/90"},"attributes":{"node-value":"MyString","node-level":1,"node-type":"MyString"},"relationships":{"network-graph":{"links":{"self":"http://example.org/nodes/90/relationships/network-graph","related":"http://example.org/nodes/90/network-graph"}}}},{"id":"91","type":"nodes","links":{"self":"http://example.org/nodes/91"},"attributes":{"node-value":"MyString","node-level":1,"node-type":"MyString"},"relationships":{"network-graph":{"links":{"self":"http://example.org/nodes/91/relationships/network-graph","related":"http://example.org/nodes/91/network-graph"}}}}],"meta":{"record-count":2}}
 
 
 Create a node type
@@ -50,16 +48,16 @@ Request:
   POST /nodes
   Content-Type: application/vnd.api+json
 
-  {"data":{"type":"nodes","relationships":{"network-graph":{"data":{"type":"network-graphs","id":168}}},"attributes":{"node-type":"some_node_type"}}}
+  {"data":{"type":"nodes","relationships":{"network-graph":{"data":{"type":"network-graphs","id":214}}},"attributes":{"node-type":"some_node_type"}}}
 
 Response:
   Status: 201 Created
   Content-Type: application/vnd.api+json
 
-  {"data":{"id":"73","type":"nodes","links":{"self":"http://example.org/nodes/73"},"attributes":{"node-value":null,"node-level":null,"node-type":"some_node_type"},"relationships":{"network-graph":{"links":{"self":"http://example.org/nodes/73/relationships/network-graph","related":"http://example.org/nodes/73/network-graph"}}}}}
+  {"data":{"id":"92","type":"nodes","links":{"self":"http://example.org/nodes/92"},"attributes":{"node-value":null,"node-level":null,"node-type":"some_node_type"},"relationships":{"network-graph":{"links":{"self":"http://example.org/nodes/92/relationships/network-graph","related":"http://example.org/nodes/92/network-graph"}}}}}
 
 
-Delete a node
+Update a node
 -------------
 
 Parameters:
@@ -71,13 +69,15 @@ Parameters:
   * id - The id of the node
 
 Request:
-  DELETE /nodes/74
+  PATCH /nodes/93
   Content-Type: application/vnd.api+json
 
-  {"data":{"type":"nodes","relationships":{"network-graph":{"data":{"type":"network-graphs","id":170}}},"attributes":{"node-type":"some_node_type"},"id":"74"}}
+  {"data":{"type":"nodes","relationships":{"network-graph":{"data":{"type":"network-graphs","id":216}}},"attributes":{"node-type":"some_node_type"},"id":"93"}}
 
 Response:
-  Status: 204 No Content
+  Status: 200 OK
+  Content-Type: application/vnd.api+json
 
+  {"data":{"id":"93","type":"nodes","links":{"self":"http://example.org/nodes/93"},"attributes":{"node-value":"MyString","node-level":1,"node-type":"some_node_type"},"relationships":{"network-graph":{"links":{"self":"http://example.org/nodes/93/relationships/network-graph","related":"http://example.org/nodes/93/network-graph"}}}}}
 
 

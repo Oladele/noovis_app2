@@ -13,16 +13,19 @@ RSpec.resource "Users" do
    parameter :email, 
      "User email", 
      required: true, scope: :attributes
+
+   let(:type){ "users"}
+   let(:company_id){ (FactoryGirl.create(:company)).id }
+   let(:company){{"data"=>{"type"=>"companies", "id"=> company_id}}}
+ end
+
+ shared_context "password parameters" do
    parameter :password,
      "User password",
      required: true, scope: :attributes
    parameter :"password-confirmation",
      "User password",
      required: true, scope: :attributes
-
-   let(:type){ "users"}
-   let(:company_id){ (FactoryGirl.create(:company)).id }
-   let(:company){{"data"=>{"type"=>"companies", "id"=> company_id}}}
  end
 
  shared_context "for a persisted user" do
@@ -37,6 +40,7 @@ RSpec.resource "Users" do
 
  post "/users" do
    include_context "user parameters"
+   include_context "password parameters"
 
    let(:email){ "test@example.com"}
    let(:password){ "password" }
@@ -51,6 +55,7 @@ RSpec.resource "Users" do
 
  patch "/users/:user_id" do
    include_context "user parameters"
+   include_context "password parameters"
    include_context "for a persisted user"
 
    let(:email){ "updated@example.com"}

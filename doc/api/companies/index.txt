@@ -15,7 +15,7 @@ Response:
   Status: 201 Created
   Content-Type: application/vnd.api+json
 
-  {"data":{"id":"1124","type":"companies","links":{"self":"http://example.org/companies/1124"},"attributes":{"name":"ACME Company","node-counts":[{"node_type":"network-sites","count":0,"node_type_pretty":"Sites"},{"node_type":"buildings","count":0,"node_type_pretty":"Buildings"}]},"relationships":{"network-sites":{"links":{"self":"http://example.org/companies/1124/relationships/network-sites","related":"http://example.org/companies/1124/network-sites"}},"buildings":{"links":{"self":"http://example.org/companies/1124/relationships/buildings","related":"http://example.org/companies/1124/buildings"}}}}}
+  {"data":{"id":"1755","type":"companies","links":{"self":"http://example.org/companies/1755"},"attributes":{"name":"ACME Company","node-counts":[{"node_type":"network-sites","count":0,"node_type_pretty":"Sites"},{"node_type":"buildings","count":0,"node_type_pretty":"Buildings"}]},"relationships":{"network-sites":{"links":{"self":"http://example.org/companies/1755/relationships/network-sites","related":"http://example.org/companies/1755/network-sites"}},"buildings":{"links":{"self":"http://example.org/companies/1755/relationships/buildings","related":"http://example.org/companies/1755/buildings"}},"users":{"links":{"self":"http://example.org/companies/1755/relationships/users","related":"http://example.org/companies/1755/users"}}}}}
 
 
 Delete a company
@@ -27,10 +27,10 @@ Parameters:
   * id - The id of the company
 
 Request:
-  DELETE /companies/1125
+  DELETE /companies/1756
   Content-Type: application/vnd.api+json
 
-  {"data":{"type":"companies","id":"1125"}}
+  {"data":{"type":"companies","id":"1756"}}
 
 Response:
   Status: 204 No Content
@@ -46,16 +46,16 @@ Parameters:
   * id - The id of the company
 
 Request:
-  PATCH /companies/1126
+  PATCH /companies/1757
   Content-Type: application/vnd.api+json
 
-  {"data":{"type":"companies","attributes":{"name":"New Company Name"},"id":"1126"}}
+  {"data":{"type":"companies","attributes":{"name":"New Company Name"},"id":"1757"}}
 
 Response:
   Status: 200 OK
   Content-Type: application/vnd.api+json
 
-  {"data":{"id":"1126","type":"companies","links":{"self":"http://example.org/companies/1126"},"attributes":{"name":"New Company Name","node-counts":[{"node_type":"network-sites","count":0,"node_type_pretty":"Sites"},{"node_type":"buildings","count":0,"node_type_pretty":"Buildings"}]},"relationships":{"network-sites":{"links":{"self":"http://example.org/companies/1126/relationships/network-sites","related":"http://example.org/companies/1126/network-sites"}},"buildings":{"links":{"self":"http://example.org/companies/1126/relationships/buildings","related":"http://example.org/companies/1126/buildings"}}}}}
+  {"data":{"id":"1757","type":"companies","links":{"self":"http://example.org/companies/1757"},"attributes":{"name":"New Company Name","node-counts":[{"node_type":"network-sites","count":0,"node_type_pretty":"Sites"},{"node_type":"buildings","count":0,"node_type_pretty":"Buildings"}]},"relationships":{"network-sites":{"links":{"self":"http://example.org/companies/1757/relationships/network-sites","related":"http://example.org/companies/1757/network-sites"}},"buildings":{"links":{"self":"http://example.org/companies/1757/relationships/buildings","related":"http://example.org/companies/1757/buildings"}},"users":{"links":{"self":"http://example.org/companies/1757/relationships/users","related":"http://example.org/companies/1757/users"}}}}}
 
 
 List all companies
@@ -69,6 +69,6 @@ Response:
   Status: 200 OK
   Content-Type: application/vnd.api+json
 
-  {"data":[{"id":"1127","type":"companies","links":{"self":"http://example.org/companies/1127"},"attributes":{"name":"1st company","node-counts":[{"node_type":"network-sites","count":0,"node_type_pretty":"Sites"},{"node_type":"buildings","count":0,"node_type_pretty":"Buildings"}]},"relationships":{"network-sites":{"links":{"self":"http://example.org/companies/1127/relationships/network-sites","related":"http://example.org/companies/1127/network-sites"}},"buildings":{"links":{"self":"http://example.org/companies/1127/relationships/buildings","related":"http://example.org/companies/1127/buildings"}}}},{"id":"1128","type":"companies","links":{"self":"http://example.org/companies/1128"},"attributes":{"name":"2nd company","node-counts":[{"node_type":"network-sites","count":0,"node_type_pretty":"Sites"},{"node_type":"buildings","count":0,"node_type_pretty":"Buildings"}]},"relationships":{"network-sites":{"links":{"self":"http://example.org/companies/1128/relationships/network-sites","related":"http://example.org/companies/1128/network-sites"}},"buildings":{"links":{"self":"http://example.org/companies/1128/relationships/buildings","related":"http://example.org/companies/1128/buildings"}}}}],"meta":{"record-count":2}}
+  {"data":[{"id":"1758","type":"companies","links":{"self":"http://example.org/companies/1758"},"attributes":{"name":"1st company","node-counts":[{"node_type":"network-sites","count":0,"node_type_pretty":"Sites"},{"node_type":"buildings","count":0,"node_type_pretty":"Buildings"}]},"relationships":{"network-sites":{"links":{"self":"http://example.org/companies/1758/relationships/network-sites","related":"http://example.org/companies/1758/network-sites"}},"buildings":{"links":{"self":"http://example.org/companies/1758/relationships/buildings","related":"http://example.org/companies/1758/buildings"}},"users":{"links":{"self":"http://example.org/companies/1758/relationships/users","related":"http://example.org/companies/1758/users"}}}},{"id":"1759","type":"companies","links":{"self":"http://example.org/companies/1759"},"attributes":{"name":"2nd company","node-counts":[{"node_type":"network-sites","count":0,"node_type_pretty":"Sites"},{"node_type":"buildings","count":0,"node_type_pretty":"Buildings"}]},"relationships":{"network-sites":{"links":{"self":"http://example.org/companies/1759/relationships/network-sites","related":"http://example.org/companies/1759/network-sites"}},"buildings":{"links":{"self":"http://example.org/companies/1759/relationships/buildings","related":"http://example.org/companies/1759/buildings"}},"users":{"links":{"self":"http://example.org/companies/1759/relationships/users","related":"http://example.org/companies/1759/users"}}}}],"meta":{"record-count":2}}
 
 

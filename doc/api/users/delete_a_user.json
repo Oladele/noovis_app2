@@ -1,25 +1,31 @@
 {
-  "resource": "Companies",
+  "resource": "Users",
   "http_method": "DELETE",
-  "route": "/companies/:company_id",
-  "description": "Delete a company",
+  "route": "/users/:user_id",
+  "description": "Delete a user",
   "explanation": null,
   "parameters": [
     {
       "required": true,
+      "scope": "relationships",
+      "name": "company",
+      "description": "Company id"
+    },
+    {
+      "required": true,
       "name": "type",
-      "description": "Should always be set to <code>companies</code>"
+      "description": "Should always be set to <code>users</code>"
     },
     {
       "required": true,
       "scope": "attributes",
-      "name": "name",
-      "description": "Company Name"
+      "name": "email",
+      "description": "User email"
     },
     {
       "required": true,
       "name": "id",
-      "description": "The id of the company"
+      "description": "The id of the user"
     }
   ],
   "response_fields": [
@@ -28,8 +34,8 @@
   "requests": [
     {
       "request_method": "DELETE",
-      "request_path": "/companies/1756",
-      "request_body": "{\"data\":{\"type\":\"companies\",\"id\":\"1756\"}}",
+      "request_path": "/users/112",
+      "request_body": "{\"data\":{\"relationships\":{\"company\":{\"data\":{\"type\":\"companies\",\"id\":1827}}},\"type\":\"users\",\"id\":\"112\"}}",
       "request_headers": {
         "Content-Type": "application/vnd.api+json"
       },

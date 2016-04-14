@@ -1,0 +1,81 @@
+Create a user
+-------------
+
+Parameters:
+  * company - Company id
+  * type - Should always be set to <code>users</code>
+  * email - User email
+  * password - User password
+  * password-confirmation - User password
+
+Request:
+  POST /users
+  Content-Type: application/vnd.api+json
+
+  {"data":{"relationships":{"company":{"data":{"type":"companies","id":1823}}},"type":"users","attributes":{"email":"test@example.com","password":"password","password-confirmation":"password"}}}
+
+Response:
+  Status: 201 Created
+  Content-Type: application/vnd.api+json
+
+  {"data":{"id":"109","type":"users","links":{"self":"http://example.org/users/109"},"attributes":{"email":"test@example.com","password":"password","password-confirmation":"password"},"relationships":{"company":{"links":{"self":"http://example.org/users/109/relationships/company","related":"http://example.org/users/109/company"}}}}}
+
+
+List all users
+--------------
+
+Request:
+  GET /users
+  Content-Type: application/vnd.api+json
+
+Response:
+  Status: 200 OK
+  Content-Type: application/vnd.api+json
+
+  {"data":[{"id":"110","type":"users","links":{"self":"http://example.org/users/110"},"attributes":{"email":"test1@example.com","password":null,"password-confirmation":null},"relationships":{"company":{"links":{"self":"http://example.org/users/110/relationships/company","related":"http://example.org/users/110/company"}}}},{"id":"111","type":"users","links":{"self":"http://example.org/users/111"},"attributes":{"email":"test2@example.com","password":null,"password-confirmation":null},"relationships":{"company":{"links":{"self":"http://example.org/users/111/relationships/company","related":"http://example.org/users/111/company"}}}}],"meta":{"record-count":2}}
+
+
+Delete a user
+-------------
+
+Parameters:
+  * company - Company id
+  * type - Should always be set to <code>users</code>
+  * email - User email
+  * id - The id of the user
+
+Request:
+  DELETE /users/112
+  Content-Type: application/vnd.api+json
+
+  {"data":{"relationships":{"company":{"data":{"type":"companies","id":1827}}},"type":"users","id":"112"}}
+
+Response:
+  Status: 204 No Content
+
+
+
+Update a user
+-------------
+
+Parameters:
+  * company - Company id
+  * type - Should always be set to <code>users</code>
+  * email - User email
+  * password - User password
+  * password-confirmation - User password
+  * id - The id of the user
+
+Request:
+  PATCH /users/113
+  Content-Type: application/vnd.api+json
+
+  {"data":{"relationships":{"company":{"data":{"type":"companies","id":1829}}},"type":"users","attributes":{"email":"updated@example.com"},"id":"113"}}
+
+Response:
+  Status: 200 OK
+  Content-Type: application/vnd.api+json
+
+  {"data":{"id":"113","type":"users","links":{"self":"http://example.org/users/113"},"attributes":{"email":"updated@example.com","password":null,"password-confirmation":null},"relationships":{"company":{"links":{"self":"http://example.org/users/113/relationships/company","related":"http://example.org/users/113/company"}}}}}
+
+

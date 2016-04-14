@@ -1,45 +1,3 @@
-Update a network-graph
-----------------------
-
-Parameters:
-  * type - Should always be set to <code>network-graphs</code>
-  * sheet - Sheet id
-  * network-template - Network Template id
-  * id - The id of the network-graph
-
-Request:
-  PATCH /network-graphs/159
-  Content-Type: application/vnd.api+json
-
-  {"data":{"type":"network-graphs","relationships":{"sheet":{"data":{"type":"sheets","id":349}},"network-template":{"data":{"type":"network-templates","id":254}}},"id":"159"}}
-
-Response:
-  Status: 200 OK
-  Content-Type: application/vnd.api+json
-
-  {"data":{"id":"159","type":"network-graphs","links":{"self":"http://example.org/network-graphs/159"},"attributes":{"nodes":[],"edges":[]},"relationships":{"sheet":{"links":{"self":"http://example.org/network-graphs/159/relationships/sheet","related":"http://example.org/network-graphs/159/sheet"}},"network-template":{"links":{"self":"http://example.org/network-graphs/159/relationships/network-template","related":"http://example.org/network-graphs/159/network-template"}},"nodes":{"links":{"self":"http://example.org/network-graphs/159/relationships/nodes","related":"http://example.org/network-graphs/159/nodes"}}}}}
-
-
-Delete a network-graph
-----------------------
-
-Parameters:
-  * type - Should always be set to <code>network-graphs</code>
-  * sheet - Sheet id
-  * network-template - Network Template id
-  * id - The id of the network-graph
-
-Request:
-  DELETE /network-graphs/160
-  Content-Type: application/vnd.api+json
-
-  {"data":{"type":"network-graphs","relationships":{"sheet":{"data":{"type":"sheets","id":351}},"network-template":{"data":{"type":"network-templates","id":256}}},"id":"160"}}
-
-Response:
-  Status: 204 No Content
-
-
-
 List all network-graphs
 -----------------------
 
@@ -51,7 +9,7 @@ Response:
   Status: 200 OK
   Content-Type: application/vnd.api+json
 
-  {"data":[{"id":"161","type":"network-graphs","links":{"self":"http://example.org/network-graphs/161"},"attributes":{"nodes":[],"edges":[]},"relationships":{"sheet":{"links":{"self":"http://example.org/network-graphs/161/relationships/sheet","related":"http://example.org/network-graphs/161/sheet"}},"network-template":{"links":{"self":"http://example.org/network-graphs/161/relationships/network-template","related":"http://example.org/network-graphs/161/network-template"}},"nodes":{"links":{"self":"http://example.org/network-graphs/161/relationships/nodes","related":"http://example.org/network-graphs/161/nodes"}}}},{"id":"162","type":"network-graphs","links":{"self":"http://example.org/network-graphs/162"},"attributes":{"nodes":[],"edges":[]},"relationships":{"sheet":{"links":{"self":"http://example.org/network-graphs/162/relationships/sheet","related":"http://example.org/network-graphs/162/sheet"}},"network-template":{"links":{"self":"http://example.org/network-graphs/162/relationships/network-template","related":"http://example.org/network-graphs/162/network-template"}},"nodes":{"links":{"self":"http://example.org/network-graphs/162/relationships/nodes","related":"http://example.org/network-graphs/162/nodes"}}}}],"meta":{"record-count":2}}
+  {"data":[{"id":"205","type":"network-graphs","links":{"self":"http://example.org/network-graphs/205"},"attributes":{"nodes":[],"edges":[]},"relationships":{"sheet":{"links":{"self":"http://example.org/network-graphs/205/relationships/sheet","related":"http://example.org/network-graphs/205/sheet"}},"network-template":{"links":{"self":"http://example.org/network-graphs/205/relationships/network-template","related":"http://example.org/network-graphs/205/network-template"}},"nodes":{"links":{"self":"http://example.org/network-graphs/205/relationships/nodes","related":"http://example.org/network-graphs/205/nodes"}}}},{"id":"206","type":"network-graphs","links":{"self":"http://example.org/network-graphs/206"},"attributes":{"nodes":[],"edges":[]},"relationships":{"sheet":{"links":{"self":"http://example.org/network-graphs/206/relationships/sheet","related":"http://example.org/network-graphs/206/sheet"}},"network-template":{"links":{"self":"http://example.org/network-graphs/206/relationships/network-template","related":"http://example.org/network-graphs/206/network-template"}},"nodes":{"links":{"self":"http://example.org/network-graphs/206/relationships/nodes","related":"http://example.org/network-graphs/206/nodes"}}}}],"meta":{"record-count":2}}
 
 
 Create a network graph
@@ -66,12 +24,54 @@ Request:
   POST /network-graphs
   Content-Type: application/vnd.api+json
 
-  {"data":{"type":"network-graphs","relationships":{"sheet":{"data":{"type":"sheets","id":354}},"network-template":{"data":{"type":"network-templates","id":259}}}}}
+  {"data":{"type":"network-graphs","relationships":{"sheet":{"data":{"type":"sheets","id":492}},"network-template":{"data":{"type":"network-templates","id":323}}}}}
 
 Response:
   Status: 201 Created
   Content-Type: application/vnd.api+json
 
-  {"data":{"id":"163","type":"network-graphs","links":{"self":"http://example.org/network-graphs/163"},"attributes":{"nodes":[],"edges":[]},"relationships":{"sheet":{"links":{"self":"http://example.org/network-graphs/163/relationships/sheet","related":"http://example.org/network-graphs/163/sheet"}},"network-template":{"links":{"self":"http://example.org/network-graphs/163/relationships/network-template","related":"http://example.org/network-graphs/163/network-template"}},"nodes":{"links":{"self":"http://example.org/network-graphs/163/relationships/nodes","related":"http://example.org/network-graphs/163/nodes"}}}}}
+  {"data":{"id":"207","type":"network-graphs","links":{"self":"http://example.org/network-graphs/207"},"attributes":{"nodes":[],"edges":[]},"relationships":{"sheet":{"links":{"self":"http://example.org/network-graphs/207/relationships/sheet","related":"http://example.org/network-graphs/207/sheet"}},"network-template":{"links":{"self":"http://example.org/network-graphs/207/relationships/network-template","related":"http://example.org/network-graphs/207/network-template"}},"nodes":{"links":{"self":"http://example.org/network-graphs/207/relationships/nodes","related":"http://example.org/network-graphs/207/nodes"}}}}}
+
+
+Update a network-graph
+----------------------
+
+Parameters:
+  * type - Should always be set to <code>network-graphs</code>
+  * sheet - Sheet id
+  * network-template - Network Template id
+  * id - The id of the network-graph
+
+Request:
+  PATCH /network-graphs/208
+  Content-Type: application/vnd.api+json
+
+  {"data":{"type":"network-graphs","relationships":{"sheet":{"data":{"type":"sheets","id":494}},"network-template":{"data":{"type":"network-templates","id":325}}},"id":"208"}}
+
+Response:
+  Status: 200 OK
+  Content-Type: application/vnd.api+json
+
+  {"data":{"id":"208","type":"network-graphs","links":{"self":"http://example.org/network-graphs/208"},"attributes":{"nodes":[],"edges":[]},"relationships":{"sheet":{"links":{"self":"http://example.org/network-graphs/208/relationships/sheet","related":"http://example.org/network-graphs/208/sheet"}},"network-template":{"links":{"self":"http://example.org/network-graphs/208/relationships/network-template","related":"http://example.org/network-graphs/208/network-template"}},"nodes":{"links":{"self":"http://example.org/network-graphs/208/relationships/nodes","related":"http://example.org/network-graphs/208/nodes"}}}}}
+
+
+Delete a network-graph
+----------------------
+
+Parameters:
+  * type - Should always be set to <code>network-graphs</code>
+  * sheet - Sheet id
+  * network-template - Network Template id
+  * id - The id of the network-graph
+
+Request:
+  DELETE /network-graphs/209
+  Content-Type: application/vnd.api+json
+
+  {"data":{"type":"network-graphs","relationships":{"sheet":{"data":{"type":"sheets","id":496}},"network-template":{"data":{"type":"network-templates","id":327}}},"id":"209"}}
+
+Response:
+  Status: 204 No Content
+
 
 
