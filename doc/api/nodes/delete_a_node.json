@@ -44,8 +44,8 @@
   "requests": [
     {
       "request_method": "DELETE",
-      "request_path": "/nodes/74",
-      "request_body": "{\"data\":{\"type\":\"nodes\",\"relationships\":{\"network-graph\":{\"data\":{\"type\":\"network-graphs\",\"id\":170}}},\"attributes\":{\"node-type\":\"some_node_type\"},\"id\":\"74\"}}",
+      "request_path": "/nodes/110",
+      "request_body": "{\"data\":{\"type\":\"nodes\",\"relationships\":{\"network-graph\":{\"data\":{\"type\":\"network-graphs\",\"id\":256}}},\"attributes\":{\"node-type\":\"some_node_type\"},\"id\":\"110\"}}",
       "request_headers": {
         "Content-Type": "application/vnd.api+json"
       },

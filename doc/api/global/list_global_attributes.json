@@ -23,7 +23,7 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "{\"data\":{\"id\":\"162f2d27-96af-4887-8fb2-3bf47637c6b3\",\"type\":\"globals\",\"links\":{\"self\":\"http://example.org/globals/162f2d27-96af-4887-8fb2-3bf47637c6b3\"},\"attributes\":{\"node-counts\":[{\"node_type\":\"network-sites\",\"count\":null,\"node_type_pretty\":\"Sites\"},{\"node_type\":\"buildings\",\"count\":null,\"node_type_pretty\":\"Buildings\"}]}}}",
+      "response_body": "{\"data\":{\"id\":\"24326d35-eb5e-489b-911e-b1999c3bc19c\",\"type\":\"globals\",\"links\":{\"self\":\"http://example.org/globals/24326d35-eb5e-489b-911e-b1999c3bc19c\"},\"attributes\":{\"node-counts\":[{\"node_type\":\"network-sites\",\"count\":null,\"node_type_pretty\":\"Sites\"},{\"node_type\":\"buildings\",\"count\":null,\"node_type_pretty\":\"Buildings\"}]}}}",
       "response_headers": {
         "Content-Type": "application/vnd.api+json"
       },

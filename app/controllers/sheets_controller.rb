@@ -1,2 +1,2 @@
-class SheetsController < ApplicationController
+class SheetsController < ApiController
 end

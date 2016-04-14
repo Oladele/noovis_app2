@@ -1,4 +1,4 @@
-class BuildingsController < ApplicationController
+class BuildingsController < ApiController
 
 	def latest_network_graph
 		response = nil
