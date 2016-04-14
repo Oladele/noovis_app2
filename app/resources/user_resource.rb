@@ -3,4 +3,8 @@ class UserResource < JSONAPI::Resource
   has_one :company
   
   filter :company
+
+  def fetchable_fields
+    super - [:password, :password_confirmation]
+  end
 end
