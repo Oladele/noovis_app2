@@ -43,6 +43,7 @@ module NoovisApp2
 
         resource '*', 
             :headers => :any, 
+            :expose => ['access-token', 'expiry', 'token-type', 'uid', 'client'],
             :methods => [:get, :post, :delete, :put, :patch, :options, :head],
             :max_age => 0
       end
