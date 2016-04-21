@@ -23,7 +23,7 @@ Request:
   ------------XnJLe9ZIbbGUYtzPQJ16u1
   Content-Disposition: form-data; name="building_id"
   
-  781
+  217
   ------------XnJLe9ZIbbGUYtzPQJ16u1--
 
 Response:

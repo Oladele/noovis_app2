@@ -9,6 +9,6 @@ Response:
   Status: 200 OK
   Content-Type: application/vnd.api+json
 
-  {"data":{"id":"24326d35-eb5e-489b-911e-b1999c3bc19c","type":"globals","links":{"self":"http://example.org/globals/24326d35-eb5e-489b-911e-b1999c3bc19c"},"attributes":{"node-counts":[{"node_type":"network-sites","count":null,"node_type_pretty":"Sites"},{"node_type":"buildings","count":null,"node_type_pretty":"Buildings"}]}}}
+  {"data":{"id":"15ed6c57-a08f-4ac3-9ef8-c7e95f7ed3a0","type":"globals","links":{"self":"http://example.org/globals/15ed6c57-a08f-4ac3-9ef8-c7e95f7ed3a0"},"attributes":{"node-counts":[{"node_type":"network-sites","count":null,"node_type_pretty":"Sites"},{"node_type":"buildings","count":null,"node_type_pretty":"Buildings"}]}}}
 
 

@@ -147,6 +147,14 @@ table th, table td {
               </tr>
               <tr>
                 <td class="required">
+                    <span class="name">attributes[role]</span>
+                </td>
+                <td>
+                  <span class="description">User role</span>
+                </td>
+              </tr>
+              <tr>
+                <td class="required">
                     <span class="name">attributes[password]</span>
                 </td>
                 <td>
@@ -179,11 +187,11 @@ table th, table td {
             <pre class="request headers">Content-Type: application/vnd.api+json</pre>
 
           <h4>Route</h4>
-          <pre class="request route highlight">PATCH /users/132</pre>
+          <pre class="request route highlight">PATCH /users/30</pre>
 
 
             <h4>Body</h4>
-            <pre class="request body">{"data":{"relationships":{"company":{"data":{"type":"companies","id":2173}}},"type":"users","attributes":{"email":"updated@example.com"},"id":"132"}}</pre>
+            <pre class="request body">{"data":{"relationships":{"company":{"data":{"type":"companies","id":523}}},"type":"users","attributes":{"email":"updated@example.com"},"id":"30"}}</pre>
 
 
             <h3>Response</h3>
@@ -192,7 +200,7 @@ table th, table td {
             <h4>Status</h4>
             <pre class="response status">200 OK</pre>
               <h4>Body</h4>
-              <pre class="response body">{&quot;data&quot;:{&quot;id&quot;:&quot;132&quot;,&quot;type&quot;:&quot;users&quot;,&quot;links&quot;:{&quot;self&quot;:&quot;http://example.org/users/132&quot;},&quot;attributes&quot;:{&quot;email&quot;:&quot;updated@example.com&quot;},&quot;relationships&quot;:{&quot;company&quot;:{&quot;links&quot;:{&quot;self&quot;:&quot;http://example.org/users/132/relationships/company&quot;,&quot;related&quot;:&quot;http://example.org/users/132/company&quot;}}}}}</pre>
+              <pre class="response body">{&quot;data&quot;:{&quot;id&quot;:&quot;30&quot;,&quot;type&quot;:&quot;users&quot;,&quot;links&quot;:{&quot;self&quot;:&quot;http://example.org/users/30&quot;},&quot;attributes&quot;:{&quot;email&quot;:&quot;updated@example.com&quot;,&quot;role&quot;:&quot;admin&quot;},&quot;relationships&quot;:{&quot;company&quot;:{&quot;links&quot;:{&quot;self&quot;:&quot;http://example.org/users/30/relationships/company&quot;,&quot;related&quot;:&quot;http://example.org/users/30/company&quot;}}}}}</pre>
       </div>
     </div>
   </body>

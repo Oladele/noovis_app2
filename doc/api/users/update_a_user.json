@@ -25,6 +25,12 @@
     {
       "required": true,
       "scope": "attributes",
+      "name": "role",
+      "description": "User role"
+    },
+    {
+      "required": true,
+      "scope": "attributes",
       "name": "password",
       "description": "User password"
     },
@@ -46,8 +52,8 @@
   "requests": [
     {
       "request_method": "PATCH",
-      "request_path": "/users/132",
-      "request_body": "{\"data\":{\"relationships\":{\"company\":{\"data\":{\"type\":\"companies\",\"id\":2173}}},\"type\":\"users\",\"attributes\":{\"email\":\"updated@example.com\"},\"id\":\"132\"}}",
+      "request_path": "/users/30",
+      "request_body": "{\"data\":{\"relationships\":{\"company\":{\"data\":{\"type\":\"companies\",\"id\":523}}},\"type\":\"users\",\"attributes\":{\"email\":\"updated@example.com\"},\"id\":\"30\"}}",
       "request_headers": {
         "Content-Type": "application/vnd.api+json"
       },
@@ -56,7 +62,7 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "{\"data\":{\"id\":\"132\",\"type\":\"users\",\"links\":{\"self\":\"http://example.org/users/132\"},\"attributes\":{\"email\":\"updated@example.com\"},\"relationships\":{\"company\":{\"links\":{\"self\":\"http://example.org/users/132/relationships/company\",\"related\":\"http://example.org/users/132/company\"}}}}}",
+      "response_body": "{\"data\":{\"id\":\"30\",\"type\":\"users\",\"links\":{\"self\":\"http://example.org/users/30\"},\"attributes\":{\"email\":\"updated@example.com\",\"role\":\"admin\"},\"relationships\":{\"company\":{\"links\":{\"self\":\"http://example.org/users/30/relationships/company\",\"related\":\"http://example.org/users/30/company\"}}}}}",
       "response_headers": {
         "Content-Type": "application/vnd.api+json"
       },
