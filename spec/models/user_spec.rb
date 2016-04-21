@@ -4,6 +4,7 @@ RSpec.describe User, type: :model do
 	describe "attributes" do
   	it { is_expected.to have_attribute :email }
   	it { is_expected.to have_attribute :company_id }
+  	it { is_expected.to have_attribute :role }
 	end
 
 	describe "associations" do
