@@ -4,6 +4,7 @@ gem 'rails', '4.2.4'
 gem 'pg'
 gem 'bcrypt', '~> 3.1.7'
 gem 'unicorn'
+gem 'newrelic_rpm'
 
 #app-specific gems
 gem 'rspec_api_documentation'
