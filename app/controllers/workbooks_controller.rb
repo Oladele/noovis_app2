@@ -1,2 +1,2 @@
-class WorkbooksController < ApplicationController
+class WorkbooksController < ApiController
 end

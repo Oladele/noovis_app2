@@ -1,0 +1,84 @@
+Delete a user
+-------------
+
+Parameters:
+  * company - Company id
+  * type - Should always be set to <code>users</code>
+  * email - User email
+  * role - User role
+  * id - The id of the user
+
+Request:
+  DELETE /users/29
+  Content-Type: application/vnd.api+json
+
+  {"data":{"relationships":{"company":{"data":{"type":"companies","id":521}}},"type":"users","id":"29"}}
+
+Response:
+  Status: 204 No Content
+
+
+
+Update a user
+-------------
+
+Parameters:
+  * company - Company id
+  * type - Should always be set to <code>users</code>
+  * email - User email
+  * role - User role
+  * password - User password
+  * password-confirmation - User password
+  * id - The id of the user
+
+Request:
+  PATCH /users/30
+  Content-Type: application/vnd.api+json
+
+  {"data":{"relationships":{"company":{"data":{"type":"companies","id":523}}},"type":"users","attributes":{"email":"updated@example.com"},"id":"30"}}
+
+Response:
+  Status: 200 OK
+  Content-Type: application/vnd.api+json
+
+  {"data":{"id":"30","type":"users","links":{"self":"http://example.org/users/30"},"attributes":{"email":"updated@example.com","role":"admin"},"relationships":{"company":{"links":{"self":"http://example.org/users/30/relationships/company","related":"http://example.org/users/30/company"}}}}}
+
+
+List all users
+--------------
+
+Request:
+  GET /users
+  Content-Type: application/vnd.api+json
+
+Response:
+  Status: 200 OK
+  Content-Type: application/vnd.api+json
+
+  {"data":[{"id":"31","type":"users","links":{"self":"http://example.org/users/31"},"attributes":{"email":"test1@example.com","role":"admin"},"relationships":{"company":{"links":{"self":"http://example.org/users/31/relationships/company","related":"http://example.org/users/31/company"}}}},{"id":"32","type":"users","links":{"self":"http://example.org/users/32"},"attributes":{"email":"test2@example.com","role":"admin"},"relationships":{"company":{"links":{"self":"http://example.org/users/32/relationships/company","related":"http://example.org/users/32/company"}}}}],"meta":{"record-count":2}}
+
+
+Create a user
+-------------
+
+Parameters:
+  * company - Company id
+  * type - Should always be set to <code>users</code>
+  * email - User email
+  * role - User role
+  * password - User password
+  * password-confirmation - User password
+
+Request:
+  POST /users
+  Content-Type: application/vnd.api+json
+
+  {"data":{"relationships":{"company":{"data":{"type":"companies","id":526}}},"type":"users","attributes":{"email":"test@example.com","role":"admin","password":"password","password-confirmation":"password"}}}
+
+Response:
+  Status: 201 Created
+  Content-Type: application/vnd.api+json
+
+  {"data":{"id":"33","type":"users","links":{"self":"http://example.org/users/33"},"attributes":{"email":"test@example.com","role":"admin"},"relationships":{"company":{"links":{"self":"http://example.org/users/33/relationships/company","related":"http://example.org/users/33/company"}}}}}
+
+

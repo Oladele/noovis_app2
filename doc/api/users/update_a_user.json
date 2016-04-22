@@ -1,0 +1,73 @@
+{
+  "resource": "Users",
+  "http_method": "PATCH",
+  "route": "/users/:user_id",
+  "description": "Update a user",
+  "explanation": null,
+  "parameters": [
+    {
+      "required": true,
+      "scope": "relationships",
+      "name": "company",
+      "description": "Company id"
+    },
+    {
+      "required": true,
+      "name": "type",
+      "description": "Should always be set to <code>users</code>"
+    },
+    {
+      "required": true,
+      "scope": "attributes",
+      "name": "email",
+      "description": "User email"
+    },
+    {
+      "required": true,
+      "scope": "attributes",
+      "name": "role",
+      "description": "User role"
+    },
+    {
+      "required": true,
+      "scope": "attributes",
+      "name": "password",
+      "description": "User password"
+    },
+    {
+      "required": true,
+      "scope": "attributes",
+      "name": "password-confirmation",
+      "description": "User password"
+    },
+    {
+      "required": true,
+      "name": "id",
+      "description": "The id of the user"
+    }
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "PATCH",
+      "request_path": "/users/30",
+      "request_body": "{\"data\":{\"relationships\":{\"company\":{\"data\":{\"type\":\"companies\",\"id\":523}}},\"type\":\"users\",\"attributes\":{\"email\":\"updated@example.com\"},\"id\":\"30\"}}",
+      "request_headers": {
+        "Content-Type": "application/vnd.api+json"
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": "application/vnd.api+json",
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "{\"data\":{\"id\":\"30\",\"type\":\"users\",\"links\":{\"self\":\"http://example.org/users/30\"},\"attributes\":{\"email\":\"updated@example.com\",\"role\":\"admin\"},\"relationships\":{\"company\":{\"links\":{\"self\":\"http://example.org/users/30/relationships/company\",\"related\":\"http://example.org/users/30/company\"}}}}}",
+      "response_headers": {
+        "Content-Type": "application/vnd.api+json"
+      },
+      "response_content_type": "application/vnd.api+json",
+      "curl": null
+    }
+  ]
+}

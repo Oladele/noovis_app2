@@ -1,40 +1,3 @@
-List all network-templates
---------------------------
-
-Request:
-  GET /network-templates
-  Content-Type: application/vnd.api+json
-
-Response:
-  Status: 200 OK
-  Content-Type: application/vnd.api+json
-
-  {"data":[{"id":"190","type":"network-templates","links":{"self":"http://example.org/network-templates/190"},"attributes":{"name":"1st template","description":"MyString","hierarchy":["olt_chassis","pon_card","building","fdh","splitter","rdt","room","ont_sn","ont_ge_mac"]},"relationships":{"network-graphs":{"links":{"self":"http://example.org/network-templates/190/relationships/network-graphs","related":"http://example.org/network-templates/190/network-graphs"}}}},{"id":"191","type":"network-templates","links":{"self":"http://example.org/network-templates/191"},"attributes":{"name":"2nd template","description":"MyString","hierarchy":["olt_chassis","pon_card","building","fdh","splitter","rdt","room","ont_sn","ont_ge_mac"]},"relationships":{"network-graphs":{"links":{"self":"http://example.org/network-templates/191/relationships/network-graphs","related":"http://example.org/network-templates/191/network-graphs"}}}}],"meta":{"record-count":2}}
-
-
-Update a network-template
--------------------------
-
-Parameters:
-  * type - Should always be set to <code>network-templates</code>
-  * name - Network Template Name
-  * description - Network Template Description
-  * hierarchy - Network Template Hierarchy
-  * id - The id of the network-template
-
-Request:
-  PATCH /network-templates/192
-  Content-Type: application/vnd.api+json
-
-  {"data":{"type":"network-templates","attributes":{"name":"Updated Network Template Name"},"id":"192"}}
-
-Response:
-  Status: 200 OK
-  Content-Type: application/vnd.api+json
-
-  {"data":{"id":"192","type":"network-templates","links":{"self":"http://example.org/network-templates/192"},"attributes":{"name":"Updated Network Template Name","description":"MyString","hierarchy":["olt_chassis","pon_card","building","fdh","splitter","rdt","room","ont_sn","ont_ge_mac"]},"relationships":{"network-graphs":{"links":{"self":"http://example.org/network-templates/192/relationships/network-graphs","related":"http://example.org/network-templates/192/network-graphs"}}}}}
-
-
 Create a network template
 -------------------------
 
@@ -54,7 +17,44 @@ Response:
   Status: 201 Created
   Content-Type: application/vnd.api+json
 
-  {"data":{"id":"193","type":"network-templates","links":{"self":"http://example.org/network-templates/193"},"attributes":{"name":"Template Name","description":null,"hierarchy":[]},"relationships":{"network-graphs":{"links":{"self":"http://example.org/network-templates/193/relationships/network-graphs","related":"http://example.org/network-templates/193/network-graphs"}}}}}
+  {"data":{"id":"95","type":"network-templates","links":{"self":"http://example.org/network-templates/95"},"attributes":{"name":"Template Name","description":null,"hierarchy":[]},"relationships":{"network-graphs":{"links":{"self":"http://example.org/network-templates/95/relationships/network-graphs","related":"http://example.org/network-templates/95/network-graphs"}}}}}
+
+
+List all network-templates
+--------------------------
+
+Request:
+  GET /network-templates
+  Content-Type: application/vnd.api+json
+
+Response:
+  Status: 200 OK
+  Content-Type: application/vnd.api+json
+
+  {"data":[{"id":"96","type":"network-templates","links":{"self":"http://example.org/network-templates/96"},"attributes":{"name":"1st template","description":"MyString","hierarchy":["olt_chassis","pon_card","building","fdh","splitter","rdt","room","ont_sn","ont_ge_mac"]},"relationships":{"network-graphs":{"links":{"self":"http://example.org/network-templates/96/relationships/network-graphs","related":"http://example.org/network-templates/96/network-graphs"}}}},{"id":"97","type":"network-templates","links":{"self":"http://example.org/network-templates/97"},"attributes":{"name":"2nd template","description":"MyString","hierarchy":["olt_chassis","pon_card","building","fdh","splitter","rdt","room","ont_sn","ont_ge_mac"]},"relationships":{"network-graphs":{"links":{"self":"http://example.org/network-templates/97/relationships/network-graphs","related":"http://example.org/network-templates/97/network-graphs"}}}}],"meta":{"record-count":2}}
+
+
+Update a network-template
+-------------------------
+
+Parameters:
+  * type - Should always be set to <code>network-templates</code>
+  * name - Network Template Name
+  * description - Network Template Description
+  * hierarchy - Network Template Hierarchy
+  * id - The id of the network-template
+
+Request:
+  PATCH /network-templates/98
+  Content-Type: application/vnd.api+json
+
+  {"data":{"type":"network-templates","attributes":{"name":"Updated Network Template Name"},"id":"98"}}
+
+Response:
+  Status: 200 OK
+  Content-Type: application/vnd.api+json
+
+  {"data":{"id":"98","type":"network-templates","links":{"self":"http://example.org/network-templates/98"},"attributes":{"name":"Updated Network Template Name","description":"MyString","hierarchy":["olt_chassis","pon_card","building","fdh","splitter","rdt","room","ont_sn","ont_ge_mac"]},"relationships":{"network-graphs":{"links":{"self":"http://example.org/network-templates/98/relationships/network-graphs","related":"http://example.org/network-templates/98/network-graphs"}}}}}
 
 
 Delete a network-template
@@ -68,10 +68,10 @@ Parameters:
   * id - The id of the network-template
 
 Request:
-  DELETE /network-templates/194
+  DELETE /network-templates/99
   Content-Type: application/vnd.api+json
 
-  {"data":{"type":"network-templates","id":"194"}}
+  {"data":{"type":"network-templates","id":"99"}}
 
 Response:
   Status: 204 No Content

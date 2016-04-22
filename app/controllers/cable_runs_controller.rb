@@ -1,2 +1,2 @@
-class CableRunsController < ApplicationController
+class CableRunsController < ApiController
 end

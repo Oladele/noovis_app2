@@ -1,0 +1,60 @@
+{
+  "resource": "Users",
+  "http_method": "DELETE",
+  "route": "/users/:user_id",
+  "description": "Delete a user",
+  "explanation": null,
+  "parameters": [
+    {
+      "required": true,
+      "scope": "relationships",
+      "name": "company",
+      "description": "Company id"
+    },
+    {
+      "required": true,
+      "name": "type",
+      "description": "Should always be set to <code>users</code>"
+    },
+    {
+      "required": true,
+      "scope": "attributes",
+      "name": "email",
+      "description": "User email"
+    },
+    {
+      "required": true,
+      "scope": "attributes",
+      "name": "role",
+      "description": "User role"
+    },
+    {
+      "required": true,
+      "name": "id",
+      "description": "The id of the user"
+    }
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "DELETE",
+      "request_path": "/users/29",
+      "request_body": "{\"data\":{\"relationships\":{\"company\":{\"data\":{\"type\":\"companies\",\"id\":521}}},\"type\":\"users\",\"id\":\"29\"}}",
+      "request_headers": {
+        "Content-Type": "application/vnd.api+json"
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": "application/vnd.api+json",
+      "response_status": 204,
+      "response_status_text": "No Content",
+      "response_body": null,
+      "response_headers": {
+      },
+      "response_content_type": null,
+      "curl": null
+    }
+  ]
+}

@@ -100,6 +100,18 @@
       ]
     },
     {
+      "name": "Global",
+      "examples": [
+        {
+          "description": "List Global Attributes",
+          "link": "global/list_global_attributes.json",
+          "groups": "all",
+          "route": "/global",
+          "method": "get"
+        }
+      ]
+    },
+    {
       "name": "ImportCableRuns",
       "examples": [
         {
@@ -272,6 +284,39 @@
           "link": "sheets/update_a_sheet.json",
           "groups": "all",
           "route": "/sheets/:sheet_id",
+          "method": "patch"
+        }
+      ]
+    },
+    {
+      "name": "Users",
+      "examples": [
+        {
+          "description": "Create a user",
+          "link": "users/create_a_user.json",
+          "groups": "all",
+          "route": "/users",
+          "method": "post"
+        },
+        {
+          "description": "Delete a user",
+          "link": "users/delete_a_user.json",
+          "groups": "all",
+          "route": "/users/:user_id",
+          "method": "delete"
+        },
+        {
+          "description": "List all users",
+          "link": "users/list_all_users.json",
+          "groups": "all",
+          "route": "/users",
+          "method": "get"
+        },
+        {
+          "description": "Update a user",
+          "link": "users/update_a_user.json",
+          "groups": "all",
+          "route": "/users/:user_id",
           "method": "patch"
         }
       ]

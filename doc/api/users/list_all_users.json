@@ -1,0 +1,34 @@
+{
+  "resource": "Users",
+  "http_method": "GET",
+  "route": "/users",
+  "description": "List all users",
+  "explanation": null,
+  "parameters": [
+
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "GET",
+      "request_path": "/users",
+      "request_body": null,
+      "request_headers": {
+        "Content-Type": "application/vnd.api+json"
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": "application/vnd.api+json",
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "{\"data\":[{\"id\":\"31\",\"type\":\"users\",\"links\":{\"self\":\"http://example.org/users/31\"},\"attributes\":{\"email\":\"test1@example.com\",\"role\":\"admin\"},\"relationships\":{\"company\":{\"links\":{\"self\":\"http://example.org/users/31/relationships/company\",\"related\":\"http://example.org/users/31/company\"}}}},{\"id\":\"32\",\"type\":\"users\",\"links\":{\"self\":\"http://example.org/users/32\"},\"attributes\":{\"email\":\"test2@example.com\",\"role\":\"admin\"},\"relationships\":{\"company\":{\"links\":{\"self\":\"http://example.org/users/32/relationships/company\",\"related\":\"http://example.org/users/32/company\"}}}}],\"meta\":{\"record-count\":2}}",
+      "response_headers": {
+        "Content-Type": "application/vnd.api+json"
+      },
+      "response_content_type": "application/vnd.api+json",
+      "curl": null
+    }
+  ]
+}
