@@ -4,8 +4,11 @@ class User < ActiveRecord::Base
           :recoverable, :rememberable, :trackable, :validatable,
           :omniauthable#, :confirmable, 
   include DeviseTokenAuth::Concerns::User
+  enum role: [:admin, :user, :customer]
+
   belongs_to :company
 
   validates :company_id, presence: true
   validates :email, presence: true, uniqueness: true
+  validates :role, presence: true
 end

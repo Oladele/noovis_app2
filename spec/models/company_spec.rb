@@ -29,7 +29,7 @@ RSpec.describe Company, type: :model do
     end
 
 	  it "should delete associated users on delete" do
-      company.users.create(email: "test@example.com", password: "password")
+      company.users.create(email: "test@example.com", password: "password", password_confirmation: "password", role: :admin)
       expect {company.destroy}.to change {User.count}
     end
 	end

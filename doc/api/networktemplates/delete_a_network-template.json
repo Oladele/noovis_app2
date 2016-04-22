@@ -38,8 +38,8 @@
   "requests": [
     {
       "request_method": "DELETE",
-      "request_path": "/network-templates/395",
-      "request_body": "{\"data\":{\"type\":\"network-templates\",\"id\":\"395\"}}",
+      "request_path": "/network-templates/99",
+      "request_body": "{\"data\":{\"type\":\"network-templates\",\"id\":\"99\"}}",
       "request_headers": {
         "Content-Type": "application/vnd.api+json"
       },

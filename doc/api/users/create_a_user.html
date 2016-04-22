@@ -147,6 +147,14 @@ table th, table td {
               </tr>
               <tr>
                 <td class="required">
+                    <span class="name">attributes[role]</span>
+                </td>
+                <td>
+                  <span class="description">User role</span>
+                </td>
+              </tr>
+              <tr>
+                <td class="required">
                     <span class="name">attributes[password]</span>
                 </td>
                 <td>
@@ -175,7 +183,7 @@ table th, table td {
 
 
             <h4>Body</h4>
-            <pre class="request body">{"data":{"relationships":{"company":{"data":{"type":"companies","id":2171}}},"type":"users","attributes":{"email":"test@example.com","password":"password","password-confirmation":"password"}}}</pre>
+            <pre class="request body">{"data":{"relationships":{"company":{"data":{"type":"companies","id":526}}},"type":"users","attributes":{"email":"test@example.com","role":"admin","password":"password","password-confirmation":"password"}}}</pre>
 
 
             <h3>Response</h3>
@@ -184,7 +192,7 @@ table th, table td {
             <h4>Status</h4>
             <pre class="response status">201 Created</pre>
               <h4>Body</h4>
-              <pre class="response body">{&quot;data&quot;:{&quot;id&quot;:&quot;131&quot;,&quot;type&quot;:&quot;users&quot;,&quot;links&quot;:{&quot;self&quot;:&quot;http://example.org/users/131&quot;},&quot;attributes&quot;:{&quot;email&quot;:&quot;test@example.com&quot;},&quot;relationships&quot;:{&quot;company&quot;:{&quot;links&quot;:{&quot;self&quot;:&quot;http://example.org/users/131/relationships/company&quot;,&quot;related&quot;:&quot;http://example.org/users/131/company&quot;}}}}}</pre>
+              <pre class="response body">{&quot;data&quot;:{&quot;id&quot;:&quot;33&quot;,&quot;type&quot;:&quot;users&quot;,&quot;links&quot;:{&quot;self&quot;:&quot;http://example.org/users/33&quot;},&quot;attributes&quot;:{&quot;email&quot;:&quot;test@example.com&quot;,&quot;role&quot;:&quot;admin&quot;},&quot;relationships&quot;:{&quot;company&quot;:{&quot;links&quot;:{&quot;self&quot;:&quot;http://example.org/users/33/relationships/company&quot;,&quot;related&quot;:&quot;http://example.org/users/33/company&quot;}}}}}</pre>
       </div>
     </div>
   </body>

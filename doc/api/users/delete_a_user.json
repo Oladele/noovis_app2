@@ -24,6 +24,12 @@
     },
     {
       "required": true,
+      "scope": "attributes",
+      "name": "role",
+      "description": "User role"
+    },
+    {
+      "required": true,
       "name": "id",
       "description": "The id of the user"
     }
@@ -34,8 +40,8 @@
   "requests": [
     {
       "request_method": "DELETE",
-      "request_path": "/users/135",
-      "request_body": "{\"data\":{\"relationships\":{\"company\":{\"data\":{\"type\":\"companies\",\"id\":2177}}},\"type\":\"users\",\"id\":\"135\"}}",
+      "request_path": "/users/29",
+      "request_body": "{\"data\":{\"relationships\":{\"company\":{\"data\":{\"type\":\"companies\",\"id\":521}}},\"type\":\"users\",\"id\":\"29\"}}",
       "request_headers": {
         "Content-Type": "application/vnd.api+json"
       },
