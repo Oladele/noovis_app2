@@ -94,6 +94,7 @@ class CableRun < ActiveRecord::Base
     end
 
     case stripped_name
+      # TODO: Can probably use gsub here to take out the spaces and remove the case statement.
       when "Site".downcase.strip
         "site"
       when "Building".downcase.strip

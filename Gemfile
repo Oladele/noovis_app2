@@ -5,6 +5,8 @@ gem 'pg'
 gem 'bcrypt', '~> 3.1.7'
 gem 'unicorn'
 gem 'newrelic_rpm'
+gem 'sidekiq', '~> 4.1', '>= 4.1.1'
+gem 'passenger', '~> 5.0', '>= 5.0.27'
 
 #app-specific gems
 gem 'rspec_api_documentation'
@@ -24,6 +26,7 @@ group :development do
 end
 
 group :development, :test do
+  gem 'dotenv', '~> 2.1'
   gem 'byebug'
   #app-specific gems
   gem 'rspec-rails', '~> 3.0'
