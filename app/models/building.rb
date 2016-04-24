@@ -14,6 +14,7 @@
 
 class Building < ActiveRecord::Base
   belongs_to :network_site
+  has_one :company, through: :network_site
   has_many :sheets, dependent: :destroy
 
   validates :name, presence: true

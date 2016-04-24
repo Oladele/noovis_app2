@@ -25,6 +25,7 @@
 class Node < ActiveRecord::Base
   belongs_to :network_graph
   belongs_to :parent, class_name: "Node"
+  has_one :company, through: :network_graph
   has_many :children, class_name: "Node", foreign_key: "parent_id"
   belongs_to :cable_run
 
