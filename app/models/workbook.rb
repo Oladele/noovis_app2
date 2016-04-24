@@ -11,6 +11,7 @@
 
 class Workbook < ActiveRecord::Base
   belongs_to :network_site
+  has_one :company, through: :network_site
   has_many :sheets, dependent: :destroy
   has_many :network_graphs, through: :sheets
   

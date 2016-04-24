@@ -13,6 +13,7 @@
 class Sheet < ActiveRecord::Base
   belongs_to :workbook
   belongs_to :building
+  has_one :company, through: :building
   has_many :cable_runs, dependent: :destroy
   has_many :network_graphs, dependent: :destroy
 

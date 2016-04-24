@@ -7,7 +7,17 @@ class ApiController < JSONAPI::ResourceController
   before_action :authenticate_user!
   before_action :admin_only, only: [:create, :update, :destroy]
 
+  def context
+    { current_user: current_user }
+  end
+
   private
+
+  def exclude_customer
+    if current_user.customer?
+      render status: :forbidden, json: { message: 'Access denied' }
+    end
+  end
 
   def admin_only
     unless current_user.admin?
