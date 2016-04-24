@@ -12,6 +12,7 @@
 class NetworkGraph < ActiveRecord::Base
   belongs_to :sheet
   belongs_to :network_template
+  has_one :company, through: :sheet
   has_many :nodes, dependent: :destroy
   has_many :edges, dependent: :destroy
 
