@@ -1,8 +1,8 @@
 class BuildingResource < JSONAPI::Resource
-  attributes :name, :lat, :lng, :description, :node_counts
+  attributes :name, :lat, :lng, :description, :node_counts, :import_job_status
   has_one :network_site
   has_many :sheets
-  
+
   filter :network_site
 
   def node_counts

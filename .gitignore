@@ -13,3 +13,6 @@
 /tmp
 *.dump
 .env
+dump.rdb
+spec/examples.txt
+public/system/*

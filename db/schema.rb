@@ -11,10 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160421224700) do
+ActiveRecord::Schema.define(version: 20160426185730) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+  enable_extension "pg_stat_statements"
 
   create_table "buildings", force: :cascade do |t|
     t.string   "name"
@@ -91,6 +92,19 @@ ActiveRecord::Schema.define(version: 20160421224700) do
   end
 
   add_index "edges", ["network_graph_id"], name: "index_edges_on_network_graph_id", using: :btree
+
+  create_table "import_jobs", force: :cascade do |t|
+    t.integer  "building_id"
+    t.string   "status"
+    t.string   "filename"
+    t.string   "sheet_name"
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.string   "spreadsheet_file_name"
+    t.string   "spreadsheet_content_type"
+    t.integer  "spreadsheet_file_size"
+    t.datetime "spreadsheet_updated_at"
+  end
 
   create_table "network_graphs", force: :cascade do |t|
     t.integer  "sheet_id"

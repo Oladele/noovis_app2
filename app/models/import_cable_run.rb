@@ -3,8 +3,8 @@ class ImportCableRun
   include ActiveModel::Conversion
   include ActiveModel::Validations
 
-  attr_accessor :file, :sheet, :building_id
-  attr_reader :message, :status, :filename, :workbook, :building
+  attr_accessor :file, :sheet, :building_id, :filename
+  attr_reader :message, :status, :workbook, :building
 
   def initialize(attributes = {})
     attributes.each { |name, value| send("#{name}=", value) }
@@ -14,10 +14,25 @@ class ImportCableRun
     set_status(:bad_request, "Building id required") and return unless building_id
 
     return unless set_building
-    set_filename
+    set_filename unless @filename.present?  # Background job file doesn't have an `original_filename` method
     return unless open_workbook
     return unless set_sheet
-    save_workbook
+
+    set_status :created, "Ready for processing." # Not sure :created still makes sense here
+
+    return self
+  end
+
+  def process!
+    import_job = ImportJob.create!(
+      building_id: self.building_id,
+      spreadsheet: self.file.tempfile,
+      sheet_name: self.sheet,
+      filename: file.original_filename,
+      status: 'processing'
+    )
+
+    ImportCableRunProcessingWorker.perform_async(import_job.id)
   end
 
   def set_building
@@ -108,7 +123,7 @@ class ImportCableRun
 
   def save_sheet(book)
     @workbook_sheet = Sheet.new(name: @sheet, workbook: book, building_id: @building_id)
-    
+
     if @workbook_sheet.save
       save_cable_run
       # create network_graph, nodes, edges
