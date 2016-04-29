@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+  <title>RSpec results</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Expires" content="-1" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <style type="text/css">
+  body {
+    margin: 0;
+    padding: 0;
+    background: #fff;
+    font-size: 80%;
+  }
+  </style>
+  <script type="text/javascript">
+    // <![CDATA[
+
+function addClass(element_id, classname) {
+  document.getElementById(element_id).className += (" " + classname);
+}
+
+function removeClass(element_id, classname) {
+  var elem = document.getElementById(element_id);
+  var classlist = elem.className.replace(classname,'');
+  elem.className = classlist;
+}
+
+function moveProgressBar(percentDone) {
+  document.getElementById("rspec-header").style.width = percentDone +"%";
+}
+
+function makeRed(element_id) {
+  removeClass(element_id, 'passed');
+  removeClass(element_id, 'not_implemented');
+  addClass(element_id,'failed');
+}
+
+function makeYellow(element_id) {
+  var elem = document.getElementById(element_id);
+  if (elem.className.indexOf("failed") == -1) {  // class doesn't includes failed
+    if (elem.className.indexOf("not_implemented") == -1) { // class doesn't include not_implemented
+      removeClass(element_id, 'passed');
+      addClass(element_id,'not_implemented');
+    }
+  }
+}
+
+function apply_filters() {
+  var passed_filter = document.getElementById('passed_checkbox').checked;
+  var failed_filter = document.getElementById('failed_checkbox').checked;
+  var pending_filter = document.getElementById('pending_checkbox').checked;
+
+  assign_display_style("example passed", passed_filter);
+  assign_display_style("example failed", failed_filter);
+  assign_display_style("example not_implemented", pending_filter);
+
+  assign_display_style_for_group("example_group passed", passed_filter);
+  assign_display_style_for_group("example_group not_implemented", pending_filter, pending_filter || passed_filter);
+  assign_display_style_for_group("example_group failed", failed_filter, failed_filter || pending_filter || passed_filter);
+}
+
+function get_display_style(display_flag) {
+  var style_mode = 'none';
+  if (display_flag == true) {
+    style_mode = 'block';
+  }
+  return style_mode;
+}
+
+function assign_display_style(classname, display_flag) {
+  var style_mode = get_display_style(display_flag);
+  var elems = document.getElementsByClassName(classname)
+  for (var i=0; i<elems.length;i++) {
+    elems[i].style.display = style_mode;
+  }
+}
+
+function assign_display_style_for_group(classname, display_flag, subgroup_flag) {
+  var display_style_mode = get_display_style(display_flag);
+  var subgroup_style_mode = get_display_style(subgroup_flag);
+  var elems = document.getElementsByClassName(classname)
+  for (var i=0; i<elems.length;i++) {
+    var style_mode = display_style_mode;
+    if ((display_flag != subgroup_flag) && (elems[i].getElementsByTagName('dt')[0].innerHTML.indexOf(", ") != -1)) {
+      elems[i].style.display = subgroup_style_mode;
+    } else {
+      elems[i].style.display = display_style_mode;
+    }
+  }
+}
+
+    // ]]>
+  </script>
+  <style type="text/css">
+#rspec-header {
+  background: #65C400; color: #fff; height: 4em;
+}
+
+.rspec-report h1 {
+  margin: 0px 10px 0px 10px;
+  padding: 10px;
+  font-family: "Lucida Grande", Helvetica, sans-serif;
+  font-size: 1.8em;
+  position: absolute;
+}
+
+#label {
+  float:left;
+}
+
+#display-filters {
+  float:left;
+  padding: 28px 0 0 40%;
+  font-family: "Lucida Grande", Helvetica, sans-serif;
+}
+
+#summary {
+  float:right;
+  padding: 5px 10px;
+  font-family: "Lucida Grande", Helvetica, sans-serif;
+  text-align: right;
+}
+
+#summary p {
+  margin: 0 0 0 2px;
+}
+
+#summary #totals {
+  font-size: 1.2em;
+}
+
+.example_group {
+  margin: 0 10px 5px;
+  background: #fff;
+}
+
+dl {
+  margin: 0; padding: 0 0 5px;
+  font: normal 11px "Lucida Grande", Helvetica, sans-serif;
+}
+
+dt {
+  padding: 3px;
+  background: #65C400;
+  color: #fff;
+  font-weight: bold;
+}
+
+dd {
+  margin: 5px 0 5px 5px;
+  padding: 3px 3px 3px 18px;
+}
+
+dd .duration {
+  padding-left: 5px;
+  text-align: right;
+  right: 0px;
+  float:right;
+}
+
+dd.example.passed {
+  border-left: 5px solid #65C400;
+  border-bottom: 1px solid #65C400;
+  background: #DBFFB4; color: #3D7700;
+}
+
+dd.example.not_implemented {
+  border-left: 5px solid #FAF834;
+  border-bottom: 1px solid #FAF834;
+  background: #FCFB98; color: #131313;
+}
+
+dd.example.pending_fixed {
+  border-left: 5px solid #0000C2;
+  border-bottom: 1px solid #0000C2;
+  color: #0000C2; background: #D3FBFF;
+}
+
+dd.example.failed {
+  border-left: 5px solid #C20000;
+  border-bottom: 1px solid #C20000;
+  color: #C20000; background: #FFFBD3;
+}
+
+
+dt.not_implemented {
+  color: #000000; background: #FAF834;
+}
+
+dt.pending_fixed {
+  color: #FFFFFF; background: #C40D0D;
+}
+
+dt.failed {
+  color: #FFFFFF; background: #C40D0D;
+}
+
+
+#rspec-header.not_implemented {
+  color: #000000; background: #FAF834;
+}
+
+#rspec-header.pending_fixed {
+  color: #FFFFFF; background: #C40D0D;
+}
+
+#rspec-header.failed {
+  color: #FFFFFF; background: #C40D0D;
+}
+
+
+.backtrace {
+  color: #000;
+  font-size: 12px;
+}
+
+a {
+  color: #BE5C00;
+}
+
+/* Ruby code, style similar to vibrant ink */
+.ruby {
+  font-size: 12px;
+  font-family: monospace;
+  color: white;
+  background-color: black;
+  padding: 0.1em 0 0.2em 0;
+}
+
+.ruby .keyword { color: #FF6600; }
+.ruby .constant { color: #339999; }
+.ruby .attribute { color: white; }
+.ruby .global { color: white; }
+.ruby .module { color: white; }
+.ruby .class { color: white; }
+.ruby .string { color: #66FF00; }
+.ruby .ident { color: white; }
+.ruby .method { color: #FFCC00; }
+.ruby .number { color: white; }
+.ruby .char { color: white; }
+.ruby .comment { color: #9933CC; }
+.ruby .symbol { color: white; }
+.ruby .regex { color: #44B4CC; }
+.ruby .punct { color: white; }
+.ruby .escape { color: white; }
+.ruby .interp { color: white; }
+.ruby .expr { color: white; }
+
+.ruby .offending { background-color: gray; }
+.ruby .linenum {
+  width: 75px;
+  padding: 0.1em 1em 0.2em 0;
+  color: #000000;
+  background-color: #FFFBD3;
+}
+
+  </style>
+</head>
+<body>
+<div class="rspec-report">
+
+<div id="rspec-header">
+  <div id="label">
+    <h1>RSpec Code Examples</h1>
+  </div>
+
+  <div id="display-filters">
+    <input id="passed_checkbox"  name="passed_checkbox"  type="checkbox" checked="checked" onchange="apply_filters()" value="1" /> <label for="passed_checkbox">Passed</label>
+    <input id="failed_checkbox"  name="failed_checkbox"  type="checkbox" checked="checked" onchange="apply_filters()" value="2" /> <label for="failed_checkbox">Failed</label>
+    <input id="pending_checkbox" name="pending_checkbox" type="checkbox" checked="checked" onchange="apply_filters()" value="3" /> <label for="pending_checkbox">Pending</label>
+  </div>
+
+  <div id="summary">
+    <p id="totals">&#160;</p>
+    <p id="duration">&#160;</p>
+  </div>
+</div>
+
+
+<div class="results">
+<div id="div_group_1" class="example_group passed">
+  <dl style="margin-left: 0px;">
+  <dt id="example_group_1" class="passed">Sheet</dt>
+  </dl>
+</div>
+<div id="div_group_2" class="example_group passed">
+  <dl style="margin-left: 15px;">
+  <dt id="example_group_2" class="passed">associations</dt>
+    <script type="text/javascript">moveProgressBar('1.0');</script>
+    <dd class="example passed"><span class="passed_spec_name">should delete associated cable runs on delete</span><span class='duration'>0.02574s</span></dd>
+    <script type="text/javascript">moveProgressBar('2.0');</script>
+    <dd class="example passed"><span class="passed_spec_name">should belong to a building</span><span class='duration'>0.00766s</span></dd>
+    <script type="text/javascript">moveProgressBar('3.0');</script>
+    <dd class="example passed"><span class="passed_spec_name">should belong to a workbook</span><span class='duration'>0.00568s</span></dd>
+  </dl>
+</div>
+<div id="div_group_3" class="example_group passed">
+  <dl style="margin-left: 15px;">
+  <dt id="example_group_3" class="passed">attributes</dt>
+    <script type="text/javascript">moveProgressBar('4.0');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have attribute :workbook_id</span><span class='duration'>0.00148s</span></dd>
+    <script type="text/javascript">moveProgressBar('5.0');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have attribute :name</span><span class='duration'>0.00059s</span></dd>
+    <script type="text/javascript">moveProgressBar('6.0');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have attribute :building_id</span><span class='duration'>0.00084s</span></dd>
+  </dl>
+</div>
+<div id="div_group_4" class="example_group passed">
+  <dl style="margin-left: 15px;">
+  <dt id="example_group_4" class="passed">validations</dt>
+    <script type="text/javascript">moveProgressBar('7.0');</script>
+    <dd class="example passed"><span class="passed_spec_name">validates presence of workbook_id</span><span class='duration'>0.01034s</span></dd>
+    <script type="text/javascript">moveProgressBar('8.0');</script>
+    <dd class="example passed"><span class="passed_spec_name">validates presence of name</span><span class='duration'>0.00133s</span></dd>
+    <script type="text/javascript">moveProgressBar('9.0');</script>
+    <dd class="example passed"><span class="passed_spec_name">validates presence of building_id</span><span class='duration'>0.00119s</span></dd>
+  </dl>
+</div>
+<div id="div_group_5" class="example_group passed">
+  <dl style="margin-left: 0px;">
+  <dt id="example_group_5" class="passed">CableRun</dt>
+  </dl>
+</div>
+<div id="div_group_6" class="example_group passed">
+  <dl style="margin-left: 15px;">
+  <dt id="example_group_6" class="passed">attributes</dt>
+    <script type="text/javascript">moveProgressBar('10.1');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have attribute :olt_chassis</span><span class='duration'>0.00084s</span></dd>
+    <script type="text/javascript">moveProgressBar('11.1');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have attribute :vam_shelf</span><span class='duration'>0.00060s</span></dd>
+    <script type="text/javascript">moveProgressBar('12.1');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have attribute :ont_ge_2_device</span><span class='duration'>0.00062s</span></dd>
+    <script type="text/javascript">moveProgressBar('13.1');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have attribute :ont_ge_3_device</span><span class='duration'>0.00064s</span></dd>
+    <script type="text/javascript">moveProgressBar('14.1');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have attribute :drop</span><span class='duration'>0.00082s</span></dd>
+    <script type="text/javascript">moveProgressBar('15.1');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have attribute :rdt</span><span class='duration'>0.00068s</span></dd>
+    <script type="text/javascript">moveProgressBar('16.1');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have attribute :pon_card</span><span class='duration'>0.00063s</span></dd>
+    <script type="text/javascript">moveProgressBar('17.1');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have attribute :rdt_port</span><span class='duration'>0.00073s</span></dd>
+    <script type="text/javascript">moveProgressBar('18.1');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have attribute :notes</span><span class='duration'>0.00058s</span></dd>
+    <script type="text/javascript">moveProgressBar('19.1');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have attribute :room</span><span class='duration'>0.00058s</span></dd>
+    <script type="text/javascript">moveProgressBar('20.2');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have attribute :ont_ge_3_mac</span><span class='duration'>0.00059s</span></dd>
+    <script type="text/javascript">moveProgressBar('21.2');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have attribute :splitter_fiber</span><span class='duration'>0.00061s</span></dd>
+    <script type="text/javascript">moveProgressBar('22.2');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have attribute :pon_port</span><span class='duration'>0.00066s</span></dd>
+    <script type="text/javascript">moveProgressBar('23.2');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have attribute :ont_model</span><span class='duration'>0.00058s</span></dd>
+    <script type="text/javascript">moveProgressBar('24.2');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have attribute :ont_ge_4_device</span><span class='duration'>0.00079s</span></dd>
+    <script type="text/javascript">moveProgressBar('25.2');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have attribute :rdt_location</span><span class='duration'>0.00059s</span></dd>
+    <script type="text/javascript">moveProgressBar('26.2');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have attribute :ont_ge_1_device</span><span class='duration'>0.00057s</span></dd>
+    <script type="text/javascript">moveProgressBar('27.2');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have attribute :vam_port</span><span class='duration'>0.00063s</span></dd>
+    <script type="text/javascript">moveProgressBar('28.2');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have attribute :sheet_id</span><span class='duration'>0.00058s</span></dd>
+    <script type="text/javascript">moveProgressBar('29.2');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have attribute :rdt_port_count</span><span class='duration'>0.00060s</span></dd>
+    <script type="text/javascript">moveProgressBar('30.3');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have attribute :backbone_shelf</span><span class='duration'>0.00054s</span></dd>
+    <script type="text/javascript">moveProgressBar('31.3');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have attribute :splitter</span><span class='duration'>0.00061s</span></dd>
+    <script type="text/javascript">moveProgressBar('32.3');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have attribute :backbone_port</span><span class='duration'>0.00063s</span></dd>
+    <script type="text/javascript">moveProgressBar('33.3');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have attribute :building</span><span class='duration'>0.00056s</span></dd>
+    <script type="text/javascript">moveProgressBar('34.3');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have attribute :backbone_cable</span><span class='duration'>0.00057s</span></dd>
+    <script type="text/javascript">moveProgressBar('35.3');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have attribute :ont_sn</span><span class='duration'>0.00055s</span></dd>
+    <script type="text/javascript">moveProgressBar('36.3');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have attribute :ont_ge_4_mac</span><span class='duration'>0.00061s</span></dd>
+    <script type="text/javascript">moveProgressBar('37.3');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have attribute :ont_ge_2_mac</span><span class='duration'>0.00059s</span></dd>
+    <script type="text/javascript">moveProgressBar('38.3');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have attribute :site</span><span class='duration'>0.00056s</span></dd>
+    <script type="text/javascript">moveProgressBar('39.3');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have attribute :fdh_location</span><span class='duration'>0.00077s</span></dd>
+    <script type="text/javascript">moveProgressBar('40.4');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have attribute :fdh_port</span><span class='duration'>0.00072s</span></dd>
+    <script type="text/javascript">moveProgressBar('41.4');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have attribute :olt_rack</span><span class='duration'>0.00076s</span></dd>
+    <script type="text/javascript">moveProgressBar('42.4');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have attribute :vam_module</span><span class='duration'>0.00068s</span></dd>
+    <script type="text/javascript">moveProgressBar('43.4');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have attribute :ont_ge_1_mac</span><span class='duration'>0.00067s</span></dd>
+    <script type="text/javascript">moveProgressBar('44.4');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have attribute :fdh</span><span class='duration'>0.00066s</span></dd>
+  </dl>
+</div>
+<div id="div_group_7" class="example_group passed">
+  <dl style="margin-left: 15px;">
+  <dt id="example_group_7" class="passed">associations</dt>
+    <script type="text/javascript">moveProgressBar('45.4');</script>
+    <dd class="example passed"><span class="passed_spec_name">should belong to a sheet</span><span class='duration'>0.01353s</span></dd>
+  </dl>
+</div>
+<div id="div_group_8" class="example_group passed">
+  <dl style="margin-left: 0px;">
+  <dt id="example_group_8" class="passed">Building</dt>
+  </dl>
+</div>
+<div id="div_group_9" class="example_group passed">
+  <dl style="margin-left: 15px;">
+  <dt id="example_group_9" class="passed">associations</dt>
+    <script type="text/javascript">moveProgressBar('46.4');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have many sheets</span><span class='duration'>0.00105s</span></dd>
+    <script type="text/javascript">moveProgressBar('47.4');</script>
+    <dd class="example passed"><span class="passed_spec_name">should belong to a network site</span><span class='duration'>0.00486s</span></dd>
+  </dl>
+</div>
+<div id="div_group_10" class="example_group passed">
+  <dl style="margin-left: 15px;">
+  <dt id="example_group_10" class="passed">attributes</dt>
+    <script type="text/javascript">moveProgressBar('48.4');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have attribute :lng</span><span class='duration'>0.00084s</span></dd>
+    <script type="text/javascript">moveProgressBar('49.4');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have attribute :network_site_id</span><span class='duration'>0.00062s</span></dd>
+    <script type="text/javascript">moveProgressBar('50.5');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have attribute :name</span><span class='duration'>0.00061s</span></dd>
+    <script type="text/javascript">moveProgressBar('51.5');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have attribute :lat</span><span class='duration'>0.00053s</span></dd>
+  </dl>
+</div>
+<div id="div_group_11" class="example_group passed">
+  <dl style="margin-left: 15px;">
+  <dt id="example_group_11" class="passed">validations</dt>
+    <script type="text/javascript">moveProgressBar('52.5');</script>
+    <dd class="example passed"><span class="passed_spec_name">validates presence of network_site_id</span><span class='duration'>0.00199s</span></dd>
+    <script type="text/javascript">moveProgressBar('53.5');</script>
+    <dd class="example passed"><span class="passed_spec_name">validates the uniqueness of name scoped to network_site_id</span><span class='duration'>0.00689s</span></dd>
+    <script type="text/javascript">moveProgressBar('54.5');</script>
+    <dd class="example passed"><span class="passed_spec_name">validates presence of name</span><span class='duration'>0.00157s</span></dd>
+  </dl>
+</div>
+<div id="div_group_12" class="example_group passed">
+  <dl style="margin-left: 0px;">
+  <dt id="example_group_12" class="passed">Node</dt>
+  </dl>
+</div>
+<div id="div_group_13" class="example_group passed">
+  <dl style="margin-left: 15px;">
+  <dt id="example_group_13" class="passed">attributes</dt>
+    <script type="text/javascript">moveProgressBar('55.5');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have attribute :node_level</span><span class='duration'>0.00084s</span></dd>
+    <script type="text/javascript">moveProgressBar('56.5');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have attribute :node_value</span><span class='duration'>0.00071s</span></dd>
+    <script type="text/javascript">moveProgressBar('57.5');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have attribute :network_graph_id</span><span class='duration'>0.00062s</span></dd>
+    <script type="text/javascript">moveProgressBar('58.5');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have attribute :node_type</span><span class='duration'>0.00063s</span></dd>
+  </dl>
+</div>
+<div id="div_group_14" class="example_group passed">
+  <dl style="margin-left: 15px;">
+  <dt id="example_group_14" class="passed">validations</dt>
+    <script type="text/javascript">moveProgressBar('59.5');</script>
+    <dd class="example passed"><span class="passed_spec_name">validates presence of node_type</span><span class='duration'>0.00139s</span></dd>
+    <script type="text/javascript">moveProgressBar('60.6');</script>
+    <dd class="example passed"><span class="passed_spec_name">validates presence of network_graph_id</span><span class='duration'>0.00101s</span></dd>
+  </dl>
+</div>
+<div id="div_group_15" class="example_group passed">
+  <dl style="margin-left: 0px;">
+  <dt id="example_group_15" class="passed">NetworkTemplate</dt>
+  </dl>
+</div>
+<div id="div_group_16" class="example_group passed">
+  <dl style="margin-left: 15px;">
+  <dt id="example_group_16" class="passed">validations</dt>
+    <script type="text/javascript">moveProgressBar('61.6');</script>
+    <dd class="example passed"><span class="passed_spec_name">validates presence of name</span><span class='duration'>0.00124s</span></dd>
+  </dl>
+</div>
+<div id="div_group_17" class="example_group passed">
+  <dl style="margin-left: 15px;">
+  <dt id="example_group_17" class="passed">attributes</dt>
+    <script type="text/javascript">moveProgressBar('62.6');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have attribute :hierarchy</span><span class='duration'>0.00084s</span></dd>
+    <script type="text/javascript">moveProgressBar('63.6');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have attribute :name</span><span class='duration'>0.00058s</span></dd>
+    <script type="text/javascript">moveProgressBar('64.6');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have attribute :description</span><span class='duration'>0.00058s</span></dd>
+  </dl>
+</div>
+<div id="div_group_18" class="example_group passed">
+  <dl style="margin-left: 0px;">
+  <dt id="example_group_18" class="passed">Edge</dt>
+    <script type="text/javascript">makeYellow('rspec-header');</script>
+    <script type="text/javascript">makeYellow('div_group_18');</script>
+    <script type="text/javascript">makeYellow('example_group_18');</script>
+    <script type="text/javascript">moveProgressBar('65.6');</script>
+    <dd class="example not_implemented"><span class="not_implemented_spec_name">add some examples to (or delete) /home/brandon/Projects/work/altamium/noovis_app2/spec/models/edge_spec.rb (PENDING: Not yet implemented)</span></dd>
+  </dl>
+</div>
+<div id="div_group_19" class="example_group passed">
+  <dl style="margin-left: 0px;">
+  <dt id="example_group_19" class="passed">NetworkSite</dt>
+  </dl>
+</div>
+<div id="div_group_20" class="example_group passed">
+  <dl style="margin-left: 15px;">
+  <dt id="example_group_20" class="passed">associations</dt>
+    <script type="text/javascript">moveProgressBar('66.6');</script>
+    <dd class="example passed"><span class="passed_spec_name">should delete associated building on delete</span><span class='duration'>0.01295s</span></dd>
+    <script type="text/javascript">moveProgressBar('67.6');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have many buildings</span><span class='duration'>0.00103s</span></dd>
+    <script type="text/javascript">moveProgressBar('68.6');</script>
+    <dd class="example passed"><span class="passed_spec_name">should belong to a company</span><span class='duration'>0.00333s</span></dd>
+    <script type="text/javascript">moveProgressBar('69.6');</script>
+    <dd class="example passed"><span class="passed_spec_name">should delete associated workbook on delete</span><span class='duration'>0.01038s</span></dd>
+  </dl>
+</div>
+<div id="div_group_21" class="example_group passed">
+  <dl style="margin-left: 15px;">
+  <dt id="example_group_21" class="passed">validations</dt>
+    <script type="text/javascript">moveProgressBar('70.7');</script>
+    <dd class="example passed"><span class="passed_spec_name">validates presence of name</span><span class='duration'>0.00246s</span></dd>
+    <script type="text/javascript">moveProgressBar('71.7');</script>
+    <dd class="example passed"><span class="passed_spec_name">validates the uniqueness of name scoped to company_id</span><span class='duration'>0.00577s</span></dd>
+    <script type="text/javascript">moveProgressBar('72.7');</script>
+    <dd class="example passed"><span class="passed_spec_name">validates presence of company_id</span><span class='duration'>0.00160s</span></dd>
+  </dl>
+</div>
+<div id="div_group_22" class="example_group passed">
+  <dl style="margin-left: 15px;">
+  <dt id="example_group_22" class="passed">attributes</dt>
+    <script type="text/javascript">moveProgressBar('73.7');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have attribute :company_id</span><span class='duration'>0.00073s</span></dd>
+    <script type="text/javascript">moveProgressBar('74.7');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have attribute :lat</span><span class='duration'>0.00075s</span></dd>
+    <script type="text/javascript">moveProgressBar('75.7');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have attribute :address</span><span class='duration'>0.00067s</span></dd>
+    <script type="text/javascript">moveProgressBar('76.7');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have attribute :name</span><span class='duration'>0.00058s</span></dd>
+    <script type="text/javascript">moveProgressBar('77.7');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have attribute :lng</span><span class='duration'>0.00077s</span></dd>
+  </dl>
+</div>
+<div id="div_group_23" class="example_group passed">
+  <dl style="margin-left: 0px;">
+  <dt id="example_group_23" class="passed">Workbook</dt>
+  </dl>
+</div>
+<div id="div_group_24" class="example_group passed">
+  <dl style="margin-left: 15px;">
+  <dt id="example_group_24" class="passed">atttributes</dt>
+    <script type="text/javascript">moveProgressBar('78.7');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have attribute :name</span><span class='duration'>0.00074s</span></dd>
+    <script type="text/javascript">moveProgressBar('79.7');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have attribute :network_site_id</span><span class='duration'>0.00052s</span></dd>
+  </dl>
+</div>
+<div id="div_group_25" class="example_group passed">
+  <dl style="margin-left: 15px;">
+  <dt id="example_group_25" class="passed">associations</dt>
+    <script type="text/javascript">moveProgressBar('80.8');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have many sheets</span><span class='duration'>0.00099s</span></dd>
+    <script type="text/javascript">moveProgressBar('81.8');</script>
+    <dd class="example passed"><span class="passed_spec_name">should belong to a network site</span><span class='duration'>0.00520s</span></dd>
+    <script type="text/javascript">moveProgressBar('82.8');</script>
+    <dd class="example passed"><span class="passed_spec_name">should delete associated sheets on delete</span><span class='duration'>0.01758s</span></dd>
+  </dl>
+</div>
+<div id="div_group_26" class="example_group passed">
+  <dl style="margin-left: 15px;">
+  <dt id="example_group_26" class="passed">validations</dt>
+    <script type="text/javascript">moveProgressBar('83.8');</script>
+    <dd class="example passed"><span class="passed_spec_name">validates presence of name</span><span class='duration'>0.00223s</span></dd>
+    <script type="text/javascript">moveProgressBar('84.8');</script>
+    <dd class="example passed"><span class="passed_spec_name">validates presence of network_site_id</span><span class='duration'>0.00147s</span></dd>
+  </dl>
+</div>
+<div id="div_group_27" class="example_group passed">
+  <dl style="margin-left: 0px;">
+  <dt id="example_group_27" class="passed">ImportCableRuns</dt>
+  </dl>
+</div>
+<div id="div_group_28" class="example_group passed">
+  <dl style="margin-left: 15px;">
+  <dt id="example_group_28" class="passed">POST /import_cable_run</dt>
+    <script type="text/javascript">moveProgressBar('85.8');</script>
+    <dd class="example passed"><span class="passed_spec_name">Upload sheet</span><span class='duration'>0.15632s</span></dd>
+  </dl>
+</div>
+<div id="div_group_29" class="example_group passed">
+  <dl style="margin-left: 0px;">
+  <dt id="example_group_29" class="passed">Company</dt>
+  </dl>
+</div>
+<div id="div_group_30" class="example_group passed">
+  <dl style="margin-left: 15px;">
+  <dt id="example_group_30" class="passed">attributes</dt>
+    <script type="text/javascript">moveProgressBar('86.8');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have attribute :id</span><span class='duration'>0.00091s</span></dd>
+  </dl>
+</div>
+<div id="div_group_31" class="example_group passed">
+  <dl style="margin-left: 0px;">
+  <dt id="example_group_31" class="passed">Company</dt>
+  </dl>
+</div>
+<div id="div_group_32" class="example_group passed">
+  <dl style="margin-left: 15px;">
+  <dt id="example_group_32" class="passed">validations</dt>
+    <script type="text/javascript">moveProgressBar('87.8');</script>
+    <dd class="example passed"><span class="passed_spec_name">should require case sensitive unique value for name</span><span class='duration'>0.00895s</span></dd>
+    <script type="text/javascript">moveProgressBar('88.8');</script>
+    <dd class="example passed"><span class="passed_spec_name">validates the uniqueness of name</span><span class='duration'>0.00324s</span></dd>
+    <script type="text/javascript">moveProgressBar('89.8');</script>
+    <dd class="example passed"><span class="passed_spec_name">validates presence of name</span><span class='duration'>0.00126s</span></dd>
+  </dl>
+</div>
+<div id="div_group_33" class="example_group passed">
+  <dl style="margin-left: 15px;">
+  <dt id="example_group_33" class="passed">attributes</dt>
+    <script type="text/javascript">moveProgressBar('90.9');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have attribute :name</span><span class='duration'>0.00064s</span></dd>
+  </dl>
+</div>
+<div id="div_group_34" class="example_group passed">
+  <dl style="margin-left: 15px;">
+  <dt id="example_group_34" class="passed">associations</dt>
+    <script type="text/javascript">moveProgressBar('91.9');</script>
+    <dd class="example passed"><span class="passed_spec_name">should delete associated users on delete</span><span class='duration'>0.01139s</span></dd>
+    <script type="text/javascript">moveProgressBar('92.9');</script>
+    <dd class="example passed"><span class="passed_spec_name">should delete associated network_sites on delete</span><span class='duration'>0.00759s</span></dd>
+    <script type="text/javascript">moveProgressBar('93.9');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have many network_sites</span><span class='duration'>0.00091s</span></dd>
+  </dl>
+</div>
+<div id="div_group_35" class="example_group passed">
+  <dl style="margin-left: 0px;">
+  <dt id="example_group_35" class="passed">User</dt>
+  </dl>
+</div>
+<div id="div_group_36" class="example_group passed">
+  <dl style="margin-left: 15px;">
+  <dt id="example_group_36" class="passed">validations</dt>
+    <script type="text/javascript">moveProgressBar('94.9');</script>
+    <dd class="example passed"><span class="passed_spec_name">should require email to be set</span><span class='duration'>0.00521s</span></dd>
+    <script type="text/javascript">moveProgressBar('95.9');</script>
+    <dd class="example passed"><span class="passed_spec_name">should require unique value for email</span><span class='duration'>0.01457s</span></dd>
+  </dl>
+</div>
+<div id="div_group_37" class="example_group passed">
+  <dl style="margin-left: 15px;">
+  <dt id="example_group_37" class="passed">attributes</dt>
+    <script type="text/javascript">moveProgressBar('96.9');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have attribute :role</span><span class='duration'>0.00081s</span></dd>
+    <script type="text/javascript">moveProgressBar('97.9');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have attribute :company_id</span><span class='duration'>0.00058s</span></dd>
+    <script type="text/javascript">moveProgressBar('98.9');</script>
+    <dd class="example passed"><span class="passed_spec_name">should have attribute :email</span><span class='duration'>0.00063s</span></dd>
+  </dl>
+</div>
+<div id="div_group_38" class="example_group passed">
+  <dl style="margin-left: 15px;">
+  <dt id="example_group_38" class="passed">associations</dt>
+    <script type="text/javascript">moveProgressBar('100.0');</script>
+    <dd class="example passed"><span class="passed_spec_name">should belong to company</span><span class='duration'>0.00054s</span></dd>
+  </dl>
+</div>
+<script type="text/javascript">document.getElementById('duration').innerHTML = "Finished in <strong>0.60594 seconds</strong>";</script>
+<script type="text/javascript">document.getElementById('totals').innerHTML = "99 examples, 0 failures, 1 pending";</script>
+</div>
+</div>
+</body>
+</html>
