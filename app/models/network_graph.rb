@@ -204,7 +204,7 @@ class NetworkGraph < ActiveRecord::Base
       end
       if node.node_level > @ont_node_level
         if node.is_blank or node.is_na
-          node.delete #remove from db before continuing
+          # node.delete #remove from db before continuing
           return node
         end
       end
