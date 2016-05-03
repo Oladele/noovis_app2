@@ -38,8 +38,8 @@
   "requests": [
     {
       "request_method": "PATCH",
-      "request_path": "/network-templates/98",
-      "request_body": "{\"data\":{\"type\":\"network-templates\",\"attributes\":{\"name\":\"Updated Network Template Name\"},\"id\":\"98\"}}",
+      "request_path": "/network-templates/65",
+      "request_body": "{\"data\":{\"type\":\"network-templates\",\"attributes\":{\"name\":\"Updated Network Template Name\"},\"id\":\"65\"}}",
       "request_headers": {
         "Content-Type": "application/vnd.api+json"
       },
@@ -48,7 +48,7 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "{\"data\":{\"id\":\"98\",\"type\":\"network-templates\",\"links\":{\"self\":\"http://example.org/network-templates/98\"},\"attributes\":{\"name\":\"Updated Network Template Name\",\"description\":\"MyString\",\"hierarchy\":[\"olt_chassis\",\"pon_card\",\"building\",\"fdh\",\"splitter\",\"rdt\",\"room\",\"ont_sn\",\"ont_ge_mac\"]},\"relationships\":{\"network-graphs\":{\"links\":{\"self\":\"http://example.org/network-templates/98/relationships/network-graphs\",\"related\":\"http://example.org/network-templates/98/network-graphs\"}}}}}",
+      "response_body": "{\"data\":{\"id\":\"65\",\"type\":\"network-templates\",\"links\":{\"self\":\"http://example.org/network-templates/65\"},\"attributes\":{\"name\":\"Updated Network Template Name\",\"description\":\"MyString\",\"hierarchy\":[\"olt_chassis\",\"pon_card\",\"building\",\"fdh\",\"splitter\",\"rdt\",\"room\",\"ont_sn\",\"ont_ge_mac\"]},\"relationships\":{\"network-graphs\":{\"links\":{\"self\":\"http://example.org/network-templates/65/relationships/network-graphs\",\"related\":\"http://example.org/network-templates/65/network-graphs\"}}}}}",
       "response_headers": {
         "Content-Type": "application/vnd.api+json"
       },

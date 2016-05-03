@@ -28,8 +28,8 @@
   "requests": [
     {
       "request_method": "DELETE",
-      "request_path": "/companies/515",
-      "request_body": "{\"data\":{\"type\":\"companies\",\"id\":\"515\"}}",
+      "request_path": "/companies/429",
+      "request_body": "{\"data\":{\"type\":\"companies\",\"id\":\"429\"}}",
       "request_headers": {
         "Content-Type": "application/vnd.api+json"
       },

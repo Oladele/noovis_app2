@@ -10,16 +10,39 @@ Parameters:
   * id - The id of the node
 
 Request:
-  PATCH /nodes/27
+  PATCH /nodes/15
   Content-Type: application/vnd.api+json
 
-  {"data":{"type":"nodes","relationships":{"network-graph":{"data":{"type":"network-graphs","id":62}}},"attributes":{"node-type":"some_node_type"},"id":"27"}}
+  {"data":{"type":"nodes","relationships":{"network-graph":{"data":{"type":"network-graphs","id":39}}},"attributes":{"node-type":"some_node_type"},"id":"15"}}
 
 Response:
   Status: 200 OK
   Content-Type: application/vnd.api+json
 
-  {"data":{"id":"27","type":"nodes","links":{"self":"http://example.org/nodes/27"},"attributes":{"node-value":"MyString","node-level":1,"node-type":"some_node_type"},"relationships":{"network-graph":{"links":{"self":"http://example.org/nodes/27/relationships/network-graph","related":"http://example.org/nodes/27/network-graph"}}}}}
+  {"data":{"id":"15","type":"nodes","links":{"self":"http://example.org/nodes/15"},"attributes":{"node-value":"MyString","node-level":1,"node-type":"some_node_type"},"relationships":{"network-graph":{"links":{"self":"http://example.org/nodes/15/relationships/network-graph","related":"http://example.org/nodes/15/network-graph"}}}}}
+
+
+Create a node type
+------------------
+
+Parameters:
+  * type - Should always be set to <code>nodes</code>
+  * network-graph - Network Graph id
+  * node-type - Node Type
+  * node-value - Node Value
+  * node-level - Node Level
+
+Request:
+  POST /nodes
+  Content-Type: application/vnd.api+json
+
+  {"data":{"type":"nodes","relationships":{"network-graph":{"data":{"type":"network-graphs","id":40}}},"attributes":{"node-type":"some_node_type"}}}
+
+Response:
+  Status: 201 Created
+  Content-Type: application/vnd.api+json
+
+  {"data":{"id":"16","type":"nodes","links":{"self":"http://example.org/nodes/16"},"attributes":{"node-value":null,"node-level":null,"node-type":"some_node_type"},"relationships":{"network-graph":{"links":{"self":"http://example.org/nodes/16/relationships/network-graph","related":"http://example.org/nodes/16/network-graph"}}}}}
 
 
 Delete a node
@@ -34,10 +57,10 @@ Parameters:
   * id - The id of the node
 
 Request:
-  DELETE /nodes/28
+  DELETE /nodes/17
   Content-Type: application/vnd.api+json
 
-  {"data":{"type":"nodes","relationships":{"network-graph":{"data":{"type":"network-graphs","id":64}}},"attributes":{"node-type":"some_node_type"},"id":"28"}}
+  {"data":{"type":"nodes","relationships":{"network-graph":{"data":{"type":"network-graphs","id":42}}},"attributes":{"node-type":"some_node_type"},"id":"17"}}
 
 Response:
   Status: 204 No Content
@@ -55,29 +78,6 @@ Response:
   Status: 200 OK
   Content-Type: application/vnd.api+json
 
-  {"data":[{"id":"29","type":"nodes","links":{"self":"http://example.org/nodes/29"},"attributes":{"node-value":"MyString","node-level":1,"node-type":"MyString"},"relationships":{"network-graph":{"links":{"self":"http://example.org/nodes/29/relationships/network-graph","related":"http://example.org/nodes/29/network-graph"}}}},{"id":"30","type":"nodes","links":{"self":"http://example.org/nodes/30"},"attributes":{"node-value":"MyString","node-level":1,"node-type":"MyString"},"relationships":{"network-graph":{"links":{"self":"http://example.org/nodes/30/relationships/network-graph","related":"http://example.org/nodes/30/network-graph"}}}}],"meta":{"record-count":2}}
-
-
-Create a node type
-------------------
-
-Parameters:
-  * type - Should always be set to <code>nodes</code>
-  * network-graph - Network Graph id
-  * node-type - Node Type
-  * node-value - Node Value
-  * node-level - Node Level
-
-Request:
-  POST /nodes
-  Content-Type: application/vnd.api+json
-
-  {"data":{"type":"nodes","relationships":{"network-graph":{"data":{"type":"network-graphs","id":67}}},"attributes":{"node-type":"some_node_type"}}}
-
-Response:
-  Status: 201 Created
-  Content-Type: application/vnd.api+json
-
-  {"data":{"id":"31","type":"nodes","links":{"self":"http://example.org/nodes/31"},"attributes":{"node-value":null,"node-level":null,"node-type":"some_node_type"},"relationships":{"network-graph":{"links":{"self":"http://example.org/nodes/31/relationships/network-graph","related":"http://example.org/nodes/31/network-graph"}}}}}
+  {"data":[{"id":"18","type":"nodes","links":{"self":"http://example.org/nodes/18"},"attributes":{"node-value":"MyString","node-level":1,"node-type":"MyString"},"relationships":{"network-graph":{"links":{"self":"http://example.org/nodes/18/relationships/network-graph","related":"http://example.org/nodes/18/network-graph"}}}},{"id":"19","type":"nodes","links":{"self":"http://example.org/nodes/19"},"attributes":{"node-value":"MyString","node-level":1,"node-type":"MyString"},"relationships":{"network-graph":{"links":{"self":"http://example.org/nodes/19/relationships/network-graph","related":"http://example.org/nodes/19/network-graph"}}}}],"meta":{"record-count":2}}
 
 
