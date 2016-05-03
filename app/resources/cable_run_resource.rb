@@ -32,7 +32,8 @@ class CableRunResource < JSONAPI::Resource
     :ont_ge_3_device,
     :ont_ge_3_mac,
     :ont_ge_4_device,
-    :ont_ge_4_mac
+    :ont_ge_4_mac,
+    :ont_node_id
   has_one :sheet
 
   filter :sheet
@@ -44,5 +45,13 @@ class CableRunResource < JSONAPI::Resource
     else
       super
     end
+  end
+
+  def self.updatable_fields(context)
+    super - [:ont_node_id]
+  end
+
+  def self.creatable_fields(context)
+    super - [:ont_node_id]
   end
 end

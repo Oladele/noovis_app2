@@ -47,6 +47,15 @@ class CableRun < ActiveRecord::Base
   has_one :company, through: :sheet
   has_many :nodes
 
+  def ont_node_id
+    ont_node = nodes.find_by node_type: "ont_sn"
+    if ont_node
+      ont_node.id
+    else
+      nil
+    end
+  end
+
   def self.header_to_fields(header)
     fields = {
       extra: [],
