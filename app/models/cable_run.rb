@@ -48,9 +48,16 @@ class CableRun < ActiveRecord::Base
   has_many :nodes
 
   def ont_node_id
-    ont_node = nodes.find_by node_type: "ont_sn"
-    if ont_node
-      ont_node.id
+    building = sheet.building
+    network_graph = NetworkGraph.latest_for building
+    if network_graph
+      building_nodes = network_graph.nodes
+      ont_node = building_nodes.find_by node_type: "ont_sn"
+      if ont_node
+        ont_node.id
+      else
+        nil
+      end
     else
       nil
     end
