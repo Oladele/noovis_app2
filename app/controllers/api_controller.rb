@@ -4,9 +4,9 @@ class ApiController < JSONAPI::ResourceController
   protect_from_forgery with: :null_session
 
   # TODO: uncomment me after ESA is merged into Ember project.
-  #include DeviseTokenAuth::Concerns::SetUserByToken
-  #before_action :authenticate_user!
-  #before_action :admin_only, only: [:create, :update, :destroy]
+  include DeviseTokenAuth::Concerns::SetUserByToken
+  before_action :authenticate_user!
+  before_action :admin_only, only: [:create, :update, :destroy]
 
   def context
     { current_user: current_user }
