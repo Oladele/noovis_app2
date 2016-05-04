@@ -20,6 +20,7 @@ gem 'roo-xls'
 gem 'devise_token_auth'
 gem 'omniauth'
 gem 'paperclip', '~> 4.3', '>= 4.3.6'
+gem 'sinatra', :require => nil
 
 group :development do
   gem "spring"
