@@ -1,6 +1,6 @@
 class ImportCableRunProcessingWorker
   include Sidekiq::Worker
-  sidekiq_options :retry => false, :backtrace => true
+  sidekiq_options :queue => :imports, :retry => false, :backtrace => true
 
   def perform(import_job_id)
     begin
