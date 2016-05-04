@@ -18,7 +18,7 @@ class ImportCableRunProcessingWorker
       import_cable_run.save_workbook
       import_job.update_attribute(:status, 'completed')
     rescue => e
-      # TODO: log this?
+      Logger.new(STDOUT).error "Exception importing cable run: #{e}"
       import_job.update_attribute(:status, 'error')
     end
   end
