@@ -44,7 +44,24 @@
 
 class CableRun < ActiveRecord::Base
   belongs_to :sheet
+  has_one :company, through: :sheet
   has_many :nodes
+
+  def ont_node_id
+    # building = sheet.building
+    # network_graph = NetworkGraph.latest_for building
+    # if network_graph
+    #   building_nodes = network_graph.nodes
+    #   ont_node = building_nodes.find_by node_type: "ont_sn"
+    #   if ont_node
+    #     ont_node.id
+    #   else
+    #     nil
+    #   end
+    # else
+    #   nil
+    # end
+  end
 
   def self.header_to_fields(header)
     fields = {

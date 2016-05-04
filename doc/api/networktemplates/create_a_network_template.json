@@ -43,7 +43,7 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 201,
       "response_status_text": "Created",
-      "response_body": "{\"data\":{\"id\":\"95\",\"type\":\"network-templates\",\"links\":{\"self\":\"http://example.org/network-templates/95\"},\"attributes\":{\"name\":\"Template Name\",\"description\":null,\"hierarchy\":[]},\"relationships\":{\"network-graphs\":{\"links\":{\"self\":\"http://example.org/network-templates/95/relationships/network-graphs\",\"related\":\"http://example.org/network-templates/95/network-graphs\"}}}}}",
+      "response_body": "{\"data\":{\"id\":\"66\",\"type\":\"network-templates\",\"links\":{\"self\":\"http://example.org/network-templates/66\"},\"attributes\":{\"name\":\"Template Name\",\"description\":null,\"hierarchy\":[]},\"relationships\":{\"network-graphs\":{\"links\":{\"self\":\"http://example.org/network-templates/66/relationships/network-graphs\",\"related\":\"http://example.org/network-templates/66/network-graphs\"}}}}}",
       "response_headers": {
         "Content-Type": "application/vnd.api+json"
       },

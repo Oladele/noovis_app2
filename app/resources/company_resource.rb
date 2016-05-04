@@ -26,4 +26,13 @@ class CompanyResource < JSONAPI::Resource
     node_counts.unshift({node_type: "buildings", count: buildings.count, node_type_pretty: "Buildings"})
     node_counts.unshift({node_type: "network-sites", count: network_sites.count, node_type_pretty: "Sites"})
   end
+
+  def self.records(options = {})
+    current_user = options[:context][:current_user]
+    if current_user.customer?
+      Company.where(id: current_user.company_id)
+    else
+      super
+    end
+  end
 end

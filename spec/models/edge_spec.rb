@@ -17,5 +17,17 @@
 require 'rails_helper'
 
 RSpec.describe Edge, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe "attributes" do
+  	it { is_expected.to have_attribute :network_graph_id }
+  	it { is_expected.to have_attribute :to_node_id }
+  	it { is_expected.to have_attribute :from_node_id }
+  	it { is_expected.to have_attribute :edge_level }
+  	it { is_expected.to have_attribute :level }
+  	it { is_expected.to have_attribute :to }
+  	it { is_expected.to have_attribute :from }
+	end
+
+	describe "associations" do
+    it { should belong_to :network_graph }
+	end
 end
