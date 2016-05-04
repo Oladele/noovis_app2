@@ -19,6 +19,18 @@ FactoryGirl.define do
     lng {-76.614766}
     network_site
     description "MyText"
+
+    factory :building_with_import_job do
+      after(:create) do |building, evaluator|
+        create_list(:import_job, 1, building: building)
+      end
+    end
+
+    factory :building_with_expired_import_job do
+      after(:create) do |building, evaluator|
+        create_list(:expired_import_job, 1, building: building)
+      end
+    end
   end
 
 end
