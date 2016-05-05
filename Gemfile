@@ -19,7 +19,11 @@ gem 'roo'
 gem 'roo-xls'
 gem 'devise_token_auth'
 gem 'omniauth'
-gem 'paperclip', '~> 4.3', '>= 4.3.6'
+
+# http://stackoverflow.com/questions/28374401/nameerror-uninitialized-constant-paperclipstorages3aws
+gem 'paperclip', :git=> 'https://github.com/thoughtbot/paperclip', :ref => '523bd46c768226893f23889079a7aa9c73b57d68'
+gem 'aws-sdk', '~> 2.2', '>= 2.2.35'
+
 gem 'sinatra', :require => nil
 
 group :development do

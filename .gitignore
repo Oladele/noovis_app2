@@ -16,3 +16,4 @@
 dump.rdb
 spec/examples.txt
 public/system/*
+.DS_Store

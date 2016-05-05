@@ -26,7 +26,7 @@ class ImportCableRun
   def process!
     import_job = ImportJob.create!(
       building_id: self.building_id,
-      spreadsheet: self.file.tempfile,
+      spreadsheet: self.file,
       sheet_name: self.sheet,
       filename: file.original_filename,
       status: 'processing'
