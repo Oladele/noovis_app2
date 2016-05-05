@@ -24,6 +24,6 @@ class Building < ActiveRecord::Base
 
   def import_job_status
     job = self.import_jobs.order(created_at: :desc).first
-    job.status if job.present? && job.try(:created_at) > 10.minutes.ago # TODO: return something other than nil for none?
+    job.status if job.present? && job.try(:created_at) > 5.minutes.ago
   end
 end
