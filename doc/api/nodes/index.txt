@@ -1,48 +1,21 @@
-Update a node
--------------
-
-Parameters:
-  * type - Should always be set to <code>nodes</code>
-  * network-graph - Network Graph id
-  * node-type - Node Type
-  * node-value - Node Value
-  * node-level - Node Level
-  * id - The id of the node
+List all nodes
+--------------
 
 Request:
-  PATCH /nodes/15
+  GET /nodes
+  Access-Token: zM4UDiRgNSTsHva9SdpePg
+  Client: 7EKjin781c3cQaZmLEWpSg
   Content-Type: application/vnd.api+json
-
-  {"data":{"type":"nodes","relationships":{"network-graph":{"data":{"type":"network-graphs","id":39}}},"attributes":{"node-type":"some_node_type"},"id":"15"}}
+  Uid: email24@example.com
 
 Response:
   Status: 200 OK
   Content-Type: application/vnd.api+json
+  access-token: zM4UDiRgNSTsHva9SdpePg
+  client: 7EKjin781c3cQaZmLEWpSg
+  uid: email24@example.com
 
-  {"data":{"id":"15","type":"nodes","links":{"self":"http://example.org/nodes/15"},"attributes":{"node-value":"MyString","node-level":1,"node-type":"some_node_type"},"relationships":{"network-graph":{"links":{"self":"http://example.org/nodes/15/relationships/network-graph","related":"http://example.org/nodes/15/network-graph"}}}}}
-
-
-Create a node type
-------------------
-
-Parameters:
-  * type - Should always be set to <code>nodes</code>
-  * network-graph - Network Graph id
-  * node-type - Node Type
-  * node-value - Node Value
-  * node-level - Node Level
-
-Request:
-  POST /nodes
-  Content-Type: application/vnd.api+json
-
-  {"data":{"type":"nodes","relationships":{"network-graph":{"data":{"type":"network-graphs","id":40}}},"attributes":{"node-type":"some_node_type"}}}
-
-Response:
-  Status: 201 Created
-  Content-Type: application/vnd.api+json
-
-  {"data":{"id":"16","type":"nodes","links":{"self":"http://example.org/nodes/16"},"attributes":{"node-value":null,"node-level":null,"node-type":"some_node_type"},"relationships":{"network-graph":{"links":{"self":"http://example.org/nodes/16/relationships/network-graph","related":"http://example.org/nodes/16/network-graph"}}}}}
+  {"data":[{"id":"8","type":"nodes","links":{"self":"http://example.org/nodes/8"},"attributes":{"node-value":"MyString","node-level":1,"node-type":"MyString"},"relationships":{"network-graph":{"links":{"self":"http://example.org/nodes/8/relationships/network-graph","related":"http://example.org/nodes/8/network-graph"}}}},{"id":"9","type":"nodes","links":{"self":"http://example.org/nodes/9"},"attributes":{"node-value":"MyString","node-level":1,"node-type":"MyString"},"relationships":{"network-graph":{"links":{"self":"http://example.org/nodes/9/relationships/network-graph","related":"http://example.org/nodes/9/network-graph"}}}}],"meta":{"record-count":2}}
 
 
 Delete a node
@@ -57,27 +30,77 @@ Parameters:
   * id - The id of the node
 
 Request:
-  DELETE /nodes/17
+  DELETE /nodes/10
+  Access-Token: 2jumwT96FQPOAVzdOI5_nA
+  Client: 5jwOR1ljCyDT5K1WJu-cbw
   Content-Type: application/vnd.api+json
+  Uid: email25@example.com
 
-  {"data":{"type":"nodes","relationships":{"network-graph":{"data":{"type":"network-graphs","id":42}}},"attributes":{"node-type":"some_node_type"},"id":"17"}}
+  {"data":{"type":"nodes","relationships":{"network-graph":{"data":{"type":"network-graphs","id":18}}},"attributes":{"node-type":"some_node_type"},"id":"10"}}
 
 Response:
   Status: 204 No Content
+  access-token: 2jumwT96FQPOAVzdOI5_nA
+  client: 5jwOR1ljCyDT5K1WJu-cbw
+  uid: email25@example.com
 
 
+Create a node type
+------------------
 
-List all nodes
---------------
+Parameters:
+  * type - Should always be set to <code>nodes</code>
+  * network-graph - Network Graph id
+  * node-type - Node Type
+  * node-value - Node Value
+  * node-level - Node Level
 
 Request:
-  GET /nodes
+  POST /nodes
+  Access-Token: _iVMVtZScMeLqw9Owbd4mQ
+  Client: AZxypo1fMoBwZWIWvGbXAg
   Content-Type: application/vnd.api+json
+  Uid: email26@example.com
+
+  {"data":{"type":"nodes","relationships":{"network-graph":{"data":{"type":"network-graphs","id":19}}},"attributes":{"node-type":"some_node_type"}}}
+
+Response:
+  Status: 201 Created
+  Content-Type: application/vnd.api+json
+  access-token: _iVMVtZScMeLqw9Owbd4mQ
+  client: AZxypo1fMoBwZWIWvGbXAg
+  uid: email26@example.com
+
+  {"data":{"id":"11","type":"nodes","links":{"self":"http://example.org/nodes/11"},"attributes":{"node-value":null,"node-level":null,"node-type":"some_node_type"},"relationships":{"network-graph":{"links":{"self":"http://example.org/nodes/11/relationships/network-graph","related":"http://example.org/nodes/11/network-graph"}}}}}
+
+
+Update a node
+-------------
+
+Parameters:
+  * type - Should always be set to <code>nodes</code>
+  * network-graph - Network Graph id
+  * node-type - Node Type
+  * node-value - Node Value
+  * node-level - Node Level
+  * id - The id of the node
+
+Request:
+  PATCH /nodes/12
+  Access-Token: rJ4z3gbjUB3VbxPgJ50_dQ
+  Client: i3ZF833zOsY7A35jphY6xQ
+  Content-Type: application/vnd.api+json
+  Uid: email27@example.com
+
+  {"data":{"type":"nodes","relationships":{"network-graph":{"data":{"type":"network-graphs","id":21}}},"attributes":{"node-type":"some_node_type"},"id":"12"}}
 
 Response:
   Status: 200 OK
   Content-Type: application/vnd.api+json
+  access-token: rJ4z3gbjUB3VbxPgJ50_dQ
+  client: i3ZF833zOsY7A35jphY6xQ
+  uid: email27@example.com
 
-  {"data":[{"id":"18","type":"nodes","links":{"self":"http://example.org/nodes/18"},"attributes":{"node-value":"MyString","node-level":1,"node-type":"MyString"},"relationships":{"network-graph":{"links":{"self":"http://example.org/nodes/18/relationships/network-graph","related":"http://example.org/nodes/18/network-graph"}}}},{"id":"19","type":"nodes","links":{"self":"http://example.org/nodes/19"},"attributes":{"node-value":"MyString","node-level":1,"node-type":"MyString"},"relationships":{"network-graph":{"links":{"self":"http://example.org/nodes/19/relationships/network-graph","related":"http://example.org/nodes/19/network-graph"}}}}],"meta":{"record-count":2}}
+  {"data":{"id":"12","type":"nodes","links":{"self":"http://example.org/nodes/12"},"attributes":{"node-value":"MyString","node-level":1,"node-type":"some_node_type"},"relationships":{"network-graph":{"links":{"self":"http://example.org/nodes/12/relationships/network-graph","related":"http://example.org/nodes/12/network-graph"}}}}}
 
 

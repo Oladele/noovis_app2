@@ -168,23 +168,29 @@ table th, table td {
           <h3>Request</h3>
 
             <h4>Headers</h4>
-            <pre class="request headers">Content-Type: application/vnd.api+json</pre>
+            <pre class="request headers">Content-Type: application/vnd.api+json
+Access-Token: aZzl5i9pStbPInMYv2ihIA
+Client: F-YvPsHmIvWhwHSa4D9W5A
+Uid: email42@example.com</pre>
 
           <h4>Route</h4>
           <pre class="request route highlight">POST /buildings</pre>
 
 
             <h4>Body</h4>
-            <pre class="request body">{"data":{"relationships":{"network-site":{"data":{"type":"network-sites","id":271}}},"type":"buildings","attributes":{"name":"Building Name"}}}</pre>
+            <pre class="request body">{"data":{"relationships":{"network-site":{"data":{"type":"network-sites","id":177}}},"type":"buildings","attributes":{"name":"Building Name"}}}</pre>
 
 
             <h3>Response</h3>
               <h4>Headers</h4>
-              <pre class="response headers">Content-Type: application/vnd.api+json</pre>
+              <pre class="response headers">access-token: aZzl5i9pStbPInMYv2ihIA
+client: F-YvPsHmIvWhwHSa4D9W5A
+uid: email42@example.com
+Content-Type: application/vnd.api+json</pre>
             <h4>Status</h4>
             <pre class="response status">201 Created</pre>
               <h4>Body</h4>
-              <pre class="response body">{&quot;data&quot;:{&quot;id&quot;:&quot;124&quot;,&quot;type&quot;:&quot;buildings&quot;,&quot;links&quot;:{&quot;self&quot;:&quot;http://example.org/buildings/124&quot;},&quot;attributes&quot;:{&quot;name&quot;:&quot;Building Name&quot;,&quot;lat&quot;:null,&quot;lng&quot;:null,&quot;description&quot;:null,&quot;node-counts&quot;:[]},&quot;relationships&quot;:{&quot;network-site&quot;:{&quot;links&quot;:{&quot;self&quot;:&quot;http://example.org/buildings/124/relationships/network-site&quot;,&quot;related&quot;:&quot;http://example.org/buildings/124/network-site&quot;}},&quot;sheets&quot;:{&quot;links&quot;:{&quot;self&quot;:&quot;http://example.org/buildings/124/relationships/sheets&quot;,&quot;related&quot;:&quot;http://example.org/buildings/124/sheets&quot;}}}}}</pre>
+              <pre class="response body">{&quot;data&quot;:{&quot;id&quot;:&quot;94&quot;,&quot;type&quot;:&quot;buildings&quot;,&quot;links&quot;:{&quot;self&quot;:&quot;http://example.org/buildings/94&quot;},&quot;attributes&quot;:{&quot;name&quot;:&quot;Building Name&quot;,&quot;lat&quot;:null,&quot;lng&quot;:null,&quot;description&quot;:null,&quot;node-counts&quot;:[],&quot;import-job-status&quot;:null},&quot;relationships&quot;:{&quot;network-site&quot;:{&quot;links&quot;:{&quot;self&quot;:&quot;http://example.org/buildings/94/relationships/network-site&quot;,&quot;related&quot;:&quot;http://example.org/buildings/94/network-site&quot;}},&quot;sheets&quot;:{&quot;links&quot;:{&quot;self&quot;:&quot;http://example.org/buildings/94/relationships/sheets&quot;,&quot;related&quot;:&quot;http://example.org/buildings/94/sheets&quot;}}}}}</pre>
       </div>
     </div>
   </body>

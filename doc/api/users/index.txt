@@ -9,52 +9,19 @@ Parameters:
   * id - The id of the user
 
 Request:
-  DELETE /users/101
+  DELETE /users/29
+  Access-Token: zPFWXpOruvQY496K8-RCvw
+  Client: rzUJhol0zG9HSPGOBw_-jQ
   Content-Type: application/vnd.api+json
+  Uid: email14@example.com
 
-  {"data":{"relationships":{"company":{"data":{"type":"companies","id":354}}},"type":"users","id":"101"}}
+  {"data":{"relationships":{"company":{"data":{"type":"companies","id":164}}},"type":"users","id":"29"}}
 
 Response:
   Status: 204 No Content
-
-
-
-Create a user
--------------
-
-Parameters:
-  * company - Company id
-  * type - Should always be set to <code>users</code>
-  * email - User email
-  * role - User role
-  * password - User password
-  * password-confirmation - User password
-
-Request:
-  POST /users
-  Content-Type: application/vnd.api+json
-
-  {"data":{"relationships":{"company":{"data":{"type":"companies","id":356}}},"type":"users","attributes":{"email":"test@example.com","role":"admin","password":"password","password-confirmation":"password"}}}
-
-Response:
-  Status: 201 Created
-  Content-Type: application/vnd.api+json
-
-  {"data":{"id":"103","type":"users","links":{"self":"http://example.org/users/103"},"attributes":{"email":"test@example.com","role":"admin"},"relationships":{"company":{"links":{"self":"http://example.org/users/103/relationships/company","related":"http://example.org/users/103/company"}}}}}
-
-
-List all users
---------------
-
-Request:
-  GET /users
-  Content-Type: application/vnd.api+json
-
-Response:
-  Status: 200 OK
-  Content-Type: application/vnd.api+json
-
-  {"data":[{"id":"104","type":"users","links":{"self":"http://example.org/users/104"},"attributes":{"email":"email5@example.com","role":"admin"},"relationships":{"company":{"links":{"self":"http://example.org/users/104/relationships/company","related":"http://example.org/users/104/company"}}}},{"id":"105","type":"users","links":{"self":"http://example.org/users/105"},"attributes":{"email":"test1@example.com","role":"admin"},"relationships":{"company":{"links":{"self":"http://example.org/users/105/relationships/company","related":"http://example.org/users/105/company"}}}},{"id":"106","type":"users","links":{"self":"http://example.org/users/106"},"attributes":{"email":"test2@example.com","role":"admin"},"relationships":{"company":{"links":{"self":"http://example.org/users/106/relationships/company","related":"http://example.org/users/106/company"}}}}],"meta":{"record-count":3}}
+  access-token: zPFWXpOruvQY496K8-RCvw
+  client: rzUJhol0zG9HSPGOBw_-jQ
+  uid: email14@example.com
 
 
 Update a user
@@ -70,15 +37,71 @@ Parameters:
   * id - The id of the user
 
 Request:
-  PATCH /users/108
+  PATCH /users/31
+  Access-Token: TbZZrPUQoHIh07vIwTPRMw
+  Client: Viv9WwdQChCxCOtyInBmYA
   Content-Type: application/vnd.api+json
+  Uid: email16@example.com
 
-  {"data":{"relationships":{"company":{"data":{"type":"companies","id":362}}},"type":"users","attributes":{"email":"updated@example.com"},"id":"108"}}
+  {"data":{"relationships":{"company":{"data":{"type":"companies","id":167}}},"type":"users","attributes":{"email":"updated@example.com"},"id":"31"}}
 
 Response:
   Status: 200 OK
   Content-Type: application/vnd.api+json
+  access-token: TbZZrPUQoHIh07vIwTPRMw
+  client: Viv9WwdQChCxCOtyInBmYA
+  uid: email16@example.com
 
-  {"data":{"id":"108","type":"users","links":{"self":"http://example.org/users/108"},"attributes":{"email":"updated@example.com","role":"admin"},"relationships":{"company":{"links":{"self":"http://example.org/users/108/relationships/company","related":"http://example.org/users/108/company"}}}}}
+  {"data":{"id":"31","type":"users","links":{"self":"http://example.org/users/31"},"attributes":{"email":"updated@example.com","role":"admin"},"relationships":{"company":{"links":{"self":"http://example.org/users/31/relationships/company","related":"http://example.org/users/31/company"}}}}}
+
+
+List all users
+--------------
+
+Request:
+  GET /users
+  Access-Token: 0iKWtOKaTduoXtZjmV2bPg
+  Client: 9sfkWx91HBfJk4XQTqqKSg
+  Content-Type: application/vnd.api+json
+  Uid: email18@example.com
+
+Response:
+  Status: 200 OK
+  Content-Type: application/vnd.api+json
+  access-token: 0iKWtOKaTduoXtZjmV2bPg
+  client: 9sfkWx91HBfJk4XQTqqKSg
+  uid: email18@example.com
+
+  {"data":[{"id":"32","type":"users","links":{"self":"http://example.org/users/32"},"attributes":{"email":"email18@example.com","role":"admin"},"relationships":{"company":{"links":{"self":"http://example.org/users/32/relationships/company","related":"http://example.org/users/32/company"}}}},{"id":"33","type":"users","links":{"self":"http://example.org/users/33"},"attributes":{"email":"test1@example.com","role":"admin"},"relationships":{"company":{"links":{"self":"http://example.org/users/33/relationships/company","related":"http://example.org/users/33/company"}}}},{"id":"34","type":"users","links":{"self":"http://example.org/users/34"},"attributes":{"email":"test2@example.com","role":"admin"},"relationships":{"company":{"links":{"self":"http://example.org/users/34/relationships/company","related":"http://example.org/users/34/company"}}}}],"meta":{"record-count":3}}
+
+
+Create a user
+-------------
+
+Parameters:
+  * company - Company id
+  * type - Should always be set to <code>users</code>
+  * email - User email
+  * role - User role
+  * password - User password
+  * password-confirmation - User password
+
+Request:
+  POST /users
+  Access-Token: 9AK3ogb6jVqphamcI55fNQ
+  Client: j7JNxbI3FmU2oGQngWcX6w
+  Content-Type: application/vnd.api+json
+  Uid: email19@example.com
+
+  {"data":{"relationships":{"company":{"data":{"type":"companies","id":172}}},"type":"users","attributes":{"email":"test@example.com","role":"admin","password":"password","password-confirmation":"password"}}}
+
+Response:
+  Status: 201 Created
+  Content-Type: application/vnd.api+json
+  access-token: 9AK3ogb6jVqphamcI55fNQ
+  client: j7JNxbI3FmU2oGQngWcX6w
+  uid: email19@example.com
+
+  {"data":{"id":"36","type":"users","links":{"self":"http://example.org/users/36"},"attributes":{"email":"test@example.com","role":"admin"},"relationships":{"company":{"links":{"self":"http://example.org/users/36/relationships/company","related":"http://example.org/users/36/company"}}}}}
 
 

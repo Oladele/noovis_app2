@@ -16,15 +16,21 @@
       "request_path": "/buildings",
       "request_body": null,
       "request_headers": {
-        "Content-Type": "application/vnd.api+json"
+        "Content-Type": "application/vnd.api+json",
+        "Access-Token": "Q9O1CHmYiNeEsUKwopie4A",
+        "Client": "tteZ-et2U7PkGn8NrVkqOw",
+        "Uid": "email44@example.com"
       },
       "request_query_parameters": {
       },
       "request_content_type": "application/vnd.api+json",
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "{\"data\":[{\"id\":\"122\",\"type\":\"buildings\",\"links\":{\"self\":\"http://example.org/buildings/122\"},\"attributes\":{\"name\":\"1st building\",\"lat\":\"39.290139\",\"lng\":\"-76.614766\",\"description\":\"MyText\",\"node-counts\":[]},\"relationships\":{\"network-site\":{\"links\":{\"self\":\"http://example.org/buildings/122/relationships/network-site\",\"related\":\"http://example.org/buildings/122/network-site\"}},\"sheets\":{\"links\":{\"self\":\"http://example.org/buildings/122/relationships/sheets\",\"related\":\"http://example.org/buildings/122/sheets\"}}}},{\"id\":\"123\",\"type\":\"buildings\",\"links\":{\"self\":\"http://example.org/buildings/123\"},\"attributes\":{\"name\":\"2nd building\",\"lat\":\"39.290139\",\"lng\":\"-76.614766\",\"description\":\"MyText\",\"node-counts\":[]},\"relationships\":{\"network-site\":{\"links\":{\"self\":\"http://example.org/buildings/123/relationships/network-site\",\"related\":\"http://example.org/buildings/123/network-site\"}},\"sheets\":{\"links\":{\"self\":\"http://example.org/buildings/123/relationships/sheets\",\"related\":\"http://example.org/buildings/123/sheets\"}}}}],\"meta\":{\"record-count\":2}}",
+      "response_body": "{\"data\":[{\"id\":\"96\",\"type\":\"buildings\",\"links\":{\"self\":\"http://example.org/buildings/96\"},\"attributes\":{\"name\":\"1st building\",\"lat\":\"39.290139\",\"lng\":\"-76.614766\",\"description\":\"MyText\",\"node-counts\":[],\"import-job-status\":null},\"relationships\":{\"network-site\":{\"links\":{\"self\":\"http://example.org/buildings/96/relationships/network-site\",\"related\":\"http://example.org/buildings/96/network-site\"}},\"sheets\":{\"links\":{\"self\":\"http://example.org/buildings/96/relationships/sheets\",\"related\":\"http://example.org/buildings/96/sheets\"}}}},{\"id\":\"97\",\"type\":\"buildings\",\"links\":{\"self\":\"http://example.org/buildings/97\"},\"attributes\":{\"name\":\"2nd building\",\"lat\":\"39.290139\",\"lng\":\"-76.614766\",\"description\":\"MyText\",\"node-counts\":[],\"import-job-status\":null},\"relationships\":{\"network-site\":{\"links\":{\"self\":\"http://example.org/buildings/97/relationships/network-site\",\"related\":\"http://example.org/buildings/97/network-site\"}},\"sheets\":{\"links\":{\"self\":\"http://example.org/buildings/97/relationships/sheets\",\"related\":\"http://example.org/buildings/97/sheets\"}}}}],\"meta\":{\"record-count\":2}}",
       "response_headers": {
+        "access-token": "Q9O1CHmYiNeEsUKwopie4A",
+        "client": "tteZ-et2U7PkGn8NrVkqOw",
+        "uid": "email44@example.com",
         "Content-Type": "application/vnd.api+json"
       },
       "response_content_type": "application/vnd.api+json",

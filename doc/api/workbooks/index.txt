@@ -1,15 +1,26 @@
-List all workbooks
-------------------
+Delete a workbook
+-----------------
+
+Parameters:
+  * network-site - Network site id
+  * type - Should always be set to <code>workbooks</code>
+  * name - Workbook Name
+  * id - The id of the workbook
 
 Request:
-  GET /workbooks
+  DELETE /workbooks/36
+  Access-Token: YX0D_Uc2NewdGmz3X_sKcA
+  Client: QvXiepZslS7hBfqRtHGX1A
   Content-Type: application/vnd.api+json
+  Uid: email6@example.com
+
+  {"data":{"relationships":{"network-site":{"data":{"type":"network-sites","id":108}}},"type":"workbooks","id":"36"}}
 
 Response:
-  Status: 200 OK
-  Content-Type: application/vnd.api+json
-
-  {"data":[{"id":"128","type":"workbooks","links":{"self":"http://example.org/workbooks/128"},"attributes":{"name":"1st workbook"},"relationships":{"network-site":{"links":{"self":"http://example.org/workbooks/128/relationships/network-site","related":"http://example.org/workbooks/128/network-site"}},"sheets":{"links":{"self":"http://example.org/workbooks/128/relationships/sheets","related":"http://example.org/workbooks/128/sheets"}}}},{"id":"129","type":"workbooks","links":{"self":"http://example.org/workbooks/129"},"attributes":{"name":"2nd workbook"},"relationships":{"network-site":{"links":{"self":"http://example.org/workbooks/129/relationships/network-site","related":"http://example.org/workbooks/129/network-site"}},"sheets":{"links":{"self":"http://example.org/workbooks/129/relationships/sheets","related":"http://example.org/workbooks/129/sheets"}}}}],"meta":{"record-count":2}}
+  Status: 204 No Content
+  access-token: YX0D_Uc2NewdGmz3X_sKcA
+  client: QvXiepZslS7hBfqRtHGX1A
+  uid: email6@example.com
 
 
 Create a workbook
@@ -22,15 +33,41 @@ Parameters:
 
 Request:
   POST /workbooks
+  Access-Token: VJrUX5oVbfXav2qR8pDQ9g
+  Client: aFqX8Mo7y7f2Of9wu5z1OA
   Content-Type: application/vnd.api+json
+  Uid: email7@example.com
 
-  {"data":{"relationships":{"network-site":{"data":{"type":"network-sites","id":298}}},"type":"workbooks","attributes":{"name":"Workbook Name"}}}
+  {"data":{"relationships":{"network-site":{"data":{"type":"network-sites","id":109}}},"type":"workbooks","attributes":{"name":"Workbook Name"}}}
 
 Response:
   Status: 201 Created
   Content-Type: application/vnd.api+json
+  access-token: VJrUX5oVbfXav2qR8pDQ9g
+  client: aFqX8Mo7y7f2Of9wu5z1OA
+  uid: email7@example.com
 
-  {"data":{"id":"130","type":"workbooks","links":{"self":"http://example.org/workbooks/130"},"attributes":{"name":"Workbook Name"},"relationships":{"network-site":{"links":{"self":"http://example.org/workbooks/130/relationships/network-site","related":"http://example.org/workbooks/130/network-site"}},"sheets":{"links":{"self":"http://example.org/workbooks/130/relationships/sheets","related":"http://example.org/workbooks/130/sheets"}}}}}
+  {"data":{"id":"37","type":"workbooks","links":{"self":"http://example.org/workbooks/37"},"attributes":{"name":"Workbook Name"},"relationships":{"network-site":{"links":{"self":"http://example.org/workbooks/37/relationships/network-site","related":"http://example.org/workbooks/37/network-site"}},"sheets":{"links":{"self":"http://example.org/workbooks/37/relationships/sheets","related":"http://example.org/workbooks/37/sheets"}}}}}
+
+
+List all workbooks
+------------------
+
+Request:
+  GET /workbooks
+  Access-Token: TG-PZ2Gck9qYeSV0Op7fgg
+  Client: wfITf79n8FdVqfM--MpdkA
+  Content-Type: application/vnd.api+json
+  Uid: email8@example.com
+
+Response:
+  Status: 200 OK
+  Content-Type: application/vnd.api+json
+  access-token: TG-PZ2Gck9qYeSV0Op7fgg
+  client: wfITf79n8FdVqfM--MpdkA
+  uid: email8@example.com
+
+  {"data":[{"id":"38","type":"workbooks","links":{"self":"http://example.org/workbooks/38"},"attributes":{"name":"1st workbook"},"relationships":{"network-site":{"links":{"self":"http://example.org/workbooks/38/relationships/network-site","related":"http://example.org/workbooks/38/network-site"}},"sheets":{"links":{"self":"http://example.org/workbooks/38/relationships/sheets","related":"http://example.org/workbooks/38/sheets"}}}},{"id":"39","type":"workbooks","links":{"self":"http://example.org/workbooks/39"},"attributes":{"name":"2nd workbook"},"relationships":{"network-site":{"links":{"self":"http://example.org/workbooks/39/relationships/network-site","related":"http://example.org/workbooks/39/network-site"}},"sheets":{"links":{"self":"http://example.org/workbooks/39/relationships/sheets","related":"http://example.org/workbooks/39/sheets"}}}}],"meta":{"record-count":2}}
 
 
 Update a workbook
@@ -43,33 +80,21 @@ Parameters:
   * id - The id of the workbook
 
 Request:
-  PATCH /workbooks/131
+  PATCH /workbooks/40
+  Access-Token: KiEGZmZv4CQsHypoKihkag
+  Client: NqRA9X-Y4nClKpDkiOOptw
   Content-Type: application/vnd.api+json
+  Uid: email9@example.com
 
-  {"data":{"relationships":{"network-site":{"data":{"type":"network-sites","id":300}}},"type":"workbooks","attributes":{"name":"Updated Workbook Name"},"id":"131"}}
+  {"data":{"relationships":{"network-site":{"data":{"type":"network-sites","id":113}}},"type":"workbooks","attributes":{"name":"Updated Workbook Name"},"id":"40"}}
 
 Response:
   Status: 200 OK
   Content-Type: application/vnd.api+json
+  access-token: KiEGZmZv4CQsHypoKihkag
+  client: NqRA9X-Y4nClKpDkiOOptw
+  uid: email9@example.com
 
-  {"data":{"id":"131","type":"workbooks","links":{"self":"http://example.org/workbooks/131"},"attributes":{"name":"Updated Workbook Name"},"relationships":{"network-site":{"links":{"self":"http://example.org/workbooks/131/relationships/network-site","related":"http://example.org/workbooks/131/network-site"}},"sheets":{"links":{"self":"http://example.org/workbooks/131/relationships/sheets","related":"http://example.org/workbooks/131/sheets"}}}}}
+  {"data":{"id":"40","type":"workbooks","links":{"self":"http://example.org/workbooks/40"},"attributes":{"name":"Updated Workbook Name"},"relationships":{"network-site":{"links":{"self":"http://example.org/workbooks/40/relationships/network-site","related":"http://example.org/workbooks/40/network-site"}},"sheets":{"links":{"self":"http://example.org/workbooks/40/relationships/sheets","related":"http://example.org/workbooks/40/sheets"}}}}}
 
-
-Delete a workbook
------------------
-
-Parameters:
-  * network-site - Network site id
-  * type - Should always be set to <code>workbooks</code>
-  * name - Workbook Name
-  * id - The id of the workbook
-
-Request:
-  DELETE /workbooks/132
-  Content-Type: application/vnd.api+json
-
-  {"data":{"relationships":{"network-site":{"data":{"type":"network-sites","id":302}}},"type":"workbooks","id":"132"}}
-
-Response:
-  Status: 204 No Content
 

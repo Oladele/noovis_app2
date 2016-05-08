@@ -28,10 +28,13 @@
   "requests": [
     {
       "request_method": "DELETE",
-      "request_path": "/companies/429",
-      "request_body": "{\"data\":{\"type\":\"companies\",\"id\":\"429\"}}",
+      "request_path": "/companies/181",
+      "request_body": "{\"data\":{\"type\":\"companies\",\"id\":\"181\"}}",
       "request_headers": {
-        "Content-Type": "application/vnd.api+json"
+        "Content-Type": "application/vnd.api+json",
+        "Access-Token": "zkU5AAlVTyIa3K9lw1jQ3w",
+        "Client": "Nim5_PY68OVH2LjqbDic0w",
+        "Uid": "email23@example.com"
       },
       "request_query_parameters": {
       },
@@ -40,6 +43,9 @@
       "response_status_text": "No Content",
       "response_body": null,
       "response_headers": {
+        "access-token": "zkU5AAlVTyIa3K9lw1jQ3w",
+        "client": "Nim5_PY68OVH2LjqbDic0w",
+        "uid": "email23@example.com"
       },
       "response_content_type": null,
       "curl": null
