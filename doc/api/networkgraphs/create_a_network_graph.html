@@ -152,23 +152,29 @@ table th, table td {
           <h3>Request</h3>
 
             <h4>Headers</h4>
-            <pre class="request headers">Content-Type: application/vnd.api+json</pre>
+            <pre class="request headers">Content-Type: application/vnd.api+json
+Access-Token: txqUOE8a8AJjZWvGgG9jbQ
+Client: U4N0GGDPvUVhPGO6-ulllQ
+Uid: email34@example.com</pre>
 
           <h4>Route</h4>
           <pre class="request route highlight">POST /network-graphs</pre>
 
 
             <h4>Body</h4>
-            <pre class="request body">{"data":{"type":"network-graphs","relationships":{"sheet":{"data":{"type":"sheets","id":79}},"network-template":{"data":{"type":"network-templates","id":53}}}}}</pre>
+            <pre class="request body">{"data":{"type":"network-graphs","relationships":{"sheet":{"data":{"type":"sheets","id":50}},"network-template":{"data":{"type":"network-templates","id":36}}}}}</pre>
 
 
             <h3>Response</h3>
               <h4>Headers</h4>
-              <pre class="response headers">Content-Type: application/vnd.api+json</pre>
+              <pre class="response headers">access-token: txqUOE8a8AJjZWvGgG9jbQ
+client: U4N0GGDPvUVhPGO6-ulllQ
+uid: email34@example.com
+Content-Type: application/vnd.api+json</pre>
             <h4>Status</h4>
             <pre class="response status">201 Created</pre>
               <h4>Body</h4>
-              <pre class="response body">{&quot;data&quot;:{&quot;id&quot;:&quot;34&quot;,&quot;type&quot;:&quot;network-graphs&quot;,&quot;links&quot;:{&quot;self&quot;:&quot;http://example.org/network-graphs/34&quot;},&quot;attributes&quot;:{&quot;nodes&quot;:[],&quot;edges&quot;:[]},&quot;relationships&quot;:{&quot;sheet&quot;:{&quot;links&quot;:{&quot;self&quot;:&quot;http://example.org/network-graphs/34/relationships/sheet&quot;,&quot;related&quot;:&quot;http://example.org/network-graphs/34/sheet&quot;}},&quot;network-template&quot;:{&quot;links&quot;:{&quot;self&quot;:&quot;http://example.org/network-graphs/34/relationships/network-template&quot;,&quot;related&quot;:&quot;http://example.org/network-graphs/34/network-template&quot;}},&quot;nodes&quot;:{&quot;links&quot;:{&quot;self&quot;:&quot;http://example.org/network-graphs/34/relationships/nodes&quot;,&quot;related&quot;:&quot;http://example.org/network-graphs/34/nodes&quot;}}}}}</pre>
+              <pre class="response body">{&quot;data&quot;:{&quot;id&quot;:&quot;23&quot;,&quot;type&quot;:&quot;network-graphs&quot;,&quot;links&quot;:{&quot;self&quot;:&quot;http://example.org/network-graphs/23&quot;},&quot;attributes&quot;:{&quot;nodes&quot;:[],&quot;edges&quot;:[]},&quot;relationships&quot;:{&quot;sheet&quot;:{&quot;links&quot;:{&quot;self&quot;:&quot;http://example.org/network-graphs/23/relationships/sheet&quot;,&quot;related&quot;:&quot;http://example.org/network-graphs/23/sheet&quot;}},&quot;network-template&quot;:{&quot;links&quot;:{&quot;self&quot;:&quot;http://example.org/network-graphs/23/relationships/network-template&quot;,&quot;related&quot;:&quot;http://example.org/network-graphs/23/network-template&quot;}},&quot;nodes&quot;:{&quot;links&quot;:{&quot;self&quot;:&quot;http://example.org/network-graphs/23/relationships/nodes&quot;,&quot;related&quot;:&quot;http://example.org/network-graphs/23/nodes&quot;}}}}}</pre>
       </div>
     </div>
   </body>

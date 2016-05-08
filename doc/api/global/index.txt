@@ -3,12 +3,18 @@ List Global Attributes
 
 Request:
   GET /global
+  Access-Token: _v5QMLi-IHQWFdmNiHYHUQ
+  Client: oURelIZJRYxD__TancyTGA
   Content-Type: application/vnd.api+json
+  Uid: email32@example.com
 
 Response:
   Status: 200 OK
   Content-Type: application/vnd.api+json
+  access-token: _v5QMLi-IHQWFdmNiHYHUQ
+  client: oURelIZJRYxD__TancyTGA
+  uid: email32@example.com
 
-  {"data":{"id":"e85c2238-8e02-477e-b2d6-fa28c82ca4d4","type":"globals","links":{"self":"http://example.org/globals/e85c2238-8e02-477e-b2d6-fa28c82ca4d4"},"attributes":{"node-counts":[{"node_type":"network-sites","count":null,"node_type_pretty":"Sites"},{"node_type":"buildings","count":0,"node_type_pretty":"Buildings"}]}}}
+  {"data":{"id":"e8d6582c-6e59-4b37-b359-1eccd8f809ae","type":"globals","links":{"self":"http://example.org/globals/e8d6582c-6e59-4b37-b359-1eccd8f809ae"},"attributes":{"node-counts":[{"node_type":"network-sites","count":null,"node_type_pretty":"Sites"},{"node_type":"buildings","count":0,"node_type_pretty":"Buildings"}]}}}
 
 

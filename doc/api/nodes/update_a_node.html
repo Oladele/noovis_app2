@@ -176,23 +176,29 @@ table th, table td {
           <h3>Request</h3>
 
             <h4>Headers</h4>
-            <pre class="request headers">Content-Type: application/vnd.api+json</pre>
+            <pre class="request headers">Content-Type: application/vnd.api+json
+Access-Token: rJ4z3gbjUB3VbxPgJ50_dQ
+Client: i3ZF833zOsY7A35jphY6xQ
+Uid: email27@example.com</pre>
 
           <h4>Route</h4>
-          <pre class="request route highlight">PATCH /nodes/15</pre>
+          <pre class="request route highlight">PATCH /nodes/12</pre>
 
 
             <h4>Body</h4>
-            <pre class="request body">{"data":{"type":"nodes","relationships":{"network-graph":{"data":{"type":"network-graphs","id":39}}},"attributes":{"node-type":"some_node_type"},"id":"15"}}</pre>
+            <pre class="request body">{"data":{"type":"nodes","relationships":{"network-graph":{"data":{"type":"network-graphs","id":21}}},"attributes":{"node-type":"some_node_type"},"id":"12"}}</pre>
 
 
             <h3>Response</h3>
               <h4>Headers</h4>
-              <pre class="response headers">Content-Type: application/vnd.api+json</pre>
+              <pre class="response headers">access-token: rJ4z3gbjUB3VbxPgJ50_dQ
+client: i3ZF833zOsY7A35jphY6xQ
+uid: email27@example.com
+Content-Type: application/vnd.api+json</pre>
             <h4>Status</h4>
             <pre class="response status">200 OK</pre>
               <h4>Body</h4>
-              <pre class="response body">{&quot;data&quot;:{&quot;id&quot;:&quot;15&quot;,&quot;type&quot;:&quot;nodes&quot;,&quot;links&quot;:{&quot;self&quot;:&quot;http://example.org/nodes/15&quot;},&quot;attributes&quot;:{&quot;node-value&quot;:&quot;MyString&quot;,&quot;node-level&quot;:1,&quot;node-type&quot;:&quot;some_node_type&quot;},&quot;relationships&quot;:{&quot;network-graph&quot;:{&quot;links&quot;:{&quot;self&quot;:&quot;http://example.org/nodes/15/relationships/network-graph&quot;,&quot;related&quot;:&quot;http://example.org/nodes/15/network-graph&quot;}}}}}</pre>
+              <pre class="response body">{&quot;data&quot;:{&quot;id&quot;:&quot;12&quot;,&quot;type&quot;:&quot;nodes&quot;,&quot;links&quot;:{&quot;self&quot;:&quot;http://example.org/nodes/12&quot;},&quot;attributes&quot;:{&quot;node-value&quot;:&quot;MyString&quot;,&quot;node-level&quot;:1,&quot;node-type&quot;:&quot;some_node_type&quot;},&quot;relationships&quot;:{&quot;network-graph&quot;:{&quot;links&quot;:{&quot;self&quot;:&quot;http://example.org/nodes/12/relationships/network-graph&quot;,&quot;related&quot;:&quot;http://example.org/nodes/12/network-graph&quot;}}}}}</pre>
       </div>
     </div>
   </body>

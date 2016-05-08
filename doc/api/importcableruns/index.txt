@@ -23,7 +23,7 @@ Request:
   ------------XnJLe9ZIbbGUYtzPQJ16u1
   Content-Disposition: form-data; name="building_id"
   
-  134
+  64
   ------------XnJLe9ZIbbGUYtzPQJ16u1--
 
 Response:
@@ -31,7 +31,7 @@ Response:
   Content-Type: application/json; charset=utf-8
 
   {
-    "message": "Successfully created cable runs"
+    "message": "Ready for processing."
   }
 
 

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>NetworkSites API</title>
+    <title>Auth API</title>
     <meta charset="utf-8">
     <style>
       
@@ -106,11 +106,11 @@ table th, table td {
   </head>
   <body>
     <div class="container">
-      <h1>NetworkSites API</h1>
+      <h1>Auth API</h1>
 
       <div class="article">
-        <h2>Delete a network-site</h2>
-        <h3>DELETE /network-sites/:network_site_id</h3>
+        <h2>Sign in user</h2>
+        <h3>POST /auth/sign_in</h3>
 
           <h3>Parameters</h3>
           <table class="parameters table table-striped table-bordered table-condensed">
@@ -123,58 +123,18 @@ table th, table td {
             <tbody>
               <tr>
                 <td class="required">
-                    <span class="name">type</span>
+                    <span class="name">email</span>
                 </td>
                 <td>
-                  <span class="description">Should always be set to &lt;code&gt;network-sites&lt;/code&gt;</span>
+                  <span class="description">User email</span>
                 </td>
               </tr>
               <tr>
                 <td class="required">
-                    <span class="name">relationships[company]</span>
+                    <span class="name">password</span>
                 </td>
                 <td>
-                  <span class="description">Company id</span>
-                </td>
-              </tr>
-              <tr>
-                <td class="required">
-                    <span class="name">attributes[name]</span>
-                </td>
-                <td>
-                  <span class="description">Network Site Name</span>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                    <span class="name">attributes[lat]</span>
-                </td>
-                <td>
-                  <span class="description">Network Site Latitude</span>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                    <span class="name">attributes[lng]</span>
-                </td>
-                <td>
-                  <span class="description">Network Site Longitude</span>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                    <span class="name">attributes[address]</span>
-                </td>
-                <td>
-                  <span class="description">Address Field</span>
-                </td>
-              </tr>
-              <tr>
-                <td class="required">
-                    <span class="name">id</span>
-                </td>
-                <td>
-                  <span class="description">The id of the network-site</span>
+                  <span class="description">User password</span>
                 </td>
               </tr>
             </tbody>
@@ -184,26 +144,35 @@ table th, table td {
           <h3>Request</h3>
 
             <h4>Headers</h4>
-            <pre class="request headers">Content-Type: application/vnd.api+json
-Access-Token: P0fTgAR4_OnF-C1TpYOo8g
-Client: 6Kh0S0X6b2SkKPMvX4NE9Q
-Uid: email37@example.com</pre>
+            <pre class="request headers">Content-Type: application/json</pre>
 
           <h4>Route</h4>
-          <pre class="request route highlight">DELETE /network-sites/170</pre>
+          <pre class="request route highlight">POST /auth/sign_in</pre>
 
 
             <h4>Body</h4>
-            <pre class="request body">{"data":{"type":"network-sites","relationships":{"company":{"data":{"type":"companies","id":241}}},"id":"170"}}</pre>
+            <pre class="request body">{"email":"test@example.com","password":"password"}</pre>
 
 
             <h3>Response</h3>
               <h4>Headers</h4>
-              <pre class="response headers">access-token: P0fTgAR4_OnF-C1TpYOo8g
-client: 6Kh0S0X6b2SkKPMvX4NE9Q
-uid: email37@example.com</pre>
+              <pre class="response headers">access-token: mhN0Zvl_bAaspwrEjoMy1Q
+client: 7aq_6_P3S0ITJeGDF6RzQQ
+uid: test@example.com
+Content-Type: application/json; charset=utf-8</pre>
             <h4>Status</h4>
-            <pre class="response status">204 No Content</pre>
+            <pre class="response status">200 OK</pre>
+              <h4>Body</h4>
+              <pre class="response body">{
+  &quot;data&quot;: {
+    &quot;id&quot;: 45,
+    &quot;email&quot;: &quot;test@example.com&quot;,
+    &quot;company_id&quot;: 200,
+    &quot;provider&quot;: &quot;email&quot;,
+    &quot;uid&quot;: &quot;test@example.com&quot;,
+    &quot;role&quot;: &quot;admin&quot;
+  }
+}</pre>
       </div>
     </div>
   </body>

@@ -1,6 +1,25 @@
 {
   "resources": [
     {
+      "name": "Auth",
+      "examples": [
+        {
+          "description": "Sign in user",
+          "link": "auth/sign_in_user.json",
+          "groups": "all",
+          "route": "/auth/sign_in",
+          "method": "post"
+        },
+        {
+          "description": "Sign out user",
+          "link": "auth/sign_out_user.json",
+          "groups": "all",
+          "route": "/auth/sign_out",
+          "method": "delete"
+        }
+      ]
+    },
+    {
       "name": "Buildings",
       "examples": [
         {
