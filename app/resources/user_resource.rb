@@ -16,4 +16,9 @@ class UserResource < JSONAPI::Resource
       super
     end
   end
+
+  def self.updatable_fields(context)
+    return super - [:role] unless context[:current_user].admin?
+    super
+  end
 end
