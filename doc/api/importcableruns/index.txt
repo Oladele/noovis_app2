@@ -8,10 +8,10 @@ Parameters:
 
 Request:
   POST /import_cable_run
-  Access-Token: wgWTsrGKIUn267v2KioUmg
-  Client: bsrc7WFyl-4m4Sm0gBO3Dw
+  Access-Token: 5plsmFxJiMIUBskp_F8h9Q
+  Client: vQzEu5NnriajaR2IcfC9Fw
   Content-Type: multipart/form-data; boundary=----------XnJLe9ZIbbGUYtzPQJ16u1
-  Uid: email22@example.com
+  Uid: email6@example.com
 
   ------------XnJLe9ZIbbGUYtzPQJ16u1
   Content-Disposition: form-data; name="file"; filename="test.xls"
@@ -26,15 +26,15 @@ Request:
   ------------XnJLe9ZIbbGUYtzPQJ16u1
   Content-Disposition: form-data; name="building_id"
   
-  374
+  17
   ------------XnJLe9ZIbbGUYtzPQJ16u1--
 
 Response:
   Status: 201 Created
   Content-Type: application/json; charset=utf-8
-  access-token: wgWTsrGKIUn267v2KioUmg
-  client: bsrc7WFyl-4m4Sm0gBO3Dw
-  uid: email22@example.com
+  access-token: 5plsmFxJiMIUBskp_F8h9Q
+  client: vQzEu5NnriajaR2IcfC9Fw
+  uid: email6@example.com
 
   {
     "message": "Ready for processing."

@@ -34,13 +34,13 @@
   "requests": [
     {
       "request_method": "DELETE",
-      "request_path": "/network-graphs/108",
-      "request_body": "{\"data\":{\"type\":\"network-graphs\",\"relationships\":{\"sheet\":{\"data\":{\"type\":\"sheets\",\"id\":245}},\"network-template\":{\"data\":{\"type\":\"network-templates\",\"id\":169}}},\"id\":\"108\"}}",
+      "request_path": "/network-graphs/10",
+      "request_body": "{\"data\":{\"type\":\"network-graphs\",\"relationships\":{\"sheet\":{\"data\":{\"type\":\"sheets\",\"id\":13}},\"network-template\":{\"data\":{\"type\":\"network-templates\",\"id\":17}}},\"id\":\"10\"}}",
       "request_headers": {
         "Content-Type": "application/vnd.api+json",
-        "Access-Token": "GfP1Cy65nJ5FgfHAp-GtLg",
-        "Client": "Vk66cC7jfrWd9I3pVmhb-w",
-        "Uid": "email44@example.com"
+        "Access-Token": "l62zO9zh_zF7m86FFWLlnw",
+        "Client": "Msx2P9YB6yorN3GJJPcyVw",
+        "Uid": "email17@example.com"
       },
       "request_query_parameters": {
       },
@@ -49,9 +49,9 @@
       "response_status_text": "No Content",
       "response_body": null,
       "response_headers": {
-        "access-token": "GfP1Cy65nJ5FgfHAp-GtLg",
-        "client": "Vk66cC7jfrWd9I3pVmhb-w",
-        "uid": "email44@example.com"
+        "access-token": "l62zO9zh_zF7m86FFWLlnw",
+        "client": "Msx2P9YB6yorN3GJJPcyVw",
+        "uid": "email17@example.com"
       },
       "response_content_type": null,
       "curl": null

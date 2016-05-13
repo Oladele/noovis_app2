@@ -12,71 +12,22 @@ Parameters:
   * id - The id of the sheet
 
 Request:
-  PATCH /sheets/234
-  Access-Token: 5la69RUhNNoNZDS4CwD78Q
-  Client: 77a8sJdSur9eKKGIkGzqog
+  PATCH /sheets/26
+  Access-Token: RghAAp6QZip5bopCwsdHBw
+  Client: ObJfw67cW8hQxAP87RZ3qw
   Content-Type: application/vnd.api+json
-  Uid: email37@example.com
+  Uid: email25@example.com
 
-  {"data":{"relationships":{"workbook":{"data":{"type":"workbooks","id":304}},"building":{"data":{"type":"buildings","id":376}}},"type":"sheets","attributes":{"name":"Updated Sheet Name"},"id":"234"}}
+  {"data":{"relationships":{"workbook":{"data":{"type":"workbooks","id":28}},"building":{"data":{"type":"buildings","id":33}}},"type":"sheets","attributes":{"name":"Updated Sheet Name"},"id":"26"}}
 
 Response:
   Status: 200 OK
   Content-Type: application/vnd.api+json
-  access-token: 5la69RUhNNoNZDS4CwD78Q
-  client: 77a8sJdSur9eKKGIkGzqog
-  uid: email37@example.com
+  access-token: RghAAp6QZip5bopCwsdHBw
+  client: ObJfw67cW8hQxAP87RZ3qw
+  uid: email25@example.com
 
-  {"data":{"id":"234","type":"sheets","links":{"self":"http://example.org/sheets/234"},"attributes":{"name":"Updated Sheet Name","created-at":"2016-05-13T00:33:22.480Z","updated-at":"2016-05-13T00:33:22.573Z","record-count":0},"relationships":{"workbook":{"links":{"self":"http://example.org/sheets/234/relationships/workbook","related":"http://example.org/sheets/234/workbook"}},"building":{"links":{"self":"http://example.org/sheets/234/relationships/building","related":"http://example.org/sheets/234/building"}},"cable-runs":{"links":{"self":"http://example.org/sheets/234/relationships/cable-runs","related":"http://example.org/sheets/234/cable-runs"}},"network-graphs":{"links":{"self":"http://example.org/sheets/234/relationships/network-graphs","related":"http://example.org/sheets/234/network-graphs"}}}}}
-
-
-Delete a sheet
---------------
-
-Parameters:
-  * workbook - Workbook id
-  * building - Building id
-  * type - Should always be set to <code>sheets</code>
-  * name - Sheet Name
-  * created-at - Sheet created at
-  * updated-at - Sheet created at
-  * record-count - Cable Run count for Sheet
-  * id - The id of the sheet
-
-Request:
-  DELETE /sheets/235
-  Access-Token: _--XwoGegr3M9t6aP0UP-w
-  Client: oySXK_iL768RPINcOEuwNw
-  Content-Type: application/vnd.api+json
-  Uid: email38@example.com
-
-  {"data":{"relationships":{"workbook":{"data":{"type":"workbooks","id":306}},"building":{"data":{"type":"buildings","id":378}}},"type":"sheets","id":"235"}}
-
-Response:
-  Status: 204 No Content
-  access-token: _--XwoGegr3M9t6aP0UP-w
-  client: oySXK_iL768RPINcOEuwNw
-  uid: email38@example.com
-
-
-List all sheets
----------------
-
-Request:
-  GET /sheets
-  Access-Token: Y3WUlhLeqaFpWk_pwuX-iw
-  Client: T3PKmn_H1EUnn7YU02HH4Q
-  Content-Type: application/vnd.api+json
-  Uid: email39@example.com
-
-Response:
-  Status: 200 OK
-  Content-Type: application/vnd.api+json
-  access-token: Y3WUlhLeqaFpWk_pwuX-iw
-  client: T3PKmn_H1EUnn7YU02HH4Q
-  uid: email39@example.com
-
-  {"data":[{"id":"236","type":"sheets","links":{"self":"http://example.org/sheets/236"},"attributes":{"name":"1st sheet","created-at":"2016-05-13T00:33:22.891Z","updated-at":"2016-05-13T00:33:22.891Z","record-count":0},"relationships":{"workbook":{"links":{"self":"http://example.org/sheets/236/relationships/workbook","related":"http://example.org/sheets/236/workbook"}},"building":{"links":{"self":"http://example.org/sheets/236/relationships/building","related":"http://example.org/sheets/236/building"}},"cable-runs":{"links":{"self":"http://example.org/sheets/236/relationships/cable-runs","related":"http://example.org/sheets/236/cable-runs"}},"network-graphs":{"links":{"self":"http://example.org/sheets/236/relationships/network-graphs","related":"http://example.org/sheets/236/network-graphs"}}}},{"id":"237","type":"sheets","links":{"self":"http://example.org/sheets/237"},"attributes":{"name":"2nd sheet","created-at":"2016-05-13T00:33:22.908Z","updated-at":"2016-05-13T00:33:22.908Z","record-count":0},"relationships":{"workbook":{"links":{"self":"http://example.org/sheets/237/relationships/workbook","related":"http://example.org/sheets/237/workbook"}},"building":{"links":{"self":"http://example.org/sheets/237/relationships/building","related":"http://example.org/sheets/237/building"}},"cable-runs":{"links":{"self":"http://example.org/sheets/237/relationships/cable-runs","related":"http://example.org/sheets/237/cable-runs"}},"network-graphs":{"links":{"self":"http://example.org/sheets/237/relationships/network-graphs","related":"http://example.org/sheets/237/network-graphs"}}}}],"meta":{"record-count":2}}
+  {"data":{"id":"26","type":"sheets","links":{"self":"http://example.org/sheets/26"},"attributes":{"name":"Updated Sheet Name","created-at":"2016-05-13T10:13:46.480Z","updated-at":"2016-05-13T10:13:46.546Z","record-count":0},"relationships":{"workbook":{"links":{"self":"http://example.org/sheets/26/relationships/workbook","related":"http://example.org/sheets/26/workbook"}},"building":{"links":{"self":"http://example.org/sheets/26/relationships/building","related":"http://example.org/sheets/26/building"}},"cable-runs":{"links":{"self":"http://example.org/sheets/26/relationships/cable-runs","related":"http://example.org/sheets/26/cable-runs"}},"network-graphs":{"links":{"self":"http://example.org/sheets/26/relationships/network-graphs","related":"http://example.org/sheets/26/network-graphs"}}}}}
 
 
 Create a sheet
@@ -93,20 +44,69 @@ Parameters:
 
 Request:
   POST /sheets
-  Access-Token: _fsMQvYGlVioJeW_311b1w
-  Client: Xbx0gcPEWlupmQGB1NDLhA
+  Access-Token: XSmXhnt9Ix1ltvVUpY8D4g
+  Client: QQW_wr8T7fc78QUsJ0FRlQ
   Content-Type: application/vnd.api+json
-  Uid: email40@example.com
+  Uid: email26@example.com
 
-  {"data":{"relationships":{"workbook":{"data":{"type":"workbooks","id":309}},"building":{"data":{"type":"buildings","id":381}}},"type":"sheets","attributes":{"name":"Sheet Name"}}}
+  {"data":{"relationships":{"workbook":{"data":{"type":"workbooks","id":29}},"building":{"data":{"type":"buildings","id":34}}},"type":"sheets","attributes":{"name":"Sheet Name"}}}
 
 Response:
   Status: 201 Created
   Content-Type: application/vnd.api+json
-  access-token: _fsMQvYGlVioJeW_311b1w
-  client: Xbx0gcPEWlupmQGB1NDLhA
-  uid: email40@example.com
+  access-token: XSmXhnt9Ix1ltvVUpY8D4g
+  client: QQW_wr8T7fc78QUsJ0FRlQ
+  uid: email26@example.com
 
-  {"data":{"id":"238","type":"sheets","links":{"self":"http://example.org/sheets/238"},"attributes":{"name":"Sheet Name","created-at":"2016-05-13T00:33:23.157Z","updated-at":"2016-05-13T00:33:23.157Z","record-count":0},"relationships":{"workbook":{"links":{"self":"http://example.org/sheets/238/relationships/workbook","related":"http://example.org/sheets/238/workbook"}},"building":{"links":{"self":"http://example.org/sheets/238/relationships/building","related":"http://example.org/sheets/238/building"}},"cable-runs":{"links":{"self":"http://example.org/sheets/238/relationships/cable-runs","related":"http://example.org/sheets/238/cable-runs"}},"network-graphs":{"links":{"self":"http://example.org/sheets/238/relationships/network-graphs","related":"http://example.org/sheets/238/network-graphs"}}}}}
+  {"data":{"id":"27","type":"sheets","links":{"self":"http://example.org/sheets/27"},"attributes":{"name":"Sheet Name","created-at":"2016-05-13T10:13:46.674Z","updated-at":"2016-05-13T10:13:46.674Z","record-count":0},"relationships":{"workbook":{"links":{"self":"http://example.org/sheets/27/relationships/workbook","related":"http://example.org/sheets/27/workbook"}},"building":{"links":{"self":"http://example.org/sheets/27/relationships/building","related":"http://example.org/sheets/27/building"}},"cable-runs":{"links":{"self":"http://example.org/sheets/27/relationships/cable-runs","related":"http://example.org/sheets/27/cable-runs"}},"network-graphs":{"links":{"self":"http://example.org/sheets/27/relationships/network-graphs","related":"http://example.org/sheets/27/network-graphs"}}}}}
+
+
+Delete a sheet
+--------------
+
+Parameters:
+  * workbook - Workbook id
+  * building - Building id
+  * type - Should always be set to <code>sheets</code>
+  * name - Sheet Name
+  * created-at - Sheet created at
+  * updated-at - Sheet created at
+  * record-count - Cable Run count for Sheet
+  * id - The id of the sheet
+
+Request:
+  DELETE /sheets/28
+  Access-Token: hVcIsFc_9He12bhyoMD7YQ
+  Client: smx-ATiBWPdoFWXVtF61pg
+  Content-Type: application/vnd.api+json
+  Uid: email27@example.com
+
+  {"data":{"relationships":{"workbook":{"data":{"type":"workbooks","id":31}},"building":{"data":{"type":"buildings","id":36}}},"type":"sheets","id":"28"}}
+
+Response:
+  Status: 204 No Content
+  access-token: hVcIsFc_9He12bhyoMD7YQ
+  client: smx-ATiBWPdoFWXVtF61pg
+  uid: email27@example.com
+
+
+List all sheets
+---------------
+
+Request:
+  GET /sheets
+  Access-Token: 0mIRn5cwzHJWhkwpw1gx9w
+  Client: 5y07NWSpqy0KpVAa0YLofw
+  Content-Type: application/vnd.api+json
+  Uid: email28@example.com
+
+Response:
+  Status: 200 OK
+  Content-Type: application/vnd.api+json
+  access-token: 0mIRn5cwzHJWhkwpw1gx9w
+  client: 5y07NWSpqy0KpVAa0YLofw
+  uid: email28@example.com
+
+  {"data":[{"id":"29","type":"sheets","links":{"self":"http://example.org/sheets/29"},"attributes":{"name":"1st sheet","created-at":"2016-05-13T10:13:46.885Z","updated-at":"2016-05-13T10:13:46.885Z","record-count":0},"relationships":{"workbook":{"links":{"self":"http://example.org/sheets/29/relationships/workbook","related":"http://example.org/sheets/29/workbook"}},"building":{"links":{"self":"http://example.org/sheets/29/relationships/building","related":"http://example.org/sheets/29/building"}},"cable-runs":{"links":{"self":"http://example.org/sheets/29/relationships/cable-runs","related":"http://example.org/sheets/29/cable-runs"}},"network-graphs":{"links":{"self":"http://example.org/sheets/29/relationships/network-graphs","related":"http://example.org/sheets/29/network-graphs"}}}},{"id":"30","type":"sheets","links":{"self":"http://example.org/sheets/30"},"attributes":{"name":"2nd sheet","created-at":"2016-05-13T10:13:46.895Z","updated-at":"2016-05-13T10:13:46.895Z","record-count":0},"relationships":{"workbook":{"links":{"self":"http://example.org/sheets/30/relationships/workbook","related":"http://example.org/sheets/30/workbook"}},"building":{"links":{"self":"http://example.org/sheets/30/relationships/building","related":"http://example.org/sheets/30/building"}},"cable-runs":{"links":{"self":"http://example.org/sheets/30/relationships/cable-runs","related":"http://example.org/sheets/30/cable-runs"}},"network-graphs":{"links":{"self":"http://example.org/sheets/30/relationships/network-graphs","related":"http://example.org/sheets/30/network-graphs"}}}}],"meta":{"record-count":2}}
 
 

@@ -3,16 +3,18 @@ List Global Attributes
 
 Request:
   GET /global
-  Access-Token: UVwIwYbw6KJMB8lyVZoAKQ
-  Client: RQFIPzk2mvMIcIFoUXVb8g
+  Access-Token: Ni_pNNvM5Z67eaFshs6_Sg
+  Client: e84WagRMNNIr_MHWnXbhWg
   Content-Type: application/vnd.api+json
   Uid: email45@example.com
 
 Response:
   Status: 200 OK
   Content-Type: application/vnd.api+json
-  access-token: UVwIwYbw6KJMB8lyVZoAKQ
-  client: RQFIPzk2mvMIcIFoUXVb8g
+  access-token: Ni_pNNvM5Z67eaFshs6_Sg
+  client: e84WagRMNNIr_MHWnXbhWg
   uid: email45@example.com
 
-  {"data":{"id":"5398ce8b-a31d-424d-ac41-410ccba98da3","type":"globals","links":{"self":"http://example.org/globals/5398ce8b-a31d-424d-ac41-410ccba98da3"},"attributes":{"node-counts":[{"node_type":"network-sites","count":null,"node_type_pretty":"Sites"},{"node_type":"buildings","count":0,"node_type_pretty":"Buildings"}]}}}
+  {"data":{"id":"ab63280a-9749-4b52-9415-75d65e861050","type":"globals","links":{"self":"http://example.org/globals/ab63280a-9749-4b52-9415-75d65e861050"},"attributes":{"node-counts":[{"node_type":"network-sites","count":null,"node_type_pretty":"Sites"},{"node_type":"buildings","count":0,"node_type_pretty":"Buildings"}]}}}
+
+

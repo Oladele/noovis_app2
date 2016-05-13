@@ -28,24 +28,24 @@
   "requests": [
     {
       "request_method": "PATCH",
-      "request_path": "/companies/1215",
-      "request_body": "{\"data\":{\"type\":\"companies\",\"attributes\":{\"name\":\"New Company Name\"},\"id\":\"1215\"}}",
+      "request_path": "/companies/119",
+      "request_body": "{\"data\":{\"type\":\"companies\",\"attributes\":{\"name\":\"New Company Name\"},\"id\":\"119\"}}",
       "request_headers": {
         "Content-Type": "application/vnd.api+json",
-        "Access-Token": "VpRpemojkJtB19ERyijOcg",
-        "Client": "wtEtuxp73dGgPo9SzDXM_Q",
-        "Uid": "email30@example.com"
+        "Access-Token": "t-yW4r7xfdMkLxfXrSlMaA",
+        "Client": "gAGymRu5zjfepGZuP25IfQ",
+        "Uid": "email33@example.com"
       },
       "request_query_parameters": {
       },
       "request_content_type": "application/vnd.api+json",
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "{\"data\":{\"id\":\"1215\",\"type\":\"companies\",\"links\":{\"self\":\"http://example.org/companies/1215\"},\"attributes\":{\"name\":\"New Company Name\",\"node-counts\":[{\"node_type\":\"network-sites\",\"count\":0,\"node_type_pretty\":\"Sites\"},{\"node_type\":\"buildings\",\"count\":0,\"node_type_pretty\":\"Buildings\"}]},\"relationships\":{\"network-sites\":{\"links\":{\"self\":\"http://example.org/companies/1215/relationships/network-sites\",\"related\":\"http://example.org/companies/1215/network-sites\"}},\"buildings\":{\"links\":{\"self\":\"http://example.org/companies/1215/relationships/buildings\",\"related\":\"http://example.org/companies/1215/buildings\"}},\"users\":{\"links\":{\"self\":\"http://example.org/companies/1215/relationships/users\",\"related\":\"http://example.org/companies/1215/users\"}}}}}",
+      "response_body": "{\"data\":{\"id\":\"119\",\"type\":\"companies\",\"links\":{\"self\":\"http://example.org/companies/119\"},\"attributes\":{\"name\":\"New Company Name\",\"node-counts\":[{\"node_type\":\"network-sites\",\"count\":0,\"node_type_pretty\":\"Sites\"},{\"node_type\":\"buildings\",\"count\":0,\"node_type_pretty\":\"Buildings\"}]},\"relationships\":{\"network-sites\":{\"links\":{\"self\":\"http://example.org/companies/119/relationships/network-sites\",\"related\":\"http://example.org/companies/119/network-sites\"}},\"buildings\":{\"links\":{\"self\":\"http://example.org/companies/119/relationships/buildings\",\"related\":\"http://example.org/companies/119/buildings\"}},\"users\":{\"links\":{\"self\":\"http://example.org/companies/119/relationships/users\",\"related\":\"http://example.org/companies/119/users\"}}}}}",
       "response_headers": {
-        "access-token": "VpRpemojkJtB19ERyijOcg",
-        "client": "wtEtuxp73dGgPo9SzDXM_Q",
-        "uid": "email30@example.com",
+        "access-token": "t-yW4r7xfdMkLxfXrSlMaA",
+        "client": "gAGymRu5zjfepGZuP25IfQ",
+        "uid": "email33@example.com",
         "Content-Type": "application/vnd.api+json"
       },
       "response_content_type": "application/vnd.api+json",
