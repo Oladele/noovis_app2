@@ -44,24 +44,24 @@
   "requests": [
     {
       "request_method": "PATCH",
-      "request_path": "/nodes/45",
-      "request_body": "{\"data\":{\"type\":\"nodes\",\"relationships\":{\"network-graph\":{\"data\":{\"type\":\"network-graphs\",\"id\":101}}},\"attributes\":{\"node-type\":\"some_node_type\"},\"id\":\"45\"}}",
+      "request_path": "/nodes/6",
+      "request_body": "{\"data\":{\"type\":\"nodes\",\"relationships\":{\"network-graph\":{\"data\":{\"type\":\"network-graphs\",\"id\":9}}},\"attributes\":{\"node-type\":\"some_node_type\"},\"id\":\"6\"}}",
       "request_headers": {
         "Content-Type": "application/vnd.api+json",
-        "Access-Token": "b-ID-zK0uPDHKQu8hn9eGQ",
-        "Client": "iCmTQBi7xcjlqt__PPVjOQ",
-        "Uid": "email20@example.com"
+        "Access-Token": "Zp6WnPRlbdtvK6ToMlcIDA",
+        "Client": "bhY0NQoK66zJ8end-_-aFQ",
+        "Uid": "email5@example.com"
       },
       "request_query_parameters": {
       },
       "request_content_type": "application/vnd.api+json",
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "{\"data\":{\"id\":\"45\",\"type\":\"nodes\",\"links\":{\"self\":\"http://example.org/nodes/45\"},\"attributes\":{\"node-value\":\"MyString\",\"node-level\":1,\"node-type\":\"some_node_type\"},\"relationships\":{\"network-graph\":{\"links\":{\"self\":\"http://example.org/nodes/45/relationships/network-graph\",\"related\":\"http://example.org/nodes/45/network-graph\"}}}}}",
+      "response_body": "{\"data\":{\"id\":\"6\",\"type\":\"nodes\",\"links\":{\"self\":\"http://example.org/nodes/6\"},\"attributes\":{\"node-value\":\"MyString\",\"node-level\":1,\"node-type\":\"some_node_type\"},\"relationships\":{\"network-graph\":{\"links\":{\"self\":\"http://example.org/nodes/6/relationships/network-graph\",\"related\":\"http://example.org/nodes/6/network-graph\"}}}}}",
       "response_headers": {
-        "access-token": "b-ID-zK0uPDHKQu8hn9eGQ",
-        "client": "iCmTQBi7xcjlqt__PPVjOQ",
-        "uid": "email20@example.com",
+        "access-token": "Zp6WnPRlbdtvK6ToMlcIDA",
+        "client": "bhY0NQoK66zJ8end-_-aFQ",
+        "uid": "email5@example.com",
         "Content-Type": "application/vnd.api+json"
       },
       "response_content_type": "application/vnd.api+json",

@@ -55,24 +55,24 @@
   "requests": [
     {
       "request_method": "PATCH",
-      "request_path": "/sheets/234",
-      "request_body": "{\"data\":{\"relationships\":{\"workbook\":{\"data\":{\"type\":\"workbooks\",\"id\":304}},\"building\":{\"data\":{\"type\":\"buildings\",\"id\":376}}},\"type\":\"sheets\",\"attributes\":{\"name\":\"Updated Sheet Name\"},\"id\":\"234\"}}",
+      "request_path": "/sheets/26",
+      "request_body": "{\"data\":{\"relationships\":{\"workbook\":{\"data\":{\"type\":\"workbooks\",\"id\":28}},\"building\":{\"data\":{\"type\":\"buildings\",\"id\":33}}},\"type\":\"sheets\",\"attributes\":{\"name\":\"Updated Sheet Name\"},\"id\":\"26\"}}",
       "request_headers": {
         "Content-Type": "application/vnd.api+json",
-        "Access-Token": "5la69RUhNNoNZDS4CwD78Q",
-        "Client": "77a8sJdSur9eKKGIkGzqog",
-        "Uid": "email37@example.com"
+        "Access-Token": "RghAAp6QZip5bopCwsdHBw",
+        "Client": "ObJfw67cW8hQxAP87RZ3qw",
+        "Uid": "email25@example.com"
       },
       "request_query_parameters": {
       },
       "request_content_type": "application/vnd.api+json",
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "{\"data\":{\"id\":\"234\",\"type\":\"sheets\",\"links\":{\"self\":\"http://example.org/sheets/234\"},\"attributes\":{\"name\":\"Updated Sheet Name\",\"created-at\":\"2016-05-13T00:33:22.480Z\",\"updated-at\":\"2016-05-13T00:33:22.573Z\",\"record-count\":0},\"relationships\":{\"workbook\":{\"links\":{\"self\":\"http://example.org/sheets/234/relationships/workbook\",\"related\":\"http://example.org/sheets/234/workbook\"}},\"building\":{\"links\":{\"self\":\"http://example.org/sheets/234/relationships/building\",\"related\":\"http://example.org/sheets/234/building\"}},\"cable-runs\":{\"links\":{\"self\":\"http://example.org/sheets/234/relationships/cable-runs\",\"related\":\"http://example.org/sheets/234/cable-runs\"}},\"network-graphs\":{\"links\":{\"self\":\"http://example.org/sheets/234/relationships/network-graphs\",\"related\":\"http://example.org/sheets/234/network-graphs\"}}}}}",
+      "response_body": "{\"data\":{\"id\":\"26\",\"type\":\"sheets\",\"links\":{\"self\":\"http://example.org/sheets/26\"},\"attributes\":{\"name\":\"Updated Sheet Name\",\"created-at\":\"2016-05-13T10:13:46.480Z\",\"updated-at\":\"2016-05-13T10:13:46.546Z\",\"record-count\":0},\"relationships\":{\"workbook\":{\"links\":{\"self\":\"http://example.org/sheets/26/relationships/workbook\",\"related\":\"http://example.org/sheets/26/workbook\"}},\"building\":{\"links\":{\"self\":\"http://example.org/sheets/26/relationships/building\",\"related\":\"http://example.org/sheets/26/building\"}},\"cable-runs\":{\"links\":{\"self\":\"http://example.org/sheets/26/relationships/cable-runs\",\"related\":\"http://example.org/sheets/26/cable-runs\"}},\"network-graphs\":{\"links\":{\"self\":\"http://example.org/sheets/26/relationships/network-graphs\",\"related\":\"http://example.org/sheets/26/network-graphs\"}}}}}",
       "response_headers": {
-        "access-token": "5la69RUhNNoNZDS4CwD78Q",
-        "client": "77a8sJdSur9eKKGIkGzqog",
-        "uid": "email37@example.com",
+        "access-token": "RghAAp6QZip5bopCwsdHBw",
+        "client": "ObJfw67cW8hQxAP87RZ3qw",
+        "uid": "email25@example.com",
         "Content-Type": "application/vnd.api+json"
       },
       "response_content_type": "application/vnd.api+json",

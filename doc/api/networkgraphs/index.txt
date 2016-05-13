@@ -1,3 +1,28 @@
+Delete a network-graph
+----------------------
+
+Parameters:
+  * type - Should always be set to <code>network-graphs</code>
+  * sheet - Sheet id
+  * network-template - Network Template id
+  * id - The id of the network-graph
+
+Request:
+  DELETE /network-graphs/10
+  Access-Token: l62zO9zh_zF7m86FFWLlnw
+  Client: Msx2P9YB6yorN3GJJPcyVw
+  Content-Type: application/vnd.api+json
+  Uid: email17@example.com
+
+  {"data":{"type":"network-graphs","relationships":{"sheet":{"data":{"type":"sheets","id":13}},"network-template":{"data":{"type":"network-templates","id":17}}},"id":"10"}}
+
+Response:
+  Status: 204 No Content
+  access-token: l62zO9zh_zF7m86FFWLlnw
+  client: Msx2P9YB6yorN3GJJPcyVw
+  uid: email17@example.com
+
+
 Update a network-graph
 ----------------------
 
@@ -8,22 +33,42 @@ Parameters:
   * id - The id of the network-graph
 
 Request:
-  PATCH /network-graphs/104
-  Access-Token: fDu9QNmcGxMnJcDx2B50gw
-  Client: kORDzIefuA5UdRIfG5_6_g
+  PATCH /network-graphs/11
+  Access-Token: DTphsnv-3cojohoKrWZJ0A
+  Client: j6JnR9lG3VwKW92cz1Q9aQ
   Content-Type: application/vnd.api+json
-  Uid: email41@example.com
+  Uid: email18@example.com
 
-  {"data":{"type":"network-graphs","relationships":{"sheet":{"data":{"type":"sheets","id":240}},"network-template":{"data":{"type":"network-templates","id":164}}},"id":"104"}}
+  {"data":{"type":"network-graphs","relationships":{"sheet":{"data":{"type":"sheets","id":15}},"network-template":{"data":{"type":"network-templates","id":19}}},"id":"11"}}
 
 Response:
   Status: 200 OK
   Content-Type: application/vnd.api+json
-  access-token: fDu9QNmcGxMnJcDx2B50gw
-  client: kORDzIefuA5UdRIfG5_6_g
-  uid: email41@example.com
+  access-token: DTphsnv-3cojohoKrWZJ0A
+  client: j6JnR9lG3VwKW92cz1Q9aQ
+  uid: email18@example.com
 
-  {"data":{"id":"104","type":"network-graphs","links":{"self":"http://example.org/network-graphs/104"},"attributes":{"nodes":[],"edges":[]},"relationships":{"sheet":{"links":{"self":"http://example.org/network-graphs/104/relationships/sheet","related":"http://example.org/network-graphs/104/sheet"}},"network-template":{"links":{"self":"http://example.org/network-graphs/104/relationships/network-template","related":"http://example.org/network-graphs/104/network-template"}},"nodes":{"links":{"self":"http://example.org/network-graphs/104/relationships/nodes","related":"http://example.org/network-graphs/104/nodes"}}}}}
+  {"data":{"id":"11","type":"network-graphs","links":{"self":"http://example.org/network-graphs/11"},"attributes":{"nodes":[],"edges":[]},"relationships":{"sheet":{"links":{"self":"http://example.org/network-graphs/11/relationships/sheet","related":"http://example.org/network-graphs/11/sheet"}},"network-template":{"links":{"self":"http://example.org/network-graphs/11/relationships/network-template","related":"http://example.org/network-graphs/11/network-template"}},"nodes":{"links":{"self":"http://example.org/network-graphs/11/relationships/nodes","related":"http://example.org/network-graphs/11/nodes"}}}}}
+
+
+List all network-graphs
+-----------------------
+
+Request:
+  GET /network-graphs
+  Access-Token: f3O-L_ey3dMRmOISeXKt9Q
+  Client: H9bW16uitkrAgxzq2BUEQQ
+  Content-Type: application/vnd.api+json
+  Uid: email19@example.com
+
+Response:
+  Status: 200 OK
+  Content-Type: application/vnd.api+json
+  access-token: f3O-L_ey3dMRmOISeXKt9Q
+  client: H9bW16uitkrAgxzq2BUEQQ
+  uid: email19@example.com
+
+  {"data":[{"id":"12","type":"network-graphs","links":{"self":"http://example.org/network-graphs/12"},"attributes":{"nodes":[],"edges":[]},"relationships":{"sheet":{"links":{"self":"http://example.org/network-graphs/12/relationships/sheet","related":"http://example.org/network-graphs/12/sheet"}},"network-template":{"links":{"self":"http://example.org/network-graphs/12/relationships/network-template","related":"http://example.org/network-graphs/12/network-template"}},"nodes":{"links":{"self":"http://example.org/network-graphs/12/relationships/nodes","related":"http://example.org/network-graphs/12/nodes"}}}},{"id":"13","type":"network-graphs","links":{"self":"http://example.org/network-graphs/13"},"attributes":{"nodes":[],"edges":[]},"relationships":{"sheet":{"links":{"self":"http://example.org/network-graphs/13/relationships/sheet","related":"http://example.org/network-graphs/13/sheet"}},"network-template":{"links":{"self":"http://example.org/network-graphs/13/relationships/network-template","related":"http://example.org/network-graphs/13/network-template"}},"nodes":{"links":{"self":"http://example.org/network-graphs/13/relationships/nodes","related":"http://example.org/network-graphs/13/nodes"}}}}],"meta":{"record-count":2}}
 
 
 Create a network graph
@@ -36,65 +81,20 @@ Parameters:
 
 Request:
   POST /network-graphs
-  Access-Token: PgJDICo114BHxTMiJz-btw
-  Client: qC7vE3OBxm4qAFAf6idLkQ
+  Access-Token: pP7htLctoSbm6nsZKVLaLQ
+  Client: YA7JnXArnWgfVAKT7XNM5A
   Content-Type: application/vnd.api+json
-  Uid: email42@example.com
+  Uid: email20@example.com
 
-  {"data":{"type":"network-graphs","relationships":{"sheet":{"data":{"type":"sheets","id":241}},"network-template":{"data":{"type":"network-templates","id":165}}}}}
+  {"data":{"type":"network-graphs","relationships":{"sheet":{"data":{"type":"sheets","id":18}},"network-template":{"data":{"type":"network-templates","id":22}}}}}
 
 Response:
   Status: 201 Created
   Content-Type: application/vnd.api+json
-  access-token: PgJDICo114BHxTMiJz-btw
-  client: qC7vE3OBxm4qAFAf6idLkQ
-  uid: email42@example.com
+  access-token: pP7htLctoSbm6nsZKVLaLQ
+  client: YA7JnXArnWgfVAKT7XNM5A
+  uid: email20@example.com
 
-  {"data":{"id":"105","type":"network-graphs","links":{"self":"http://example.org/network-graphs/105"},"attributes":{"nodes":[],"edges":[]},"relationships":{"sheet":{"links":{"self":"http://example.org/network-graphs/105/relationships/sheet","related":"http://example.org/network-graphs/105/sheet"}},"network-template":{"links":{"self":"http://example.org/network-graphs/105/relationships/network-template","related":"http://example.org/network-graphs/105/network-template"}},"nodes":{"links":{"self":"http://example.org/network-graphs/105/relationships/nodes","related":"http://example.org/network-graphs/105/nodes"}}}}}
-
-
-List all network-graphs
------------------------
-
-Request:
-  GET /network-graphs
-  Access-Token: 3NwGrTxPFFeQANCfL4ZivA
-  Client: 4cKEg-KbQn2vMs8s4kWFJQ
-  Content-Type: application/vnd.api+json
-  Uid: email43@example.com
-
-Response:
-  Status: 200 OK
-  Content-Type: application/vnd.api+json
-  access-token: 3NwGrTxPFFeQANCfL4ZivA
-  client: 4cKEg-KbQn2vMs8s4kWFJQ
-  uid: email43@example.com
-
-  {"data":[{"id":"106","type":"network-graphs","links":{"self":"http://example.org/network-graphs/106"},"attributes":{"nodes":[],"edges":[]},"relationships":{"sheet":{"links":{"self":"http://example.org/network-graphs/106/relationships/sheet","related":"http://example.org/network-graphs/106/sheet"}},"network-template":{"links":{"self":"http://example.org/network-graphs/106/relationships/network-template","related":"http://example.org/network-graphs/106/network-template"}},"nodes":{"links":{"self":"http://example.org/network-graphs/106/relationships/nodes","related":"http://example.org/network-graphs/106/nodes"}}}},{"id":"107","type":"network-graphs","links":{"self":"http://example.org/network-graphs/107"},"attributes":{"nodes":[],"edges":[]},"relationships":{"sheet":{"links":{"self":"http://example.org/network-graphs/107/relationships/sheet","related":"http://example.org/network-graphs/107/sheet"}},"network-template":{"links":{"self":"http://example.org/network-graphs/107/relationships/network-template","related":"http://example.org/network-graphs/107/network-template"}},"nodes":{"links":{"self":"http://example.org/network-graphs/107/relationships/nodes","related":"http://example.org/network-graphs/107/nodes"}}}}],"meta":{"record-count":2}}
-
-
-Delete a network-graph
-----------------------
-
-Parameters:
-  * type - Should always be set to <code>network-graphs</code>
-  * sheet - Sheet id
-  * network-template - Network Template id
-  * id - The id of the network-graph
-
-Request:
-  DELETE /network-graphs/108
-  Access-Token: GfP1Cy65nJ5FgfHAp-GtLg
-  Client: Vk66cC7jfrWd9I3pVmhb-w
-  Content-Type: application/vnd.api+json
-  Uid: email44@example.com
-
-  {"data":{"type":"network-graphs","relationships":{"sheet":{"data":{"type":"sheets","id":245}},"network-template":{"data":{"type":"network-templates","id":169}}},"id":"108"}}
-
-Response:
-  Status: 204 No Content
-  access-token: GfP1Cy65nJ5FgfHAp-GtLg
-  client: Vk66cC7jfrWd9I3pVmhb-w
-  uid: email44@example.com
+  {"data":{"id":"14","type":"network-graphs","links":{"self":"http://example.org/network-graphs/14"},"attributes":{"nodes":[],"edges":[]},"relationships":{"sheet":{"links":{"self":"http://example.org/network-graphs/14/relationships/sheet","related":"http://example.org/network-graphs/14/sheet"}},"network-template":{"links":{"self":"http://example.org/network-graphs/14/relationships/network-template","related":"http://example.org/network-graphs/14/network-template"}},"nodes":{"links":{"self":"http://example.org/network-graphs/14/relationships/nodes","related":"http://example.org/network-graphs/14/nodes"}}}}}
 
 

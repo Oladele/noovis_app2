@@ -28,13 +28,13 @@
   "requests": [
     {
       "request_method": "DELETE",
-      "request_path": "/companies/1213",
-      "request_body": "{\"data\":{\"type\":\"companies\",\"id\":\"1213\"}}",
+      "request_path": "/companies/123",
+      "request_body": "{\"data\":{\"type\":\"companies\",\"id\":\"123\"}}",
       "request_headers": {
         "Content-Type": "application/vnd.api+json",
-        "Access-Token": "Cm-2hhn3_gnscN1ThgVckg",
-        "Client": "Fpq6msJzDMf4QjQW0c111A",
-        "Uid": "email29@example.com"
+        "Access-Token": "tGliwxq4nXvqnAzHp6SfeQ",
+        "Client": "A0vhXKw0zW3sJvz1mL72VQ",
+        "Uid": "email35@example.com"
       },
       "request_query_parameters": {
       },
@@ -43,9 +43,9 @@
       "response_status_text": "No Content",
       "response_body": null,
       "response_headers": {
-        "access-token": "Cm-2hhn3_gnscN1ThgVckg",
-        "client": "Fpq6msJzDMf4QjQW0c111A",
-        "uid": "email29@example.com"
+        "access-token": "tGliwxq4nXvqnAzHp6SfeQ",
+        "client": "A0vhXKw0zW3sJvz1mL72VQ",
+        "uid": "email35@example.com"
       },
       "response_content_type": null,
       "curl": null

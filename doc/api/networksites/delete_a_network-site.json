@@ -49,13 +49,13 @@
   "requests": [
     {
       "request_method": "DELETE",
-      "request_path": "/network-sites/752",
-      "request_body": "{\"data\":{\"type\":\"network-sites\",\"relationships\":{\"company\":{\"data\":{\"type\":\"companies\",\"id\":1166}}},\"id\":\"752\"}}",
+      "request_path": "/network-sites/77",
+      "request_body": "{\"data\":{\"type\":\"network-sites\",\"relationships\":{\"company\":{\"data\":{\"type\":\"companies\",\"id\":117}}},\"id\":\"77\"}}",
       "request_headers": {
         "Content-Type": "application/vnd.api+json",
-        "Access-Token": "mYtKzak0f4-MLNA9aQTB-g",
-        "Client": "hyvCkBzyyYzjh88Ro3MquQ",
-        "Uid": "email11@example.com"
+        "Access-Token": "teVO-QvQ9dGQjQIA1hCwrQ",
+        "Client": "6gJMqaMUVic1DWRUTzUfQQ",
+        "Uid": "email32@example.com"
       },
       "request_query_parameters": {
       },
@@ -64,9 +64,9 @@
       "response_status_text": "No Content",
       "response_body": null,
       "response_headers": {
-        "access-token": "mYtKzak0f4-MLNA9aQTB-g",
-        "client": "hyvCkBzyyYzjh88Ro3MquQ",
-        "uid": "email11@example.com"
+        "access-token": "teVO-QvQ9dGQjQIA1hCwrQ",
+        "client": "6gJMqaMUVic1DWRUTzUfQQ",
+        "uid": "email32@example.com"
       },
       "response_content_type": null,
       "curl": null

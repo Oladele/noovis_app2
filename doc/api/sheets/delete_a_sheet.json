@@ -55,13 +55,13 @@
   "requests": [
     {
       "request_method": "DELETE",
-      "request_path": "/sheets/235",
-      "request_body": "{\"data\":{\"relationships\":{\"workbook\":{\"data\":{\"type\":\"workbooks\",\"id\":306}},\"building\":{\"data\":{\"type\":\"buildings\",\"id\":378}}},\"type\":\"sheets\",\"id\":\"235\"}}",
+      "request_path": "/sheets/28",
+      "request_body": "{\"data\":{\"relationships\":{\"workbook\":{\"data\":{\"type\":\"workbooks\",\"id\":31}},\"building\":{\"data\":{\"type\":\"buildings\",\"id\":36}}},\"type\":\"sheets\",\"id\":\"28\"}}",
       "request_headers": {
         "Content-Type": "application/vnd.api+json",
-        "Access-Token": "_--XwoGegr3M9t6aP0UP-w",
-        "Client": "oySXK_iL768RPINcOEuwNw",
-        "Uid": "email38@example.com"
+        "Access-Token": "hVcIsFc_9He12bhyoMD7YQ",
+        "Client": "smx-ATiBWPdoFWXVtF61pg",
+        "Uid": "email27@example.com"
       },
       "request_query_parameters": {
       },
@@ -70,9 +70,9 @@
       "response_status_text": "No Content",
       "response_body": null,
       "response_headers": {
-        "access-token": "_--XwoGegr3M9t6aP0UP-w",
-        "client": "oySXK_iL768RPINcOEuwNw",
-        "uid": "email38@example.com"
+        "access-token": "hVcIsFc_9He12bhyoMD7YQ",
+        "client": "smx-ATiBWPdoFWXVtF61pg",
+        "uid": "email27@example.com"
       },
       "response_content_type": null,
       "curl": null
