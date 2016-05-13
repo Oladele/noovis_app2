@@ -3,46 +3,19 @@ List all companies
 
 Request:
   GET /companies
-  Access-Token: AzBD31A-bAbrmyDg35B1jQ
-  Client: 5ci5P3yK-h-qDFofBCRjfw
+  Access-Token: 2FgTxFkD7WCzpcnN8vJE6A
+  Client: mbczfblRkVv9_D3Eiz6ZBQ
   Content-Type: application/vnd.api+json
-  Uid: email20@example.com
+  Uid: email27@example.com
 
 Response:
   Status: 200 OK
   Content-Type: application/vnd.api+json
-  access-token: AzBD31A-bAbrmyDg35B1jQ
-  client: 5ci5P3yK-h-qDFofBCRjfw
-  uid: email20@example.com
+  access-token: 2FgTxFkD7WCzpcnN8vJE6A
+  client: mbczfblRkVv9_D3Eiz6ZBQ
+  uid: email27@example.com
 
-  {"data":[{"id":"173","type":"companies","links":{"self":"http://example.org/companies/173"},"attributes":{"name":"Company 63","node-counts":[{"node_type":"network-sites","count":0,"node_type_pretty":"Sites"},{"node_type":"buildings","count":0,"node_type_pretty":"Buildings"}]},"relationships":{"network-sites":{"links":{"self":"http://example.org/companies/173/relationships/network-sites","related":"http://example.org/companies/173/network-sites"}},"buildings":{"links":{"self":"http://example.org/companies/173/relationships/buildings","related":"http://example.org/companies/173/buildings"}},"users":{"links":{"self":"http://example.org/companies/173/relationships/users","related":"http://example.org/companies/173/users"}}}},{"id":"174","type":"companies","links":{"self":"http://example.org/companies/174"},"attributes":{"name":"1st company","node-counts":[{"node_type":"network-sites","count":0,"node_type_pretty":"Sites"},{"node_type":"buildings","count":0,"node_type_pretty":"Buildings"}]},"relationships":{"network-sites":{"links":{"self":"http://example.org/companies/174/relationships/network-sites","related":"http://example.org/companies/174/network-sites"}},"buildings":{"links":{"self":"http://example.org/companies/174/relationships/buildings","related":"http://example.org/companies/174/buildings"}},"users":{"links":{"self":"http://example.org/companies/174/relationships/users","related":"http://example.org/companies/174/users"}}}},{"id":"175","type":"companies","links":{"self":"http://example.org/companies/175"},"attributes":{"name":"2nd company","node-counts":[{"node_type":"network-sites","count":0,"node_type_pretty":"Sites"},{"node_type":"buildings","count":0,"node_type_pretty":"Buildings"}]},"relationships":{"network-sites":{"links":{"self":"http://example.org/companies/175/relationships/network-sites","related":"http://example.org/companies/175/network-sites"}},"buildings":{"links":{"self":"http://example.org/companies/175/relationships/buildings","related":"http://example.org/companies/175/buildings"}},"users":{"links":{"self":"http://example.org/companies/175/relationships/users","related":"http://example.org/companies/175/users"}}}}],"meta":{"record-count":3}}
-
-
-Update a company
-----------------
-
-Parameters:
-  * type - Should always be set to <code>companies</code>
-  * name - Company Name
-  * id - The id of the company
-
-Request:
-  PATCH /companies/177
-  Access-Token: yC-_fKbwyfOhDgqEbNaUAw
-  Client: kdlkwH2IOq9I7bqaRNgebw
-  Content-Type: application/vnd.api+json
-  Uid: email21@example.com
-
-  {"data":{"type":"companies","attributes":{"name":"New Company Name"},"id":"177"}}
-
-Response:
-  Status: 200 OK
-  Content-Type: application/vnd.api+json
-  access-token: yC-_fKbwyfOhDgqEbNaUAw
-  client: kdlkwH2IOq9I7bqaRNgebw
-  uid: email21@example.com
-
-  {"data":{"id":"177","type":"companies","links":{"self":"http://example.org/companies/177"},"attributes":{"name":"New Company Name","node-counts":[{"node_type":"network-sites","count":0,"node_type_pretty":"Sites"},{"node_type":"buildings","count":0,"node_type_pretty":"Buildings"}]},"relationships":{"network-sites":{"links":{"self":"http://example.org/companies/177/relationships/network-sites","related":"http://example.org/companies/177/network-sites"}},"buildings":{"links":{"self":"http://example.org/companies/177/relationships/buildings","related":"http://example.org/companies/177/buildings"}},"users":{"links":{"self":"http://example.org/companies/177/relationships/users","related":"http://example.org/companies/177/users"}}}}}
+  {"data":[{"id":"1207","type":"companies","links":{"self":"http://example.org/companies/1207"},"attributes":{"name":"Company 93","node-counts":[{"node_type":"network-sites","count":0,"node_type_pretty":"Sites"},{"node_type":"buildings","count":0,"node_type_pretty":"Buildings"}]},"relationships":{"network-sites":{"links":{"self":"http://example.org/companies/1207/relationships/network-sites","related":"http://example.org/companies/1207/network-sites"}},"buildings":{"links":{"self":"http://example.org/companies/1207/relationships/buildings","related":"http://example.org/companies/1207/buildings"}},"users":{"links":{"self":"http://example.org/companies/1207/relationships/users","related":"http://example.org/companies/1207/users"}}}},{"id":"1208","type":"companies","links":{"self":"http://example.org/companies/1208"},"attributes":{"name":"1st company","node-counts":[{"node_type":"network-sites","count":0,"node_type_pretty":"Sites"},{"node_type":"buildings","count":0,"node_type_pretty":"Buildings"}]},"relationships":{"network-sites":{"links":{"self":"http://example.org/companies/1208/relationships/network-sites","related":"http://example.org/companies/1208/network-sites"}},"buildings":{"links":{"self":"http://example.org/companies/1208/relationships/buildings","related":"http://example.org/companies/1208/buildings"}},"users":{"links":{"self":"http://example.org/companies/1208/relationships/users","related":"http://example.org/companies/1208/users"}}}},{"id":"1209","type":"companies","links":{"self":"http://example.org/companies/1209"},"attributes":{"name":"2nd company","node-counts":[{"node_type":"network-sites","count":0,"node_type_pretty":"Sites"},{"node_type":"buildings","count":0,"node_type_pretty":"Buildings"}]},"relationships":{"network-sites":{"links":{"self":"http://example.org/companies/1209/relationships/network-sites","related":"http://example.org/companies/1209/network-sites"}},"buildings":{"links":{"self":"http://example.org/companies/1209/relationships/buildings","related":"http://example.org/companies/1209/buildings"}},"users":{"links":{"self":"http://example.org/companies/1209/relationships/users","related":"http://example.org/companies/1209/users"}}}}],"meta":{"record-count":3}}
 
 
 Create a company
@@ -54,21 +27,21 @@ Parameters:
 
 Request:
   POST /companies
-  Access-Token: aP7r5LaoMTa5cMJKsDtmiA
-  Client: oQw82vHje0cjJyuyMZZqsg
+  Access-Token: SUIw0qgWiPk4IxkC0JenXw
+  Client: On98rezrN7BcnKX11imjfQ
   Content-Type: application/vnd.api+json
-  Uid: email22@example.com
+  Uid: email28@example.com
 
   {"data":{"type":"companies","attributes":{"name":"ACME Company"}}}
 
 Response:
   Status: 201 Created
   Content-Type: application/vnd.api+json
-  access-token: aP7r5LaoMTa5cMJKsDtmiA
-  client: oQw82vHje0cjJyuyMZZqsg
-  uid: email22@example.com
+  access-token: SUIw0qgWiPk4IxkC0JenXw
+  client: On98rezrN7BcnKX11imjfQ
+  uid: email28@example.com
 
-  {"data":{"id":"179","type":"companies","links":{"self":"http://example.org/companies/179"},"attributes":{"name":"ACME Company","node-counts":[{"node_type":"network-sites","count":0,"node_type_pretty":"Sites"},{"node_type":"buildings","count":0,"node_type_pretty":"Buildings"}]},"relationships":{"network-sites":{"links":{"self":"http://example.org/companies/179/relationships/network-sites","related":"http://example.org/companies/179/network-sites"}},"buildings":{"links":{"self":"http://example.org/companies/179/relationships/buildings","related":"http://example.org/companies/179/buildings"}},"users":{"links":{"self":"http://example.org/companies/179/relationships/users","related":"http://example.org/companies/179/users"}}}}}
+  {"data":{"id":"1211","type":"companies","links":{"self":"http://example.org/companies/1211"},"attributes":{"name":"ACME Company","node-counts":[{"node_type":"network-sites","count":0,"node_type_pretty":"Sites"},{"node_type":"buildings","count":0,"node_type_pretty":"Buildings"}]},"relationships":{"network-sites":{"links":{"self":"http://example.org/companies/1211/relationships/network-sites","related":"http://example.org/companies/1211/network-sites"}},"buildings":{"links":{"self":"http://example.org/companies/1211/relationships/buildings","related":"http://example.org/companies/1211/buildings"}},"users":{"links":{"self":"http://example.org/companies/1211/relationships/users","related":"http://example.org/companies/1211/users"}}}}}
 
 
 Delete a company
@@ -80,18 +53,45 @@ Parameters:
   * id - The id of the company
 
 Request:
-  DELETE /companies/181
-  Access-Token: zkU5AAlVTyIa3K9lw1jQ3w
-  Client: Nim5_PY68OVH2LjqbDic0w
+  DELETE /companies/1213
+  Access-Token: Cm-2hhn3_gnscN1ThgVckg
+  Client: Fpq6msJzDMf4QjQW0c111A
   Content-Type: application/vnd.api+json
-  Uid: email23@example.com
+  Uid: email29@example.com
 
-  {"data":{"type":"companies","id":"181"}}
+  {"data":{"type":"companies","id":"1213"}}
 
 Response:
   Status: 204 No Content
-  access-token: zkU5AAlVTyIa3K9lw1jQ3w
-  client: Nim5_PY68OVH2LjqbDic0w
-  uid: email23@example.com
+  access-token: Cm-2hhn3_gnscN1ThgVckg
+  client: Fpq6msJzDMf4QjQW0c111A
+  uid: email29@example.com
+
+
+Update a company
+----------------
+
+Parameters:
+  * type - Should always be set to <code>companies</code>
+  * name - Company Name
+  * id - The id of the company
+
+Request:
+  PATCH /companies/1215
+  Access-Token: VpRpemojkJtB19ERyijOcg
+  Client: wtEtuxp73dGgPo9SzDXM_Q
+  Content-Type: application/vnd.api+json
+  Uid: email30@example.com
+
+  {"data":{"type":"companies","attributes":{"name":"New Company Name"},"id":"1215"}}
+
+Response:
+  Status: 200 OK
+  Content-Type: application/vnd.api+json
+  access-token: VpRpemojkJtB19ERyijOcg
+  client: wtEtuxp73dGgPo9SzDXM_Q
+  uid: email30@example.com
+
+  {"data":{"id":"1215","type":"companies","links":{"self":"http://example.org/companies/1215"},"attributes":{"name":"New Company Name","node-counts":[{"node_type":"network-sites","count":0,"node_type_pretty":"Sites"},{"node_type":"buildings","count":0,"node_type_pretty":"Buildings"}]},"relationships":{"network-sites":{"links":{"self":"http://example.org/companies/1215/relationships/network-sites","related":"http://example.org/companies/1215/network-sites"}},"buildings":{"links":{"self":"http://example.org/companies/1215/relationships/buildings","related":"http://example.org/companies/1215/buildings"}},"users":{"links":{"self":"http://example.org/companies/1215/relationships/users","related":"http://example.org/companies/1215/users"}}}}}
 
 

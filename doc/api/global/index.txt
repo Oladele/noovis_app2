@@ -3,18 +3,16 @@ List Global Attributes
 
 Request:
   GET /global
-  Access-Token: _v5QMLi-IHQWFdmNiHYHUQ
-  Client: oURelIZJRYxD__TancyTGA
+  Access-Token: UVwIwYbw6KJMB8lyVZoAKQ
+  Client: RQFIPzk2mvMIcIFoUXVb8g
   Content-Type: application/vnd.api+json
-  Uid: email32@example.com
+  Uid: email45@example.com
 
 Response:
   Status: 200 OK
   Content-Type: application/vnd.api+json
-  access-token: _v5QMLi-IHQWFdmNiHYHUQ
-  client: oURelIZJRYxD__TancyTGA
-  uid: email32@example.com
+  access-token: UVwIwYbw6KJMB8lyVZoAKQ
+  client: RQFIPzk2mvMIcIFoUXVb8g
+  uid: email45@example.com
 
-  {"data":{"id":"e8d6582c-6e59-4b37-b359-1eccd8f809ae","type":"globals","links":{"self":"http://example.org/globals/e8d6582c-6e59-4b37-b359-1eccd8f809ae"},"attributes":{"node-counts":[{"node_type":"network-sites","count":null,"node_type_pretty":"Sites"},{"node_type":"buildings","count":0,"node_type_pretty":"Buildings"}]}}}
-
-
+  {"data":{"id":"5398ce8b-a31d-424d-ac41-410ccba98da3","type":"globals","links":{"self":"http://example.org/globals/5398ce8b-a31d-424d-ac41-410ccba98da3"},"attributes":{"node-counts":[{"node_type":"network-sites","count":null,"node_type_pretty":"Sites"},{"node_type":"buildings","count":0,"node_type_pretty":"Buildings"}]}}}
