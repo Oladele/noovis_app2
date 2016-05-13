@@ -4,6 +4,15 @@ RSpec.resource "ImportCableRuns" do
   header "Accept", "*/*"
   header "Content-Type", "multipart/form-data"
 
+  before do
+    user_headers = FactoryGirl.create(:user, role: :admin).create_new_auth_token
+    header "Access-Token", user_headers["access-token"]
+    header "Client", user_headers["client"]
+    header "Uid", user_headers["uid"]
+    header "Token-Type", user_headers["Bearer"]
+    header "Expiry", user_headers["expiry"]
+  end
+
   shared_context "import-cable-runs parameters" do
     parameter :file,
       "Workbook File",

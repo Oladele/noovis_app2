@@ -1,3 +1,23 @@
+List all buildings
+------------------
+
+Request:
+  GET /buildings
+  Access-Token: a5xBLrY1HgoINem5pKzYpw
+  Client: KkNFPbDkL0Q26ku-YI95zg
+  Content-Type: application/vnd.api+json
+  Uid: email6@example.com
+
+Response:
+  Status: 200 OK
+  Content-Type: application/vnd.api+json
+  access-token: a5xBLrY1HgoINem5pKzYpw
+  client: KkNFPbDkL0Q26ku-YI95zg
+  uid: email6@example.com
+
+  {"data":[{"id":"362","type":"buildings","links":{"self":"http://example.org/buildings/362"},"attributes":{"name":"1st building","lat":"39.290139","lng":"-76.614766","description":"MyText","node-counts":[],"import-job-status":null},"relationships":{"network-site":{"links":{"self":"http://example.org/buildings/362/relationships/network-site","related":"http://example.org/buildings/362/network-site"}},"sheets":{"links":{"self":"http://example.org/buildings/362/relationships/sheets","related":"http://example.org/buildings/362/sheets"}}}},{"id":"363","type":"buildings","links":{"self":"http://example.org/buildings/363"},"attributes":{"name":"2nd building","lat":"39.290139","lng":"-76.614766","description":"MyText","node-counts":[],"import-job-status":null},"relationships":{"network-site":{"links":{"self":"http://example.org/buildings/363/relationships/network-site","related":"http://example.org/buildings/363/network-site"}},"sheets":{"links":{"self":"http://example.org/buildings/363/relationships/sheets","related":"http://example.org/buildings/363/sheets"}}}}],"meta":{"record-count":2}}
+
+
 Update a building
 -----------------
 
@@ -10,51 +30,22 @@ Parameters:
   * id - The id of the building
 
 Request:
-  PATCH /buildings/93
-  Access-Token: kVRJcWF-oi1eqaFZJlNnrw
-  Client: D6uW2E3R2cbvyqeEspZpmA
+  PATCH /buildings/364
+  Access-Token: HRIw8x_7y1EAAW1wBexLng
+  Client: yTCLL8wCDX-F_KKIBhK99g
   Content-Type: application/vnd.api+json
-  Uid: email41@example.com
+  Uid: email7@example.com
 
-  {"data":{"relationships":{"network-site":{"data":{"type":"network-sites","id":176}}},"type":"buildings","attributes":{"name":"Updated Building Name"},"id":"93"}}
+  {"data":{"relationships":{"network-site":{"data":{"type":"network-sites","id":746}}},"type":"buildings","attributes":{"name":"Updated Building Name"},"id":"364"}}
 
 Response:
   Status: 200 OK
   Content-Type: application/vnd.api+json
-  access-token: kVRJcWF-oi1eqaFZJlNnrw
-  client: D6uW2E3R2cbvyqeEspZpmA
-  uid: email41@example.com
+  access-token: HRIw8x_7y1EAAW1wBexLng
+  client: yTCLL8wCDX-F_KKIBhK99g
+  uid: email7@example.com
 
-  {"data":{"id":"93","type":"buildings","links":{"self":"http://example.org/buildings/93"},"attributes":{"name":"Updated Building Name","lat":"39.290139","lng":"-76.614766","description":"MyText","node-counts":[],"import-job-status":null},"relationships":{"network-site":{"links":{"self":"http://example.org/buildings/93/relationships/network-site","related":"http://example.org/buildings/93/network-site"}},"sheets":{"links":{"self":"http://example.org/buildings/93/relationships/sheets","related":"http://example.org/buildings/93/sheets"}}}}}
-
-
-Create a building
------------------
-
-Parameters:
-  * network-site - Network site id
-  * type - Should always be set to <code>buildings</code>
-  * name - Building Name
-  * lat - Building Latitude
-  * lng - Building Longitude
-
-Request:
-  POST /buildings
-  Access-Token: aZzl5i9pStbPInMYv2ihIA
-  Client: F-YvPsHmIvWhwHSa4D9W5A
-  Content-Type: application/vnd.api+json
-  Uid: email42@example.com
-
-  {"data":{"relationships":{"network-site":{"data":{"type":"network-sites","id":177}}},"type":"buildings","attributes":{"name":"Building Name"}}}
-
-Response:
-  Status: 201 Created
-  Content-Type: application/vnd.api+json
-  access-token: aZzl5i9pStbPInMYv2ihIA
-  client: F-YvPsHmIvWhwHSa4D9W5A
-  uid: email42@example.com
-
-  {"data":{"id":"94","type":"buildings","links":{"self":"http://example.org/buildings/94"},"attributes":{"name":"Building Name","lat":null,"lng":null,"description":null,"node-counts":[],"import-job-status":null},"relationships":{"network-site":{"links":{"self":"http://example.org/buildings/94/relationships/network-site","related":"http://example.org/buildings/94/network-site"}},"sheets":{"links":{"self":"http://example.org/buildings/94/relationships/sheets","related":"http://example.org/buildings/94/sheets"}}}}}
+  {"data":{"id":"364","type":"buildings","links":{"self":"http://example.org/buildings/364"},"attributes":{"name":"Updated Building Name","lat":"39.290139","lng":"-76.614766","description":"MyText","node-counts":[],"import-job-status":null},"relationships":{"network-site":{"links":{"self":"http://example.org/buildings/364/relationships/network-site","related":"http://example.org/buildings/364/network-site"}},"sheets":{"links":{"self":"http://example.org/buildings/364/relationships/sheets","related":"http://example.org/buildings/364/sheets"}}}}}
 
 
 Delete a building
@@ -69,36 +60,47 @@ Parameters:
   * id - The id of the building
 
 Request:
-  DELETE /buildings/95
-  Access-Token: rh37Dz_oTbNsCRv1z2SFEg
-  Client: rOSqKK9BGYdOTocosVwXyg
+  DELETE /buildings/365
+  Access-Token: S4PkrgMTJ1-0xBX4qUxIgw
+  Client: QU6Fb8tC44snPwa3yjhknQ
   Content-Type: application/vnd.api+json
-  Uid: email43@example.com
+  Uid: email8@example.com
 
-  {"data":{"relationships":{"network-site":{"data":{"type":"network-sites","id":179}}},"type":"buildings","id":"95"}}
+  {"data":{"relationships":{"network-site":{"data":{"type":"network-sites","id":748}}},"type":"buildings","id":"365"}}
 
 Response:
   Status: 204 No Content
-  access-token: rh37Dz_oTbNsCRv1z2SFEg
-  client: rOSqKK9BGYdOTocosVwXyg
-  uid: email43@example.com
+  access-token: S4PkrgMTJ1-0xBX4qUxIgw
+  client: QU6Fb8tC44snPwa3yjhknQ
+  uid: email8@example.com
 
 
-List all buildings
-------------------
+Create a building
+-----------------
+
+Parameters:
+  * network-site - Network site id
+  * type - Should always be set to <code>buildings</code>
+  * name - Building Name
+  * lat - Building Latitude
+  * lng - Building Longitude
 
 Request:
-  GET /buildings
-  Access-Token: Q9O1CHmYiNeEsUKwopie4A
-  Client: tteZ-et2U7PkGn8NrVkqOw
+  POST /buildings
+  Access-Token: xGvtv0cGL_fxnH9L-4gzsA
+  Client: d4O0QoJxnhBAXxOtmbDzcA
   Content-Type: application/vnd.api+json
-  Uid: email44@example.com
+  Uid: email9@example.com
+
+  {"data":{"relationships":{"network-site":{"data":{"type":"network-sites","id":749}}},"type":"buildings","attributes":{"name":"Building Name"}}}
 
 Response:
-  Status: 200 OK
+  Status: 201 Created
   Content-Type: application/vnd.api+json
-  access-token: Q9O1CHmYiNeEsUKwopie4A
-  client: tteZ-et2U7PkGn8NrVkqOw
-  uid: email44@example.com
+  access-token: xGvtv0cGL_fxnH9L-4gzsA
+  client: d4O0QoJxnhBAXxOtmbDzcA
+  uid: email9@example.com
 
-  {"data":[{"id":"96","type":"buildings","links":{"self":"http://example.org/buildings/96"},"attributes":{"name":"1st building","lat":"39.290139","lng":"-76.614766","description":"MyText","node-counts":[],"import-job-status":null},"relationships":{"network-site":{"links":{"self":"http://example.org/buildings/96/relationships/network-site","related":"http://example.org/buildings/96/network-site"}},"sheets":{"links":{"self":"http://example.org/buildings/96/relationships/sheets","related":"http://example.org/buildings/96/sheets"}}}},{"id":"97","type":"buildings","links":{"self":"http://example.org/buildings/97"},"attributes":{"name":"2nd building","lat":"39.290139","lng":"-76.614766","description":"MyText","node-counts":[],"import-job-status":null},"relationships":{"network-site":{"links":{"self":"http://example.org/buildings/97/relationships/network-site","related":"http://example.org/buildings/97/network-site"}},"sheets":{"links":{"self":"http://example.org/buildings/97/relationships/sheets","related":"http://example.org/buildings/97/sheets"}}}}],"meta":{"record-count":2}}
+  {"data":{"id":"366","type":"buildings","links":{"self":"http://example.org/buildings/366"},"attributes":{"name":"Building Name","lat":null,"lng":null,"description":null,"node-counts":[],"import-job-status":null},"relationships":{"network-site":{"links":{"self":"http://example.org/buildings/366/relationships/network-site","related":"http://example.org/buildings/366/network-site"}},"sheets":{"links":{"self":"http://example.org/buildings/366/relationships/sheets","related":"http://example.org/buildings/366/sheets"}}}}}
+
+

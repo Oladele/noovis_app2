@@ -1,4 +1,7 @@
-class ImportCableRunsController < ActionController::Base  # TODO: Shouldn't this be behind auth?
+class ImportCableRunsController < ApplicationController
+  before_action :authenticate_user!
+  before_action :admin_only
+
   def create
     @importer = ImportCableRun.new(
       file: params[:file],

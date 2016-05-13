@@ -193,24 +193,24 @@
   "requests": [
     {
       "request_method": "PATCH",
-      "request_path": "/cable-runs/11",
-      "request_body": "{\"data\":{\"type\":\"cable-runs\",\"relationships\":{\"sheet\":{\"data\":{\"type\":\"sheets\",\"id\":33}}},\"attributes\":{\"site\":\"Updated Site\"},\"id\":\"11\"}}",
+      "request_path": "/cable-runs/52",
+      "request_body": "{\"data\":{\"type\":\"cable-runs\",\"relationships\":{\"sheet\":{\"data\":{\"type\":\"sheets\",\"id\":226}}},\"attributes\":{\"site\":\"Updated Site\"},\"id\":\"52\"}}",
       "request_headers": {
         "Content-Type": "application/vnd.api+json",
-        "Access-Token": "MZcNvSb4zeIlzqAvPTzi6Q",
-        "Client": "uqA9T-QVBPcmhyXGF9QaHg",
-        "Uid": "email12@example.com"
+        "Access-Token": "PKqKaDecwOoI7PSWBWj1LA",
+        "Client": "fHhX3TW3EBCCt8ZawgNfkg",
+        "Uid": "email5@example.com"
       },
       "request_query_parameters": {
       },
       "request_content_type": "application/vnd.api+json",
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "{\"data\":{\"id\":\"11\",\"type\":\"cable-runs\",\"links\":{\"self\":\"http://example.org/cable-runs/11\"},\"attributes\":{\"site\":\"Updated Site\",\"building\":\"MyString\",\"room\":\"MyString\",\"drop\":\"MyString\",\"rdt\":\"MyString\",\"rdt-port\":\"MyString\",\"fdh-port\":\"MyString\",\"splitter\":\"MyString\",\"splitter-fiber\":\"MyString\",\"pon-card\":\"MyString\",\"pon-port\":\"MyString\",\"fdh\":\"MyString\",\"notes\":\"MyText\",\"olt-rack\":\"MyString\",\"olt-chassis\":\"MyString\",\"vam-shelf\":\"MyString\",\"vam-module\":\"MyString\",\"vam-port\":\"MyString\",\"backbone-shelf\":\"MyString\",\"backbone-cable\":\"MyString\",\"backbone-port\":\"MyString\",\"fdh-location\":\"MyString\",\"rdt-location\":\"MyString\",\"ont-model\":\"MyString\",\"ont-sn\":\"MyString\",\"rdt-port-count\":\"MyString\",\"ont-ge-1-device\":\"MyString\",\"ont-ge-1-mac\":\"MyString\",\"ont-ge-2-device\":\"MyString\",\"ont-ge-2-mac\":\"MyString\",\"ont-ge-3-device\":\"MyString\",\"ont-ge-3-mac\":\"MyString\",\"ont-ge-4-device\":\"MyString\",\"ont-ge-4-mac\":\"MyString\",\"ont-node-id\":null},\"relationships\":{\"sheet\":{\"links\":{\"self\":\"http://example.org/cable-runs/11/relationships/sheet\",\"related\":\"http://example.org/cable-runs/11/sheet\"}}}}}",
+      "response_body": "{\"data\":{\"id\":\"52\",\"type\":\"cable-runs\",\"links\":{\"self\":\"http://example.org/cable-runs/52\"},\"attributes\":{\"site\":\"Updated Site\",\"building\":\"MyString\",\"room\":\"MyString\",\"drop\":\"MyString\",\"rdt\":\"MyString\",\"rdt-port\":\"MyString\",\"fdh-port\":\"MyString\",\"splitter\":\"MyString\",\"splitter-fiber\":\"MyString\",\"pon-card\":\"MyString\",\"pon-port\":\"MyString\",\"fdh\":\"MyString\",\"notes\":\"MyText\",\"olt-rack\":\"MyString\",\"olt-chassis\":\"MyString\",\"vam-shelf\":\"MyString\",\"vam-module\":\"MyString\",\"vam-port\":\"MyString\",\"backbone-shelf\":\"MyString\",\"backbone-cable\":\"MyString\",\"backbone-port\":\"MyString\",\"fdh-location\":\"MyString\",\"rdt-location\":\"MyString\",\"ont-model\":\"MyString\",\"ont-sn\":\"MyString\",\"rdt-port-count\":\"MyString\",\"ont-ge-1-device\":\"MyString\",\"ont-ge-1-mac\":\"MyString\",\"ont-ge-2-device\":\"MyString\",\"ont-ge-2-mac\":\"MyString\",\"ont-ge-3-device\":\"MyString\",\"ont-ge-3-mac\":\"MyString\",\"ont-ge-4-device\":\"MyString\",\"ont-ge-4-mac\":\"MyString\",\"ont-node-id\":null},\"relationships\":{\"sheet\":{\"links\":{\"self\":\"http://example.org/cable-runs/52/relationships/sheet\",\"related\":\"http://example.org/cable-runs/52/sheet\"}}}}}",
       "response_headers": {
-        "access-token": "MZcNvSb4zeIlzqAvPTzi6Q",
-        "client": "uqA9T-QVBPcmhyXGF9QaHg",
-        "uid": "email12@example.com",
+        "access-token": "PKqKaDecwOoI7PSWBWj1LA",
+        "client": "fHhX3TW3EBCCt8ZawgNfkg",
+        "uid": "email5@example.com",
         "Content-Type": "application/vnd.api+json"
       },
       "response_content_type": "application/vnd.api+json",
