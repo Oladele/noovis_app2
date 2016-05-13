@@ -33,7 +33,8 @@ class CableRunResource < JSONAPI::Resource
     :ont_ge_3_mac,
     :ont_ge_4_device,
     :ont_ge_4_mac,
-    :ont_node_id
+    :ont_node_id,
+    :versions
   has_one :sheet
 
   filter :sheet
@@ -53,5 +54,13 @@ class CableRunResource < JSONAPI::Resource
 
   def self.creatable_fields(context)
     super - [:ont_node_id]
+  end
+
+  def versions
+    @model.versions.map do |version|
+      user_email = version.whodunnit ? User.find(version.whodunnit).email : 'unknown'
+
+      version.changeset.merge({updated_by: user_email })
+    end
   end
 end
