@@ -7,6 +7,7 @@ class ApiController < JSONAPI::ResourceController
   include DeviseTokenAuth::Concerns::SetUserByToken
   before_action :authenticate_user!
   before_action :admin_only, only: [:create, :update, :destroy]
+  before_action :set_paper_trail_whodunnit
 
   def context
     { current_user: current_user }

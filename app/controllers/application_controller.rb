@@ -5,6 +5,8 @@ class ApplicationController < ActionController::Base #JSONAPI::ResourceControlle
 
   include DeviseTokenAuth::Concerns::SetUserByToken
 
+  before_action :set_paper_trail_whodunnit
+
   private
 
   def admin_only
