@@ -208,5 +208,39 @@ RSpec.describe Testy, type: :model do
 
       assert_equal graph, value
     end
+
+    it "import2 6" do
+      graph = {
+        sites: [
+          {
+            value: 'site1',
+            buildings: [
+              {
+                value: 'building1',
+                olts: [
+                  {
+                    value: 'olt1',
+                    splitters: []
+                  }
+                ]
+              },
+            ]
+          },
+          {
+            value: 'site2',
+            buildings: [
+              {
+                value: 'building2',
+                olts: []
+              }
+            ]
+          }
+        ]
+      }
+
+      value = Testy.import2([["site1", "building1", "olt1"], ["site2", "building2"]])
+
+      assert_equal graph, value
+    end
   end
 end

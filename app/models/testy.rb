@@ -48,48 +48,67 @@ class Testy
   def self.import2(values)
     graph = { sites: [] }
 
-    headers = %w[site building olt]
+    # Duplicating some info here, might be a cleaner way to structure this.
+    template = [
+      { type: :sites, collection: :buildings },
+      { type: :buildings, collection: :olts },
+      { type: :olts, collection: :splitters }
+    ]
 
     values.each do |row|
-      previous_site = nil
-      previous_building = nil
+      previous = graph  # Start at the top
 
       row.each_with_index do |col, index|
-        if index == 0
-          site = graph[:sites].select { |site| site[:value] == col }.first
+        type = template[index][:type]
+        collection = template[index][:collection]
 
-          if site.nil?
-            site = { value: col, buildings: [] }
-            graph[:sites] << site
-          end
+        # Do we have this node yet?
+        object = previous[type].select { |object| object[:value] == col }.first
 
-          previous_site = site
+        # If not, make it.
+        if object.nil?
+          object = { value: col, collection => [] }
+          previous[type] << object
         end
 
-        if index == 1
-          building = previous_site[:buildings].select { |building| building[:value] == col }.first
-
-          if building.nil?
-            building = { value: col, olts: [] }
-            previous_site[:buildings] << building
-          end
-
-          previous_building = building
-        end
-
-        if index == 2
-          olt = previous_building[:olts].select { |olt| olt[:value] == col }.first
-
-          if olt.nil?
-            previous_building[:olts] << { value: col, splitters: [] }
-          end
-        end
+        # Set the current place in the nested structure for the next iteration
+        previous = object
       end
     end
 
     graph
   end
 end
+
+        #if index == 0
+          #site = graph[:sites].select { |site| site[:value] == col }.first
+
+          #if site.nil?
+            #site = { value: col, buildings: [] }
+            #graph[:sites] << site
+          #end
+
+          #previous = site
+        #end
+
+        #if index == 1
+          #building = previous[:buildings].select { |building| building[:value] == col }.first
+
+          #if building.nil?
+            #building = { value: col, olts: [] }
+            #previous[:buildings] << building
+          #end
+
+          #previous = building
+        #end
+
+        #if index == 2
+          #olt = previous[:olts].select { |olt| olt[:value] == col }.first
+
+          #if olt.nil?
+            #previous[:olts] << { value: col, splitters: [] }
+          #end
+        #end
 
 #site: {
   #value: 'site1',
