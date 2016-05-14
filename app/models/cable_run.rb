@@ -46,7 +46,7 @@ class CableRun < ActiveRecord::Base
   belongs_to :sheet
   has_one :company, through: :sheet
   has_many :nodes
-  has_paper_trail
+  has_paper_trail meta: { sheet_id: :sheet_id }
 
   def ont_node_id
     # building = sheet.building

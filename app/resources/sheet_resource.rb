@@ -1,5 +1,5 @@
 class SheetResource < JSONAPI::Resource
-  attributes :name, :created_at, :updated_at, :record_count
+  attributes :name, :created_at, :updated_at, :record_count, :versions
   has_one :workbook
   has_one :building
   has_many :cable_runs
@@ -13,6 +13,20 @@ class SheetResource < JSONAPI::Resource
       Sheet.includes(:company).where(companies: {id: current_user.company_id}).references(:company)
     else
       super
+    end
+  end
+
+  def versions
+    PaperTrail::Version.where("item_type = ? AND sheet_id = ?", "CableRun", @model.id)
+      .order(created_at: :desc)
+      .map do |version|
+      user_email = version.whodunnit ? User.find(version.whodunnit).email : 'unknown'
+
+      {
+        user: { id: version.whodunnit, email: user_email },
+        event_type: version.event,
+        changes: version.changeset
+      }
     end
   end
 end

@@ -1,28 +1,21 @@
-Delete a building
------------------
-
-Parameters:
-  * network-site - Network site id
-  * type - Should always be set to <code>buildings</code>
-  * name - Building Name
-  * lat - Building Latitude
-  * lng - Building Longitude
-  * id - The id of the building
+List all buildings
+------------------
 
 Request:
-  DELETE /buildings/39
-  Access-Token: 5ydWRHERyJ_5ONNspl2uEg
-  Client: bmsZVLuQTRhlDQsFWFA6Bg
+  GET /buildings
+  Access-Token: vtAzzR7Tzy9jHVC6JTDcZw
+  Client: 04EBsCB7Na0Q4nfj4ZPSMA
   Content-Type: application/vnd.api+json
-  Uid: email37@example.com
-
-  {"data":{"relationships":{"network-site":{"data":{"type":"network-sites","id":79}}},"type":"buildings","id":"39"}}
+  Uid: email28@example.com
 
 Response:
-  Status: 204 No Content
-  access-token: 5ydWRHERyJ_5ONNspl2uEg
-  client: bmsZVLuQTRhlDQsFWFA6Bg
-  uid: email37@example.com
+  Status: 200 OK
+  Content-Type: application/vnd.api+json
+  access-token: vtAzzR7Tzy9jHVC6JTDcZw
+  client: 04EBsCB7Na0Q4nfj4ZPSMA
+  uid: email28@example.com
+
+  {"data":[{"id":"229","type":"buildings","links":{"self":"http://example.org/buildings/229"},"attributes":{"name":"1st building","lat":"39.290139","lng":"-76.614766","description":"MyText","node-counts":[],"import-job-status":null},"relationships":{"network-site":{"links":{"self":"http://example.org/buildings/229/relationships/network-site","related":"http://example.org/buildings/229/network-site"}},"sheets":{"links":{"self":"http://example.org/buildings/229/relationships/sheets","related":"http://example.org/buildings/229/sheets"}}}},{"id":"230","type":"buildings","links":{"self":"http://example.org/buildings/230"},"attributes":{"name":"2nd building","lat":"39.290139","lng":"-76.614766","description":"MyText","node-counts":[],"import-job-status":null},"relationships":{"network-site":{"links":{"self":"http://example.org/buildings/230/relationships/network-site","related":"http://example.org/buildings/230/network-site"}},"sheets":{"links":{"self":"http://example.org/buildings/230/relationships/sheets","related":"http://example.org/buildings/230/sheets"}}}}],"meta":{"record-count":2}}
 
 
 Create a building
@@ -37,21 +30,21 @@ Parameters:
 
 Request:
   POST /buildings
-  Access-Token: MWj3WjVWuYMrNk0Lq8LT0g
-  Client: ykyI5OlluSkHlm7jLB53-Q
+  Access-Token: EzkGK3OntYz7wqrQi5-KpQ
+  Client: roVGMyas4BGTilVXmTV8yA
   Content-Type: application/vnd.api+json
-  Uid: email38@example.com
+  Uid: email29@example.com
 
-  {"data":{"relationships":{"network-site":{"data":{"type":"network-sites","id":80}}},"type":"buildings","attributes":{"name":"Building Name"}}}
+  {"data":{"relationships":{"network-site":{"data":{"type":"network-sites","id":495}}},"type":"buildings","attributes":{"name":"Building Name"}}}
 
 Response:
   Status: 201 Created
   Content-Type: application/vnd.api+json
-  access-token: MWj3WjVWuYMrNk0Lq8LT0g
-  client: ykyI5OlluSkHlm7jLB53-Q
-  uid: email38@example.com
+  access-token: EzkGK3OntYz7wqrQi5-KpQ
+  client: roVGMyas4BGTilVXmTV8yA
+  uid: email29@example.com
 
-  {"data":{"id":"40","type":"buildings","links":{"self":"http://example.org/buildings/40"},"attributes":{"name":"Building Name","lat":null,"lng":null,"description":null,"node-counts":[],"import-job-status":null},"relationships":{"network-site":{"links":{"self":"http://example.org/buildings/40/relationships/network-site","related":"http://example.org/buildings/40/network-site"}},"sheets":{"links":{"self":"http://example.org/buildings/40/relationships/sheets","related":"http://example.org/buildings/40/sheets"}}}}}
+  {"data":{"id":"231","type":"buildings","links":{"self":"http://example.org/buildings/231"},"attributes":{"name":"Building Name","lat":null,"lng":null,"description":null,"node-counts":[],"import-job-status":null},"relationships":{"network-site":{"links":{"self":"http://example.org/buildings/231/relationships/network-site","related":"http://example.org/buildings/231/network-site"}},"sheets":{"links":{"self":"http://example.org/buildings/231/relationships/sheets","related":"http://example.org/buildings/231/sheets"}}}}}
 
 
 Update a building
@@ -66,41 +59,48 @@ Parameters:
   * id - The id of the building
 
 Request:
-  PATCH /buildings/41
-  Access-Token: 9CxgLIySiuuXgsgSy4X40w
-  Client: VdN0jylNf1ObpE4NKW4hsg
+  PATCH /buildings/232
+  Access-Token: nMj5-fNf3W0hOBKdB2Qu4g
+  Client: u13zM7MDRyX_HMqUkHznbQ
   Content-Type: application/vnd.api+json
-  Uid: email39@example.com
+  Uid: email30@example.com
 
-  {"data":{"relationships":{"network-site":{"data":{"type":"network-sites","id":82}}},"type":"buildings","attributes":{"name":"Updated Building Name"},"id":"41"}}
+  {"data":{"relationships":{"network-site":{"data":{"type":"network-sites","id":497}}},"type":"buildings","attributes":{"name":"Updated Building Name"},"id":"232"}}
 
 Response:
   Status: 200 OK
   Content-Type: application/vnd.api+json
-  access-token: 9CxgLIySiuuXgsgSy4X40w
-  client: VdN0jylNf1ObpE4NKW4hsg
-  uid: email39@example.com
+  access-token: nMj5-fNf3W0hOBKdB2Qu4g
+  client: u13zM7MDRyX_HMqUkHznbQ
+  uid: email30@example.com
 
-  {"data":{"id":"41","type":"buildings","links":{"self":"http://example.org/buildings/41"},"attributes":{"name":"Updated Building Name","lat":"39.290139","lng":"-76.614766","description":"MyText","node-counts":[],"import-job-status":null},"relationships":{"network-site":{"links":{"self":"http://example.org/buildings/41/relationships/network-site","related":"http://example.org/buildings/41/network-site"}},"sheets":{"links":{"self":"http://example.org/buildings/41/relationships/sheets","related":"http://example.org/buildings/41/sheets"}}}}}
+  {"data":{"id":"232","type":"buildings","links":{"self":"http://example.org/buildings/232"},"attributes":{"name":"Updated Building Name","lat":"39.290139","lng":"-76.614766","description":"MyText","node-counts":[],"import-job-status":null},"relationships":{"network-site":{"links":{"self":"http://example.org/buildings/232/relationships/network-site","related":"http://example.org/buildings/232/network-site"}},"sheets":{"links":{"self":"http://example.org/buildings/232/relationships/sheets","related":"http://example.org/buildings/232/sheets"}}}}}
 
 
-List all buildings
-------------------
+Delete a building
+-----------------
+
+Parameters:
+  * network-site - Network site id
+  * type - Should always be set to <code>buildings</code>
+  * name - Building Name
+  * lat - Building Latitude
+  * lng - Building Longitude
+  * id - The id of the building
 
 Request:
-  GET /buildings
-  Access-Token: HCCOqBPtHIHrvxSTaM3nDw
-  Client: nUioUqiUOApDC56HSTiPRA
+  DELETE /buildings/233
+  Access-Token: 48RO2kFBNzieAonIIb3VRQ
+  Client: ym0IYGzYzDmvv9BKdFcoqA
   Content-Type: application/vnd.api+json
-  Uid: email40@example.com
+  Uid: email31@example.com
+
+  {"data":{"relationships":{"network-site":{"data":{"type":"network-sites","id":499}}},"type":"buildings","id":"233"}}
 
 Response:
-  Status: 200 OK
-  Content-Type: application/vnd.api+json
-  access-token: HCCOqBPtHIHrvxSTaM3nDw
-  client: nUioUqiUOApDC56HSTiPRA
-  uid: email40@example.com
-
-  {"data":[{"id":"42","type":"buildings","links":{"self":"http://example.org/buildings/42"},"attributes":{"name":"1st building","lat":"39.290139","lng":"-76.614766","description":"MyText","node-counts":[],"import-job-status":null},"relationships":{"network-site":{"links":{"self":"http://example.org/buildings/42/relationships/network-site","related":"http://example.org/buildings/42/network-site"}},"sheets":{"links":{"self":"http://example.org/buildings/42/relationships/sheets","related":"http://example.org/buildings/42/sheets"}}}},{"id":"43","type":"buildings","links":{"self":"http://example.org/buildings/43"},"attributes":{"name":"2nd building","lat":"39.290139","lng":"-76.614766","description":"MyText","node-counts":[],"import-job-status":null},"relationships":{"network-site":{"links":{"self":"http://example.org/buildings/43/relationships/network-site","related":"http://example.org/buildings/43/network-site"}},"sheets":{"links":{"self":"http://example.org/buildings/43/relationships/sheets","related":"http://example.org/buildings/43/sheets"}}}}],"meta":{"record-count":2}}
+  Status: 204 No Content
+  access-token: 48RO2kFBNzieAonIIb3VRQ
+  client: ym0IYGzYzDmvv9BKdFcoqA
+  uid: email31@example.com
 
 

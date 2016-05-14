@@ -60,7 +60,11 @@ class CableRunResource < JSONAPI::Resource
     @model.versions.map do |version|
       user_email = version.whodunnit ? User.find(version.whodunnit).email : 'unknown'
 
-      version.changeset.merge({updated_by: user_email })
+      {
+        user: { id: version.whodunnit, email: user_email },
+        event_type: version.event,
+        changes: version.changeset
+      }
     end
   end
 end

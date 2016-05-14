@@ -17,20 +17,20 @@
       "request_body": null,
       "request_headers": {
         "Content-Type": "application/vnd.api+json",
-        "Access-Token": "68TKGtHYsP_UVGozWXQHbA",
-        "Client": "7xbKQ9fVP-NqP4_5fZyldQ",
-        "Uid": "email14@example.com"
+        "Access-Token": "z3Tv0IHrw6-bWgyUOGv3Fg",
+        "Client": "2kTlSoruDRyqfNKeAcfRTg",
+        "Uid": "email45@example.com"
       },
       "request_query_parameters": {
       },
       "request_content_type": "application/vnd.api+json",
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "{\"data\":[{\"id\":\"15\",\"type\":\"users\",\"links\":{\"self\":\"http://example.org/users/15\"},\"attributes\":{\"email\":\"email14@example.com\",\"role\":\"admin\"},\"relationships\":{\"company\":{\"links\":{\"self\":\"http://example.org/users/15/relationships/company\",\"related\":\"http://example.org/users/15/company\"}}}},{\"id\":\"16\",\"type\":\"users\",\"links\":{\"self\":\"http://example.org/users/16\"},\"attributes\":{\"email\":\"test1@example.com\",\"role\":\"admin\"},\"relationships\":{\"company\":{\"links\":{\"self\":\"http://example.org/users/16/relationships/company\",\"related\":\"http://example.org/users/16/company\"}}}},{\"id\":\"17\",\"type\":\"users\",\"links\":{\"self\":\"http://example.org/users/17\"},\"attributes\":{\"email\":\"test2@example.com\",\"role\":\"admin\"},\"relationships\":{\"company\":{\"links\":{\"self\":\"http://example.org/users/17/relationships/company\",\"related\":\"http://example.org/users/17/company\"}}}}],\"meta\":{\"record-count\":3}}",
+      "response_body": "{\"data\":[{\"id\":\"256\",\"type\":\"users\",\"links\":{\"self\":\"http://example.org/users/256\"},\"attributes\":{\"email\":\"email45@example.com\",\"role\":\"admin\"},\"relationships\":{\"company\":{\"links\":{\"self\":\"http://example.org/users/256/relationships/company\",\"related\":\"http://example.org/users/256/company\"}}}},{\"id\":\"257\",\"type\":\"users\",\"links\":{\"self\":\"http://example.org/users/257\"},\"attributes\":{\"email\":\"test1@example.com\",\"role\":\"admin\"},\"relationships\":{\"company\":{\"links\":{\"self\":\"http://example.org/users/257/relationships/company\",\"related\":\"http://example.org/users/257/company\"}}}},{\"id\":\"258\",\"type\":\"users\",\"links\":{\"self\":\"http://example.org/users/258\"},\"attributes\":{\"email\":\"test2@example.com\",\"role\":\"admin\"},\"relationships\":{\"company\":{\"links\":{\"self\":\"http://example.org/users/258/relationships/company\",\"related\":\"http://example.org/users/258/company\"}}}}],\"meta\":{\"record-count\":3}}",
       "response_headers": {
-        "access-token": "68TKGtHYsP_UVGozWXQHbA",
-        "client": "7xbKQ9fVP-NqP4_5fZyldQ",
-        "uid": "email14@example.com",
+        "access-token": "z3Tv0IHrw6-bWgyUOGv3Fg",
+        "client": "2kTlSoruDRyqfNKeAcfRTg",
+        "uid": "email45@example.com",
         "Content-Type": "application/vnd.api+json"
       },
       "response_content_type": "application/vnd.api+json",
