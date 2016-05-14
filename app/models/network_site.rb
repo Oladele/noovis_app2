@@ -21,4 +21,65 @@ class NetworkSite < ActiveRecord::Base
   validates :company_id, presence: true
   validates :name, uniqueness: { scope: [:company_id] }
 
+  def chart_distribution_ports_buildings
+  	network_graphs = NetworkGraph.all_for(self)
+
+    network_graphs.each_with_object([]) do |network_graph, array|
+      group = network_graph.sheet.building.name
+
+      actives = network_graph.node_count_for_type("ont_sn")
+      rdt_count = network_graph.node_count_for_type("rdt")
+
+      spares = (rdt_count * 12) - actives
+
+      array << { label: "Active Distribution Ports", group: group, value: actives }
+      array << { label: "Spare Distribution Ports", group: group, value: spares }
+    end
+  end
+
+  def chart_distribution_ports_sites
+  	data = self.chart_distribution_ports_buildings
+
+    result = { "Active Distribution Ports" => 0, "Spare Distribution Ports" => 0 }
+
+    data.each do |hash|
+      if hash[:label] == "Active Distribution Ports"
+        result["Active Distribution Ports"] += hash[:value]
+      else
+        result["Spare Distribution Ports"] += hash[:value]
+      end
+    end
+
+    result
+  end
+
+  def chart_feeder_capacity_buildings
+  	network_graphs = NetworkGraph.all_for(self)
+
+    network_graphs.each_with_object([]) do |network_graph, array|
+      group = network_graph.sheet.building.name
+
+      actives = network_graph.node_count_for_type("splitter")
+      spares = 12 - actives
+
+      array << { label: "Active PON Ports", group: group, value: actives }
+      array << { label: "Spare Feeder Fibers", group: group, value: spares }
+    end
+  end
+
+  def chart_feeder_capacity_sites
+  	data = self.chart_feeder_capacity_buildings
+
+    result = { "Active PON Ports" => 0, "Spare Feeder Fibers" => 0 }
+
+    data.each do |hash|
+      if hash[:label] == "Active PON Ports"
+        result["Active PON Ports"] += hash[:value]
+      else
+        result["Spare Feeder Fibers"] += hash[:value]
+      end
+    end
+
+    result
+  end
 end

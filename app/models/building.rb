@@ -17,6 +17,7 @@ class Building < ActiveRecord::Base
   has_one :company, through: :network_site
   has_many :sheets, dependent: :destroy
   has_many :import_jobs, dependent: :destroy
+  has_many :test_network_graphs, dependent: :destroy
 
   validates :name, presence: true
   validates :network_site_id, presence: true

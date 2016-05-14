@@ -19,6 +19,11 @@ FactoryGirl.define do
     lat {39.290139}
     lng {-76.614766}
 		company
-  end
 
+    factory :network_site_with_buildings do
+      after(:create) do |network_site, evaluator|
+        create_list(:building_with_sheet, 2, network_site: network_site)
+      end
+    end
+  end
 end

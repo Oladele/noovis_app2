@@ -31,6 +31,12 @@ FactoryGirl.define do
         create_list(:expired_import_job, 1, building: building)
       end
     end
+
+    factory :building_with_sheet do
+      after(:create) do |building, evaluator|
+        create_list(:sheet_with_network_graph, 1, building: building)
+      end
+    end
   end
 
 end

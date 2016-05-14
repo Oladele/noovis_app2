@@ -69,7 +69,7 @@ class Node < ActiveRecord::Base
     network_graphs.each do |network_graph|
       nodes << Node.all_for_single(network_graph)
     end
-    nodes.flatten
+    nodes.flatten.compact
   end
 
   def Node.all_for_single(network_graph)

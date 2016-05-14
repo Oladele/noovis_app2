@@ -51,7 +51,6 @@ class ImportCableRun
 
   def open_workbook
     case File.extname(@filename)
-    when '.csv' then @workbook = Roo::Csv.new(file)
     when '.xls' then @workbook = Roo::Spreadsheet.open(file, extension: :xls)
     when '.xlsx' then @workbook = Roo::Excelx.new(file)
     else
@@ -126,11 +125,11 @@ class ImportCableRun
 
     if @workbook_sheet.save
       save_cable_run
-      # create network_graph, nodes, edges
-      if network_template = NetworkTemplate.first
-        network_graph = @workbook_sheet.network_graphs.create network_template: network_template
-        network_graph.make_nodes_edges
-      end
+
+      NetworkGraph.destroy_all_for(@workbook_sheet.building)
+
+      graph = SpreadsheetImporter.import_from_cable_runs(SpreadsheetImporter::NETWORK_TEMPLATE, @workbook_sheet.cable_runs)
+      network_graph = @workbook_sheet.network_graphs.create(graph: graph)
     else
       set_status :unprocessable_entity,
         "Cannot create sheet #{@sheet} for workbook #{@filename}: #{@workbook_sheet.errors.full_messages}"
