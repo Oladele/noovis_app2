@@ -32,10 +32,10 @@
       "request_content_type": "application/json",
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "{\n  \"data\": {\n    \"id\": 49,\n    \"email\": \"test@example.com\",\n    \"company_id\": 150,\n    \"provider\": \"email\",\n    \"uid\": \"test@example.com\",\n    \"role\": \"admin\"\n  }\n}",
+      "response_body": "{\n  \"data\": {\n    \"id\": 232,\n    \"email\": \"test@example.com\",\n    \"company_id\": 773,\n    \"provider\": \"email\",\n    \"uid\": \"test@example.com\",\n    \"role\": \"admin\"\n  }\n}",
       "response_headers": {
-        "access-token": "p2yPEhyTJ8ngD_guwRYsIA",
-        "client": "uReojF28R_3lh-UAsKeRGA",
+        "access-token": "3pkox6ZItoFSH55-sjDdHA",
+        "client": "58u2J3T7yDqdaZJODT2g_A",
         "uid": "test@example.com",
         "Content-Type": "application/json; charset=utf-8"
       },

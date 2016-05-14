@@ -34,13 +34,13 @@
   "requests": [
     {
       "request_method": "DELETE",
-      "request_path": "/network-graphs/10",
-      "request_body": "{\"data\":{\"type\":\"network-graphs\",\"relationships\":{\"sheet\":{\"data\":{\"type\":\"sheets\",\"id\":13}},\"network-template\":{\"data\":{\"type\":\"network-templates\",\"id\":17}}},\"id\":\"10\"}}",
+      "request_path": "/network-graphs/67",
+      "request_body": "{\"data\":{\"type\":\"network-graphs\",\"relationships\":{\"sheet\":{\"data\":{\"type\":\"sheets\",\"id\":154}},\"network-template\":{\"data\":{\"type\":\"network-templates\",\"id\":107}}},\"id\":\"67\"}}",
       "request_headers": {
         "Content-Type": "application/vnd.api+json",
-        "Access-Token": "l62zO9zh_zF7m86FFWLlnw",
-        "Client": "Msx2P9YB6yorN3GJJPcyVw",
-        "Uid": "email17@example.com"
+        "Access-Token": "auDGOFRUlcCbQX1tj72DkQ",
+        "Client": "AQ5AuxWxqzvxAGyT3MALrw",
+        "Uid": "email33@example.com"
       },
       "request_query_parameters": {
       },
@@ -49,9 +49,9 @@
       "response_status_text": "No Content",
       "response_body": null,
       "response_headers": {
-        "access-token": "l62zO9zh_zF7m86FFWLlnw",
-        "client": "Msx2P9YB6yorN3GJJPcyVw",
-        "uid": "email17@example.com"
+        "access-token": "auDGOFRUlcCbQX1tj72DkQ",
+        "client": "AQ5AuxWxqzvxAGyT3MALrw",
+        "uid": "email33@example.com"
       },
       "response_content_type": null,
       "curl": null
