@@ -2,67 +2,6 @@ require 'rails_helper'
 
 RSpec.describe Testy, type: :model do
   describe "import" do
-    #it "Should do things" do
-      #graph = {
-        #site1: {
-          #building1: {
-
-          #}
-        #},
-        ##site2: {
-        ##}
-      #}
-
-      #assert_equal graph, Testy.import
-    #end
-
-    #it "sdflkj" do
-      #graph = {
-        #site1: {
-          #building1: {
-            #elt1: {
-
-            #}
-
-          #}
-        #},
-        ##site2: {
-        ##}
-      #}
-
-      #value = Testy.save_piece({}, [:site1, :building1, :elt1])
-
-      #assert_equal graph, value
-    #end
-
-    #it "two" do
-      #graph = {
-        #site1: {
-          #building1: {
-          #}
-        #},
-      #}
-
-      #value = Testy.new_import([[:site1, :building1], [:site1, :building1]])
-
-      #assert_equal graph, value
-    #end
-
-    #it "mult" do
-      #graph = {
-        #site1: {
-          #building1: {
-          #},
-          #building2: {
-          #}
-        #},
-      #}
-
-      #value = Testy.new_import([[:site1, :building1], [:site1, :building2]])
-
-      #assert_equal graph, value
-    #end
-
     it "import2" do
       graph = {
         sites: [
@@ -241,6 +180,57 @@ RSpec.describe Testy, type: :model do
       value = Testy.import2([["site1", "building1", "olt1"], ["site2", "building2"]])
 
       assert_equal graph, value
+    end
+
+    it "import2 6 nil check" do
+      graph = {
+        sites: [
+          {
+            value: 'site1',
+            buildings: [
+              {
+                value: 'building1',
+                olts: [
+                  {
+                    value: 'olt1',
+                    splitters: []
+                  }
+                ]
+              },
+            ]
+          },
+          {
+            value: 'site2',
+            buildings: [
+              {
+                value: 'building2',
+                olts: []
+              }
+            ]
+          }
+        ]
+      }
+
+      value = Testy.import2([["site1", "building1", "olt1"], ["site2", "building2", nil]])
+
+      assert_equal graph, value
+    end
+
+    it "template_order" do
+      assert_equal [0, 2, 1], Testy.template_order(["Site", "OLT Rack", "Building"])
+    end
+
+    it "template_order with invalid record" do
+      ordered = ["Site", "Building", "OLT Rack"]
+
+      assert_equal 'error', Testy.template_order(["Site", "OLT Rack", "asdf"])
+    end
+
+    it "template_order" do
+      ordered = [1, 2, 3]
+
+      value = Testy.reorder_sheet([0, 2, 1], [1, 3, 2])
+      assert_equal ordered, value
     end
   end
 end
