@@ -51,7 +51,6 @@ class ImportCableRun
 
   def open_workbook
     case File.extname(@filename)
-    when '.csv' then @workbook = Roo::Csv.new(file)
     when '.xls' then @workbook = Roo::Spreadsheet.open(file, extension: :xls)
     when '.xlsx' then @workbook = Roo::Excelx.new(file)
     else
