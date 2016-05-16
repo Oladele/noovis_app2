@@ -232,5 +232,13 @@ RSpec.describe Testy, type: :model do
       value = Testy.reorder_sheet([0, 2, 1], [[1, 3, 2], [1, 3, 2]])
       assert_equal ordered, value
     end
+
+    it "reads the spreadsheet into values" do
+      file = File.join(Rails.root, "import_reordering_test.xls")
+
+      result = [["Site", "OLT Rack", "Building"], [1, 3, 2], [1, 3, 2]]
+
+      assert_equal result, Testy.read_spreadsheet(file)
+    end
   end
 end

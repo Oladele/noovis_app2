@@ -69,4 +69,25 @@ class Testy
 
     ordered
   end
+
+  def self.read_spreadsheet(file)
+    headers = ["Site", "OLT Rack", "Building"]
+    found_headers = false
+    data = []
+
+    spreadsheet = Roo::Spreadsheet.open(file, extension: :xls)
+
+    spreadsheet.sheet('Sheet 1').each do |row|
+      found_headers = true if row == headers
+
+      if found_headers == true
+        data << []
+        row.each do |col|
+          data.last << col
+        end
+      end
+    end
+
+    data
+  end
 end
