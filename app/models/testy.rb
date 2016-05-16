@@ -37,16 +37,15 @@ class Testy
     graph
   end
 
-  def self.template_order(values)
-    order = ["Site", "Building", "OLT Rack"]  # This is the "network template"
+  def self.template_order(headers, values)
     order_index = 0
     fail_safe = 0
 
     ordered = []
 
-    while order_index < order.count
+    while order_index < headers.count
       values.each_with_index do |value, index|
-        if order[order_index] == value
+        if headers[order_index] == value
           ordered << index
           order_index += 1
           fail_safe = 0
@@ -71,14 +70,14 @@ class Testy
   end
 
   def self.read_spreadsheet(file)
-    headers = ["Site", "OLT Rack", "Building"]
     found_headers = false
     data = []
 
     spreadsheet = Roo::Spreadsheet.open(file, extension: :xls)
 
     spreadsheet.sheet('Sheet 1').each do |row|
-      found_headers = true if row == headers
+      # TODO: might want to check inclusion of all header values and not just if the first one matches
+      found_headers = true if row[0] == "Site"
 
       if found_headers == true
         data << []
@@ -88,6 +87,16 @@ class Testy
       end
     end
 
-    data
+    found_headers ? data : 'error'
+  end
+
+  def self.do_it(file)
+    spreadsheet_data = read_spreadsheet(file)
+
+    headers = ["Site", "Building", "OLT Rack"]
+
+    template_order = self.template_order(headers, spreadsheet_data[0])
+
+    self.reorder_sheet(template_order, spreadsheet_data)
   end
 end

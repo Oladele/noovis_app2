@@ -217,13 +217,11 @@ RSpec.describe Testy, type: :model do
     end
 
     it "template_order" do
-      assert_equal [0, 2, 1], Testy.template_order(["Site", "OLT Rack", "Building"])
+      assert_equal [0, 2, 1], Testy.template_order(["Site", "Building", "OLT Rack"], ["Site", "OLT Rack", "Building"])
     end
 
     it "template_order with invalid record" do
-      ordered = ["Site", "Building", "OLT Rack"]
-
-      assert_equal 'error', Testy.template_order(["Site", "OLT Rack", "asdf"])
+      assert_equal 'error', Testy.template_order(["Site", "Building", "OLT Rack"], ["Site", "OLT Rack", "asdf"])
     end
 
     it "template_order" do
@@ -236,9 +234,23 @@ RSpec.describe Testy, type: :model do
     it "reads the spreadsheet into values" do
       file = File.join(Rails.root, "import_reordering_test.xls")
 
-      result = [["Site", "OLT Rack", "Building"], [1, 3, 2], [1, 3, 2]]
+      result = [["Site", "OLT Rack", "Building"], %w(one three two), %w(one three two)]
 
       assert_equal result, Testy.read_spreadsheet(file)
+    end
+
+    it "reads the spreadsheet into values" do
+      file = File.join(Rails.root, "import_reordering_test_bad.xls")
+
+      assert_equal 'error', Testy.read_spreadsheet(file)
+    end
+
+    it "ordered spreadsheet" do
+      file = File.join(Rails.root, "import_reordering_test.xls")
+
+      result = [["Site", "Building", "OLT Rack"], %w(one two three), %w(one two three)]
+
+      assert_equal result, Testy.do_it(file)
     end
   end
 end
