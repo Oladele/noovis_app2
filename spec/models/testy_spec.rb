@@ -227,9 +227,9 @@ RSpec.describe Testy, type: :model do
     end
 
     it "template_order" do
-      ordered = [1, 2, 3]
+      ordered = [[1, 2, 3], [1, 2, 3]]
 
-      value = Testy.reorder_sheet([0, 2, 1], [1, 3, 2])
+      value = Testy.reorder_sheet([0, 2, 1], [[1, 3, 2], [1, 3, 2]])
       assert_equal ordered, value
     end
   end

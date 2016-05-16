@@ -61,6 +61,12 @@ class Testy
   end
 
   def self.reorder_sheet(order, values)
-    order.collect { |index| values[index] }
+    ordered = []
+
+    values.each do |row|
+      ordered << order.collect { |index| row[index] }
+    end
+
+    ordered
   end
 end
