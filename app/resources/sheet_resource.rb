@@ -21,11 +21,10 @@ class SheetResource < JSONAPI::Resource
       .order(created_at: :desc)
       .map do |version|
       user_email = version.whodunnit ? User.find(version.whodunnit).email : 'unknown'
-      cable_run = version.reify
 
       {
         user: { id: version.whodunnit, email: user_email },
-        cable_run: { id: cable_run.id, ont_sn: cable_run.ont_sn },
+        cable_run: { id: version.item.id, ont_sn: version.item.ont_sn },
         event_type: version.event,
         changes: version.changeset
       }
