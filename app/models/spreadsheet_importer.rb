@@ -1,22 +1,6 @@
-#@node_tree_types =
-  #[
-    #"olt_chassis",
-    #"pon_card",
-    #"pon_port",
-    #"building",
-    #"fdh",
-    #"splitter",
-    #"rdt",
-    #"room",
-    #"ont_sn",
-    #"ont_ge_1_mac",
-    #"ont_ge_2_mac",
-    #"ont_ge_3_mac",
-    #"ont_ge_4_mac",
-  #]
-
-
 class SpreadsheetImporter
+  NETWORK_TEMPLATE = ["Site", "OLT Chassis", "PON Card", "PON Port", "Building", "FDH", "Splitter", "RDT", "Room Number", "ONT SN#", "ONT GE Port 1 MAC", "ONT GE Port 2 MAC", "ONT GE Port 3 MAC", "ONT GE Port 4 MAC"].freeze
+
   def self.import(network_template, file, sheet_name)
     # Read the spreadsheet into a data structure we can work with.
     result = read_spreadsheet(file, sheet_name)

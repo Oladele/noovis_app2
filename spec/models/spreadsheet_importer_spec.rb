@@ -630,10 +630,7 @@ RSpec.describe SpreadsheetImporter, type: :model do
         ]
       }
 
-      network_template = ["Site", "OLT Chassis", "PON Card", "PON Port", "Building", "FDH", "Splitter", "RDT",
-                          "Room Number", "ONT SN#", "ONT GE Port 1 MAC", "ONT GE Port 2 MAC", "ONT GE Port 3 MAC", "ONT GE Port 4 MAC"]
-
-      value = SpreadsheetImporter.import(network_template, file, 'Village Square')
+      value = SpreadsheetImporter.import(SpreadsheetImporter::NETWORK_TEMPLATE, file, 'Village Square')
       assert_equal result, value
     end
 
