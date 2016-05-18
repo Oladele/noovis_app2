@@ -12,7 +12,13 @@ RSpec.describe Testy, type: :model do
         ]
       }
 
-      value = Testy.import2([["site1"]])
+      template = [
+        { type: :sites, collection: :buildings },
+        { type: :buildings, collection: :olts },
+        { type: :olts, collection: :splitters }
+      ]
+
+      value = Testy.import2(template, [["site1"]])
 
       assert_equal graph, value
     end
@@ -32,7 +38,13 @@ RSpec.describe Testy, type: :model do
         ]
       }
 
-      value = Testy.import2([["site1", "building1"]])
+      template = [
+        { type: :sites, collection: :buildings },
+        { type: :buildings, collection: :olts },
+        { type: :olts, collection: :splitters }
+      ]
+
+      value = Testy.import2(template, [["site1", "building1"]])
 
       assert_equal graph, value
     end
@@ -56,7 +68,13 @@ RSpec.describe Testy, type: :model do
         ]
       }
 
-      value = Testy.import2([["site1", "building1"], ["site1", "building2"]])
+      template = [
+        { type: :sites, collection: :buildings },
+        { type: :buildings, collection: :olts },
+        { type: :olts, collection: :splitters }
+      ]
+
+      value = Testy.import2(template, [["site1", "building1"], ["site1", "building2"]])
 
       assert_equal graph, value
     end
@@ -89,7 +107,13 @@ RSpec.describe Testy, type: :model do
         ]
       }
 
-      value = Testy.import2([["site1", "building1"], ["site1", "building2"], ["site2", "building3"]])
+      template = [
+        { type: :sites, collection: :buildings },
+        { type: :buildings, collection: :olts },
+        { type: :olts, collection: :splitters }
+      ]
+
+      value = Testy.import2(template, [["site1", "building1"], ["site1", "building2"], ["site2", "building3"]])
 
       assert_equal graph, value
     end
@@ -118,7 +142,13 @@ RSpec.describe Testy, type: :model do
         ]
       }
 
-      value = Testy.import2([["site1", "building1"], ["site1", "building1"], ["site2", "building3"]])
+      template = [
+        { type: :sites, collection: :buildings },
+        { type: :buildings, collection: :olts },
+        { type: :olts, collection: :splitters }
+      ]
+
+      value = Testy.import2(template, [["site1", "building1"], ["site1", "building1"], ["site2", "building3"]])
 
       assert_equal graph, value
     end
@@ -143,7 +173,13 @@ RSpec.describe Testy, type: :model do
         ]
       }
 
-      value = Testy.import2([["site1", "building1", "olt1"]])
+      template = [
+        { type: :sites, collection: :buildings },
+        { type: :buildings, collection: :olts },
+        { type: :olts, collection: :splitters }
+      ]
+
+      value = Testy.import2(template, [["site1", "building1", "olt1"]])
 
       assert_equal graph, value
     end
@@ -177,7 +213,13 @@ RSpec.describe Testy, type: :model do
         ]
       }
 
-      value = Testy.import2([["site1", "building1", "olt1"], ["site2", "building2"]])
+      template = [
+        { type: :sites, collection: :buildings },
+        { type: :buildings, collection: :olts },
+        { type: :olts, collection: :splitters }
+      ]
+
+      value = Testy.import2(template, [["site1", "building1", "olt1"], ["site2", "building2"]])
 
       assert_equal graph, value
     end
@@ -211,7 +253,13 @@ RSpec.describe Testy, type: :model do
         ]
       }
 
-      value = Testy.import2([["site1", "building1", "olt1"], ["site2", "building2", nil]])
+      template = [
+        { type: :sites, collection: :buildings },
+        { type: :buildings, collection: :olts },
+        { type: :olts, collection: :splitters }
+      ]
+
+      value = Testy.import2(template, [["site1", "building1", "olt1"], ["site2", "building2", nil]])
 
       assert_equal graph, value
     end
@@ -236,21 +284,99 @@ RSpec.describe Testy, type: :model do
 
       result = [["Site", "OLT Rack", "Building"], %w(one three two), %w(one three two)]
 
-      assert_equal result, Testy.read_spreadsheet(file)
+      assert_equal result, Testy.read_spreadsheet(file, 'Sheet 1')
     end
 
     it "reads the spreadsheet into values" do
       file = File.join(Rails.root, "import_reordering_test_bad.xls")
 
-      assert_equal 'error', Testy.read_spreadsheet(file)
+      assert_equal 'error', Testy.read_spreadsheet(file, 'Sheet 1')
     end
 
     it "ordered spreadsheet" do
       file = File.join(Rails.root, "import_reordering_test.xls")
 
-      result = [["Site", "Building", "OLT Rack"], %w(one two three), %w(one two three)]
+      result = {
+        sites: [
+          {
+            value: 'one',
+            buildings: [
+              {
+                value: 'two',
+                olts: [
+                  {
+                    value: 'three',
+                    splitters: []
+                  },
+                ]
+              },
+            ]
+          },
+        ]
+      }
 
-      assert_equal result, Testy.do_it(file)
+      network_template = ["Site", "Building", "OLT Rack"]
+      assert_equal result, Testy.do_it(network_template, file, 'Sheet 1')
+    end
+
+    it "imports a small but real sheet" do
+      file = File.join(Rails.root, "small_but_real.xls")
+
+      result = {
+        sites: [
+          {
+            value: 'Oakcrest',
+            olt_chasses: [
+              {
+                value: 'ELOC001',
+                pon_cards: [
+                  {
+                    value: '1',
+                    pon_ports: [
+                      {
+                        value: '1',
+                        buildings: [
+                          {
+                            value: 'Village Square',
+                            fdhs: [
+                              {
+                                value: 'VS1',
+                                splitters: [
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+
+      network_template = ["Site", "OLT Chassis", "PON Card", "PON Port", "Building", "FDH"]
+      assert_equal result, Testy.do_it(network_template, file, 'Village Square')
+    end
+
+    it "makes the template" do
+      result = [
+        { type: :sites, collection: :olt_chasses },
+        { type: :olt_chasses, collection: :pon_cards },
+        { type: :pon_cards, collection: nil }
+      ]
+
+      template = ["Site", "OLT Chassis", "PON Card"]
+
+      assert_equal result, Testy.build_template_from_network_template(template)
+    end
+
+    it "format" do
+      assert_equal :pon_cards, Testy.format('PON Card')
+      assert_equal :sites, Testy.format('Site')
+      assert_equal :olt_chasses, Testy.format('OLT Chassis')
     end
   end
 end

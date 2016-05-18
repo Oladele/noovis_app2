@@ -1,13 +1,5 @@
 class Testy
-  def self.import2(values)
-
-    # Duplicating some info here, might be a cleaner way to structure this.
-    template = [
-      { type: :sites, collection: :buildings },
-      { type: :buildings, collection: :olts },
-      { type: :olts, collection: :splitters }
-    ]
-
+  def self.import2(template, values)
     graph = { sites: [] }
 
     values.each do |row|
@@ -69,13 +61,13 @@ class Testy
     ordered
   end
 
-  def self.read_spreadsheet(file)
+  def self.read_spreadsheet(file, sheet_name)
     found_headers = false
     data = []
 
     spreadsheet = Roo::Spreadsheet.open(file, extension: :xls)
 
-    spreadsheet.sheet('Sheet 1').each do |row|
+    spreadsheet.sheet(sheet_name).each do |row|
       # TODO: might want to check inclusion of all header values and not just if the first one matches
       found_headers = true if row[0] == "Site"
 
@@ -90,13 +82,66 @@ class Testy
     found_headers ? data : 'error'
   end
 
-  def self.do_it(file)
-    spreadsheet_data = read_spreadsheet(file)
+  # 1 Get the spreadsheet into an array of rows
+  # 2 Find the order of columns
+  # 3 => Reorder data
+  # 4 Build the structure
+  # 5 Save it
+  def self.do_it(network_template, file, sheet_name)
+    # 1
+    spreadsheet_data = read_spreadsheet(file, sheet_name)
 
-    headers = ["Site", "Building", "OLT Rack"]
+    #@node_tree_types =
+      #[
+        #"olt_chassis",
+        #"pon_card",
+        #"pon_port",
+        #"building",
+        #"fdh",
+        #"splitter",
+        #"rdt",
+        #"room",
+        #"ont_sn",
+        #"ont_ge_1_mac",
+        #"ont_ge_2_mac",
+        #"ont_ge_3_mac",
+        #"ont_ge_4_mac",
+      #]
 
-    template_order = self.template_order(headers, spreadsheet_data[0])
 
-    self.reorder_sheet(template_order, spreadsheet_data)
+    # 2
+    template_order = self.template_order(network_template, spreadsheet_data[0])
+
+    # 3
+    values = self.reorder_sheet(template_order, spreadsheet_data)
+
+    # Duplicating some info here, might be a cleaner way to structure this.
+    template = [
+      { type: :sites, collection: :buildings },
+      { type: :buildings, collection: :olts },
+      { type: :olts, collection: :splitters }
+    ]
+
+    # 4
+    self.import2(template, values[1..-1])
+
+    # 5
+  end
+
+  def self.build_template_from_network_template(network_template)
+    template = []
+
+    network_template.each_with_index do |value, index|
+      # Look ahead to grab the collection name
+      collection = self.format(network_template[index + 1]) if network_template[index + 1].present?
+
+      template << { type: self.format(value), collection: collection }
+    end
+
+    template
+  end
+
+  def self.format(value)
+    value.downcase.pluralize.gsub(' ', '_').to_sym
   end
 end
