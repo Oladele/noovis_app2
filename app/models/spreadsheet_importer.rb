@@ -35,135 +35,127 @@ class SpreadsheetImporter
 
     # Generate the structure and then build it using the network template
     structure = self.structure_for_network_template(network_template)
-    self.build_structure(structure, ordered_sheet_data[1..-1])  # [1..-1] is all rows but the first header row
+    data = self.build_structure(structure, ordered_sheet_data[1..-1])  # [1..-1] is all rows but the first header row
 
-    # 5
+    return data
   end
 
-  def self.read_spreadsheet(file, sheet_name)
-    found_headers = false
-    data = []
+  private
 
-    spreadsheet = Roo::Spreadsheet.open(file, extension: :xls)
+    def self.read_spreadsheet(file, sheet_name)
+      found_headers = false
+      data = []
 
-    spreadsheet.sheet(sheet_name).each do |row|
-      # TODO: might want to check inclusion of all header values and not just if the first one matches
-      found_headers = true if row[0] == "Site"
+      spreadsheet = Roo::Spreadsheet.open(file, extension: :xls)
 
-      if found_headers == true
-        data << []
-        row.each do |col|
-          data.last << col
-        end
-      end
-    end
+      spreadsheet.sheet(sheet_name).each do |row|
+        # TODO: check inclusion of all header values and not just first one
+        found_headers = true if row[0] == "Site"
 
-    if found_headers
-      { success: true, message: nil, sheet_data: data }
-    else
-      { success: false, message: 'Error: header row did not match template.', sheet_data: nil }
-    end
-  end
-
-  def self.template_order(headers, values)
-    order_index = 0
-    fail_safe = 0
-
-    ordered = []
-
-    while order_index < headers.count
-      values.each_with_index do |value, index|
-        if headers[order_index] == value
-          ordered << index
-          order_index += 1
-          fail_safe = 0
+        if found_headers == true
+          data << []
+          row.each do |col|
+            data.last << col
+          end
         end
       end
 
-      fail_safe += 1
-      return { success: false, message: 'Error: spreadsheet header values did not match template.', spreadsheet_order: nil } if fail_safe > 100
-    end
-
-    { success: true, message: nil, spreadsheet_order: ordered }
-  end
-
-
-  def self.build_structure(template, values)
-    graph = { sites: [] }
-
-    values.each do |row|
-      previous = graph  # Start at the top
-
-      row.each_with_index do |col, index|
-        col = "N/A" if col.nil?
-
-        type = template[index][:type]
-        collection = template[index][:collection]
-
-        # Do we have this node yet?
-        object = previous[type].select { |object| object[:value] == col }.first
-
-        # If not, make it.
-        if object.nil?
-          object = { value: col.is_a?(Float) ? col.to_i.to_s : col }  # If it's a number, `1` is sometimes read in as `1.0`
-          object[collection] = [] if collection.present?  # Could be end of graph
-
-          previous[type] << object
-        end
-
-        # Set the current place in the nested structure for the next iteration
-        previous = object
+      if found_headers
+        { success: true, message: nil, sheet_data: data }
+      else
+        { success: false, message: 'Error: header row did not match template.', sheet_data: nil }
       end
     end
 
-    graph
-  end
+    def self.template_order(headers, values)
+      order_index = 0
+      fail_safe = 0
 
-  def self.reorder_sheet(order, values)
-    ordered = []
+      ordered = []
 
-    values.each do |row|
-      ordered << order.collect { |index| row[index] }
+      while order_index < headers.count
+        values.each_with_index do |value, index|
+          if headers[order_index] == value
+            ordered << index
+            order_index += 1
+            fail_safe = 0
+          end
+        end
+
+        fail_safe += 1
+        return { success: false, message: 'Error: spreadsheet header values did not match template.', spreadsheet_order: nil } if fail_safe > 100
+      end
+
+      { success: true, message: nil, spreadsheet_order: ordered }
     end
 
-    ordered
-  end
-
-  def self.structure_for_network_template(network_template)
-    # Duplicating some info here, might be a cleaner way to structure this.
-    template = []
-
-    network_template.each_with_index do |value, index|
-      # Look ahead to grab the collection name
-      collection_name = network_template[index + 1]
-
-      object = { type: self.format(value) }
-      object[:collection] = self.format(collection_name) if collection_name.present?
-
-      template << object
+    def self.reorder_sheet(order, values)
+      values.each_with_object([]) do |row, array|
+        array << order.collect { |index| row[index] }
+      end
     end
 
-    template
-  end
+    def self.structure_for_network_template(network_template)
+      # Duplicating some info here, might be a cleaner way to structure this.
+      network_template.each_with_object([]).with_index do |(value, array), index|
+        collection_name = network_template[index + 1] # Look ahead to grab the collection name
 
-  def self.format(value)
-    value = value.downcase
+        object = { type: self.format(value) }
+        object[:collection] = self.format(collection_name) if collection_name.present?
 
-    case value
-    when "room number"
-      "room"
-    when "ont sn#"
-      "ont sn"
-    when "ont ge port 1 mac"
-      "ont ge 1 mac"
-    when "ont ge port 2 mac"
-      "ont ge 2 mac"
-    when "ont ge port 3 mac"
-      "ont ge 3 mac"
-    when "ont ge port 4 mac"
-      "ont ge 4 mac"
-    else
-      value
-    end.gsub(' ', '_').pluralize.to_sym
-  end
+        array << object
+      end
+    end
+
+    def self.build_structure(template, values)
+      graph = { sites: [] }
+
+      values.each do |row|
+        previous = graph  # Start at the top
+
+        row.each_with_index do |col, index|
+          col = "N/A" if col.nil?
+
+          type = template[index][:type]
+          collection = template[index][:collection]
+
+          # Do we have this node yet?
+          object = previous[type].select { |object| object[:value] == col }.first
+
+          # If not, make it.
+          if object.nil?
+            object = { value: col.is_a?(Float) ? col.to_i.to_s : col }  # If it's a number, `1` is sometimes read in as `1.0`
+            object[collection] = [] if collection.present?  # Could be end of graph
+
+            previous[type] << object
+          end
+
+          # Set the current place in the nested structure for the next iteration
+          previous = object
+        end
+      end
+
+      graph
+    end
+
+    def self.format(value)
+      value = value.downcase
+
+      case value
+      when "room number"
+        "room"
+      when "ont sn#"
+        "ont sn"
+      when "ont ge port 1 mac"
+        "ont ge 1 mac"
+      when "ont ge port 2 mac"
+        "ont ge 2 mac"
+      when "ont ge port 3 mac"
+        "ont ge 3 mac"
+      when "ont ge port 4 mac"
+        "ont ge 4 mac"
+      else
+        value
+      end.gsub(' ', '_').pluralize.to_sym
+    end
 end
