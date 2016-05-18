@@ -79,6 +79,36 @@ RSpec.describe Testy, type: :model do
       assert_equal graph, value
     end
 
+    it "import2 3.55 with integer values" do
+      graph = {
+        sites: [
+          {
+            value: 'site1',
+            buildings: [
+              {
+                value: '1',
+                olts: []
+              },
+              {
+                value: '2',
+                olts: []
+              }
+            ]
+          }
+        ]
+      }
+
+      template = [
+        { type: :sites, collection: :buildings },
+        { type: :buildings, collection: :olts },
+        { type: :olts, collection: :splitters }
+      ]
+
+      value = Testy.import2(template, [["site1", 1.0], ["site1", 2.0]])
+
+      assert_equal graph, value
+    end
+
     it "import2 4" do
       graph = {
         sites: [
@@ -269,7 +299,7 @@ RSpec.describe Testy, type: :model do
     end
 
     it "template_order with invalid record" do
-      assert_equal 'error', Testy.template_order(["Site", "Building", "OLT Rack"], ["Site", "OLT Rack", "asdf"])
+      assert_equal 'ordering error', Testy.template_order(["Site", "Building", "OLT Rack"], ["Site", "OLT Rack", "asdf"])
     end
 
     it "template_order" do
@@ -290,7 +320,7 @@ RSpec.describe Testy, type: :model do
     it "reads the spreadsheet into values" do
       file = File.join(Rails.root, "spec/support/import_refactor_spreadsheets/import_reordering_test_bad.xls")
 
-      assert_equal 'error', Testy.read_spreadsheet(file, 'Sheet 1')
+      assert_equal 'read spreadsheet error', Testy.read_spreadsheet(file, 'Sheet 1')
     end
 
     it "ordered spreadsheet" do
@@ -303,10 +333,10 @@ RSpec.describe Testy, type: :model do
             buildings: [
               {
                 value: 'two',
-                olts: [
+                olt_racks: [
                   {
                     value: 'three',
-                    splitters: []
+                    nil => []     # This is weird
                   },
                 ]
               },
@@ -357,7 +387,7 @@ RSpec.describe Testy, type: :model do
         ]
       }
 
-      network_template = ["Site", "OLT Chassis", "PON Card", "PON Port", "Building", "FDH"]
+      network_template = ["Site", "OLT Chassis", "PON Card", "PON Port", "Building", "FDH", "Splitter"]
       assert_equal result, Testy.do_it(network_template, file, 'Village Square')
     end
 

@@ -16,7 +16,8 @@ class Testy
 
         # If not, make it.
         if object.nil?
-          object = { value: col, collection => [] }
+          # `1` is sometimes read in as `1.0`
+          object = { value: col.is_a?(Float) ? col.to_i.to_s : col, collection => [] }
 
           previous[type] << object
         end
@@ -45,7 +46,7 @@ class Testy
       end
 
       fail_safe += 1
-      return 'error' if fail_safe > 100
+      return 'ordering error' if fail_safe > 100
     end
 
     ordered
@@ -79,14 +80,9 @@ class Testy
       end
     end
 
-    found_headers ? data : 'error'
+    found_headers ? data : 'read spreadsheet error'
   end
 
-  # 1 Get the spreadsheet into an array of rows
-  # 2 Find the order of columns
-  # 3 => Reorder data
-  # 4 Build the structure
-  # 5 Save it
   def self.do_it(network_template, file, sheet_name)
     # 1
     spreadsheet_data = read_spreadsheet(file, sheet_name)
@@ -115,12 +111,7 @@ class Testy
     # 3
     values = self.reorder_sheet(template_order, spreadsheet_data)
 
-    # Duplicating some info here, might be a cleaner way to structure this.
-    template = [
-      { type: :sites, collection: :buildings },
-      { type: :buildings, collection: :olts },
-      { type: :olts, collection: :splitters }
-    ]
+    template = self.build_template_from_network_template(network_template)
 
     # 4
     self.import2(template, values[1..-1])
@@ -129,6 +120,7 @@ class Testy
   end
 
   def self.build_template_from_network_template(network_template)
+    # Duplicating some info here, might be a cleaner way to structure this.
     template = []
 
     network_template.each_with_index do |value, index|
