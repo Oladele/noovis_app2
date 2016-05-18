@@ -280,7 +280,7 @@ RSpec.describe Testy, type: :model do
     end
 
     it "reads the spreadsheet into values" do
-      file = File.join(Rails.root, "import_reordering_test.xls")
+      file = File.join(Rails.root, "spec/support/import_refactor_spreadsheets/import_reordering_test.xls")
 
       result = [["Site", "OLT Rack", "Building"], %w(one three two), %w(one three two)]
 
@@ -288,13 +288,13 @@ RSpec.describe Testy, type: :model do
     end
 
     it "reads the spreadsheet into values" do
-      file = File.join(Rails.root, "import_reordering_test_bad.xls")
+      file = File.join(Rails.root, "spec/support/import_refactor_spreadsheets/import_reordering_test_bad.xls")
 
       assert_equal 'error', Testy.read_spreadsheet(file, 'Sheet 1')
     end
 
     it "ordered spreadsheet" do
-      file = File.join(Rails.root, "import_reordering_test.xls")
+      file = File.join(Rails.root, "spec/support/import_refactor_spreadsheets/import_reordering_test.xls")
 
       result = {
         sites: [
@@ -320,7 +320,7 @@ RSpec.describe Testy, type: :model do
     end
 
     it "imports a small but real sheet" do
-      file = File.join(Rails.root, "small_but_real.xls")
+      file = File.join(Rails.root, "spec/support/import_refactor_spreadsheets/small_but_real.xls")
 
       result = {
         sites: [
