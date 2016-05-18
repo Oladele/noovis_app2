@@ -6,7 +6,7 @@ class Testy
       previous = graph  # Start at the top
 
       row.each_with_index do |col, index|
-        next if col.nil?
+        col = "N/A" if col.nil?
 
         type = template[index][:type]
         collection = template[index][:collection]
@@ -16,8 +16,8 @@ class Testy
 
         # If not, make it.
         if object.nil?
-          # `1` is sometimes read in as `1.0`
-          object = { value: col.is_a?(Float) ? col.to_i.to_s : col, collection => [] }
+          object = { value: col.is_a?(Float) ? col.to_i.to_s : col }  # If it's a number, `1` is sometimes read in as `1.0`
+          object[collection] = [] if collection.present?  # Could be end of graph
 
           previous[type] << object
         end
@@ -125,9 +125,12 @@ class Testy
 
     network_template.each_with_index do |value, index|
       # Look ahead to grab the collection name
-      collection = self.format(network_template[index + 1]) if network_template[index + 1].present?
+      collection_name = network_template[index + 1]
 
-      template << { type: self.format(value), collection: collection }
+      object = { type: self.format(value) }
+      object[:collection] = self.format(collection_name) if collection_name.present?
+
+      template << object
     end
 
     template

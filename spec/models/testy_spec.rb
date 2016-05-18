@@ -225,7 +225,6 @@ RSpec.describe Testy, type: :model do
                 olts: [
                   {
                     value: 'olt1',
-                    splitters: []
                   }
                 ]
               },
@@ -246,7 +245,7 @@ RSpec.describe Testy, type: :model do
       template = [
         { type: :sites, collection: :buildings },
         { type: :buildings, collection: :olts },
-        { type: :olts, collection: :splitters }
+        { type: :olts }
       ]
 
       value = Testy.import2(template, [["site1", "building1", "olt1"], ["site2", "building2"]])
@@ -265,7 +264,6 @@ RSpec.describe Testy, type: :model do
                 olts: [
                   {
                     value: 'olt1',
-                    splitters: []
                   }
                 ]
               },
@@ -276,7 +274,11 @@ RSpec.describe Testy, type: :model do
             buildings: [
               {
                 value: 'building2',
-                olts: []
+                olts: [
+                  {
+                    value: 'N/A'
+                  }
+                ]
               }
             ]
           }
@@ -286,7 +288,7 @@ RSpec.describe Testy, type: :model do
       template = [
         { type: :sites, collection: :buildings },
         { type: :buildings, collection: :olts },
-        { type: :olts, collection: :splitters }
+        { type: :olts }
       ]
 
       value = Testy.import2(template, [["site1", "building1", "olt1"], ["site2", "building2", nil]])
@@ -336,7 +338,6 @@ RSpec.describe Testy, type: :model do
                 olt_racks: [
                   {
                     value: 'three',
-                    nil => []     # This is weird
                   },
                 ]
               },
@@ -372,6 +373,7 @@ RSpec.describe Testy, type: :model do
                               {
                                 value: 'VS1',
                                 splitters: [
+                                  { value: 'N/A' }
                                 ]
                               }
                             ]
@@ -391,11 +393,59 @@ RSpec.describe Testy, type: :model do
       assert_equal result, Testy.do_it(network_template, file, 'Village Square')
     end
 
+    it "imports a small but real sheet" do
+      file = File.join(Rails.root, "spec/support/import_refactor_spreadsheets/small_but_real.xls")
+
+      result = {
+        sites: [
+          {
+            value: 'Oakcrest',
+            olt_chasses: [
+              {
+                value: 'ELOC001',
+                pon_cards: [
+                  {
+                    value: '1',
+                    pon_ports: [
+                      {
+                        value: '1',
+                        buildings: [
+                          {
+                            value: 'Village Square',
+                            fdhs: [
+                              {
+                                value: 'VS1',
+                                splitters: [
+                                  {
+                                    value: 'N/A',
+                                    rdts: [
+                                      { value: '1' }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+
+      network_template = ["Site", "OLT Chassis", "PON Card", "PON Port", "Building", "FDH", "Splitter", "RDT"]
+      assert_equal result, Testy.do_it(network_template, file, 'Village Square')
+    end
+
     it "makes the template" do
       result = [
         { type: :sites, collection: :olt_chasses },
         { type: :olt_chasses, collection: :pon_cards },
-        { type: :pon_cards, collection: nil }
+        { type: :pon_cards }
       ]
 
       template = ["Site", "OLT Chassis", "PON Card"]
