@@ -393,7 +393,7 @@ RSpec.describe Testy, type: :model do
       assert_equal result, Testy.do_it(network_template, file, 'Village Square')
     end
 
-    it "imports a small but real sheet" do
+    it "imports a small but real sheet fully" do
       file = File.join(Rails.root, "spec/support/import_refactor_spreadsheets/small_but_real.xls")
 
       result = {
@@ -419,7 +419,37 @@ RSpec.describe Testy, type: :model do
                                   {
                                     value: 'N/A',
                                     rdts: [
-                                      { value: '1' }
+                                      {
+                                        value: '1',
+                                        rooms: [
+                                          {
+                                            value: 'N/A',
+                                            ont_sns: [
+                                              {
+                                                value: 'N/A',
+                                                ont_ge_1_macs: [
+                                                  {
+                                                    value: 'N/A',
+                                                    ont_ge_2_macs: [
+                                                      {
+                                                        value: 'N/A',
+                                                        ont_ge_3_macs: [
+                                                          {
+                                                            value: 'N/A',
+                                                            ont_ge_4_macs: [
+                                                              { value: 'N/A' }
+                                                            ]
+                                                          }
+                                                        ]
+                                                      }
+                                                    ]
+                                                  }
+                                                ]
+                                              }
+                                            ]
+                                          }
+                                        ]
+                                      }
                                     ]
                                   }
                                 ]
@@ -437,8 +467,11 @@ RSpec.describe Testy, type: :model do
         ]
       }
 
-      network_template = ["Site", "OLT Chassis", "PON Card", "PON Port", "Building", "FDH", "Splitter", "RDT"]
-      assert_equal result, Testy.do_it(network_template, file, 'Village Square')
+      network_template = ["Site", "OLT Chassis", "PON Card", "PON Port", "Building", "FDH", "Splitter", "RDT",
+                          "Room Number", "ONT SN#", "ONT GE Port 1 MAC", "ONT GE Port 2 MAC", "ONT GE Port 3 MAC", "ONT GE Port 4 MAC"]
+
+      value = Testy.do_it(network_template, file, 'Village Square')
+      assert_equal result, value
     end
 
     it "makes the template" do
@@ -457,6 +490,9 @@ RSpec.describe Testy, type: :model do
       assert_equal :pon_cards, Testy.format('PON Card')
       assert_equal :sites, Testy.format('Site')
       assert_equal :olt_chasses, Testy.format('OLT Chassis')
+      assert_equal :rooms, Testy.format('Room Number')
+      assert_equal :ont_sns, Testy.format('ONT SN#')
+      assert_equal :ont_ge_1_macs, Testy.format('ONT GE Port 1 Mac')
     end
   end
 end

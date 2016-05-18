@@ -137,6 +137,23 @@ class Testy
   end
 
   def self.format(value)
-    value.downcase.pluralize.gsub(' ', '_').to_sym
+    value = value.downcase
+
+    case value
+    when "room number"
+      "room"
+    when "ont sn#"
+      "ont sn"
+    when "ont ge port 1 mac"
+      "ont ge 1 mac"
+    when "ont ge port 2 mac"
+      "ont ge 2 mac"
+    when "ont ge port 3 mac"
+      "ont ge 3 mac"
+    when "ont ge port 4 mac"
+      "ont ge 4 mac"
+    else
+      value
+    end.gsub(' ', '_').pluralize.to_sym
   end
 end
