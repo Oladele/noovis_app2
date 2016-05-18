@@ -474,6 +474,153 @@ RSpec.describe Testy, type: :model do
       assert_equal result, value
     end
 
+    it "imports two rows from a small but real sheet fully" do
+      file = File.join(Rails.root, "spec/support/import_refactor_spreadsheets/two_rows_small_but_real.xls")
+
+      result = {
+        sites: [
+          {
+            value: 'Oakcrest',
+            olt_chasses: [
+              {
+                value: 'ELOC001',
+                pon_cards: [
+                  {
+                    value: '1',
+                    pon_ports: [
+                      {
+                        value: '1',
+                        buildings: [
+                          {
+                            value: 'Village Square',
+                            fdhs: [
+                              {
+                                value: 'VS1',
+                                splitters: [
+                                  {
+                                    value: 'N/A',
+                                    rdts: [
+                                      {
+                                        value: '1',
+                                        rooms: [
+                                          {
+                                            value: 'N/A',
+                                            ont_sns: [
+                                              {
+                                                value: 'N/A',
+                                                ont_ge_1_macs: [
+                                                  {
+                                                    value: 'N/A',
+                                                    ont_ge_2_macs: [
+                                                      {
+                                                        value: 'N/A',
+                                                        ont_ge_3_macs: [
+                                                          {
+                                                            value: 'N/A',
+                                                            ont_ge_4_macs: [
+                                                              { value: 'N/A' }
+                                                            ]
+                                                          }
+                                                        ]
+                                                      }
+                                                    ]
+                                                  }
+                                                ]
+                                              }
+                                            ]
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            value: 'Oakcrest 2',    # This value is different
+            olt_chasses: [
+              {
+                value: 'ELOC001',
+                pon_cards: [
+                  {
+                    value: '1',
+                    pon_ports: [
+                      {
+                        value: '1',
+                        buildings: [
+                          {
+                            value: 'Village Square',
+                            fdhs: [
+                              {
+                                value: 'VS1',
+                                splitters: [
+                                  {
+                                    value: 'N/A',
+                                    rdts: [
+                                      {
+                                        value: '1',
+                                        rooms: [
+                                          {
+                                            value: 'N/A',
+                                            ont_sns: [
+                                              {
+                                                value: 'N/A',
+                                                ont_ge_1_macs: [
+                                                  {
+                                                    value: 'N/A',
+                                                    ont_ge_2_macs: [
+                                                      {
+                                                        value: 'N/A',
+                                                        ont_ge_3_macs: [
+                                                          {
+                                                            value: 'N/A',
+                                                            ont_ge_4_macs: [
+                                                              { value: 'N/A' }
+                                                            ]
+                                                          }
+                                                        ]
+                                                      }
+                                                    ]
+                                                  }
+                                                ]
+                                              }
+                                            ]
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+
+      network_template = ["Site", "OLT Chassis", "PON Card", "PON Port", "Building", "FDH", "Splitter", "RDT",
+                          "Room Number", "ONT SN#", "ONT GE Port 1 MAC", "ONT GE Port 2 MAC", "ONT GE Port 3 MAC", "ONT GE Port 4 MAC"]
+
+      value = Testy.do_it(network_template, file, 'Village Square')
+      assert_equal result, value
+    end
+
     it "makes the template" do
       result = [
         { type: :sites, collection: :olt_chasses },
