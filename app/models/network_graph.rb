@@ -58,6 +58,10 @@ class NetworkGraph < ActiveRecord::Base
   	latest_graph = latest_sheet.network_graphs.last
   end
 
+  def NetworkGraph.destroy_all_for(building)
+    building.sheets.which_have_graphs.each { |sheet| sheet.network_graphs.destroy_all }
+  end
+
   def make_nodes_edges
     @cable_runs = sheet.cable_runs
     @workbook = sheet.workbook
