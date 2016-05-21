@@ -19,12 +19,15 @@ class SheetResource < JSONAPI::Resource
   def versions
     PaperTrail::Version.where("item_type = ? AND sheet_id = ?", "CableRun", @model.id)
       .order(created_at: :desc)
+      .select { |version| version.event != 'create' }
       .map do |version|
+
       user_email = version.whodunnit ? User.find(version.whodunnit).email : 'unknown'
+      prev_version = version.reify
 
       {
         user: { id: version.whodunnit, email: user_email },
-        cable_run: { id: version.item.id, ont_sn: version.item.ont_sn },
+        cable_run: { id: version.item_id, ont_sn: prev_version.ont_sn },
         event_type: version.event,
         changes: version.changeset
       }
