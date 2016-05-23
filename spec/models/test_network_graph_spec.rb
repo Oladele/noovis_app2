@@ -27,9 +27,9 @@ RSpec.describe TestNetworkGraph, type: :model do
       }
 
       result = [
-        { id: 1, created_at: 'x', label: 'BUILDING: building1', network_graph_id: 55, node_level: 1, node_type: 'building', parent_id: nil, updated_at: 'x' },
-        { id: 2, created_at: 'x', label: 'OLT: olt1', network_graph_id: 55, node_level: 2, node_type: 'olt', parent_id: 1, updated_at: 'x' },
-        { id: 3, created_at: 'x', label: 'BUILDING: building2', network_graph_id: 55, node_level: 1, node_type: 'building', parent_id: nil, updated_at: 'x' }
+        { id: 1, created_at: 'x', label: 'BUILDING: building1', cable_run_id: 22, network_graph_id: 55, node_level: 1, node_type: 'building', node_value: 'building1', parent_id: nil, updated_at: 'x' },
+        { id: 2, created_at: 'x', label: 'OLT: olt1', cable_run_id: 22, network_graph_id: 55, node_level: 2, node_type: 'olt', node_value: 'olt1', parent_id: 1, updated_at: 'x' },
+        { id: 3, created_at: 'x', label: 'BUILDING: building2', cable_run_id: 22, network_graph_id: 55, node_level: 1, node_type: 'building', node_value: 'building2', parent_id: nil, updated_at: 'x' }
       ]
 
       data = TestNetworkGraph.nodes(graph)

@@ -42,10 +42,12 @@ class TestNetworkGraph < ActiveRecord::Base
         id: iteration_helper.index,
         created_at: 'x',
         label: "#{node_type.upcase}: #{object[:value]}",
+        cable_run_id: 22,
         network_graph_id: 55,
         node_level: node_level,
-        parent_id: parent_id,
         node_type: node_type,
+        node_value: object[:value],
+        parent_id: parent_id,
         updated_at: 'x'
       }
       iteration_helper.increment
