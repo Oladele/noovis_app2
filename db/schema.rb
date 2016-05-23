@@ -11,10 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160426185730) do
+ActiveRecord::Schema.define(version: 20160520204700) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+  enable_extension "pg_stat_statements"
 
   create_table "buildings", force: :cascade do |t|
     t.string   "name"
@@ -173,6 +174,15 @@ ActiveRecord::Schema.define(version: 20160426185730) do
   add_index "sheets", ["building_id"], name: "index_sheets_on_building_id", using: :btree
   add_index "sheets", ["workbook_id"], name: "index_sheets_on_workbook_id", using: :btree
 
+  create_table "test_network_graphs", force: :cascade do |t|
+    t.integer  "building_id"
+    t.json     "graph"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "test_network_graphs", ["building_id"], name: "index_test_network_graphs_on_building_id", using: :btree
+
   create_table "users", force: :cascade do |t|
     t.string   "email"
     t.integer  "company_id"
@@ -219,6 +229,7 @@ ActiveRecord::Schema.define(version: 20160426185730) do
   add_foreign_key "nodes", "network_graphs"
   add_foreign_key "sheets", "buildings"
   add_foreign_key "sheets", "workbooks"
+  add_foreign_key "test_network_graphs", "buildings"
   add_foreign_key "users", "companies"
   add_foreign_key "workbooks", "network_sites"
 end

@@ -1,6 +1,7 @@
 class SpreadsheetImporter
   NETWORK_TEMPLATE = ["Site", "OLT Chassis", "PON Card", "PON Port", "Building", "FDH", "Splitter", "RDT", "Room Number", "ONT SN#", "ONT GE Port 1 MAC", "ONT GE Port 2 MAC", "ONT GE Port 3 MAC", "ONT GE Port 4 MAC"].freeze
 
+  # TODO: Handle success false or maybe this should throw exceptions rather than success false?
   def self.import(network_template, file, sheet_name)
     # Read the spreadsheet into a data structure we can work with.
     result = read_spreadsheet(file, sheet_name)
