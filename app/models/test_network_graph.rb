@@ -30,14 +30,13 @@ class TestNetworkGraph < ActiveRecord::Base
     graph[:sites].each do |site|
       collection = site[site.keys.last]
 
-      self.recurs(nodes, 1, iteration_helper, site.keys.last.to_s.singularize, collection)
+      self.recurs(nodes, 1, iteration_helper, site.keys.last.to_s.singularize, collection, nil)
     end
 
     nodes
   end
 
-  def self.recurs(nodes, node_level, iteration_helper, node_type, collection)
-    # TODO fix node level /parent
+  def self.recurs(nodes, node_level, iteration_helper, node_type, collection, parent_id)
     collection.each do |object|
       nodes << {
         id: iteration_helper.index,
@@ -45,7 +44,7 @@ class TestNetworkGraph < ActiveRecord::Base
         label: "#{node_type.upcase}: #{object[:value]}",
         network_graph_id: 55,
         node_level: node_level,
-        parent_id: 'some_id',
+        parent_id: parent_id,
         node_type: node_type,
         updated_at: 'x'
       }
@@ -54,7 +53,7 @@ class TestNetworkGraph < ActiveRecord::Base
       nested_collection = object[object.keys.last]
 
       if nested_collection.present?
-        self.recurs(nodes, node_level + 1, iteration_helper, object.keys.last.to_s.singularize, nested_collection)
+        self.recurs(nodes, node_level + 1, iteration_helper, object.keys.last.to_s.singularize, nested_collection, iteration_helper.index - 1)
       end
     end
   end
