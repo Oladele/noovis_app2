@@ -3,12 +3,6 @@ class TestNetworkGraph < ActiveRecord::Base
 
   validates :graph, presence: true
 
-  def to_node_and_edges
-    nodes = []
-    edges = []
-
-  end
-
   # An integer is passed by value, so when looping we need to retrieve and increment the same value,
   # not a copy of the value. Wrapping this in an object gives us the same pass by reference-ness of objects.
   class IterationHelper
@@ -23,11 +17,11 @@ class TestNetworkGraph < ActiveRecord::Base
     end
   end
 
-  def self.nodes(graph)
+  def nodes
     iteration_helper = IterationHelper.new(1)
     nodes = []
 
-    graph[:sites].each do |site|
+    graph["sites"].each do |site|
       collection = site[site.keys.last]
 
       self.recurs(nodes, 1, iteration_helper, site.keys.last.to_s.singularize, collection, nil)
@@ -36,18 +30,18 @@ class TestNetworkGraph < ActiveRecord::Base
     nodes
   end
 
-  def self.recurs(nodes, node_level, iteration_helper, node_type, collection, parent_id)
+  def recurs(nodes, node_level, iteration_helper, node_type, collection, parent_id)
     collection.each do |object|
       nodes << {
         id: iteration_helper.index,
-        created_at: 'x',
-        label: "#{node_type.upcase}: #{object[:value]}",
+        label: "#{node_type.upcase}: #{object["value"]}",
         cable_run_id: 22,
         network_graph_id: 55,
         node_level: node_level,
         node_type: node_type,
-        node_value: object[:value],
+        node_value: object["value"],
         parent_id: parent_id,
+        created_at: 'x',
         updated_at: 'x'
       }
       iteration_helper.increment
@@ -61,12 +55,12 @@ class TestNetworkGraph < ActiveRecord::Base
     end
   end
 
-  def self.edges(graph)
+  def edges
     iteration_helper = IterationHelper.new(1)
     edges = []
 
-    graph[:sites].each do |site|
-      collection = site[site.keys.last]
+    graph["sites"].each do |site|
+      collection = site[site.keys.last.to_s]
 
       self.recurs_edges(edges, 1, iteration_helper, collection, nil)
     end
@@ -74,7 +68,8 @@ class TestNetworkGraph < ActiveRecord::Base
     edges
   end
 
-  def self.recurs_edges(edges, edge_level, iteration_helper, collection, previous)
+  # TODO: might be able to refactor this into the other similar method
+  def recurs_edges(edges, edge_level, iteration_helper, collection, previous)
     collection.each do |object|
       edges << {
         id: iteration_helper.index,

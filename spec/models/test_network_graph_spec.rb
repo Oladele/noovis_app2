@@ -3,7 +3,8 @@ require 'rails_helper'
 RSpec.describe TestNetworkGraph, type: :model do
   describe "making nodes and edges" do
     before do
-      @graph = {
+      @test_network_graph = FactoryGirl.build(:test_network_graph)
+      @test_network_graph.graph = {
         sites: [
           {
             value: 'site1',
@@ -34,7 +35,7 @@ RSpec.describe TestNetworkGraph, type: :model do
         { id: 3, created_at: 'x', label: 'BUILDING: building2', cable_run_id: 22, network_graph_id: 55, node_level: 1, node_type: 'building', node_value: 'building2', parent_id: nil, updated_at: 'x' }
       ]
 
-      data = TestNetworkGraph.nodes(@graph)
+      data = @test_network_graph.nodes
 
       assert_equal [nil, 1, nil], data.collect { |r| r[:parent_id] }
       assert_equal [1, 2, 1], data.collect { |r| r[:node_level] }
@@ -51,7 +52,7 @@ RSpec.describe TestNetworkGraph, type: :model do
         { id: 3, network_graph_id: 55, to_node_id: nil, from_node_id: nil, edge_level: 1, created_at: 'x', updated_at: 'x' }
       ]
 
-      data = TestNetworkGraph.edges(@graph)
+      data = @test_network_graph.edges
 
       assert_equal [1, 2, 3], data.collect { |r| r[:id] }
       assert_equal [2, nil, nil], data.collect { |r| r[:to_node_id] }
