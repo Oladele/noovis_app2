@@ -55,7 +55,46 @@ class TestNetworkGraph < ActiveRecord::Base
       nested_collection = object[object.keys.last]
 
       if nested_collection.present?
+        # TODO: see network_graph.rb:144
         self.recurs(nodes, node_level + 1, iteration_helper, object.keys.last.to_s.singularize, nested_collection, iteration_helper.index - 1)
+      end
+    end
+  end
+
+  def self.edges(graph)
+    iteration_helper = IterationHelper.new(1)
+    edges = []
+
+    graph[:sites].each do |site|
+      collection = site[site.keys.last]
+
+      self.recurs_edges(edges, 1, iteration_helper, collection, nil)
+    end
+
+    edges
+  end
+
+  def self.recurs_edges(edges, edge_level, iteration_helper, collection, previous)
+    collection.each do |object|
+      edges << {
+        id: iteration_helper.index,
+        network_graph_id: 55,
+        to_node_id: nil,  # Set by `previous` in next iteration
+        from_node_id: previous.present? ? previous[:id] : nil,
+        edge_level: edge_level,
+        created_at: 'x',
+        updated_at: 'x'
+      }
+
+      # Set the previous node's `to`
+      previous[:to_node_id] = iteration_helper.index if previous.present?
+
+      iteration_helper.increment
+
+      nested_collection = object[object.keys.last]
+
+      if nested_collection.present?
+        self.recurs_edges(edges, edge_level + 1, iteration_helper, nested_collection, edges.last)
       end
     end
   end
