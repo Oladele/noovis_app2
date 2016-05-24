@@ -41,16 +41,19 @@ class TestNetworkGraph < ActiveRecord::Base
         node_type: node_type,
         node_value: object["value"],
         parent_id: parent_id,
-        created_at: 'x',
-        updated_at: 'x'
+        created_at: self.created_at,
+        updated_at: self.updated_at
       }
       iteration_helper.increment
 
       nested_collection = object[object.keys.last]
 
       if nested_collection.present?
-        # TODO: see network_graph.rb:144
-        self.recurs(nodes, node_level + 1, iteration_helper, object.keys.last.to_s.singularize, nested_collection, iteration_helper.index - 1)
+        # Ports are on the same level in the hierarchy
+        ports = ["ont_ge_2_macs", "ont_ge_3_macs", "ont_ge_4_macs"]
+        next_node_level = ports.include?(object.keys.last) ? node_level : node_level + 1
+
+        self.recurs(nodes, next_node_level, iteration_helper, object.keys.last.to_s.singularize, nested_collection, iteration_helper.index - 1)
       end
     end
   end
@@ -77,8 +80,8 @@ class TestNetworkGraph < ActiveRecord::Base
         to_node_id: nil,  # Set by `previous` in next iteration
         from_node_id: previous.present? ? previous[:id] : nil,
         edge_level: edge_level,
-        created_at: 'x',
-        updated_at: 'x'
+        created_at: self.created_at,
+        updated_at: self.updated_at
       }
 
       # Set the previous node's `to`
