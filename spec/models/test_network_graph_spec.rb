@@ -95,21 +95,121 @@ RSpec.describe TestNetworkGraph, type: :model do
       assert_equal result, data
     end
 
-    it "makes edges" do
-      result = [
-        { id: 1, network_graph_id: 55, to_node_id: 2, from_node_id: nil, edge_level: 1, created_at: @test_network_graph.created_at, updated_at: @test_network_graph.updated_at },
-        { id: 2, network_graph_id: 55, to_node_id: nil, from_node_id: 1, edge_level: 2, created_at: @test_network_graph.created_at, updated_at: @test_network_graph.updated_at },
-        { id: 3, network_graph_id: 55, to_node_id: nil, from_node_id: nil, edge_level: 1, created_at: @test_network_graph.created_at, updated_at: @test_network_graph.updated_at }
+    it "makes nodes and edges" do
+      nodes = [
+        { id: 1, created_at: @test_network_graph.created_at, label: 'BUILDING: building1', cable_run_id: 22, network_graph_id: 55, node_level: 1, node_type: 'building', node_value: 'building1', parent_id: nil, updated_at: @test_network_graph.updated_at },
+        { id: 2, created_at: @test_network_graph.created_at, label: 'OLT: olt1', cable_run_id: 22, network_graph_id: 55, node_level: 2, node_type: 'olt', node_value: 'olt1', parent_id: 1, updated_at: @test_network_graph.updated_at },
+        { id: 3, created_at: @test_network_graph.created_at, label: 'BUILDING: building2', cable_run_id: 22, network_graph_id: 55, node_level: 1, node_type: 'building', node_value: 'building2', parent_id: nil, updated_at: @test_network_graph.updated_at }
       ]
 
-      data = @test_network_graph.edges
+      edges = [
+        { id: 1, network_graph_id: 55, to_node_id: 2, from_node_id: 1, edge_level: 1, created_at: @test_network_graph.created_at, updated_at: @test_network_graph.updated_at }    # building1 -> olt1
+        # building2 has no edge
+      ]
+
+      result = @test_network_graph.nodes_and_edges
+
+      # Nodes
+      data = result[:nodes]
 
       assert_equal [1, 2, 3], data.collect { |r| r[:id] }
-      assert_equal [2, nil, nil], data.collect { |r| r[:to_node_id] }
-      assert_equal [nil, 1, nil], data.collect { |r| r[:from_node_id] }
-      assert_equal [1, 2, 1], data.collect { |r| r[:edge_level] }
+      assert_equal ['BUILDING: building1', 'OLT: olt1', 'BUILDING: building2'], data.collect { |r| r[:label] }
+      assert_equal [1, 2, 1], data.collect { |r| r[:node_level] }
+      assert_equal ['building', 'olt', 'building'], data.collect { |r| r[:node_type] }
+      assert_equal ['building1', 'olt1', 'building2'], data.collect { |r| r[:node_value] }
+      assert_equal [nil, 1, nil], data.collect { |r| r[:parent_id] }
+
+      # TODO: are these useful?
+      assert_equal [22, 22, 22], data.collect { |r| r[:cable_run_id] }
+      assert_equal [55, 55, 55], data.collect { |r| r[:network_graph_id] }
+      assert_equal 3.times.collect { |x| @test_network_graph.created_at }, data.collect { |r| r[:created_at] }
+      assert_equal 3.times.collect { |x| @test_network_graph.updated_at }, data.collect { |r| r[:updated_at] }
+
+      assert_equal nodes, data
+
+      # Edges
+      data = result[:edges]
+
+      assert_equal [1], data.collect { |r| r[:id] }
+      assert_equal [2], data.collect { |r| r[:to_node_id] }
+      assert_equal [1], data.collect { |r| r[:from_node_id] }
+      assert_equal [1], data.collect { |r| r[:edge_level] }
+
+      # TODO: are these useful?
+      assert_equal [55], data.collect { |r| r[:network_graph_id] }
+      assert_equal 1.times.collect { |x| @test_network_graph.created_at }, data.collect { |r| r[:created_at] }
+      assert_equal 1.times.collect { |x| @test_network_graph.updated_at }, data.collect { |r| r[:updated_at] }
+
+      assert_equal edges, data
+    end
+
+    it "makes edges" do
+      nodes = [
+        { id: 100, created_at: @test_network_graph.created_at, label: 'BUILDING: building1', cable_run_id: 22, network_graph_id: 55, node_level: 1, node_type: 'building', node_value: 'building1', parent_id: nil, updated_at: @test_network_graph.updated_at },
+        { id: 101, created_at: @test_network_graph.created_at, label: 'OLT: olt1', cable_run_id: 22, network_graph_id: 55, node_level: 2, node_type: 'olt', node_value: 'olt1', parent_id: 100, updated_at: @test_network_graph.updated_at },
+        { id: 102, created_at: @test_network_graph.created_at, label: 'BUILDING: building2', cable_run_id: 22, network_graph_id: 55, node_level: 1, node_type: 'building', node_value: 'building2', parent_id: nil, updated_at: @test_network_graph.updated_at }
+      ]
+
+      result = [
+        { id: 1, network_graph_id: 55, to_node_id: 102, from_node_id: 101, edge_level: 1, created_at: @test_network_graph.created_at, updated_at: @test_network_graph.updated_at }    # building1 -> olt1
+        # building2 has no edge
+      ]
+
+      data = @test_network_graph.edges(nodes)
+
+      assert_equal [1], data.collect { |r| r[:id] }
+      assert_equal [102], data.collect { |r| r[:to_node_id] }
+      assert_equal [101], data.collect { |r| r[:from_node_id] }
+      assert_equal [1], data.collect { |r| r[:edge_level] }
 
       assert_equal result, data
     end
+
+    #it "puts ont port edges on the same level" do
+      #@test_network_graph.graph = {
+        #sites: [
+          #{
+            #value: 'site1',
+            #ont_sns: [
+              #{
+                #value: 'N/A',
+                #ont_ge_1_macs: [
+                  #{
+                    #value: 'N/A',
+                    #ont_ge_2_macs: [
+                      #{
+                        #value: 'N/A',
+                        #ont_ge_3_macs: []
+                      #}
+                    #]
+                  #}
+                #]
+              #}
+            #]
+          #}
+        #]
+      #}
+
+      #result = [
+        #{ id: 1, network_graph_id: 55, to_node_id: 2, from_node_id: 2, edge_level: 1, created_at: @test_network_graph.created_at, updated_at: @test_network_graph.updated_at },   # ont_sn -> port 1
+        #{ id: 2, network_graph_id: 55, to_node_id: 3, from_node_id: 2, edge_level: 1, created_at: @test_network_graph.created_at, updated_at: @test_network_graph.updated_at },   # ont_sn -> port 2
+        #{ id: 3, network_graph_id: 55, to_node_id: 4, from_node_id: 2, edge_level: 1, created_at: @test_network_graph.created_at, updated_at: @test_network_graph.updated_at },   # ont_sn -> port 3
+      #]
+
+      #data = @test_network_graph.edges
+
+      #assert_equal [1, 2, 3], data.collect { |r| r[:id] }
+      #assert_equal [55, 55, 55], data.collect { |r| r[:network_graph_id] }
+      #assert_equal [2, nil, nil], data.collect { |r| r[:to_node_id] }
+      #assert_equal [nil, 1, 1], data.collect { |r| r[:from_node_id] }
+      #assert_equal [1, 2, 2], data.collect { |r| r[:edge_level] }
+      #assert_equal 3.times.collect { |x| @test_network_graph.created_at }, data.collect { |r| r[:created_at] }
+      #assert_equal 3.times.collect { |x| @test_network_graph.updated_at }, data.collect { |r| r[:updated_at] }
+
+      #assert_equal result[0], data[0]
+      #assert_equal result[1], data[1]
+
+      #assert_equal result, data
+    #end
   end
 end
