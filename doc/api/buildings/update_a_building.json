@@ -44,24 +44,24 @@
   "requests": [
     {
       "request_method": "PATCH",
-      "request_path": "/buildings/93",
-      "request_body": "{\"data\":{\"relationships\":{\"network-site\":{\"data\":{\"type\":\"network-sites\",\"id\":176}}},\"type\":\"buildings\",\"attributes\":{\"name\":\"Updated Building Name\"},\"id\":\"93\"}}",
+      "request_path": "/buildings/232",
+      "request_body": "{\"data\":{\"relationships\":{\"network-site\":{\"data\":{\"type\":\"network-sites\",\"id\":497}}},\"type\":\"buildings\",\"attributes\":{\"name\":\"Updated Building Name\"},\"id\":\"232\"}}",
       "request_headers": {
         "Content-Type": "application/vnd.api+json",
-        "Access-Token": "kVRJcWF-oi1eqaFZJlNnrw",
-        "Client": "D6uW2E3R2cbvyqeEspZpmA",
-        "Uid": "email41@example.com"
+        "Access-Token": "nMj5-fNf3W0hOBKdB2Qu4g",
+        "Client": "u13zM7MDRyX_HMqUkHznbQ",
+        "Uid": "email30@example.com"
       },
       "request_query_parameters": {
       },
       "request_content_type": "application/vnd.api+json",
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "{\"data\":{\"id\":\"93\",\"type\":\"buildings\",\"links\":{\"self\":\"http://example.org/buildings/93\"},\"attributes\":{\"name\":\"Updated Building Name\",\"lat\":\"39.290139\",\"lng\":\"-76.614766\",\"description\":\"MyText\",\"node-counts\":[],\"import-job-status\":null},\"relationships\":{\"network-site\":{\"links\":{\"self\":\"http://example.org/buildings/93/relationships/network-site\",\"related\":\"http://example.org/buildings/93/network-site\"}},\"sheets\":{\"links\":{\"self\":\"http://example.org/buildings/93/relationships/sheets\",\"related\":\"http://example.org/buildings/93/sheets\"}}}}}",
+      "response_body": "{\"data\":{\"id\":\"232\",\"type\":\"buildings\",\"links\":{\"self\":\"http://example.org/buildings/232\"},\"attributes\":{\"name\":\"Updated Building Name\",\"lat\":\"39.290139\",\"lng\":\"-76.614766\",\"description\":\"MyText\",\"node-counts\":[],\"import-job-status\":null},\"relationships\":{\"network-site\":{\"links\":{\"self\":\"http://example.org/buildings/232/relationships/network-site\",\"related\":\"http://example.org/buildings/232/network-site\"}},\"sheets\":{\"links\":{\"self\":\"http://example.org/buildings/232/relationships/sheets\",\"related\":\"http://example.org/buildings/232/sheets\"}}}}}",
       "response_headers": {
-        "access-token": "kVRJcWF-oi1eqaFZJlNnrw",
-        "client": "D6uW2E3R2cbvyqeEspZpmA",
-        "uid": "email41@example.com",
+        "access-token": "nMj5-fNf3W0hOBKdB2Qu4g",
+        "client": "u13zM7MDRyX_HMqUkHznbQ",
+        "uid": "email30@example.com",
         "Content-Type": "application/vnd.api+json"
       },
       "response_content_type": "application/vnd.api+json",

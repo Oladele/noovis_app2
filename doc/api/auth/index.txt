@@ -14,15 +14,15 @@ Request:
 Response:
   Status: 200 OK
   Content-Type: application/json; charset=utf-8
-  access-token: mhN0Zvl_bAaspwrEjoMy1Q
-  client: 7aq_6_P3S0ITJeGDF6RzQQ
+  access-token: 3pkox6ZItoFSH55-sjDdHA
+  client: 58u2J3T7yDqdaZJODT2g_A
   uid: test@example.com
 
   {
     "data": {
-      "id": 45,
+      "id": 232,
       "email": "test@example.com",
-      "company_id": 200,
+      "company_id": 773,
       "provider": "email",
       "uid": "test@example.com",
       "role": "admin"
@@ -35,8 +35,8 @@ Sign out user
 
 Request:
   DELETE /auth/sign_out
-  Access-Token: QuFtWAxOtmZ788H6egWI0Q
-  Client: NoWflagj4871Hwb25r5DnQ
+  Access-Token: AlS-ONrsQlxWW4kwhl6z4Q
+  Client: U1U2jyYODHwrs_oeojhfQg
   Content-Type: application/json
   Uid: test@example.com
 

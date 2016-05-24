@@ -1,21 +1,27 @@
-List all network-templates
---------------------------
+Delete a network-template
+-------------------------
+
+Parameters:
+  * type - Should always be set to <code>network-templates</code>
+  * name - Network Template Name
+  * description - Network Template Description
+  * hierarchy - Network Template Hierarchy
+  * id - The id of the network-template
 
 Request:
-  GET /network-templates
-  Access-Token: 69rg3coGi7NfflfW9NhG5A
-  Client: 5BA4ZdyujuVfgRZZAeRAbw
+  DELETE /network-templates/92
+  Access-Token: _D8hKSDAp6NbSZBhwkjKHQ
+  Client: 0SYX_yA75w4bzJCQUxXmSg
   Content-Type: application/vnd.api+json
-  Uid: email2@example.com
+  Uid: email3@example.com
+
+  {"data":{"type":"network-templates","id":"92"}}
 
 Response:
-  Status: 200 OK
-  Content-Type: application/vnd.api+json
-  access-token: 69rg3coGi7NfflfW9NhG5A
-  client: 5BA4ZdyujuVfgRZZAeRAbw
-  uid: email2@example.com
-
-  {"data":[{"id":"22","type":"network-templates","links":{"self":"http://example.org/network-templates/22"},"attributes":{"name":"1st template","description":"MyString","hierarchy":["olt_chassis","pon_card","building","fdh","splitter","rdt","room","ont_sn","ont_ge_mac"]},"relationships":{"network-graphs":{"links":{"self":"http://example.org/network-templates/22/relationships/network-graphs","related":"http://example.org/network-templates/22/network-graphs"}}}},{"id":"23","type":"network-templates","links":{"self":"http://example.org/network-templates/23"},"attributes":{"name":"2nd template","description":"MyString","hierarchy":["olt_chassis","pon_card","building","fdh","splitter","rdt","room","ont_sn","ont_ge_mac"]},"relationships":{"network-graphs":{"links":{"self":"http://example.org/network-templates/23/relationships/network-graphs","related":"http://example.org/network-templates/23/network-graphs"}}}}],"meta":{"record-count":2}}
+  Status: 204 No Content
+  access-token: _D8hKSDAp6NbSZBhwkjKHQ
+  client: 0SYX_yA75w4bzJCQUxXmSg
+  uid: email3@example.com
 
 
 Update a network-template
@@ -29,22 +35,22 @@ Parameters:
   * id - The id of the network-template
 
 Request:
-  PATCH /network-templates/24
-  Access-Token: 5QoXr7xAl7q-fWYwn3OOsw
-  Client: lzHIrE6lbvWrxNq949-Lfg
+  PATCH /network-templates/93
+  Access-Token: wzBixMvY2xKz7trg0_SLnQ
+  Client: xdgMwhZTzHptJf2cqYreEA
   Content-Type: application/vnd.api+json
-  Uid: email3@example.com
+  Uid: email4@example.com
 
-  {"data":{"type":"network-templates","attributes":{"name":"Updated Network Template Name"},"id":"24"}}
+  {"data":{"type":"network-templates","attributes":{"name":"Updated Network Template Name"},"id":"93"}}
 
 Response:
   Status: 200 OK
   Content-Type: application/vnd.api+json
-  access-token: 5QoXr7xAl7q-fWYwn3OOsw
-  client: lzHIrE6lbvWrxNq949-Lfg
-  uid: email3@example.com
+  access-token: wzBixMvY2xKz7trg0_SLnQ
+  client: xdgMwhZTzHptJf2cqYreEA
+  uid: email4@example.com
 
-  {"data":{"id":"24","type":"network-templates","links":{"self":"http://example.org/network-templates/24"},"attributes":{"name":"Updated Network Template Name","description":"MyString","hierarchy":["olt_chassis","pon_card","building","fdh","splitter","rdt","room","ont_sn","ont_ge_mac"]},"relationships":{"network-graphs":{"links":{"self":"http://example.org/network-templates/24/relationships/network-graphs","related":"http://example.org/network-templates/24/network-graphs"}}}}}
+  {"data":{"id":"93","type":"network-templates","links":{"self":"http://example.org/network-templates/93"},"attributes":{"name":"Updated Network Template Name","description":"MyString","hierarchy":["olt_chassis","pon_card","building","fdh","splitter","rdt","room","ont_sn","ont_ge_mac"]},"relationships":{"network-graphs":{"links":{"self":"http://example.org/network-templates/93/relationships/network-graphs","related":"http://example.org/network-templates/93/network-graphs"}}}}}
 
 
 Create a network template
@@ -58,46 +64,40 @@ Parameters:
 
 Request:
   POST /network-templates
-  Access-Token: XM1g3yL-8LBc-Uj2VL9kaQ
-  Client: e8vqIvf8S9NAArcdun-uQw
+  Access-Token: cVfPtI1zeeub0gQYZW9WBg
+  Client: 2HNiyiLLM_hggdVeuP31Cw
   Content-Type: application/vnd.api+json
-  Uid: email4@example.com
+  Uid: email5@example.com
 
   {"data":{"type":"network-templates","attributes":{"name":"Template Name"}}}
 
 Response:
   Status: 201 Created
   Content-Type: application/vnd.api+json
-  access-token: XM1g3yL-8LBc-Uj2VL9kaQ
-  client: e8vqIvf8S9NAArcdun-uQw
-  uid: email4@example.com
+  access-token: cVfPtI1zeeub0gQYZW9WBg
+  client: 2HNiyiLLM_hggdVeuP31Cw
+  uid: email5@example.com
 
-  {"data":{"id":"25","type":"network-templates","links":{"self":"http://example.org/network-templates/25"},"attributes":{"name":"Template Name","description":null,"hierarchy":[]},"relationships":{"network-graphs":{"links":{"self":"http://example.org/network-templates/25/relationships/network-graphs","related":"http://example.org/network-templates/25/network-graphs"}}}}}
+  {"data":{"id":"94","type":"network-templates","links":{"self":"http://example.org/network-templates/94"},"attributes":{"name":"Template Name","description":null,"hierarchy":[]},"relationships":{"network-graphs":{"links":{"self":"http://example.org/network-templates/94/relationships/network-graphs","related":"http://example.org/network-templates/94/network-graphs"}}}}}
 
 
-Delete a network-template
--------------------------
-
-Parameters:
-  * type - Should always be set to <code>network-templates</code>
-  * name - Network Template Name
-  * description - Network Template Description
-  * hierarchy - Network Template Hierarchy
-  * id - The id of the network-template
+List all network-templates
+--------------------------
 
 Request:
-  DELETE /network-templates/26
-  Access-Token: iNf8QHqwSJLtJwxRbKZowA
-  Client: V2XRLwL9AqO51AzlNg_cBw
+  GET /network-templates
+  Access-Token: 3kleZjGOxWMN85in6EM8AA
+  Client: 0trQ8-w_AGeygE9v7H0Z7Q
   Content-Type: application/vnd.api+json
-  Uid: email5@example.com
-
-  {"data":{"type":"network-templates","id":"26"}}
+  Uid: email6@example.com
 
 Response:
-  Status: 204 No Content
-  access-token: iNf8QHqwSJLtJwxRbKZowA
-  client: V2XRLwL9AqO51AzlNg_cBw
-  uid: email5@example.com
+  Status: 200 OK
+  Content-Type: application/vnd.api+json
+  access-token: 3kleZjGOxWMN85in6EM8AA
+  client: 0trQ8-w_AGeygE9v7H0Z7Q
+  uid: email6@example.com
+
+  {"data":[{"id":"95","type":"network-templates","links":{"self":"http://example.org/network-templates/95"},"attributes":{"name":"1st template","description":"MyString","hierarchy":["olt_chassis","pon_card","building","fdh","splitter","rdt","room","ont_sn","ont_ge_mac"]},"relationships":{"network-graphs":{"links":{"self":"http://example.org/network-templates/95/relationships/network-graphs","related":"http://example.org/network-templates/95/network-graphs"}}}},{"id":"96","type":"network-templates","links":{"self":"http://example.org/network-templates/96"},"attributes":{"name":"2nd template","description":"MyString","hierarchy":["olt_chassis","pon_card","building","fdh","splitter","rdt","room","ont_sn","ont_ge_mac"]},"relationships":{"network-graphs":{"links":{"self":"http://example.org/network-templates/96/relationships/network-graphs","related":"http://example.org/network-templates/96/network-graphs"}}}}],"meta":{"record-count":2}}
 
 

@@ -34,12 +34,12 @@
   "requests": [
     {
       "request_method": "PATCH",
-      "request_path": "/workbooks/40",
-      "request_body": "{\"data\":{\"relationships\":{\"network-site\":{\"data\":{\"type\":\"network-sites\",\"id\":113}}},\"type\":\"workbooks\",\"attributes\":{\"name\":\"Updated Workbook Name\"},\"id\":\"40\"}}",
+      "request_path": "/workbooks/181",
+      "request_body": "{\"data\":{\"relationships\":{\"network-site\":{\"data\":{\"type\":\"network-sites\",\"id\":457}}},\"type\":\"workbooks\",\"attributes\":{\"name\":\"Updated Workbook Name\"},\"id\":\"181\"}}",
       "request_headers": {
         "Content-Type": "application/vnd.api+json",
-        "Access-Token": "KiEGZmZv4CQsHypoKihkag",
-        "Client": "NqRA9X-Y4nClKpDkiOOptw",
+        "Access-Token": "8-JfyE7Ah0cM9i-SSb6t_A",
+        "Client": "mU6VHZrgBE50iQU_ImBRZA",
         "Uid": "email9@example.com"
       },
       "request_query_parameters": {
@@ -47,10 +47,10 @@
       "request_content_type": "application/vnd.api+json",
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "{\"data\":{\"id\":\"40\",\"type\":\"workbooks\",\"links\":{\"self\":\"http://example.org/workbooks/40\"},\"attributes\":{\"name\":\"Updated Workbook Name\"},\"relationships\":{\"network-site\":{\"links\":{\"self\":\"http://example.org/workbooks/40/relationships/network-site\",\"related\":\"http://example.org/workbooks/40/network-site\"}},\"sheets\":{\"links\":{\"self\":\"http://example.org/workbooks/40/relationships/sheets\",\"related\":\"http://example.org/workbooks/40/sheets\"}}}}}",
+      "response_body": "{\"data\":{\"id\":\"181\",\"type\":\"workbooks\",\"links\":{\"self\":\"http://example.org/workbooks/181\"},\"attributes\":{\"name\":\"Updated Workbook Name\"},\"relationships\":{\"network-site\":{\"links\":{\"self\":\"http://example.org/workbooks/181/relationships/network-site\",\"related\":\"http://example.org/workbooks/181/network-site\"}},\"sheets\":{\"links\":{\"self\":\"http://example.org/workbooks/181/relationships/sheets\",\"related\":\"http://example.org/workbooks/181/sheets\"}}}}}",
       "response_headers": {
-        "access-token": "KiEGZmZv4CQsHypoKihkag",
-        "client": "NqRA9X-Y4nClKpDkiOOptw",
+        "access-token": "8-JfyE7Ah0cM9i-SSb6t_A",
+        "client": "mU6VHZrgBE50iQU_ImBRZA",
         "uid": "email9@example.com",
         "Content-Type": "application/vnd.api+json"
       },

@@ -211,6 +211,19 @@ ActiveRecord::Schema.define(version: 20160520204700) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   add_index "users", ["uid", "provider"], name: "index_users_on_uid_and_provider", unique: true, using: :btree
 
+  create_table "versions", force: :cascade do |t|
+    t.string   "item_type",      null: false
+    t.integer  "item_id",        null: false
+    t.string   "event",          null: false
+    t.string   "whodunnit"
+    t.text     "object"
+    t.datetime "created_at"
+    t.text     "object_changes"
+    t.integer  "sheet_id"
+  end
+
+  add_index "versions", ["item_type", "item_id"], name: "index_versions_on_item_type_and_item_id", using: :btree
+
   create_table "workbooks", force: :cascade do |t|
     t.string   "name"
     t.integer  "network_site_id"

@@ -51,7 +51,6 @@ class ImportCableRun
 
   def open_workbook
     case File.extname(@filename)
-    when '.csv' then @workbook = Roo::Csv.new(file)
     when '.xls' then @workbook = Roo::Spreadsheet.open(file, extension: :xls)
     when '.xlsx' then @workbook = Roo::Excelx.new(file)
     else
@@ -128,6 +127,7 @@ class ImportCableRun
       save_cable_run
       # create network_graph, nodes, edges
       if network_template = NetworkTemplate.first
+        NetworkGraph.destroy_all_for(@workbook_sheet.building)
         network_graph = @workbook_sheet.network_graphs.create network_template: network_template
         network_graph.make_nodes_edges
       end

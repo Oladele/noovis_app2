@@ -17,20 +17,20 @@
       "request_body": null,
       "request_headers": {
         "Content-Type": "application/vnd.api+json",
-        "Access-Token": "_v5QMLi-IHQWFdmNiHYHUQ",
-        "Client": "oURelIZJRYxD__TancyTGA",
-        "Uid": "email32@example.com"
+        "Access-Token": "PAi-KOULIG-EwLRFf7w8dA",
+        "Client": "AzSgsBOS1gAreCc3mkJrUg",
+        "Uid": "email23@example.com"
       },
       "request_query_parameters": {
       },
       "request_content_type": "application/vnd.api+json",
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "{\"data\":{\"id\":\"e8d6582c-6e59-4b37-b359-1eccd8f809ae\",\"type\":\"globals\",\"links\":{\"self\":\"http://example.org/globals/e8d6582c-6e59-4b37-b359-1eccd8f809ae\"},\"attributes\":{\"node-counts\":[{\"node_type\":\"network-sites\",\"count\":null,\"node_type_pretty\":\"Sites\"},{\"node_type\":\"buildings\",\"count\":0,\"node_type_pretty\":\"Buildings\"}]}}}",
+      "response_body": "{\"data\":{\"id\":\"824d7069-10ac-459a-bbe4-13f745939d8a\",\"type\":\"globals\",\"links\":{\"self\":\"http://example.org/globals/824d7069-10ac-459a-bbe4-13f745939d8a\"},\"attributes\":{\"node-counts\":[{\"node_type\":\"network-sites\",\"count\":null,\"node_type_pretty\":\"Sites\"},{\"node_type\":\"buildings\",\"count\":0,\"node_type_pretty\":\"Buildings\"}]}}}",
       "response_headers": {
-        "access-token": "_v5QMLi-IHQWFdmNiHYHUQ",
-        "client": "oURelIZJRYxD__TancyTGA",
-        "uid": "email32@example.com",
+        "access-token": "PAi-KOULIG-EwLRFf7w8dA",
+        "client": "AzSgsBOS1gAreCc3mkJrUg",
+        "uid": "email23@example.com",
         "Content-Type": "application/vnd.api+json"
       },
       "response_content_type": "application/vnd.api+json",
