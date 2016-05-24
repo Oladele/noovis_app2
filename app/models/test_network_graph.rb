@@ -26,13 +26,13 @@ class TestNetworkGraph < ActiveRecord::Base
     graph["sites"].each do |site|
       collection = site[site.keys.last]
 
-      self.go(nodes, edges, collection, iteration_helper, site.keys.last.to_s.singularize, 1, 1, nil)
+      self.generate_for_collection(nodes, edges, collection, iteration_helper, site.keys.last.to_s.singularize, 1, nil)
     end
 
     { nodes: nodes, edges: edges }
   end
 
-  def go(nodes, edges, collection, iteration_helper, node_type, node_level, edge_level, parent_id)
+  def generate_for_collection(nodes, edges, collection, iteration_helper, node_type, node_level, parent_id)
     collection.each do |object|
       node = {
         id: iteration_helper.index,
@@ -55,7 +55,7 @@ class TestNetworkGraph < ActiveRecord::Base
           network_graph_id: 55,
           to_node_id: node[:id],
           from_node_id: parent_id,
-          edge_level: edge_level - 1,
+          edge_level: node_level - 1,
           created_at: self.created_at,
           updated_at: self.updated_at
         }
@@ -71,7 +71,7 @@ class TestNetworkGraph < ActiveRecord::Base
         next_node_level = is_port_node ? node_level : node_level + 1
         previous_parent_id = is_port_node ? parent_id : iteration_helper.index - 1
 
-        self.go(nodes, edges, nested_collection, iteration_helper, object.keys.last.to_s.singularize, next_node_level, next_node_level, node[:id])
+        self.generate_for_collection(nodes, edges, nested_collection, iteration_helper, object.keys.last.to_s.singularize, next_node_level, node[:id])
       end
     end
   end
