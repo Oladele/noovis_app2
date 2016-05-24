@@ -37,8 +37,8 @@ class TestNetworkGraph < ActiveRecord::Base
       node = {
         id: iteration_helper.index,
         label: "#{node_type.upcase}: #{object["value"]}",
-        cable_run_id: 22,
-        network_graph_id: 55,
+        cable_run_id: 22,       # TODO: do we need this?
+        network_graph_id: 55,   # TODO: do we need this?
         node_level: node_level,
         node_type: node_type,
         node_value: object["value"],
@@ -52,10 +52,10 @@ class TestNetworkGraph < ActiveRecord::Base
       if parent_id.present?
         edges << {
           id: iteration_helper.index - 1,   # Offset so it starts on index 1, since it passes the first loop.
-          network_graph_id: 55,
+          network_graph_id: 55, # TODO: do we need this?
           to_node_id: node[:id],
           from_node_id: parent_id,
-          edge_level: node_level - 1,
+          edge_level: node_level - 1,       # Offset so it starts on index 1, since it passes the first loop.
           created_at: self.created_at,
           updated_at: self.updated_at
         }
@@ -69,9 +69,9 @@ class TestNetworkGraph < ActiveRecord::Base
         # Ports have the same node level and parent_id
         is_port_node = ["ont_ge_2_macs", "ont_ge_3_macs", "ont_ge_4_macs"].include?(object.keys.last)
         next_node_level = is_port_node ? node_level : node_level + 1
-        previous_parent_id = is_port_node ? parent_id : iteration_helper.index - 1
+        previous_parent_id = is_port_node ? parent_id : node[:id]
 
-        self.generate_for_collection(nodes, edges, nested_collection, iteration_helper, object.keys.last.to_s.singularize, next_node_level, node[:id])
+        self.generate_for_collection(nodes, edges, nested_collection, iteration_helper, object.keys.last.to_s.singularize, next_node_level, previous_parent_id)
       end
     end
   end
