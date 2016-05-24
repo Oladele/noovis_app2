@@ -49,11 +49,12 @@ class TestNetworkGraph < ActiveRecord::Base
       nested_collection = object[object.keys.last]
 
       if nested_collection.present?
-        # Ports are on the same level in the hierarchy
-        ports = ["ont_ge_2_macs", "ont_ge_3_macs", "ont_ge_4_macs"]
-        next_node_level = ports.include?(object.keys.last) ? node_level : node_level + 1
+        # Ports have the same node level and parent_id
+        is_port_node = ["ont_ge_2_macs", "ont_ge_3_macs", "ont_ge_4_macs"].include?(object.keys.last)
+        next_node_level = is_port_node ? node_level : node_level + 1
+        previous_parent_id = is_port_node ? parent_id : iteration_helper.index - 1
 
-        self.recurs(nodes, next_node_level, iteration_helper, object.keys.last.to_s.singularize, nested_collection, iteration_helper.index - 1)
+        self.recurs(nodes, next_node_level, iteration_helper, object.keys.last.to_s.singularize, nested_collection, previous_parent_id)
       end
     end
   end

@@ -73,7 +73,7 @@ RSpec.describe TestNetworkGraph, type: :model do
       result = [
         { id: 1, label: 'ONT_SN: N/A', cable_run_id: 22, network_graph_id: 55, node_level: 1, node_type: 'ont_sn', node_value: 'N/A', parent_id: nil, created_at: @test_network_graph.created_at, updated_at: @test_network_graph.updated_at },
         { id: 2, label: 'ONT_GE_1_MAC: N/A', cable_run_id: 22, network_graph_id: 55, node_level: 2, node_type: 'ont_ge_1_mac', node_value: 'N/A', parent_id: 1, created_at: @test_network_graph.created_at, updated_at: @test_network_graph.updated_at },
-        { id: 3, label: 'ONT_GE_2_MAC: N/A', cable_run_id: 22, network_graph_id: 55, node_level: 2, node_type: 'ont_ge_2_mac', node_value: 'N/A', parent_id: 2, created_at: @test_network_graph.created_at, updated_at: @test_network_graph.updated_at }
+        { id: 3, label: 'ONT_GE_2_MAC: N/A', cable_run_id: 22, network_graph_id: 55, node_level: 2, node_type: 'ont_ge_2_mac', node_value: 'N/A', parent_id: 1, created_at: @test_network_graph.created_at, updated_at: @test_network_graph.updated_at }
       ]
 
       data = @test_network_graph.nodes
@@ -86,7 +86,7 @@ RSpec.describe TestNetworkGraph, type: :model do
       assert_equal [1, 2, 2], data.collect { |r| r[:node_level] }
       assert_equal ['ont_sn', 'ont_ge_1_mac', 'ont_ge_2_mac'], data.collect { |r| r[:node_type] }
       assert_equal ['N/A', 'N/A', 'N/A'], data.collect { |r| r[:node_value] }
-      assert_equal [nil, 1, 2], data.collect { |r| r[:parent_id] }
+      assert_equal [nil, 1, 1], data.collect { |r| r[:parent_id] }
       assert_equal 3.times.collect { |x| @test_network_graph.updated_at }, data.collect { |r| r[:updated_at] }
 
       assert_equal result[0], data[0]
