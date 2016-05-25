@@ -104,12 +104,15 @@ class SpreadsheetImporter
           type = template[index][:type]
           collection = template[index][:collection]
 
+          # If it's a number, `1` is sometimes read in as `1.0`
+          col = col.is_a?(Float) ? col.to_i.to_s : col
+
           # Do we have this node yet?
           object = previous[type].select { |object| object[:value] == col }.first
 
           # If not, make it.
           if object.nil?
-            object = { value: col.is_a?(Float) ? col.to_i.to_s : col }  # If it's a number, `1` is sometimes read in as `1.0`
+            object = { value: col }
             object[collection] = [] if collection.present?  # Could be end of graph
 
             previous[type] << object

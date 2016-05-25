@@ -109,6 +109,32 @@ RSpec.describe SpreadsheetImporter, type: :model do
       assert_equal graph, value
     end
 
+    it "build_structure with the same floats" do
+      graph = {
+        sites: [
+          {
+            value: 'site1',
+            buildings: [
+              {
+                value: '1.0',
+                olts: []
+              }
+            ]
+          }
+        ]
+      }
+
+      template = [
+        { type: :sites, collection: :buildings },
+        { type: :buildings, collection: :olts },
+        { type: :olts, collection: :splitters }
+      ]
+
+      value = SpreadsheetImporter.build_structure(template, [["site1", 1.0], ["site1", 1.0]])
+
+      assert_equal graph, value
+    end
+
     it "build_structure 4" do
       graph = {
         sites: [
@@ -179,6 +205,32 @@ RSpec.describe SpreadsheetImporter, type: :model do
       ]
 
       value = SpreadsheetImporter.build_structure(template, [["site1", "building1"], ["site1", "building1"], ["site2", "building3"]])
+
+      assert_equal graph, value
+    end
+
+    it "build_structure has no duplicates" do
+      graph = {
+        sites: [
+          {
+            value: 'site1',
+            buildings: [
+              {
+                value: 'building1',
+                olts: []
+              },
+            ]
+          },
+        ]
+      }
+
+      template = [
+        { type: :sites, collection: :buildings },
+        { type: :buildings, collection: :olts },
+        { type: :olts, collection: :splitters }
+      ]
+
+      value = SpreadsheetImporter.build_structure(template, [["site1", "building1"], ["site1", "building1"]])
 
       assert_equal graph, value
     end
