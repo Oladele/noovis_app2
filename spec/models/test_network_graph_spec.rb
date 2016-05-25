@@ -13,14 +13,12 @@ RSpec.describe TestNetworkGraph, type: :model do
                 value: 'building1',
                 olts: [
                   {
-                    value: 'olt1',
-                    somethings: []
+                    value: 'olt1'
                   }
                 ]
               },
               {
-                value: 'building2',
-                olts: []
+                value: 'building2'
               }
             ]
           }
@@ -89,8 +87,7 @@ RSpec.describe TestNetworkGraph, type: :model do
                     value: 'N/A',
                     ont_ge_2_macs: [
                       {
-                        value: 'N/A',
-                        ont_ge_3_macs: []
+                        value: 'N/A'
                       }
                     ]
                   }

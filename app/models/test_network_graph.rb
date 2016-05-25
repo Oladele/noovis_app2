@@ -66,7 +66,7 @@ class TestNetworkGraph < ActiveRecord::Base
 
         nested_collection = object[object.keys.last]
 
-        if nested_collection.present?
+        if nested_collection.present? && nested_collection.is_a?(Array)
           # Ports have the same node level and parent_id
           is_port_node = ["ont_ge_2_macs", "ont_ge_3_macs", "ont_ge_4_macs"].include?(object.keys.last)
           next_node_level = is_port_node ? node_level : node_level + 1
