@@ -31,6 +31,22 @@ class TestNetworkGraph < ActiveRecord::Base
     { nodes: iteration_helper.nodes, edges: iteration_helper.edges }
   end
 
+  def node_counts
+    nodes = self.nodes_and_edges[:nodes]
+
+    nodes.each_with_object([]) do |node, array|
+      node_type = node[:node_type]
+
+      counter = array.select { |object| object[:node_type] == node_type }.first
+
+      if counter.nil?
+        array << { node_type: node_type, count: 1, node_type_pretty: node_type.pluralize.titleize }
+      else
+        counter[:count] += 1
+      end
+    end
+  end
+
   private
     def generate_for_collection(iteration_helper, collection, node_type, node_level, parent_id)
       collection.each do |object|

@@ -6,25 +6,40 @@ class BuildingResource < JSONAPI::Resource
   filter :network_site
 
   def node_counts
-  	network_graph = NetworkGraph.latest_for @model
+    # 1 2 3 3 3 3 26  26
+    # 0 2 2 2 3 17  17
+    if true
+      test_network_graph = @model.test_network_graphs.order(created_at: :desc).first
 
-		if network_graph
-	  	nodes = network_graph.nodes
-			node_types = [
-				"olt_chassis",
-				"pon_card",
-				"fdh",
-				"splitter",
-				"rdt",
-				"ont_sn",
-				"room"
-			]
+      node_counts = if test_network_graph.present?
+        test_network_graph.node_counts
+      else
+        []
+      end
 
-			stats = NodeStats.new nodes
-			node_counts = stats.node_counts node_types
-		else
-			node_counts = []
-		end
+      node_counts
+    else
+      network_graph = NetworkGraph.latest_for @model
+
+      if network_graph
+        nodes = network_graph.nodes
+        node_types = [
+          "olt_chassis",
+          "pon_card",
+          "fdh",
+          "splitter",
+          "rdt",
+          "ont_sn",
+          "room"
+        ]
+
+        stats = NodeStats.new nodes
+        node_counts = stats.node_counts node_types
+      else
+        node_counts = []
+      end
+
+    end
   end
 
   def self.records(options = {})

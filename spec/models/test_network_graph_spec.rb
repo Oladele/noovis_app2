@@ -143,5 +143,49 @@ RSpec.describe TestNetworkGraph, type: :model do
 
       #assert_equal edges, data
     end
+
+    it "node_counts" do
+      # "node-counts":[{"node_type":"olt_chassis","count":0,"node_type_pretty":"Olt chasses"},{"node_type":"pon_card","count":2,"node_type_pretty":"Pon cards"},{"node_type":"fdh","count":2,"node_type_pretty":"Fdhs"},{"node_type":"splitter","count":2,"node_type_pretty":"Splitters"},
+
+      result = [
+        { node_type: "building", count: 2, node_type_pretty: "Building" },
+        { node_type: "olt", count: 1, node_type_pretty: "Olt" }
+      ]
+
+      assert_equal result, @test_network_graph.node_counts
+    end
+
+    it "node_counts 2" do
+      @test_network_graph.graph = {
+        sites: [
+          {
+            value: 'site1',
+            ont_sns: [
+              {
+                value: 'N/A',
+                ont_ge_1_macs: [
+                  {
+                    value: 'N/A',
+                    ont_ge_2_macs: [
+                      {
+                        value: 'N/A'
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+
+      result = [
+        { node_type: "ont_sn", count: 1, node_type_pretty: "Ont_sn" },
+        { node_type: "ont_ge_1_mac", count: 1, node_type_pretty: "Ont_ge_1_mac" },
+        { node_type: "ont_ge_2_mac", count: 1, node_type_pretty: "Ont_ge_2_mac" }
+      ]
+
+      assert_equal result, @test_network_graph.node_counts
+    end
   end
 end
