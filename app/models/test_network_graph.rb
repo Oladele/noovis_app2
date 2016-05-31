@@ -25,7 +25,7 @@ class TestNetworkGraph < ActiveRecord::Base
     graph["sites"].each do |site|
       collection = site[site.keys.last]
 
-      generate_for_collection(iteration_helper, collection, singular_node_type(site.keys.last), 1, nil)
+      generate_for_collection(iteration_helper, collection, singular_node_type(site.keys.last), 1, nil, 1)
     end
 
     { nodes: iteration_helper.nodes, edges: iteration_helper.edges }
@@ -48,20 +48,16 @@ class TestNetworkGraph < ActiveRecord::Base
   end
 
   private
-    def generate_for_collection(iteration_helper, collection, node_type, node_level, parent_id)
+    def generate_for_collection(iteration_helper, collection, node_type, node_level, parent_id, row_id)
       collection.each do |object|
         node = {
           id: iteration_helper.index,
-          node_value: object["value"],
-          parent_id: parent_id,
-          cable_run_id: 22,       # TODO: do we need this?
-          node_type: node_type,
           label: "#{node_type.upcase}: #{object["value"]}",
+          cable_run_id: row_id,
           level: node_level.to_s,
-          #created_at: self.created_at,
-          #updated_at: self.updated_at
-          #network_graph_id: 55,   # TODO: do we need this?
-          #level: node_level.to_s,
+          node_type: node_type,
+          node_value: object["value"],
+          parent_id: parent_id
         }
         iteration_helper.nodes << node
 
@@ -70,14 +66,7 @@ class TestNetworkGraph < ActiveRecord::Base
           edge = {
             id: iteration_helper.index - 1,   # Offset so it starts on index 1, since it passes the first loop.
             to: node[:id],
-            from: parent_id,
-            #network_graph_id: 55, # TODO: do we need this?
-            #to_node_id: node[:id],
-            #from_node_id: parent_id,
-            #edge_level: node_level,       # Offset so it starts on index 1, since it passes the first loop.
-            #level: node_level.to_s,
-            #created_at: self.created_at,
-            #updated_at: self.updated_at
+            from: parent_id
           }
           iteration_helper.edges << edge
         end
@@ -92,8 +81,10 @@ class TestNetworkGraph < ActiveRecord::Base
           next_node_level = is_port_node ? node_level : node_level + 1
           previous_parent_id = is_port_node ? parent_id : node[:id]
 
-          generate_for_collection(iteration_helper, nested_collection, singular_node_type(object.keys.last), next_node_level, previous_parent_id)
+          generate_for_collection(iteration_helper, nested_collection, singular_node_type(object.keys.last), next_node_level, previous_parent_id, row_id)
         end
+
+        row_id += 1
       end
     end
 

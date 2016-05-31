@@ -1,6 +1,41 @@
 class SpreadsheetImporter
   NETWORK_TEMPLATE = ["Site", "OLT Chassis", "PON Card", "PON Port", "Building", "FDH", "Splitter", "RDT", "Room Number", "ONT SN#", "ONT GE Port 1 MAC", "ONT GE Port 2 MAC", "ONT GE Port 3 MAC", "ONT GE Port 4 MAC"].freeze
 
+  def self.import_from_cable_runs(network_template, cable_runs)
+    # Read the cable runs into a data structure we can work with.
+    sheet_data = read_cable_runs(network_template, cable_runs)
+
+    result = self.template_order(network_template, sheet_data[0])
+
+    return result if result[:success] == false
+
+    # Collect the sheet data in the proper order
+    spreadsheet_order = result[:spreadsheet_order]
+    ordered_sheet_data = self.reorder_sheet(spreadsheet_order, sheet_data)
+
+    # Generate the structure and then build it using the network template
+    structure = self.structure_for_network_template(network_template)
+    data = self.build_structure(structure, ordered_sheet_data[1..-1])  # [1..-1] is all rows but the first header row
+
+    return data
+  end
+
+  def self.read_cable_runs(network_template, cable_runs)
+    result = [network_template]
+
+    cable_runs.each_with_object([network_template]) do |cable_run, array|
+      row = []
+
+      network_template.each do |value|
+        row << cable_run.send(format(value, false))
+      end
+
+      result << row
+    end
+
+    result
+  end
+
   # TODO: Handle success false or maybe this should throw exceptions rather than success false?
   def self.import(network_template, file, sheet_name)
     # Read the spreadsheet into a data structure we can work with.
@@ -126,24 +161,28 @@ class SpreadsheetImporter
       graph
     end
 
-    def self.format(value)
+    def self.format(value, pluralize = true)
       value = value.downcase
 
-      case value
-      when "room number"
-        "room"
-      when "ont sn#"
-        "ont sn"
-      when "ont ge port 1 mac"
-        "ont ge 1 mac"
-      when "ont ge port 2 mac"
-        "ont ge 2 mac"
-      when "ont ge port 3 mac"
-        "ont ge 3 mac"
-      when "ont ge port 4 mac"
-        "ont ge 4 mac"
-      else
-        value
-      end.gsub(' ', '_').pluralize.to_sym
+      value =
+        case value
+        when "room number"
+          "room"
+        when "ont sn#"
+          "ont sn"
+        when "ont ge port 1 mac"
+          "ont ge 1 mac"
+        when "ont ge port 2 mac"
+          "ont ge 2 mac"
+        when "ont ge port 3 mac"
+          "ont ge 3 mac"
+        when "ont ge port 4 mac"
+          "ont ge 4 mac"
+        else
+          value
+        end.gsub(' ', '_')
+
+      value = value.pluralize if pluralize == true
+      value.to_sym
     end
 end

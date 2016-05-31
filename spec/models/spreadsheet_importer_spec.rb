@@ -2,6 +2,45 @@ require 'rails_helper'
 
 RSpec.describe SpreadsheetImporter, type: :model do
   describe "import" do
+    it "read_cable_runs" do
+      sheet = FactoryGirl.create(:sheet)
+      sheet.cable_runs.create!(site: "site1", building: "building1", olt_rack: "olt1")
+      sheet.cable_runs.create!(site: "site2", building: "building2", olt_rack: "olt2")
+
+      result = [["Site", "OLT Rack", "Building"], %w(site1 olt1 building1), %w(site2 olt2 building2)]
+
+      data = SpreadsheetImporter.read_cable_runs(["Site", "OLT Rack", "Building"], sheet.cable_runs.order(:created_at))
+      assert_equal result, data
+    end
+
+    it "import from cable_runs" do
+      sheet = FactoryGirl.create(:sheet)
+      sheet.cable_runs.create!(site: "site1", building: "building1", olt_rack: "olt1")
+      sheet.cable_runs.create!(site: "site1", building: "building2", olt_rack: "olt2")
+
+      result = {
+        sites: [
+          {
+            value: 'site1',
+            olt_racks: [
+              {
+                value: 'olt1',
+                buildings: [{ value: 'building1' }]
+              },
+              {
+                value: 'olt2',
+                buildings: [{ value: 'building2' }]
+              }
+            ]
+          }
+        ]
+      }
+
+      graph = SpreadsheetImporter.import_from_cable_runs(["Site", "OLT Rack", "Building"], sheet.cable_runs.order(:created_at))
+
+      assert_equal result, graph
+    end
+
     it "build_structure" do
       graph = {
         sites: [

@@ -16,10 +16,7 @@ class ImportCableRunProcessingWorker
           filename: import_job.filename
         )
 
-        graph = SpreadsheetImporter.import(SpreadsheetImporter::NETWORK_TEMPLATE, file, import_job.sheet_name)
-        TestNetworkGraph.create!(building_id: import_job.building_id, graph: graph)
-
-        #import_cable_run.save_workbook
+        import_cable_run.save_workbook
         import_job.update_attribute(:status, 'completed')
       ensure
         File.delete(file)
