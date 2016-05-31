@@ -18,18 +18,24 @@ RSpec.describe SpreadsheetImporter, type: :model do
       sheet.cable_runs.create!(site: "site1", building: "building1", olt_rack: "olt1")
       sheet.cable_runs.create!(site: "site1", building: "building2", olt_rack: "olt2")
 
+      first_id = sheet.cable_runs.first.id
+      second_id = sheet.cable_runs.last.id
+
       result = {
         sites: [
           {
             value: 'site1',
+            cable_run_id: first_id,
             olt_racks: [
               {
                 value: 'olt1',
-                buildings: [{ value: 'building1' }]
+                cable_run_id: first_id,
+                buildings: [{ value: 'building1', cable_run_id: first_id }]
               },
               {
                 value: 'olt2',
-                buildings: [{ value: 'building2' }]
+                cable_run_id: second_id,
+                buildings: [{ value: 'building2', cable_run_id: second_id }]
               }
             ]
           }

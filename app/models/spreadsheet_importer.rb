@@ -15,7 +15,8 @@ class SpreadsheetImporter
 
     # Generate the structure and then build it using the network template
     structure = self.structure_for_network_template(network_template)
-    data = self.build_structure(structure, ordered_sheet_data[1..-1])  # [1..-1] is all rows but the first header row
+
+    data = self.build_structure2(structure, ordered_sheet_data[1..-1], cable_runs.pluck(:id))  # [1..-1] is all rows but the first header row
 
     return data
   end
@@ -160,6 +161,41 @@ class SpreadsheetImporter
 
       graph
     end
+
+    def self.build_structure2(template, values, cable_run_ids)
+      graph = { sites: [] }
+
+      values.each_with_index do |row, row_index|
+        previous = graph  # Start at the top
+
+        row.each_with_index do |col, index|
+          col = "N/A" if col.nil?
+
+          type = template[index][:type]
+          collection = template[index][:collection]
+
+          # If it's a number, `1` is sometimes read in as `1.0`
+          col = col.is_a?(Float) ? col.to_i.to_s : col
+
+          # Do we have this node yet?
+          object = previous[type].select { |object| object[:value] == col }.first
+
+          # If not, make it.
+          if object.nil?
+            object = { value: col, cable_run_id: cable_run_ids[row_index] }
+            object[collection] = [] if collection.present?  # Could be end of graph
+
+            previous[type] << object
+          end
+
+          # Set the current place in the nested structure for the next iteration
+          previous = object
+        end
+      end
+
+      graph
+    end
+
 
     def self.format(value, pluralize = true)
       value = value.downcase

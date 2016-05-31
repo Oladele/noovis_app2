@@ -53,7 +53,7 @@ class TestNetworkGraph < ActiveRecord::Base
         node = {
           id: iteration_helper.index,
           label: "#{node_type.upcase}: #{object["value"]}",
-          cable_run_id: row_id,
+          cable_run_id: object["cable_run_id"],
           level: node_level.to_s,
           node_type: node_type,
           node_value: object["value"],
