@@ -17,7 +17,7 @@ class NetworkGraph < ActiveRecord::Base
   has_many :edges, dependent: :destroy
 
   validates :sheet_id, presence: true
-  validates :network_template_id, presence: true
+  validates :graph, presence: true
 
   attr_reader :nodes_in_memory
 
@@ -43,7 +43,7 @@ class NetworkGraph < ActiveRecord::Base
   def NetworkGraph.all_for_single(model)
     network_graphs = []
     buildings = model.buildings
-    network_graphs = buildings.map do |building| 
+    network_graphs = buildings.map do |building|
       NetworkGraph.latest_for building
     end
     network_graphs.compact
@@ -54,7 +54,7 @@ class NetworkGraph < ActiveRecord::Base
   	sheets_with_graphs = building.sheets.which_have_graphs
   	return nil if sheets_with_graphs.empty?
 
-  	latest_sheet = sheets_with_graphs.last  	
+  	latest_sheet = sheets_with_graphs.last
   	latest_graph = latest_sheet.network_graphs.last
   end
 
@@ -66,7 +66,7 @@ class NetworkGraph < ActiveRecord::Base
     @cable_runs = sheet.cable_runs
     @workbook = sheet.workbook
 
-    @node_tree_types = 
+    @node_tree_types =
       [
         "olt_chassis",
         "pon_card",
@@ -86,7 +86,7 @@ class NetworkGraph < ActiveRecord::Base
     # used for handling special case of ont_devices/macs
     # which are all on same level
     @ont_node_level = @node_tree_types.index "ont_sn"
-    
+
     @nodes_in_memory = []
     @edges_in_memory = []
 
@@ -128,8 +128,8 @@ class NetworkGraph < ActiveRecord::Base
       if @rows == nil or @rows.length == 0
         #do nothing
       else
-        fill_blanks_and_sort @rows 
-        
+        fill_blanks_and_sort @rows
+
         @rows.each_with_index do |row, row_index|
           node_level = 0
           make_new_nodes_edges(node_level, row, nil)
@@ -137,7 +137,7 @@ class NetworkGraph < ActiveRecord::Base
 
       end
     end
-    
+
 
     def make_new_nodes_edges(node_level, row, parent)
       node_type = @node_tree_types[node_level]
@@ -159,8 +159,8 @@ class NetworkGraph < ActiveRecord::Base
       else
         # create node
         node_params = {
-          node_value: value, 
-          node_type: node_type, 
+          node_value: value,
+          node_type: node_type,
           node_level: level,
           cable_run_id: cable_run_id,
           parent: parent,
@@ -188,7 +188,7 @@ class NetworkGraph < ActiveRecord::Base
 
     def create_node(node_params, row)
 
-      
+
       # node = nodes.create node_params
       if node_params[:node_type] == "olt_chassis"
         olt = get_olt_chassis_if_it_exists(node_params[:node_value])
@@ -222,8 +222,8 @@ class NetworkGraph < ActiveRecord::Base
       @nodes_in_memory << node
 
       edges = create_edges node
-      
-      return node 
+
+      return node
     end
 
     # performnce optimization required here:
@@ -279,10 +279,98 @@ class NetworkGraph < ActiveRecord::Base
         edge = edges.create edge_params
         node_edges << edge
         @edges_in_memory << edge
-    
+
         node_edges
       end
     end
 
+  def nodes_and_edges
+    iteration_helper = IterationHelper.new(1)
 
+    graph["sites"].each do |site|
+      collection = site[site.keys.last]
+
+      generate_for_collection(iteration_helper, collection, singular_node_type(site.keys.last), 1, nil, 1)
+    end
+
+    { nodes: iteration_helper.nodes, edges: iteration_helper.edges }
+  end
+
+  def node_counts
+    nodes = self.nodes_and_edges[:nodes]
+
+    nodes.each_with_object([]) do |node, array|
+      node_type = node[:node_type]
+
+      counter = array.select { |object| object[:node_type] == node_type }.first
+
+      if counter.nil?
+        array << { node_type: node_type, count: 1, node_type_pretty: node_type.pluralize.titleize }
+      else
+        counter[:count] += 1
+      end
+    end
+  end
+
+  private
+    def generate_for_collection(iteration_helper, collection, node_type, node_level, parent_id, row_id)
+      collection.each do |object|
+        node = {
+          id: iteration_helper.index,
+          label: "#{node_type.upcase}: #{object["value"]}",
+          cable_run_id: object["cable_run_id"],
+          level: node_level.to_s,
+          node_type: node_type,
+          node_value: object["value"],
+          parent_id: parent_id
+        }
+        iteration_helper.nodes << node
+
+        # If there is a parent, then we need to make an edge.
+        if parent_id.present?
+          edge = {
+            id: iteration_helper.index - 1,   # Offset so it starts on index 1, since it passes the first loop.
+            to: node[:id],
+            from: parent_id
+          }
+          iteration_helper.edges << edge
+        end
+
+        iteration_helper.increment
+
+        nested_collection = object[object.keys.last]
+
+        if nested_collection.present? && nested_collection.is_a?(Array)
+          # Ports have the same node level and parent_id
+          is_port_node = ["ont_ge_2_macs", "ont_ge_3_macs", "ont_ge_4_macs"].include?(object.keys.last)
+          next_node_level = is_port_node ? node_level : node_level + 1
+          previous_parent_id = is_port_node ? parent_id : node[:id]
+
+          generate_for_collection(iteration_helper, nested_collection, singular_node_type(object.keys.last), next_node_level, previous_parent_id, row_id)
+        end
+
+        row_id += 1
+      end
+    end
+
+    def singular_node_type(node_type)
+      node_type == "olt_chasses" ? "olt_chassis" : node_type.to_s.singularize
+    end
 end
+
+# An integer is passed by value, so when looping we need to retrieve and increment the same value,
+# not a copy of the value. Wrapping this in an object gives us the same pass by reference-ness of objects.
+class IterationHelper
+  attr_accessor :index, :nodes, :edges
+
+  def initialize(index)
+    self.index = index
+    self.nodes = []
+    self.edges = []
+  end
+
+  def increment
+    self.index += 1
+  end
+end
+

@@ -126,16 +126,11 @@ class ImportCableRun
 
     if @workbook_sheet.save
       save_cable_run
-      # create network_graph, nodes, edges
+
+      NetworkGraph.destroy_all_for(@workbook_sheet.building)
 
       graph = SpreadsheetImporter.import_from_cable_runs(SpreadsheetImporter::NETWORK_TEMPLATE, @workbook_sheet.cable_runs)
-      TestNetworkGraph.create!(building_id: @building_id, graph: graph)
-
-      #if network_template = NetworkTemplate.first
-        #NetworkGraph.destroy_all_for(@workbook_sheet.building)
-        #network_graph = @workbook_sheet.network_graphs.create network_template: network_template
-        #network_graph.make_nodes_edges
-      #end
+      network_graph = @workbook_sheet.network_graphs.create(graph: graph)
     else
       set_status :unprocessable_entity,
         "Cannot create sheet #{@sheet} for workbook #{@filename}: #{@workbook_sheet.errors.full_messages}"
