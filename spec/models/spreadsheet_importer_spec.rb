@@ -52,6 +52,7 @@ RSpec.describe SpreadsheetImporter, type: :model do
         sites: [
           {
             value: 'site1',
+            cable_run_id: 1,
             buildings: []
           }
         ]
@@ -63,7 +64,7 @@ RSpec.describe SpreadsheetImporter, type: :model do
         { type: :olts, collection: :splitters }
       ]
 
-      value = SpreadsheetImporter.build_structure(template, [["site1"]])
+      value = SpreadsheetImporter.build_structure(template, [["site1"]], [1])
 
       assert_equal graph, value
     end
@@ -73,9 +74,11 @@ RSpec.describe SpreadsheetImporter, type: :model do
         sites: [
           {
             value: 'site1',
+            cable_run_id: 1,
             buildings: [
               {
                 value: 'building1',
+                cable_run_id: 1,
                 olts: []
               }
             ]
@@ -89,7 +92,7 @@ RSpec.describe SpreadsheetImporter, type: :model do
         { type: :olts, collection: :splitters }
       ]
 
-      value = SpreadsheetImporter.build_structure(template, [["site1", "building1"]])
+      value = SpreadsheetImporter.build_structure(template, [["site1", "building1"]], [1])
 
       assert_equal graph, value
     end
@@ -99,13 +102,16 @@ RSpec.describe SpreadsheetImporter, type: :model do
         sites: [
           {
             value: 'site1',
+            cable_run_id: 1,
             buildings: [
               {
                 value: 'building1',
+                cable_run_id: 1,
                 olts: []
               },
               {
                 value: 'building2',
+                cable_run_id: 2,
                 olts: []
               }
             ]
@@ -119,7 +125,7 @@ RSpec.describe SpreadsheetImporter, type: :model do
         { type: :olts, collection: :splitters }
       ]
 
-      value = SpreadsheetImporter.build_structure(template, [["site1", "building1"], ["site1", "building2"]])
+      value = SpreadsheetImporter.build_structure(template, [["site1", "building1"], ["site1", "building2"]], [1, 2])
 
       assert_equal graph, value
     end
@@ -129,13 +135,16 @@ RSpec.describe SpreadsheetImporter, type: :model do
         sites: [
           {
             value: 'site1',
+            cable_run_id: 1,
             buildings: [
               {
                 value: '1',
+                cable_run_id: 1,
                 olts: []
               },
               {
                 value: '2',
+                cable_run_id: 2,
                 olts: []
               }
             ]
@@ -149,7 +158,7 @@ RSpec.describe SpreadsheetImporter, type: :model do
         { type: :olts, collection: :splitters }
       ]
 
-      value = SpreadsheetImporter.build_structure(template, [["site1", 1.0], ["site1", 2.0]])
+      value = SpreadsheetImporter.build_structure(template, [["site1", 1.0], ["site1", 2.0]], [1,2])
 
       assert_equal graph, value
     end
@@ -159,9 +168,11 @@ RSpec.describe SpreadsheetImporter, type: :model do
         sites: [
           {
             value: 'site1',
+            cable_run_id: 1,
             buildings: [
               {
-                value: '1.0',
+                value: '1',
+                cable_run_id: 1,
                 olts: []
               }
             ]
@@ -175,7 +186,7 @@ RSpec.describe SpreadsheetImporter, type: :model do
         { type: :olts, collection: :splitters }
       ]
 
-      value = SpreadsheetImporter.build_structure(template, [["site1", 1.0], ["site1", 1.0]])
+      value = SpreadsheetImporter.build_structure(template, [["site1", 1.0], ["site1", 1.0]], [1])
 
       assert_equal graph, value
     end
@@ -185,22 +196,27 @@ RSpec.describe SpreadsheetImporter, type: :model do
         sites: [
           {
             value: 'site1',
+            cable_run_id: 1,
             buildings: [
               {
                 value: 'building1',
+                cable_run_id: 1,
                 olts: []
               },
               {
                 value: 'building2',
+                cable_run_id: 2,
                 olts: []
               }
             ]
           },
           {
             value: 'site2',
+            cable_run_id: 3,
             buildings: [
               {
                 value: 'building3',
+                cable_run_id: 3,
                 olts: []
               },
             ]
@@ -214,7 +230,7 @@ RSpec.describe SpreadsheetImporter, type: :model do
         { type: :olts, collection: :splitters }
       ]
 
-      value = SpreadsheetImporter.build_structure(template, [["site1", "building1"], ["site1", "building2"], ["site2", "building3"]])
+      value = SpreadsheetImporter.build_structure(template, [["site1", "building1"], ["site1", "building2"], ["site2", "building3"]], [1, 2, 3])
 
       assert_equal graph, value
     end
@@ -224,18 +240,22 @@ RSpec.describe SpreadsheetImporter, type: :model do
         sites: [
           {
             value: 'site1',
+            cable_run_id: 1,
             buildings: [
               {
                 value: 'building1',
+                cable_run_id: 1,
                 olts: []
               },
             ]
           },
           {
             value: 'site2',
+            cable_run_id: 3,
             buildings: [
               {
                 value: 'building3',
+                cable_run_id: 3,
                 olts: []
               },
             ]
@@ -249,7 +269,7 @@ RSpec.describe SpreadsheetImporter, type: :model do
         { type: :olts, collection: :splitters }
       ]
 
-      value = SpreadsheetImporter.build_structure(template, [["site1", "building1"], ["site1", "building1"], ["site2", "building3"]])
+      value = SpreadsheetImporter.build_structure(template, [["site1", "building1"], ["site1", "building1"], ["site2", "building3"]], [1, 2, 3])
 
       assert_equal graph, value
     end
@@ -259,9 +279,11 @@ RSpec.describe SpreadsheetImporter, type: :model do
         sites: [
           {
             value: 'site1',
+            cable_run_id: 1,
             buildings: [
               {
                 value: 'building1',
+                cable_run_id: 1,
                 olts: []
               },
             ]
@@ -275,7 +297,7 @@ RSpec.describe SpreadsheetImporter, type: :model do
         { type: :olts, collection: :splitters }
       ]
 
-      value = SpreadsheetImporter.build_structure(template, [["site1", "building1"], ["site1", "building1"]])
+      value = SpreadsheetImporter.build_structure(template, [["site1", "building1"], ["site1", "building1"]], [1])
 
       assert_equal graph, value
     end
@@ -285,12 +307,15 @@ RSpec.describe SpreadsheetImporter, type: :model do
         sites: [
           {
             value: 'site1',
+            cable_run_id: 1,
             buildings: [
               {
                 value: 'building1',
+                cable_run_id: 1,
                 olts: [
                   {
                     value: 'olt1',
+                    cable_run_id: 1,
                     splitters: []
                   }
                 ]
@@ -306,7 +331,7 @@ RSpec.describe SpreadsheetImporter, type: :model do
         { type: :olts, collection: :splitters }
       ]
 
-      value = SpreadsheetImporter.build_structure(template, [["site1", "building1", "olt1"]])
+      value = SpreadsheetImporter.build_structure(template, [["site1", "building1", "olt1"]], [1])
 
       assert_equal graph, value
     end
@@ -316,12 +341,15 @@ RSpec.describe SpreadsheetImporter, type: :model do
         sites: [
           {
             value: 'site1',
+            cable_run_id: 1,
             buildings: [
               {
                 value: 'building1',
+                cable_run_id: 1,
                 olts: [
                   {
                     value: 'olt1',
+                    cable_run_id: 1,
                   }
                 ]
               },
@@ -329,9 +357,11 @@ RSpec.describe SpreadsheetImporter, type: :model do
           },
           {
             value: 'site2',
+            cable_run_id: 2,
             buildings: [
               {
                 value: 'building2',
+                cable_run_id: 2,
                 olts: []
               }
             ]
@@ -345,7 +375,7 @@ RSpec.describe SpreadsheetImporter, type: :model do
         { type: :olts }
       ]
 
-      value = SpreadsheetImporter.build_structure(template, [["site1", "building1", "olt1"], ["site2", "building2"]])
+      value = SpreadsheetImporter.build_structure(template, [["site1", "building1", "olt1"], ["site2", "building2"]], [1, 2])
 
       assert_equal graph, value
     end
@@ -355,12 +385,15 @@ RSpec.describe SpreadsheetImporter, type: :model do
         sites: [
           {
             value: 'site1',
+            cable_run_id: 1,
             buildings: [
               {
                 value: 'building1',
+                cable_run_id: 1,
                 olts: [
                   {
                     value: 'olt1',
+                    cable_run_id: 1
                   }
                 ]
               },
@@ -368,12 +401,15 @@ RSpec.describe SpreadsheetImporter, type: :model do
           },
           {
             value: 'site2',
+            cable_run_id: 2,
             buildings: [
               {
                 value: 'building2',
+                cable_run_id: 2,
                 olts: [
                   {
-                    value: 'N/A'
+                    value: 'N/A',
+                    cable_run_id: 2
                   }
                 ]
               }
@@ -388,7 +424,7 @@ RSpec.describe SpreadsheetImporter, type: :model do
         { type: :olts }
       ]
 
-      value = SpreadsheetImporter.build_structure(template, [["site1", "building1", "olt1"], ["site2", "building2", nil]])
+      value = SpreadsheetImporter.build_structure(template, [["site1", "building1", "olt1"], ["site2", "building2", nil]], [1, 2])
 
       assert_equal graph, value
     end
@@ -416,77 +452,39 @@ RSpec.describe SpreadsheetImporter, type: :model do
       assert_equal ordered, value
     end
 
-    it "reads the spreadsheet into values" do
-      file = File.join(Rails.root, "spec/support/import_refactor_spreadsheets/import_reordering_test.xls")
-
-      result = [["Site", "OLT Rack", "Building"], %w(one three two), %w(one three two)]
-
-      data = SpreadsheetImporter.read_spreadsheet(file, 'Sheet 1')
-
-      assert_equal true, data[:success]
-      assert_equal nil, data[:message]
-      assert_equal result, data[:sheet_data]
-    end
-
-    it "reads the spreadsheet into values" do
-      file = File.join(Rails.root, "spec/support/import_refactor_spreadsheets/import_reordering_test_bad.xls")
-
-      data = SpreadsheetImporter.read_spreadsheet(file, 'Sheet 1')
-
-      assert_equal false, data[:success]
-      assert_equal 'Error: header row did not match template.', data[:message]
-      assert_equal nil, data[:sheet_data]
-    end
-
-    it "ordered spreadsheet" do
-      file = File.join(Rails.root, "spec/support/import_refactor_spreadsheets/import_reordering_test.xls")
-
-      result = {
-        sites: [
-          {
-            value: 'one',
-            buildings: [
-              {
-                value: 'two',
-                olt_racks: [
-                  {
-                    value: 'three',
-                  },
-                ]
-              },
-            ]
-          },
-        ]
-      }
-
-      network_template = ["Site", "Building", "OLT Rack"]
-      assert_equal result, SpreadsheetImporter.import(network_template, file, 'Sheet 1')
-    end
-
     it "imports a small but real sheet" do
-      file = File.join(Rails.root, "spec/support/import_refactor_spreadsheets/small_but_real.xls")
+      sheet = FactoryGirl.create(:sheet)
+      sheet.cable_runs.create!(site: "Oakcrest", building: "Village Square", olt_rack: "olt1", olt_chassis: 'ELOC001', pon_card: '1', pon_port: '1', fdh: 'VS1', splitter: 'N/A')
+
+      first_id = sheet.cable_runs.first.id
 
       result = {
         sites: [
           {
             value: 'Oakcrest',
+            cable_run_id: first_id,
             olt_chasses: [
               {
                 value: 'ELOC001',
+                cable_run_id: first_id,
                 pon_cards: [
                   {
                     value: '1',
+                    cable_run_id: first_id,
                     pon_ports: [
                       {
                         value: '1',
+                        cable_run_id: first_id,
                         buildings: [
                           {
                             value: 'Village Square',
+                            cable_run_id: first_id,
                             fdhs: [
                               {
                                 value: 'VS1',
+                                cable_run_id: first_id,
                                 splitters: [
-                                  { value: 'N/A' }
+                                  { value: 'N/A', cable_run_id: first_id }
                                 ]
                               }
                             ]
@@ -503,54 +501,70 @@ RSpec.describe SpreadsheetImporter, type: :model do
       }
 
       network_template = ["Site", "OLT Chassis", "PON Card", "PON Port", "Building", "FDH", "Splitter"]
-      assert_equal result, SpreadsheetImporter.import(network_template, file, 'Village Square')
+      assert_equal result, SpreadsheetImporter.import_from_cable_runs(network_template, sheet.cable_runs.order(:created_at))
     end
 
     it "imports a small but real sheet fully" do
-      file = File.join(Rails.root, "spec/support/import_refactor_spreadsheets/small_but_real.xls")
+      sheet = FactoryGirl.create(:sheet)
+      sheet.cable_runs.create!(site: "Oakcrest", building: "Village Square", olt_rack: "olt1", olt_chassis: 'ELOC001', pon_card: '1', pon_port: '1', fdh: 'VS1', splitter: 'N/A', rdt: '1', room: 'N/A')
+
+      first_id = sheet.cable_runs.first.id
 
       result = {
         sites: [
           {
             value: 'Oakcrest',
+            cable_run_id: first_id,
             olt_chasses: [
               {
                 value: 'ELOC001',
+                cable_run_id: first_id,
                 pon_cards: [
                   {
                     value: '1',
+                    cable_run_id: first_id,
                     pon_ports: [
                       {
                         value: '1',
+                        cable_run_id: first_id,
                         buildings: [
                           {
                             value: 'Village Square',
+                            cable_run_id: first_id,
                             fdhs: [
                               {
                                 value: 'VS1',
+                                cable_run_id: first_id,
                                 splitters: [
                                   {
                                     value: 'N/A',
+                                    cable_run_id: first_id,
                                     rdts: [
                                       {
                                         value: '1',
+                                        cable_run_id: first_id,
                                         rooms: [
                                           {
                                             value: 'N/A',
+                                            cable_run_id: first_id,
                                             ont_sns: [
                                               {
                                                 value: 'N/A',
+                                                cable_run_id: first_id,
                                                 ont_ge_1_macs: [
                                                   {
                                                     value: 'N/A',
+                                                    cable_run_id: first_id,
                                                     ont_ge_2_macs: [
                                                       {
                                                         value: 'N/A',
+                                                        cable_run_id: first_id,
                                                         ont_ge_3_macs: [
                                                           {
                                                             value: 'N/A',
+                                                            cable_run_id: first_id,
                                                             ont_ge_4_macs: [
-                                                              { value: 'N/A' }
+                                                              { value: 'N/A', cable_run_id: first_id }
                                                             ]
                                                           }
                                                         ]
@@ -580,58 +594,73 @@ RSpec.describe SpreadsheetImporter, type: :model do
         ]
       }
 
-      network_template = ["Site", "OLT Chassis", "PON Card", "PON Port", "Building", "FDH", "Splitter", "RDT",
-                          "Room Number", "ONT SN#", "ONT GE Port 1 MAC", "ONT GE Port 2 MAC", "ONT GE Port 3 MAC", "ONT GE Port 4 MAC"]
-
-      value = SpreadsheetImporter.import(network_template, file, 'Village Square')
+      value = SpreadsheetImporter.import_from_cable_runs(SpreadsheetImporter::NETWORK_TEMPLATE, sheet.cable_runs.order(:created_at))
       assert_equal result, value
     end
 
     it "imports two rows from a small but real sheet fully" do
-      file = File.join(Rails.root, "spec/support/import_refactor_spreadsheets/two_rows_small_but_real.xls")
+      sheet = FactoryGirl.create(:sheet)
+      sheet.cable_runs.create!(site: "Oakcrest", building: "Village Square", olt_rack: "olt1", olt_chassis: 'ELOC001', pon_card: '1', pon_port: '1', fdh: 'VS1', splitter: 'N/A', rdt: '1', room: 'N/A')
+      sheet.cable_runs.create!(site: "Oakcrest 2", building: "Village Square", olt_rack: "olt1", olt_chassis: 'ELOC001', pon_card: '1', pon_port: '1', fdh: 'VS1', splitter: 'N/A', rdt: '1', room: 'N/A')
+
+      first_id = sheet.cable_runs.first.id
+      second_id = sheet.cable_runs.last.id
 
       result = {
         sites: [
           {
             value: 'Oakcrest',
+            cable_run_id: first_id,
             olt_chasses: [
               {
                 value: 'ELOC001',
+                cable_run_id: first_id,
                 pon_cards: [
                   {
                     value: '1',
+                    cable_run_id: first_id,
                     pon_ports: [
                       {
                         value: '1',
+                        cable_run_id: first_id,
                         buildings: [
                           {
                             value: 'Village Square',
+                            cable_run_id: first_id,
                             fdhs: [
                               {
                                 value: 'VS1',
+                                cable_run_id: first_id,
                                 splitters: [
                                   {
                                     value: 'N/A',
+                                    cable_run_id: first_id,
                                     rdts: [
                                       {
                                         value: '1',
+                                        cable_run_id: first_id,
                                         rooms: [
                                           {
                                             value: 'N/A',
+                                            cable_run_id: first_id,
                                             ont_sns: [
                                               {
                                                 value: 'N/A',
+                                                cable_run_id: first_id,
                                                 ont_ge_1_macs: [
                                                   {
                                                     value: 'N/A',
+                                                    cable_run_id: first_id,
                                                     ont_ge_2_macs: [
                                                       {
                                                         value: 'N/A',
+                                                        cable_run_id: first_id,
                                                         ont_ge_3_macs: [
                                                           {
                                                             value: 'N/A',
+                                                            cable_run_id: first_id,
                                                             ont_ge_4_macs: [
-                                                              { value: 'N/A' }
+                                                              { value: 'N/A', cable_run_id: first_id }
                                                             ]
                                                           }
                                                         ]
@@ -660,44 +689,57 @@ RSpec.describe SpreadsheetImporter, type: :model do
           },
           {
             value: 'Oakcrest 2',    # This value is different
+            cable_run_id: second_id,
             olt_chasses: [
               {
                 value: 'ELOC001',
+                cable_run_id: second_id,
                 pon_cards: [
                   {
                     value: '1',
+                    cable_run_id: second_id,
                     pon_ports: [
                       {
                         value: '1',
+                        cable_run_id: second_id,
                         buildings: [
                           {
                             value: 'Village Square',
+                            cable_run_id: second_id,
                             fdhs: [
                               {
                                 value: 'VS1',
+                                cable_run_id: second_id,
                                 splitters: [
                                   {
                                     value: 'N/A',
+                                    cable_run_id: second_id,
                                     rdts: [
                                       {
                                         value: '1',
+                                        cable_run_id: second_id,
                                         rooms: [
                                           {
                                             value: 'N/A',
+                                            cable_run_id: second_id,
                                             ont_sns: [
                                               {
                                                 value: 'N/A',
+                                                cable_run_id: second_id,
                                                 ont_ge_1_macs: [
                                                   {
                                                     value: 'N/A',
+                                                    cable_run_id: second_id,
                                                     ont_ge_2_macs: [
                                                       {
                                                         value: 'N/A',
+                                                        cable_run_id: second_id,
                                                         ont_ge_3_macs: [
                                                           {
                                                             value: 'N/A',
+                                                            cable_run_id: second_id,
                                                             ont_ge_4_macs: [
-                                                              { value: 'N/A' }
+                                                              { value: 'N/A', cable_run_id: second_id }
                                                             ]
                                                           }
                                                         ]
@@ -727,7 +769,7 @@ RSpec.describe SpreadsheetImporter, type: :model do
         ]
       }
 
-      value = SpreadsheetImporter.import(SpreadsheetImporter::NETWORK_TEMPLATE, file, 'Village Square')
+      value = SpreadsheetImporter.import_from_cable_runs(SpreadsheetImporter::NETWORK_TEMPLATE, sheet.cable_runs.order(:created_at))
       assert_equal result, value
     end
 

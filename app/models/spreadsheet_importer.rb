@@ -16,76 +16,26 @@ class SpreadsheetImporter
     # Generate the structure and then build it using the network template
     structure = self.structure_for_network_template(network_template)
 
-    data = self.build_structure2(structure, ordered_sheet_data[1..-1], cable_runs.pluck(:id))  # [1..-1] is all rows but the first header row
-
-    return data
-  end
-
-  def self.read_cable_runs(network_template, cable_runs)
-    result = [network_template]
-
-    cable_runs.each_with_object([network_template]) do |cable_run, array|
-      row = []
-
-      network_template.each do |value|
-        row << cable_run.send(format(value, false))
-      end
-
-      result << row
-    end
-
-    result
-  end
-
-  # TODO: Handle success false or maybe this should throw exceptions rather than success false?
-  def self.import(network_template, file, sheet_name)
-    # Read the spreadsheet into a data structure we can work with.
-    result = read_spreadsheet(file, sheet_name)
-
-    return result if result[:success] == false
-
-    # Determine the correct column order to process the sheet based on the network template
-    sheet_data = result[:sheet_data]
-    result = self.template_order(network_template, sheet_data[0])
-
-    return result if result[:success] == false
-
-    # Collect the sheet data in the proper order
-    spreadsheet_order = result[:spreadsheet_order]
-    ordered_sheet_data = self.reorder_sheet(spreadsheet_order, sheet_data)
-
-    # Generate the structure and then build it using the network template
-    structure = self.structure_for_network_template(network_template)
-    data = self.build_structure(structure, ordered_sheet_data[1..-1])  # [1..-1] is all rows but the first header row
+    data = self.build_structure(structure, ordered_sheet_data[1..-1], cable_runs.pluck(:id))  # [1..-1] is all rows but the first header row
 
     return data
   end
 
   private
+    def self.read_cable_runs(network_template, cable_runs)
+      result = [network_template]
 
-    def self.read_spreadsheet(file, sheet_name)
-      found_headers = false
-      data = []
+      cable_runs.each_with_object([network_template]) do |cable_run, array|
+        row = []
 
-      spreadsheet = Roo::Spreadsheet.open(file, extension: :xls)
-
-      spreadsheet.sheet(sheet_name).each do |row|
-        # TODO: check inclusion of all header values and not just first one
-        found_headers = true if row[0] == "Site"
-
-        if found_headers == true
-          data << []
-          row.each do |col|
-            data.last << col
-          end
+        network_template.each do |value|
+          row << cable_run.send(format(value, false))
         end
+
+        result << row
       end
 
-      if found_headers
-        { success: true, message: nil, sheet_data: data }
-      else
-        { success: false, message: 'Error: header row did not match template.', sheet_data: nil }
-      end
+      result
     end
 
     def self.template_order(headers, values)
@@ -128,41 +78,7 @@ class SpreadsheetImporter
       end
     end
 
-    def self.build_structure(template, values)
-      graph = { sites: [] }
-
-      values.each do |row|
-        previous = graph  # Start at the top
-
-        row.each_with_index do |col, index|
-          col = "N/A" if col.nil?
-
-          type = template[index][:type]
-          collection = template[index][:collection]
-
-          # If it's a number, `1` is sometimes read in as `1.0`
-          col = col.is_a?(Float) ? col.to_i.to_s : col
-
-          # Do we have this node yet?
-          object = previous[type].select { |object| object[:value] == col }.first
-
-          # If not, make it.
-          if object.nil?
-            object = { value: col }
-            object[collection] = [] if collection.present?  # Could be end of graph
-
-            previous[type] << object
-          end
-
-          # Set the current place in the nested structure for the next iteration
-          previous = object
-        end
-      end
-
-      graph
-    end
-
-    def self.build_structure2(template, values, cable_run_ids)
+    def self.build_structure(template, values, cable_run_ids)
       graph = { sites: [] }
 
       values.each_with_index do |row, row_index|
