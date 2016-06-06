@@ -8,16 +8,20 @@ RSpec.describe TestNetworkGraph, type: :model do
         sites: [
           {
             value: 'site1',
+            cable_run_id: 1,
             buildings: [
               {
                 value: 'building1',
+                cable_run_id: 1,
                 olts: [
                   {
+                    cable_run_id: 1,
                     value: 'olt1'
                   }
                 ]
               },
               {
+                cable_run_id: 2,
                 value: 'building2'
               }
             ]
@@ -64,15 +68,19 @@ RSpec.describe TestNetworkGraph, type: :model do
         sites: [
           {
             value: 'site1',
+            cable_run_id: 1,
             ont_sns: [
               {
                 value: 'N/A',
+                cable_run_id: 1,
                 ont_ge_1_macs: [
                   {
                     value: 'N/A',
+                    cable_run_id: 1,
                     ont_ge_2_macs: [
                       {
-                        value: 'N/A'
+                        value: 'N/A',
+                        cable_run_id: 1
                       }
                     ]
                   }
@@ -117,11 +125,9 @@ RSpec.describe TestNetworkGraph, type: :model do
     end
 
     it "node_counts" do
-      # "node-counts":[{"node_type":"olt_chassis","count":0,"node_type_pretty":"Olt chasses"},{"node_type":"pon_card","count":2,"node_type_pretty":"Pon cards"},{"node_type":"fdh","count":2,"node_type_pretty":"Fdhs"},{"node_type":"splitter","count":2,"node_type_pretty":"Splitters"},
-
       result = [
-        { node_type: "building", count: 2, node_type_pretty: "Building" },
-        { node_type: "olt", count: 1, node_type_pretty: "Olt" }
+        { node_type: "building", count: 2, node_type_pretty: "Buildings" },
+        { node_type: "olt", count: 1, node_type_pretty: "Olts" }
       ]
 
       assert_equal result, @test_network_graph.node_counts
@@ -152,9 +158,9 @@ RSpec.describe TestNetworkGraph, type: :model do
       }
 
       result = [
-        { node_type: "ont_sn", count: 1, node_type_pretty: "Ont_sn" },
-        { node_type: "ont_ge_1_mac", count: 1, node_type_pretty: "Ont_ge_1_mac" },
-        { node_type: "ont_ge_2_mac", count: 1, node_type_pretty: "Ont_ge_2_mac" }
+        { node_type: "ont_sn", count: 1, node_type_pretty: "Ont Sns" },
+        { node_type: "ont_ge_1_mac", count: 1, node_type_pretty: "Ont Ge 1 Macs" },
+        { node_type: "ont_ge_2_mac", count: 1, node_type_pretty: "Ont Ge 2 Macs" }
       ]
 
       assert_equal result, @test_network_graph.node_counts
