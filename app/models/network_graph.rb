@@ -287,6 +287,8 @@ class NetworkGraph < ActiveRecord::Base
   def nodes_and_edges
     iteration_helper = IterationHelper.new(1)
 
+    return {} if graph.nil?
+
     graph["sites"].each do |site|
       collection = site[site.keys.last]
 
@@ -298,6 +300,8 @@ class NetworkGraph < ActiveRecord::Base
 
   def node_counts
     nodes = self.nodes_and_edges[:nodes]
+
+    return [] if nodes.nil?
 
     nodes.each_with_object([]) do |node, array|
       node_type = node[:node_type]
