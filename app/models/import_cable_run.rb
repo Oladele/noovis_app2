@@ -32,8 +32,7 @@ class ImportCableRun
       status: 'processing'
     )
 
-    ImportCableRunProcessingWorker.new.perform(import_job.id)
-    #ImportCableRunProcessingWorker.perform_async(import_job.id)
+    ImportCableRunProcessingWorker.perform_async(import_job.id)
   end
 
   def set_building
