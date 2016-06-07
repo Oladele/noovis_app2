@@ -47,14 +47,14 @@ RSpec.describe NetworkSite, type: :model do
       expect {network_site.destroy}.to change {Workbook.count}
     end
 	end
-  
+
   describe "validations" do
   	it "validates presence of company_id" do
 	    subject.company_id = nil
 	    subject.valid?
 	    expect(subject.errors[:company_id]).to include "can't be blank"
 	  end
-	  
+
 	  it "validates presence of name" do
 	    subject.name = nil
 	    subject.valid?
@@ -68,4 +68,53 @@ RSpec.describe NetworkSite, type: :model do
 	    expect(duplicate.errors[:name]).to include "has already been taken"
 	  end
 	end
+
+  describe "stats" do
+    it "chart_distribution_ports_buildings" do
+      network_site = FactoryGirl.create(:network_site_with_buildings)
+      building_1_name = network_site.buildings.first.name
+      building_2_name = network_site.buildings.last.name
+
+      network_graph_2 = network_site.buildings.last.sheets.first.network_graphs.first
+      network_graph_2.update_attribute(:graph, {
+        sites: [
+          {
+            value: 'site1',
+            cable_run_id: 1,
+            rdts: [
+              value: '1',
+              cable_run_id: 1,
+              ont_sns: [
+                {
+                  value: 'ont_sn1',
+                  cable_run_id: 1
+                },
+                {
+                  value: 'ont_sn2',
+                  cable_run_id: 2
+                },
+              ]
+            ]
+          }
+        ]
+      })
+
+      result = [
+        { label: "Active Distribution Ports", group: building_1_name, value: 1 },
+        { label: "Spare Distribution Ports", group: building_1_name, value: 11 },
+        { label: "Active Distribution Ports", group: building_2_name, value: 2 },
+        { label: "Spare Distribution Ports", group: building_2_name, value: 10 }
+      ]
+
+      assert_equal result, network_site.chart_distribution_ports_buildings
+    end
+
+    it "chart_distribution_ports_sites" do
+      result = { "Active Distribution Ports" => 2, "Spare Distribution Ports" => 22 }
+
+      network_site = FactoryGirl.create(:network_site_with_buildings)
+
+      assert_equal result, network_site.chart_distribution_ports_sites
+    end
+  end
 end

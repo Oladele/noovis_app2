@@ -6,7 +6,12 @@ Rails.application.routes.draw do
   jsonapi_resource :global
   jsonapi_resources :cable_runs
   jsonapi_resources :companies
-  jsonapi_resources :network_sites
+  jsonapi_resources :network_sites do
+    member do
+      get 'chart-distribution-ports-buildings'
+      get 'chart-distribution-ports-site'
+    end
+  end
   jsonapi_resources :buildings
   jsonapi_resources :workbooks
   jsonapi_resources :sheets

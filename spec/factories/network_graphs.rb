@@ -19,11 +19,15 @@ FactoryGirl.define do
         {
           value: 'site1',
           cable_run_id: 1,
-          buildings: [
-            {
-              value: 'building1',
-              cable_run_id: 1
-            },
+          rdts: [
+            value: '1',
+            cable_run_id: 1,
+            ont_sns: [
+              {
+                value: 'ont_sn1',
+                cable_run_id: 1
+              },
+            ]
           ]
         }
       ]
