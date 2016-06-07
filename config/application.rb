@@ -48,5 +48,7 @@ module NoovisApp2
             :max_age => 0
       end
     end
+
+    config.autoload_paths += %W(#{config.root}/lib)
   end
 end
