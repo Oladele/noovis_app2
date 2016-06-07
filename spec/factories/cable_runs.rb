@@ -44,8 +44,8 @@
 
 FactoryGirl.define do
   factory :cable_run do
-    site "MyString"
-    building "MyString"
+    sequence(:site, 1) { |n| "site#{n}" }
+    building "building1"
     room "MyString"
     drop "MyString"
     rdt "MyString"
@@ -58,7 +58,7 @@ FactoryGirl.define do
     pon_port "MyString"
     fdh "MyString"
     notes "MyText"
-    olt_rack "MyString"
+    olt_rack "olt1"
     olt_chassis "MyString"
     vam_shelf "MyString"
     vam_module "MyString"

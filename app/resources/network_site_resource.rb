@@ -5,7 +5,7 @@ class NetworkSiteResource < JSONAPI::Resource
   has_one :company
   has_many :buildings
   has_many :workbooks
-  
+
   filter :company
 
   def self.records(options = {})

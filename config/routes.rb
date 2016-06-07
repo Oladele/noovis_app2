@@ -13,6 +13,14 @@ Rails.application.routes.draw do
   jsonapi_resources :network_templates
   jsonapi_resources :network_graphs
 
+  resources :network_sites do
+    member do
+      get 'chart-distribution-ports-buildings'
+      get 'chart-distribution-ports-site'
+      get 'chart-feeder-capacity-buildings'
+      get 'chart-feeder-capacity-site'
+    end
+  end
 
   get 'buildings/:id/latest_network_graph', to: 'buildings#latest_network_graph'
 

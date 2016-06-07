@@ -13,6 +13,32 @@ FactoryGirl.define do
   factory :network_graph do
     sheet
     network_template
+    graph {
+      {
+        sites: [
+          {
+            value: 'site1',
+            cable_run_id: 1,
+            rdts: [
+              {
+                value: '1',
+                cable_run_id: 1,
+                splitters: [
+                  value: '1',
+                  cable_run_id: 1,
+                  ont_sns: [
+                    {
+                      value: 'ont_sn1',
+                      cable_run_id: 1
+                    },
+                  ]
+                ]
+              }
+            ]
+          }
+        ]
+      }
+   }
   end
 
 end

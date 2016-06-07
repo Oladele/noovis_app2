@@ -11,10 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160514014558) do
+ActiveRecord::Schema.define(version: 20160606203514) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+  enable_extension "pg_stat_statements"
 
   create_table "buildings", force: :cascade do |t|
     t.string   "name"
@@ -110,6 +111,7 @@ ActiveRecord::Schema.define(version: 20160514014558) do
     t.integer  "network_template_id"
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
+    t.json     "graph"
   end
 
   add_index "network_graphs", ["network_template_id"], name: "index_network_graphs_on_network_template_id", using: :btree
