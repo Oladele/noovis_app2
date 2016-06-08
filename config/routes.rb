@@ -13,14 +13,13 @@ Rails.application.routes.draw do
   jsonapi_resources :network_templates
   jsonapi_resources :network_graphs
 
-  resources :network_sites do
-    member do
-      get 'chart-distribution-ports-buildings'
-      get 'chart-distribution-ports-site'
-      get 'chart-feeder-capacity-buildings'
-      get 'chart-feeder-capacity-site'
-    end
-  end
+  get 'network-sites/:id/chart-distribution-ports-buildings', to: 'network_site_stats#chart_distribution_ports_buildings'
+  get 'network-sites/:id/chart-distribution-ports-site', to: 'network_site_stats#chart_distribution_ports_site'
+  get 'network-sites/:id/chart-feeder-capacity-buildings', to: 'network_site_stats#chart_feeder_capacity_buildings'
+  get 'network-sites/:id/chart-feeder-capacity-site', to: 'network_site_stats#chart_feeder_capacity_site'
+  get 'network-sites/:id/chart-pon-usage-buildings', to: 'network_site_stats#chart_pon_usage_buildings'
+  get 'network-sites/:id/chart-pon-usage-site', to: 'network_site_stats#chart_pon_usage_site'
+  get 'network-sites/:id/network-element-counts', to: 'network_site_stats#network_element_counts'
 
   get 'buildings/:id/latest_network_graph', to: 'buildings#latest_network_graph'
 
