@@ -70,56 +70,179 @@ RSpec.describe NetworkSite, type: :model do
 	end
 
   describe "stats" do
-    it "chart_distribution_ports_buildings" do
-      network_site = FactoryGirl.create(:network_site_with_buildings)
-      building_1_name = network_site.buildings.first.name
-      building_2_name = network_site.buildings.last.name
+    describe "distribution_ports" do
+      before do
+        @network_site = FactoryGirl.create(:network_site_with_buildings)
+        @building_1_name = @network_site.buildings.first.name
+        @building_2_name = @network_site.buildings.last.name
 
-      network_graph_2 = network_site.buildings.last.sheets.first.network_graphs.first
-      network_graph_2.update_attribute(:graph, {
-        sites: [
-          {
-            value: 'site1',
-            cable_run_id: 1,
-            rdts: [
-              {
+        network_graph_2 = @network_site.buildings.last.sheets.first.network_graphs.first
+        network_graph_2.update_attribute(:graph, {
+          sites: [
+            {
+              value: 'site1',
+              cable_run_id: 1,
+              rdts: [
+                {
+                  value: '1',
+                  cable_run_id: 1,
+                  ont_sns: [
+                    {
+                      value: 'ont_sn1',
+                      cable_run_id: 1
+                    },
+                    {
+                      value: 'ont_sn2',
+                      cable_run_id: 2
+                    },
+                  ]
+                }
+              ]
+            }
+          ]
+        })
+      end
+
+      it "chart_distribution_ports_buildings" do
+        result = [
+          { label: "Active Distribution Ports", group: @building_1_name, value: 1 },
+          { label: "Spare Distribution Ports", group: @building_1_name, value: 11 },
+          { label: "Active Distribution Ports", group: @building_2_name, value: 2 },
+          { label: "Spare Distribution Ports", group: @building_2_name, value: 10 }
+        ]
+
+        assert_equal result, @network_site.chart_distribution_ports_buildings
+      end
+
+      it "chart_distribution_ports_sites" do
+        result = { "Active Distribution Ports" => 3, "Spare Distribution Ports" => 21 }
+
+        assert_equal result, @network_site.chart_distribution_ports_site
+      end
+    end
+
+    describe "feeder_capacity" do
+      before do
+        @network_site = FactoryGirl.create(:network_site_with_buildings)
+        @building_1_name = @network_site.buildings.first.name
+        @building_2_name = @network_site.buildings.last.name
+
+        network_graph_2 = @network_site.buildings.last.sheets.first.network_graphs.first
+        network_graph_2.update_attribute(:graph, {
+          sites: [
+            {
+              value: 'site1',
+              cable_run_id: 1,
+              rdts: [
                 value: '1',
                 cable_run_id: 1,
-                ont_sns: [
+                splitters: [
                   {
-                    value: 'ont_sn1',
-                    cable_run_id: 1
+                    value: '1',
+                    cable_run_id: 1,
+                    ont_sns: [
+                      {
+                        value: 'ont_sn1',
+                        cable_run_id: 1
+                      },
+                    ]
                   },
                   {
-                    value: 'ont_sn2',
-                    cable_run_id: 2
-                  },
+                    value: '2',
+                    cable_run_id: 2,
+                    ont_sns: [
+                      {
+                        value: 'ont_sn2',
+                        cable_run_id: 2
+                      },
+                    ]
+                  }
                 ]
-              }
-            ]
-          }
+              ]
+            }
+          ]
+        })
+      end
+
+      it "chart_feeder_capacity_buildings" do
+        result = [
+          { label: "Active PON Ports", group: @building_1_name, value: 1 },
+          { label: "Spare Feeder Fibers", group: @building_1_name, value: 11 },
+          { label: "Active PON Ports", group: @building_2_name, value: 2 },
+          { label: "Spare Feeder Fibers", group: @building_2_name, value: 10 }
         ]
-      })
 
-      result = [
-        { label: "Active Distribution Ports", group: building_1_name, value: 1 },
-        { label: "Spare Distribution Ports", group: building_1_name, value: 11 },
-        { label: "Active Distribution Ports", group: building_2_name, value: 2 },
-        { label: "Spare Distribution Ports", group: building_2_name, value: 10 }
-      ]
+        assert_equal result, @network_site.chart_feeder_capacity_buildings
+      end
 
-      assert_equal result, network_site.chart_distribution_ports_buildings
+      it "chart_feeder_capacity_sites" do
+        result = { "Active PON Ports" => 3, "Spare Feeder Fibers" => 21 }
+        assert_equal result, @network_site.chart_feeder_capacity_site
+      end
     end
 
-    it "chart_distribution_ports_sites" do
-      result = { "Active Distribution Ports" => 2, "Spare Distribution Ports" => 22 }
+    describe "pon_usage" do
+      before do
+        @network_site = FactoryGirl.create(:network_site_with_buildings)
+        @building_1_name = @network_site.buildings.first.name
+        @building_2_name = @network_site.buildings.last.name
 
-      network_site = FactoryGirl.create(:network_site_with_buildings)
+        network_graph_2 = @network_site.buildings.last.sheets.first.network_graphs.first
+        network_graph_2.update_attribute(:graph, {
+          sites: [
+            {
+              value: 'site1',
+              cable_run_id: 1,
+              rdts: [
+                value: '1',
+                cable_run_id: 1,
+                splitters: [
+                  {
+                    value: '1',
+                    cable_run_id: 1,
+                    ont_sns: [
+                      {
+                        value: 'ont_sn1',
+                        cable_run_id: 1
+                      },
+                    ]
+                  },
+                  {
+                    value: '2',
+                    cable_run_id: 2,
+                    ont_sns: [
+                      {
+                        value: 'ont_sn2',
+                        cable_run_id: 2
+                      },
+                    ]
+                  }
+                ]
+              ]
+            }
+          ]
+        })
+      end
 
-      assert_equal result, network_site.chart_distribution_ports_sites
+      it "chart_pon_usage_buildings" do
+        result = [
+          { label: "Active Channels", group: @building_1_name, value: 1 },
+          { label: "Standby Channels", group: @building_1_name, value: 31 },
+          { label: "Active Channels", group: @building_2_name, value: 2 },
+          { label: "Standby Channels", group: @building_2_name, value: 62 }
+        ]
+
+        assert_equal result, @network_site.chart_pon_usage_buildings
+      end
+
+      it "chart_pon_usage_sites" do
+        result = { "Active Channels" => 3, "Standby Channels" => 93 }
+
+        assert_equal result, @network_site.chart_pon_usage_site
+      end
     end
 
-    it "chart_feeder_capacity_buildings" do
+    it "network_element_counts" do
       network_site = FactoryGirl.create(:network_site_with_buildings)
       building_1_name = network_site.buildings.first.name
       building_2_name = network_site.buildings.last.name
@@ -161,21 +284,111 @@ RSpec.describe NetworkSite, type: :model do
       })
 
       result = [
-        { label: "Active PON Ports", group: building_1_name, value: 1 },
-        { label: "Spare Feeder Fibers", group: building_1_name, value: 11 },
-        { label: "Active PON Ports", group: building_2_name, value: 2 },
-        { label: "Spare Feeder Fibers", group: building_2_name, value: 10 }
+        {
+          "BLDG" => network_site.name,
+          "Bldgs" => 2,
+          "OLTs" => 0,
+          "PON Cards" => 0,
+          "FDHs" => 0,
+          "Splitters" => 3,
+          "RDTs" => 2,
+          "ONTs" => 3,
+          "WAPs" => 0,
+          "Rooms" => 0,
+          "Active Channels" => 3,
+          "Standby Channels" => (3*32) - 3,
+          "Active PON Ports" => 3,
+          "Spare Feeder Fibers" => 12*2 - 3,
+          "Active Distribution Ports" => 3,
+          "Spare Distribution Ports" => (2 * 12) - 3,
+          "Actual RDT Count" => 2
+        },
+        {
+          "BLDG" => network_site.buildings.first.name,
+          "Bldgs" => 1,
+          "OLTs" => 0,
+          "PON Cards" => 0,
+          "FDHs" => 0,
+          "Splitters" => 1,
+          "RDTs" => 1,
+          "ONTs" => 1,
+          "WAPs" => 0,
+          "Rooms" => 0,
+          "Active Channels" => 1,
+          "Standby Channels" => (1*32) - 1,
+          "Active PON Ports" => 1,
+          "Spare Feeder Fibers" => 12 - 1,
+          "Active Distribution Ports" => 1,
+          "Spare Distribution Ports" => (1 * 12) - 1,
+          "Actual RDT Count" => 1
+        },
+        {
+          "BLDG" => network_site.buildings.last.name,
+          "Bldgs" => 1,
+          "OLTs" => 0,
+          "PON Cards" => 0,
+          "FDHs" => 0,
+          "Splitters" => 2,
+          "RDTs" => 1,
+          "ONTs" => 2,
+          "WAPs" => 0,
+          "Rooms" => 0,
+          "Active Channels" => 2,
+          "Standby Channels" => (2*32) - 2,
+          "Active PON Ports" => 2,
+          "Spare Feeder Fibers" => 12 - 2,
+          "Active Distribution Ports" => 2,
+          "Spare Distribution Ports" => (1 * 12) - 2,
+          "Actual RDT Count" => 1
+        }
       ]
 
-      assert_equal result, network_site.chart_feeder_capacity_buildings
-    end
+      counts = network_site.network_element_counts
 
-    it "chart_feeder_capacity_sites" do
-      result = { "Active PON Ports" => 2, "Spare Feeder Fibers" => 22 }
+      assert_equal result.first["Active Channels"], counts.first["Active Channels"]
+      assert_equal result.first["Standby Channels"], counts.first["Standby Channels"]
+      assert_equal result.first["Active PON Ports"], counts.first["Active PON Ports"]
+      assert_equal result.first["Spare Feeder Fibers"], counts.first["Spare Feeder Fibers"]
+      assert_equal result.first["Active Distribution Ports"], counts.first["Active Distribution Ports"]
+      assert_equal result.first["Spare Distribution Ports"], counts.first["Spare Distribution Ports"]
 
-      network_site = FactoryGirl.create(:network_site_with_buildings)
+      assert_equal result[1]["BLDG"], counts[1]["BLDG"]
+      assert_equal result[1]["Bldgs"], counts[1]["Bldgs"]
+      assert_equal result[1]["OLTs"], counts[1]["OLTs"]
+      assert_equal result[1]["PON Cards"], counts[1]["PON Cards"]
+      assert_equal result[1]["FDHs"], counts[1]["FDHs"]
+      assert_equal result[1]["Splitters"], counts[1]["Splitters"]
+      assert_equal result[1]["RDTs"], counts[1]["RDTs"]
+      assert_equal result[1]["ONTs"], counts[1]["ONTs"]
+      assert_equal result[1]["WAPs"], counts[1]["WAPs"]
+      assert_equal result[1]["Rooms"], counts[1]["Rooms"]
+      assert_equal result[1]["Active Channels"], counts[1]["Active Channels"]
+      assert_equal result[1]["Standby Channels"], counts[1]["Standby Channels"]
+      assert_equal result[1]["Active PON Ports"], counts[1]["Active PON Ports"]
+      assert_equal result[1]["Spare Feeder Fibers"], counts[1]["Spare Feeder Fibers"]
+      assert_equal result[1]["Active Distribution Ports"], counts[1]["Active Distribution Ports"]
+      assert_equal result[1]["Spare Distribution Ports"], counts[1]["Spare Distribution Ports"]
+      assert_equal result[1]["Actual RDT Count"], counts[1]["Actual RDT Count"]
 
-      assert_equal result, network_site.chart_feeder_capacity_sites
+      assert_equal result[2]["BLDG"], counts[2]["BLDG"]
+      assert_equal result[2]["Bldgs"], counts[2]["Bldgs"]
+      assert_equal result[2]["OLTs"], counts[2]["OLTs"]
+      assert_equal result[2]["PON Cards"], counts[2]["PON Cards"]
+      assert_equal result[2]["FDHs"], counts[2]["FDHs"]
+      assert_equal result[2]["Splitters"], counts[2]["Splitters"]
+      assert_equal result[2]["RDTs"], counts[2]["RDTs"]
+      assert_equal result[2]["ONTs"], counts[2]["ONTs"]
+      assert_equal result[2]["WAPs"], counts[2]["WAPs"]
+      assert_equal result[2]["Rooms"], counts[2]["Rooms"]
+      assert_equal result[2]["Active Channels"], counts[2]["Active Channels"]
+      assert_equal result[2]["Standby Channels"], counts[2]["Standby Channels"]
+      assert_equal result[2]["Active PON Ports"], counts[2]["Active PON Ports"]
+      assert_equal result[2]["Spare Feeder Fibers"], counts[2]["Spare Feeder Fibers"]
+      assert_equal result[2]["Active Distribution Ports"], counts[2]["Active Distribution Ports"]
+      assert_equal result[2]["Spare Distribution Ports"], counts[2]["Spare Distribution Ports"]
+      assert_equal result[2]["Actual RDT Count"], counts[2]["Actual RDT Count"]
+
+      assert_equal result, counts
     end
   end
 end

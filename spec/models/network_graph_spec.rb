@@ -179,6 +179,7 @@ RSpec.describe NetworkGraph, type: :model do
 
     it "node_count_for_type" do
       assert_equal 1, FactoryGirl.create(:network_graph).node_count_for_type("ont_sn")
+      assert_equal 0, FactoryGirl.create(:network_graph).node_count_for_type("blah")
     end
   end
 end
