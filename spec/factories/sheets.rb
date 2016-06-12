@@ -24,7 +24,30 @@ FactoryGirl.define do
 
     factory :sheet_with_network_graph do
       after(:create) do |sheet, evaluator|
-        create_list(:network_graph, 1, sheet: sheet)
+        NetworkGraph.create_from_graph(sheet, {
+          sites: [
+            {
+              value: 'site1',
+              cable_run_id: 1,
+              rdts: [
+                {
+                  value: '1',
+                  cable_run_id: 1,
+                  splitters: [
+                    value: '1',
+                    cable_run_id: 1,
+                    ont_sns: [
+                      {
+                        value: 'ont_sn1',
+                        cable_run_id: 1
+                      },
+                    ]
+                  ]
+                }
+              ]
+            }
+          ]
+        }.with_indifferent_access)
       end
     end
   end

@@ -13,11 +13,8 @@ class NetworkGraph < ActiveRecord::Base
   belongs_to :sheet
   belongs_to :network_template
   has_one :company, through: :sheet
-  has_many :nodes, dependent: :destroy
-  has_many :edges, dependent: :destroy
 
-  validates :sheet_id, presence: true
-  validates :graph, presence: true
+  validates :sheet_id, :graph, :nodes, :edges, presence: true
 
   attr_reader :nodes_in_memory
 
@@ -64,7 +61,13 @@ class NetworkGraph < ActiveRecord::Base
     building.sheets.which_have_graphs.each { |sheet| sheet.network_graphs.destroy_all }
   end
 
-  def nodes_and_edges
+  def self.create_from_graph(sheet, graph)
+    nodes_and_edges = NetworkGraph.nodes_and_edges(graph)
+
+    NetworkGraph.create!(sheet: sheet, graph: graph, nodes: nodes_and_edges[:nodes], edges: nodes_and_edges[:edges])
+  end
+
+  def self.nodes_and_edges(graph)
     iteration_helper = IterationHelper.new(1)
 
     return {} if graph.nil?
@@ -79,12 +82,12 @@ class NetworkGraph < ActiveRecord::Base
   end
 
   def node_counts
-    nodes = self.nodes_and_edges[:nodes]
+    nodes = self.nodes
 
     return [] if nodes.nil?
 
     nodes.each_with_object([]) do |node, array|
-      node_type = node[:node_type]
+      node_type = node["node_type"]
 
       counter = array.select { |object| object[:node_type] == node_type }.first
 
@@ -96,18 +99,12 @@ class NetworkGraph < ActiveRecord::Base
     end
   end
 
-  def nodes
-    # TODO: memoize this?
-    self.nodes_and_edges[:nodes]
-  end
-
   def node_count_for_type(node_type)
-    nodes = self.nodes
-    nodes.select { |node| node[:node_type] == node_type }.count
+    self.nodes.select { |node| node["node_type"] == node_type }.count
   end
 
   private
-    def generate_for_collection(iteration_helper, collection, node_type, node_level, parent_id, row_id)
+    def self.generate_for_collection(iteration_helper, collection, node_type, node_level, parent_id, row_id)
       collection.each do |object|
         node = {
           id: iteration_helper.index,
@@ -147,7 +144,7 @@ class NetworkGraph < ActiveRecord::Base
       end
     end
 
-    def singular_node_type(node_type)
+    def self.singular_node_type(node_type)
       node_type == "olt_chasses" ? "olt_chassis" : node_type.to_s.singularize
     end
 end

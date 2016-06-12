@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160606203514) do
+ActiveRecord::Schema.define(version: 20160612215342) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -112,6 +112,8 @@ ActiveRecord::Schema.define(version: 20160606203514) do
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
     t.json     "graph"
+    t.json     "nodes"
+    t.json     "edges"
   end
 
   add_index "network_graphs", ["network_template_id"], name: "index_network_graphs_on_network_template_id", using: :btree

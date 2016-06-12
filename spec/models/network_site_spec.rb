@@ -76,8 +76,8 @@ RSpec.describe NetworkSite, type: :model do
         @building_1_name = @network_site.buildings.first.name
         @building_2_name = @network_site.buildings.last.name
 
-        network_graph_2 = @network_site.buildings.last.sheets.first.network_graphs.first
-        network_graph_2.update_attribute(:graph, {
+        sheet = @network_site.buildings.last.sheets.first
+        NetworkGraph.create_from_graph(sheet, {
           sites: [
             {
               value: 'site1',
@@ -100,7 +100,7 @@ RSpec.describe NetworkSite, type: :model do
               ]
             }
           ]
-        })
+        }.with_indifferent_access)
       end
 
       it "chart_distribution_ports_buildings" do
@@ -127,8 +127,8 @@ RSpec.describe NetworkSite, type: :model do
         @building_1_name = @network_site.buildings.first.name
         @building_2_name = @network_site.buildings.last.name
 
-        network_graph_2 = @network_site.buildings.last.sheets.first.network_graphs.first
-        network_graph_2.update_attribute(:graph, {
+        sheet = @network_site.buildings.last.sheets.first
+        NetworkGraph.create_from_graph(sheet, {
           sites: [
             {
               value: 'site1',
@@ -161,7 +161,7 @@ RSpec.describe NetworkSite, type: :model do
               ]
             }
           ]
-        })
+        }.with_indifferent_access)
       end
 
       it "chart_feeder_capacity_buildings" do
@@ -187,8 +187,8 @@ RSpec.describe NetworkSite, type: :model do
         @building_1_name = @network_site.buildings.first.name
         @building_2_name = @network_site.buildings.last.name
 
-        network_graph_2 = @network_site.buildings.last.sheets.first.network_graphs.first
-        network_graph_2.update_attribute(:graph, {
+        sheet = @network_site.buildings.last.sheets.first
+        NetworkGraph.create_from_graph(sheet, {
           sites: [
             {
               value: 'site1',
@@ -221,7 +221,7 @@ RSpec.describe NetworkSite, type: :model do
               ]
             }
           ]
-        })
+        }.with_indifferent_access)
       end
 
       it "chart_pon_usage_buildings" do
@@ -247,8 +247,8 @@ RSpec.describe NetworkSite, type: :model do
       building_1_name = network_site.buildings.first.name
       building_2_name = network_site.buildings.last.name
 
-      network_graph_2 = network_site.buildings.last.sheets.first.network_graphs.first
-      network_graph_2.update_attribute(:graph, {
+      sheet = network_site.buildings.last.sheets.first
+      NetworkGraph.create_from_graph(sheet, {
         sites: [
           {
             value: 'site1',
@@ -281,7 +281,7 @@ RSpec.describe NetworkSite, type: :model do
             ]
           }
         ]
-      })
+      }.with_indifferent_access)
 
       result = [
         {
