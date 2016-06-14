@@ -17,7 +17,7 @@ RSpec.resource "NetworkSiteStats" do
      "Network site id",
      required: true, scope: :relationships
 
-   let(:id){ (FactoryGirl.create(:network_site)).id }
+   let(:id){ (FactoryGirl.create(:network_site_with_buildings)).id }
  end
 
  get "network-sites/:id/chart-distribution-ports-buildings" do

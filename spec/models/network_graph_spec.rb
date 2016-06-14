@@ -251,5 +251,15 @@ RSpec.describe NetworkGraph, type: :model do
       assert_equal 1, network_graph.node_count_for_type("olt")
       assert_equal 0, network_graph.node_count_for_type("blah")
     end
+
+    it "node_count_values" do
+      result = {
+        "building" => 2,
+        "olt" => 1
+      }
+
+      network_graph = NetworkGraph.create_from_graph(@sheet, @graph)
+      assert_equal result, network_graph.node_count_values
+    end
   end
 end

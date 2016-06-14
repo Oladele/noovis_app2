@@ -81,6 +81,7 @@ class NetworkGraph < ActiveRecord::Base
     { nodes: iteration_helper.nodes, edges: iteration_helper.edges }
   end
 
+  # For display in building table
   def node_counts
     nodes = self.nodes
 
@@ -96,6 +97,18 @@ class NetworkGraph < ActiveRecord::Base
       else
         counter[:count] += 1
       end
+    end
+  end
+
+  # For faster calculations. The node_type is the key which makes querying faster than `.select { obj == key }`.
+  def node_count_values
+    nodes = self.nodes
+
+    return [] if nodes.nil?
+
+    nodes.each_with_object({}) do |node, hash|
+      node_type = node["node_type"]
+      hash.has_key?(node_type) ? hash[node_type] += 1 : hash[node_type] = 1
     end
   end
 

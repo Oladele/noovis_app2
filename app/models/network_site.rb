@@ -53,58 +53,56 @@ class NetworkSite < ActiveRecord::Base
     feeder_capacity = self.chart_feeder_capacity_site
     pon_usage = self.chart_pon_usage_site
 
-    rdt_count = node_count_for_all_buildings("rdt")
+    node_counts = node_counts_for_all_buildings
 
     counts = [
       {
         "BLDG" => self.name,
         "Bldgs" => self.buildings.count,
-        "OLTs" => node_count_for_all_buildings("olt_chassis"),
-        "PON Cards" => node_count_for_all_buildings("pon_card"),
-        "FDHs" => node_count_for_all_buildings("fdh"),
-        "Splitters" => node_count_for_all_buildings("splitter"),
-        "RDTs" => rdt_count,
-        "ONTs" => node_count_for_all_buildings("ont_sn"),
-        "WAPs" => node_count_for_all_buildings("TODO"),
-        "Rooms" => node_count_for_all_buildings("room"),
+        "OLTs" => node_counts["olt_chassis"] || 0,
+        "PON Cards" => node_counts["pon_card"] || 0,
+        "FDHs" => node_counts["fdh"] || 0,
+        "Splitters" => node_counts["splitter"] || 0,
+        "RDTs" => node_counts["rdt"] || 0,
+        "ONTs" => node_counts["ont_sn"] || 0,
+        "WAPs" => node_counts["TODO"] || 0,
+        "Rooms" => node_counts["room"] || 0,
         "Active Channels" => pon_usage["Active Channels"],
         "Standby Channels" => pon_usage["Standby Channels"],
         "Active PON Ports" => feeder_capacity["Active PON Ports"],
         "Spare Feeder Fibers" => feeder_capacity["Spare Feeder Fibers"],
         "Active Distribution Ports" => distribution_ports["Active Distribution Ports"],
         "Spare Distribution Ports" => distribution_ports["Spare Distribution Ports"],
-        "Actual RDT Count" => rdt_count
+        "Actual RDT Count" => node_counts["rdt"] || 0
       }
     ]
 
     network_graphs = NetworkGraph.all_for(self)
-
     network_graphs.each do |network_graph|
+      node_counts = network_graph.node_count_values
 
-      pon_usage = data_for_network_graph(:pon_usage, network_graph, "Active Channels", "Standby Channels")
-      feeder_capacity = data_for_network_graph(:feeder_capacity, network_graph, "Active PON Ports", "Spare Feeder Fibers")
-      distribution_ports = data_for_network_graph(:distribution_ports, network_graph, "Active Distribution Ports", "Spare Distribution Ports")
-
-      rdt_count = network_graph.node_count_for_type("rdt")
+      pon_usage = data_for_network_graph(:pon_usage, network_graph, node_counts, "Active Channels", "Standby Channels")
+      feeder_capacity = data_for_network_graph(:feeder_capacity, network_graph, node_counts, "Active PON Ports", "Spare Feeder Fibers")
+      distribution_ports = data_for_network_graph(:distribution_ports, network_graph, node_counts, "Active Distribution Ports", "Spare Distribution Ports")
 
       counts << {
         "BLDG" => network_graph.sheet.building.name,
         "Bldgs" => 1,
-        "OLTs" => network_graph.node_count_for_type("olt_chassis"),
-        "PON Cards" => network_graph.node_count_for_type("pon_card"),
-        "FDHs" => network_graph.node_count_for_type("fdh"),
-        "Splitters" => network_graph.node_count_for_type("splitter"),
-        "RDTs" => rdt_count,
-        "ONTs" => network_graph.node_count_for_type("ont_sn"),
-        "WAPs" => network_graph.node_count_for_type("TODO"),
-        "Rooms" => network_graph.node_count_for_type("room"),
+        "OLTs" => node_counts["olt_chassis"] || 0,
+        "PON Cards" => node_counts["pon_card"] || 0,
+        "FDHs" => node_counts["fdh"] || 0,
+        "Splitters" => node_counts["splitter"] || 0,
+        "RDTs" => node_counts["rdt"] || 0,
+        "ONTs" => node_counts["ont_sn"] || 0,
+        "WAPs" => node_counts["TODO"] || 0,
+        "Rooms" => node_counts["room"] || 0,
         "Active Channels" => pon_usage.first[:value],
         "Standby Channels" => pon_usage.last[:value],
         "Active PON Ports" => feeder_capacity.first[:value],
         "Spare Feeder Fibers" => feeder_capacity.last[:value],
         "Active Distribution Ports" => distribution_ports.first[:value],
         "Spare Distribution Ports" => distribution_ports.last[:value],
-        "Actual RDT Count" => rdt_count
+        "Actual RDT Count" => node_counts["rdt"] || 0
       }
     end
 
@@ -116,36 +114,37 @@ class NetworkSite < ActiveRecord::Base
       network_graphs = NetworkGraph.all_for(self)
 
       network_graphs.each_with_object([]) do |network_graph, array|
-        data = data_for_network_graph(type, network_graph, active_key, passive_key)
+        node_counts = network_graph.node_count_values
+        data = data_for_network_graph(type, network_graph, node_counts, active_key, passive_key)
         data.each { |hash| array << hash }
       end
     end
 
-    def data_for_network_graph(type, network_graph, active_key, passive_key)
+    def data_for_network_graph(type, network_graph, node_counts, active_key, passive_key)
         group = network_graph.sheet.building.name
-        values = values_for_type(type, network_graph)
+        values = values_for_type(type, node_counts)
 
         [{ label: active_key, group: group, value: values[:actives] },
         { label: passive_key, group: group, value: values[:passives] }]
     end
 
-    def values_for_type(type, network_graph)
+    def values_for_type(type, node_counts)
       case type
       when :distribution_ports
-        actives = network_graph.node_count_for_type("ont_sn")
-        rdt_count = network_graph.node_count_for_type("rdt")
+        actives = node_counts["ont_sn"] || 0
+        rdt_count = node_counts["rdt"] || 0
 
         spares = (rdt_count * 12) - actives
 
         { actives: actives, passives: spares }
       when :feeder_capacity
-        actives = network_graph.node_count_for_type("splitter")
+        actives = node_counts["splitter"] || 0
         spares = 12 - actives
 
         { actives: actives, passives: spares }
       when :pon_usage
-        actives = network_graph.node_count_for_type("ont_sn")
-        splitters = network_graph.node_count_for_type("splitter")
+        actives = node_counts["ont_sn"] || 0
+        splitters = node_counts["splitter"] || 0
         standbys = (splitters * 32) - actives
 
         { actives: actives, passives: standbys }
@@ -159,8 +158,9 @@ class NetworkSite < ActiveRecord::Base
       end
     end
 
-    def node_count_for_all_buildings(node_type)
+    def node_counts_for_all_buildings
+      # TODO: If we stored the node_counts this would be faster
       network_graphs = NetworkGraph.all_for(self)
-      network_graphs.sum { |network_graph| network_graph.node_count_for_type(node_type) }
+      network_graphs_counts = network_graphs.inject { |a, b| a.node_count_values.merge(b.node_count_values) { |k, val1, val2| val1 + val2 } }
     end
 end
