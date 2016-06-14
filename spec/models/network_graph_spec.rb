@@ -38,7 +38,7 @@ RSpec.describe NetworkGraph, type: :model do
             ]
           }
         ]
-      }.with_indifferent_access
+      }
     end
 
     it "self.create_from_graph" do
@@ -167,7 +167,7 @@ RSpec.describe NetworkGraph, type: :model do
             ]
           }
         ]
-      }.with_indifferent_access
+      }
 
       nodes = [
         { id: 1, label: 'ONT_SN: N/A', cable_run_id: 1, level: 0, node_type: 'ont_sn', node_value: 'N/A', parent_id: nil },
@@ -234,7 +234,7 @@ RSpec.describe NetworkGraph, type: :model do
             ]
           }
         ]
-      }.with_indifferent_access
+      }
 
       result = [
         { node_type: "ont_sn", count: 1, node_type_pretty: "Ont Sns" },
