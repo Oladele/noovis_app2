@@ -83,6 +83,64 @@ RSpec.describe NetworkGraph, type: :model do
       assert_equal [1], data.collect { |r| r["from"] }
     end
 
+    it "makes nodes and edges 2" do
+      graph = {
+        sites: [
+          {
+            value: 'site1',
+            cable_run_id: 1,
+            olt_chasses: [
+              {
+                value: 'olt_chassis1',
+                cable_run_id: 1,
+                olts: [
+                  {
+                    cable_run_id: 1,
+                    value: 'olt1'
+                  }
+                ]
+              },
+              {
+                cable_run_id: 2,
+                value: 'olt_chassis2'
+              }
+            ]
+          }
+        ]
+      }
+
+      nodes = [
+        { id: 1, label: 'OLT_CHASSIS: olt_chassis1', cable_run_id: 1, level: 0, node_type: 'olt_chassis', node_value: 'olt_chassis1', parent_id: nil },
+        { id: 2, label: 'OLT: olt1', cable_run_id: 1, level: 1, node_type: 'olt', node_value: 'olt1', parent_id: 1 },
+        { id: 3, label: 'OLT_CHASSIS: olt_chassis2', cable_run_id: 2, level: 0, node_type: 'olt_chassis', node_value: 'olt_chassis2', parent_id: nil }
+      ]
+
+      edges = [
+        { id: 1, to: 2, from: 1 }    # building1 -> olt1
+        # building2 has no edge
+      ]
+
+      network_graph = NetworkGraph.create_from_graph(@sheet, graph)
+
+      # Nodes
+      data = network_graph.nodes
+
+      assert_equal [1, 2, 3], data.collect { |r| r["id"] }
+      assert_equal ['OLT_CHASSIS: olt_chassis1', 'OLT: olt1', 'OLT_CHASSIS: olt_chassis2'], data.collect { |r| r["label"] }
+      assert_equal %w(1 2 1), data.collect { |r| r["level"] }
+      assert_equal ['olt_chassis', 'olt', 'olt_chassis'], data.collect { |r| r["node_type"] }
+      assert_equal ['olt_chassis1', 'olt1', 'olt_chassis2'], data.collect { |r| r["node_value"] }
+      assert_equal [nil, 1, nil], data.collect { |r| r["parent_id"] }
+      assert_equal [1, 1, 2], data.collect { |r| r["cable_run_id"] }
+
+      # Edges
+      data = network_graph.edges
+
+      assert_equal [1], data.collect { |r| r["id"] }
+      assert_equal [2], data.collect { |r| r["to"] }
+      assert_equal [1], data.collect { |r| r["from"] }
+    end
+
     it "port nodes are on the same level as the ont_sn" do
       graph = {
         sites: [

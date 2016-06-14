@@ -54,7 +54,7 @@ class NetworkGraph < ActiveRecord::Base
   	latest_sheet = sheets_with_graphs.last
   	latest_graph = latest_sheet.network_graphs.last
 
-    latest_graph.graph.present? ? latest_graph : nil
+    latest_graph.graph.present? && latest_graph.nodes.present? && latest_graph.edges.present? ? latest_graph : nil
   end
 
   def NetworkGraph.destroy_all_for(building)
@@ -72,7 +72,7 @@ class NetworkGraph < ActiveRecord::Base
 
     return {} if graph.nil?
 
-    graph["sites"].each do |site|
+    graph[:sites].each do |site|
       collection = site[site.keys.last]
 
       generate_for_collection(iteration_helper, collection, singular_node_type(site.keys.last), 1, nil, 1)
@@ -108,11 +108,11 @@ class NetworkGraph < ActiveRecord::Base
       collection.each do |object|
         node = {
           id: iteration_helper.index,
-          label: "#{node_type.upcase}: #{object["value"]}",
-          cable_run_id: object["cable_run_id"],
+          label: "#{node_type.upcase}: #{object[:value]}",
+          cable_run_id: object[:cable_run_id],
           level: node_level.to_s,
           node_type: node_type,
-          node_value: object["value"],
+          node_value: object[:value],
           parent_id: parent_id
         }
         iteration_helper.nodes << node
@@ -145,7 +145,7 @@ class NetworkGraph < ActiveRecord::Base
     end
 
     def self.singular_node_type(node_type)
-      node_type == "olt_chasses" ? "olt_chassis" : node_type.to_s.singularize
+      node_type == :olt_chasses ? "olt_chassis" : node_type.to_s.singularize
     end
 end
 
