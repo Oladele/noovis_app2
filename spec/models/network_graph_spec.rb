@@ -14,8 +14,8 @@ require 'rails_helper'
 RSpec.describe NetworkGraph, type: :model do
   describe "making nodes and edges" do
     before do
-      @network_graph = FactoryGirl.create(:network_graph)
-      @network_graph.graph = {
+      @sheet = FactoryGirl.create(:sheet)
+      @graph = {
         sites: [
           {
             value: 'site1',
@@ -38,7 +38,16 @@ RSpec.describe NetworkGraph, type: :model do
             ]
           }
         ]
-      }
+      }.with_indifferent_access
+    end
+
+    it "self.create_from_graph" do
+      network_graph = NetworkGraph.create_from_graph(@sheet, @graph)
+
+      assert_equal @sheet.id, network_graph.sheet_id
+      assert network_graph.graph
+      assert network_graph.nodes
+      assert network_graph.edges
     end
 
     it "makes nodes and edges" do
@@ -53,29 +62,87 @@ RSpec.describe NetworkGraph, type: :model do
         # building2 has no edge
       ]
 
-      result = @network_graph.nodes_and_edges
+      network_graph = NetworkGraph.create_from_graph(@sheet, @graph)
 
       # Nodes
-      data = result[:nodes]
+      data = network_graph.nodes
 
-      assert_equal [1, 2, 3], data.collect { |r| r[:id] }
-      assert_equal ['BUILDING: building1', 'OLT: olt1', 'BUILDING: building2'], data.collect { |r| r[:label] }
-      assert_equal %w(1 2 1), data.collect { |r| r[:level] }
-      assert_equal ['building', 'olt', 'building'], data.collect { |r| r[:node_type] }
-      assert_equal ['building1', 'olt1', 'building2'], data.collect { |r| r[:node_value] }
-      assert_equal [nil, 1, nil], data.collect { |r| r[:parent_id] }
-      assert_equal [1, 1, 2], data.collect { |r| r[:cable_run_id] }
+      assert_equal [1, 2, 3], data.collect { |r| r["id"] }
+      assert_equal ['BUILDING: building1', 'OLT: olt1', 'BUILDING: building2'], data.collect { |r| r["label"] }
+      assert_equal %w(1 2 1), data.collect { |r| r["level"] }
+      assert_equal ['building', 'olt', 'building'], data.collect { |r| r["node_type"] }
+      assert_equal ['building1', 'olt1', 'building2'], data.collect { |r| r["node_value"] }
+      assert_equal [nil, 1, nil], data.collect { |r| r["parent_id"] }
+      assert_equal [1, 1, 2], data.collect { |r| r["cable_run_id"] }
 
       # Edges
-      data = result[:edges]
+      data = network_graph.edges
 
-      assert_equal [1], data.collect { |r| r[:id] }
-      assert_equal [2], data.collect { |r| r[:to] }
-      assert_equal [1], data.collect { |r| r[:from] }
+      assert_equal [1], data.collect { |r| r["id"] }
+      assert_equal [2], data.collect { |r| r["to"] }
+      assert_equal [1], data.collect { |r| r["from"] }
+    end
+
+    it "makes nodes and edges 2" do
+      graph = {
+        sites: [
+          {
+            value: 'site1',
+            cable_run_id: 1,
+            olt_chasses: [
+              {
+                value: 'olt_chassis1',
+                cable_run_id: 1,
+                olts: [
+                  {
+                    cable_run_id: 1,
+                    value: 'olt1'
+                  }
+                ]
+              },
+              {
+                cable_run_id: 2,
+                value: 'olt_chassis2'
+              }
+            ]
+          }
+        ]
+      }
+
+      nodes = [
+        { id: 1, label: 'OLT_CHASSIS: olt_chassis1', cable_run_id: 1, level: 0, node_type: 'olt_chassis', node_value: 'olt_chassis1', parent_id: nil },
+        { id: 2, label: 'OLT: olt1', cable_run_id: 1, level: 1, node_type: 'olt', node_value: 'olt1', parent_id: 1 },
+        { id: 3, label: 'OLT_CHASSIS: olt_chassis2', cable_run_id: 2, level: 0, node_type: 'olt_chassis', node_value: 'olt_chassis2', parent_id: nil }
+      ]
+
+      edges = [
+        { id: 1, to: 2, from: 1 }    # building1 -> olt1
+        # building2 has no edge
+      ]
+
+      network_graph = NetworkGraph.create_from_graph(@sheet, graph)
+
+      # Nodes
+      data = network_graph.nodes
+
+      assert_equal [1, 2, 3], data.collect { |r| r["id"] }
+      assert_equal ['OLT_CHASSIS: olt_chassis1', 'OLT: olt1', 'OLT_CHASSIS: olt_chassis2'], data.collect { |r| r["label"] }
+      assert_equal %w(1 2 1), data.collect { |r| r["level"] }
+      assert_equal ['olt_chassis', 'olt', 'olt_chassis'], data.collect { |r| r["node_type"] }
+      assert_equal ['olt_chassis1', 'olt1', 'olt_chassis2'], data.collect { |r| r["node_value"] }
+      assert_equal [nil, 1, nil], data.collect { |r| r["parent_id"] }
+      assert_equal [1, 1, 2], data.collect { |r| r["cable_run_id"] }
+
+      # Edges
+      data = network_graph.edges
+
+      assert_equal [1], data.collect { |r| r["id"] }
+      assert_equal [2], data.collect { |r| r["to"] }
+      assert_equal [1], data.collect { |r| r["from"] }
     end
 
     it "port nodes are on the same level as the ont_sn" do
-      @network_graph.graph = {
+      graph = {
         sites: [
           {
             value: 'site1',
@@ -100,7 +167,7 @@ RSpec.describe NetworkGraph, type: :model do
             ]
           }
         ]
-      }
+      }.with_indifferent_access
 
       nodes = [
         { id: 1, label: 'ONT_SN: N/A', cable_run_id: 1, level: 0, node_type: 'ont_sn', node_value: 'N/A', parent_id: nil },
@@ -113,26 +180,26 @@ RSpec.describe NetworkGraph, type: :model do
         { id: 2, to: 3, from: 1 },    # ont_sn -> port 2
       ]
 
-      result = @network_graph.nodes_and_edges
+      network_graph = NetworkGraph.create_from_graph(@sheet, graph)
 
       # Nodes
-      data = result[:nodes]
+      data = network_graph.nodes
 
-      assert_equal [1, 2, 3], data.collect { |r| r[:id] }
-      assert_equal ['ONT_SN: N/A', 'ONT_GE_1_MAC: N/A', 'ONT_GE_2_MAC: N/A'], data.collect { |r| r[:label] }
-      assert_equal %w(1 2 2), data.collect { |r| r[:level] }
-      assert_equal ['ont_sn', 'ont_ge_1_mac', 'ont_ge_2_mac'], data.collect { |r| r[:node_type] }
-      assert_equal ['N/A', 'N/A', 'N/A'], data.collect { |r| r[:node_value] }
-      assert_equal [nil, 1, 1], data.collect { |r| r[:parent_id] }
+      assert_equal [1, 2, 3], data.collect { |r| r["id"] }
+      assert_equal ['ONT_SN: N/A', 'ONT_GE_1_MAC: N/A', 'ONT_GE_2_MAC: N/A'], data.collect { |r| r["label"] }
+      assert_equal %w(1 2 2), data.collect { |r| r["level"] }
+      assert_equal ['ont_sn', 'ont_ge_1_mac', 'ont_ge_2_mac'], data.collect { |r| r["node_type"] }
+      assert_equal ['N/A', 'N/A', 'N/A'], data.collect { |r| r["node_value"] }
+      assert_equal [nil, 1, 1], data.collect { |r| r["parent_id"] }
 
-      assert_equal [1, 1, 1], data.collect { |r| r[:cable_run_id] }
+      assert_equal [1, 1, 1], data.collect { |r| r["cable_run_id"] }
 
       # Edges
-      data = result[:edges]
+      data = network_graph.edges
 
-      assert_equal [1, 2], data.collect { |r| r[:id] }
-      assert_equal [2, 3], data.collect { |r| r[:to] }
-      assert_equal [1, 1], data.collect { |r| r[:from] }
+      assert_equal [1, 2], data.collect { |r| r["id"] }
+      assert_equal [2, 3], data.collect { |r| r["to"] }
+      assert_equal [1, 1], data.collect { |r| r["from"] }
     end
 
     it "node_counts" do
@@ -141,11 +208,12 @@ RSpec.describe NetworkGraph, type: :model do
         { node_type: "olt", count: 1, node_type_pretty: "Olts" }
       ]
 
-      assert_equal result, @network_graph.node_counts
+      network_graph = NetworkGraph.create_from_graph(@sheet, @graph)
+      assert_equal result, network_graph.node_counts
     end
 
     it "node_counts 2" do
-      @network_graph.graph = {
+      graph = {
         sites: [
           {
             value: 'site1',
@@ -166,7 +234,7 @@ RSpec.describe NetworkGraph, type: :model do
             ]
           }
         ]
-      }
+      }.with_indifferent_access
 
       result = [
         { node_type: "ont_sn", count: 1, node_type_pretty: "Ont Sns" },
@@ -174,12 +242,14 @@ RSpec.describe NetworkGraph, type: :model do
         { node_type: "ont_ge_2_mac", count: 1, node_type_pretty: "Ont Ge 2 Macs" }
       ]
 
-      assert_equal result, @network_graph.node_counts
+      network_graph = NetworkGraph.create_from_graph(@sheet, graph)
+      assert_equal result, network_graph.node_counts
     end
 
     it "node_count_for_type" do
-      assert_equal 1, FactoryGirl.create(:network_graph).node_count_for_type("ont_sn")
-      assert_equal 0, FactoryGirl.create(:network_graph).node_count_for_type("blah")
+      network_graph = NetworkGraph.create_from_graph(@sheet, @graph)
+      assert_equal 1, network_graph.node_count_for_type("olt")
+      assert_equal 0, network_graph.node_count_for_type("blah")
     end
   end
 end
