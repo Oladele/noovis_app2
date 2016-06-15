@@ -15,7 +15,7 @@ class	NodeStats
 		# count each node by node_type
 		@nodes.each do |node|
 			node_types.each do |node_type|
-				if node[:node_type] == node_type
+				if node["node_type"] == node_type
 					node_type_counts[node_type] +=1
 				end
 			end

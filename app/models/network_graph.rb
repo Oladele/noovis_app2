@@ -63,7 +63,7 @@ class NetworkGraph < ActiveRecord::Base
 
   def self.create_from_graph(sheet, graph)
     nodes_and_edges = NetworkGraph.nodes_and_edges(graph)
-    node_counts = NetworkGraph.node_count_values(nodes_and_edges[:nodes])
+    node_counts = NetworkGraph.collect_node_counts(nodes_and_edges[:nodes])
 
     NetworkGraph.create!(sheet: sheet, graph: graph, nodes: nodes_and_edges[:nodes], edges: nodes_and_edges[:edges], node_counts: node_counts)
   end
@@ -80,18 +80,6 @@ class NetworkGraph < ActiveRecord::Base
     end
 
     { nodes: iteration_helper.nodes, edges: iteration_helper.edges }
-  end
-
-  def self.node_count_values(nodes)
-    return {} if nodes.nil?
-
-    nodes.each_with_object({}) do |node, hash|
-      node_type = node[:node_type]
-
-      if node_type.present?
-        hash.has_key?(node_type) ? hash[node_type] += 1 : hash[node_type] = 1
-      end
-    end
   end
 
   def node_counts_pretty
@@ -142,6 +130,19 @@ class NetworkGraph < ActiveRecord::Base
         row_id += 1
       end
     end
+
+    def self.collect_node_counts(nodes)
+      return {} if nodes.nil?
+
+      nodes.each_with_object({}) do |node, hash|
+        node_type = node[:node_type]
+
+        if node_type.present?
+          hash.has_key?(node_type) ? hash[node_type] += 1 : hash[node_type] = 1
+        end
+      end
+    end
+
 
     def self.singular_node_type(node_type)
       node_type == :olt_chasses ? "olt_chassis" : node_type.to_s.singularize
