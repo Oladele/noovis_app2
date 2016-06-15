@@ -14,7 +14,7 @@ class NetworkGraph < ActiveRecord::Base
   belongs_to :network_template
   has_one :company, through: :sheet
 
-  validates :sheet_id, :graph, :nodes, :edges, presence: true
+  validates :sheet_id, :graph, :nodes, :edges, :node_counts, presence: true
 
   attr_reader :nodes_in_memory
 
@@ -63,8 +63,9 @@ class NetworkGraph < ActiveRecord::Base
 
   def self.create_from_graph(sheet, graph)
     nodes_and_edges = NetworkGraph.nodes_and_edges(graph)
+    node_counts = NetworkGraph.node_count_values(nodes_and_edges[:nodes])
 
-    NetworkGraph.create!(sheet: sheet, graph: graph, nodes: nodes_and_edges[:nodes], edges: nodes_and_edges[:edges])
+    NetworkGraph.create!(sheet: sheet, graph: graph, nodes: nodes_and_edges[:nodes], edges: nodes_and_edges[:edges], node_counts: node_counts)
   end
 
   def self.nodes_and_edges(graph)
@@ -81,39 +82,24 @@ class NetworkGraph < ActiveRecord::Base
     { nodes: iteration_helper.nodes, edges: iteration_helper.edges }
   end
 
-  # For display in building table
-  def node_counts
-    nodes = self.nodes
+  def self.node_count_values(nodes)
+    return {} if nodes.nil?
 
-    return [] if nodes.nil?
+    nodes.each_with_object({}) do |node, hash|
+      node_type = node[:node_type]
 
-    nodes.each_with_object([]) do |node, array|
-      node_type = node["node_type"]
-
-      counter = array.select { |object| object[:node_type] == node_type }.first
-
-      if counter.nil?
-        array << { node_type: node_type, count: 1, node_type_pretty: node_type.pluralize.titleize }
-      else
-        counter[:count] += 1
+      if node_type.present?
+        hash.has_key?(node_type) ? hash[node_type] += 1 : hash[node_type] = 1
       end
     end
   end
 
-  # For faster calculations. The node_type is the key which makes querying faster than `.select { obj == key }`.
-  def node_count_values
-    nodes = self.nodes
+  def node_counts_pretty
+    return [] if self.node_counts.nil?
 
-    return [] if nodes.nil?
-
-    nodes.each_with_object({}) do |node, hash|
-      node_type = node["node_type"]
-      hash.has_key?(node_type) ? hash[node_type] += 1 : hash[node_type] = 1
+    self.node_counts.map do |node_type, count|
+      { node_type: node_type, count: count, node_type_pretty: node_type.pluralize.titleize }
     end
-  end
-
-  def node_count_for_type(node_type)
-    self.nodes.select { |node| node["node_type"] == node_type }.count
   end
 
   private

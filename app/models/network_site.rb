@@ -53,7 +53,8 @@ class NetworkSite < ActiveRecord::Base
     feeder_capacity = self.chart_feeder_capacity_site
     pon_usage = self.chart_pon_usage_site
 
-    node_counts = node_counts_for_all_buildings
+    network_graphs = NetworkGraph.all_for(self)
+    node_counts = node_counts_for_all_buildings(network_graphs)
 
     waps = (node_counts["ont_ge_1_mac"] || 0) +
       (node_counts["ont_ge_2_mac"] || 0) +
@@ -82,13 +83,12 @@ class NetworkSite < ActiveRecord::Base
       }
     ]
 
-    network_graphs = NetworkGraph.all_for(self)
     network_graphs.each do |network_graph|
-      node_counts = network_graph.node_count_values
+      pon_usage = data_for_network_graph(:pon_usage, network_graph, "Active Channels", "Standby Channels")
+      feeder_capacity = data_for_network_graph(:feeder_capacity, network_graph, "Active PON Ports", "Spare Feeder Fibers")
+      distribution_ports = data_for_network_graph(:distribution_ports, network_graph, "Active Distribution Ports", "Spare Distribution Ports")
 
-      pon_usage = data_for_network_graph(:pon_usage, network_graph, node_counts, "Active Channels", "Standby Channels")
-      feeder_capacity = data_for_network_graph(:feeder_capacity, network_graph, node_counts, "Active PON Ports", "Spare Feeder Fibers")
-      distribution_ports = data_for_network_graph(:distribution_ports, network_graph, node_counts, "Active Distribution Ports", "Spare Distribution Ports")
+      node_counts = network_graph.node_counts
 
       waps = (node_counts["ont_ge_1_mac"] || 0) +
         (node_counts["ont_ge_2_mac"] || 0) +
@@ -122,17 +122,15 @@ class NetworkSite < ActiveRecord::Base
   private
     def aggregrate_buildings(type, active_key, passive_key)
       network_graphs = NetworkGraph.all_for(self)
-
       network_graphs.each_with_object([]) do |network_graph, array|
-        node_counts = network_graph.node_count_values
-        data = data_for_network_graph(type, network_graph, node_counts, active_key, passive_key)
+        data = data_for_network_graph(type, network_graph, active_key, passive_key)
         data.each { |hash| array << hash }
       end
     end
 
-    def data_for_network_graph(type, network_graph, node_counts, active_key, passive_key)
+    def data_for_network_graph(type, network_graph, active_key, passive_key)
         group = network_graph.sheet.building.name
-        values = values_for_type(type, node_counts)
+        values = values_for_type(type, network_graph.node_counts)
 
         [{ label: active_key, group: group, value: values[:actives] },
         { label: passive_key, group: group, value: values[:passives] }]
@@ -168,9 +166,7 @@ class NetworkSite < ActiveRecord::Base
       end
     end
 
-    def node_counts_for_all_buildings
-      # TODO: If we stored the node_counts this would be faster
-      network_graphs = NetworkGraph.all_for(self)
-      network_graphs_counts = network_graphs.inject { |a, b| a.node_count_values.merge(b.node_count_values) { |k, val1, val2| val1 + val2 } }
+    def node_counts_for_all_buildings(network_graphs)
+      network_graphs_counts = network_graphs.inject { |a, b| a.node_counts.merge(b.node_counts) { |k, val1, val2| val1 + val2 } }
     end
 end

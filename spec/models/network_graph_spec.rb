@@ -83,7 +83,7 @@ RSpec.describe NetworkGraph, type: :model do
       assert_equal [1], data.collect { |r| r["from"] }
     end
 
-    it "makes nodes and edges 2" do
+    it "makes nodes and edges check special olt_chassis label and node_type" do
       graph = {
         sites: [
           {
@@ -202,17 +202,17 @@ RSpec.describe NetworkGraph, type: :model do
       assert_equal [1, 1], data.collect { |r| r["from"] }
     end
 
-    it "node_counts" do
+    it "node_counts_pretty" do
       result = [
         { node_type: "building", count: 2, node_type_pretty: "Buildings" },
         { node_type: "olt", count: 1, node_type_pretty: "Olts" }
       ]
 
       network_graph = NetworkGraph.create_from_graph(@sheet, @graph)
-      assert_equal result, network_graph.node_counts
+      assert_equal result, network_graph.node_counts_pretty
     end
 
-    it "node_counts 2" do
+    it "node_counts_pretty with ont_ge_macs" do
       graph = {
         sites: [
           {
@@ -243,13 +243,11 @@ RSpec.describe NetworkGraph, type: :model do
       ]
 
       network_graph = NetworkGraph.create_from_graph(@sheet, graph)
-      assert_equal result, network_graph.node_counts
+      assert_equal result, network_graph.node_counts_pretty
     end
 
-    it "node_count_for_type" do
-      network_graph = NetworkGraph.create_from_graph(@sheet, @graph)
-      assert_equal 1, network_graph.node_count_for_type("olt")
-      assert_equal 0, network_graph.node_count_for_type("blah")
+    it "node_counts_pretty returns empty array with no nodes" do
+      assert_equal [], NetworkGraph.new.node_counts_pretty
     end
 
     it "node_count_values" do
@@ -259,7 +257,7 @@ RSpec.describe NetworkGraph, type: :model do
       }
 
       network_graph = NetworkGraph.create_from_graph(@sheet, @graph)
-      assert_equal result, network_graph.node_count_values
+      assert_equal result, network_graph.node_counts
     end
   end
 end

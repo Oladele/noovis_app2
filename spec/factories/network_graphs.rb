@@ -21,6 +21,9 @@ FactoryGirl.define do
       ]
     }
     edges { [{ id: 1, to: 2, from: 1 }] }
+    node_counts {
+      { sites: 1, rdts: 1, splitters: 1, ont_sns: 1 }
+    }
     graph {
       {
         sites: [
