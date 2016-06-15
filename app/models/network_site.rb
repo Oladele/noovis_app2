@@ -55,6 +55,11 @@ class NetworkSite < ActiveRecord::Base
 
     node_counts = node_counts_for_all_buildings
 
+    waps = (node_counts["ont_ge_1_mac"] || 0) +
+      (node_counts["ont_ge_2_mac"] || 0) +
+      (node_counts["ont_ge_3_mac"] || 0) +
+      (node_counts["ont_ge_4_mac"] || 0)
+
     counts = [
       {
         "BLDG" => self.name,
@@ -65,7 +70,7 @@ class NetworkSite < ActiveRecord::Base
         "Splitters" => node_counts["splitter"] || 0,
         "RDTs" => node_counts["rdt"] || 0,
         "ONTs" => node_counts["ont_sn"] || 0,
-        "WAPs" => node_counts["TODO"] || 0,
+        "WAPs" => waps,
         "Rooms" => node_counts["room"] || 0,
         "Active Channels" => pon_usage["Active Channels"],
         "Standby Channels" => pon_usage["Standby Channels"],
@@ -85,6 +90,11 @@ class NetworkSite < ActiveRecord::Base
       feeder_capacity = data_for_network_graph(:feeder_capacity, network_graph, node_counts, "Active PON Ports", "Spare Feeder Fibers")
       distribution_ports = data_for_network_graph(:distribution_ports, network_graph, node_counts, "Active Distribution Ports", "Spare Distribution Ports")
 
+      waps = (node_counts["ont_ge_1_mac"] || 0) +
+        (node_counts["ont_ge_2_mac"] || 0) +
+        (node_counts["ont_ge_3_mac"] || 0) +
+        (node_counts["ont_ge_4_mac"] || 0)
+
       counts << {
         "BLDG" => network_graph.sheet.building.name,
         "Bldgs" => 1,
@@ -94,7 +104,7 @@ class NetworkSite < ActiveRecord::Base
         "Splitters" => node_counts["splitter"] || 0,
         "RDTs" => node_counts["rdt"] || 0,
         "ONTs" => node_counts["ont_sn"] || 0,
-        "WAPs" => node_counts["TODO"] || 0,
+        "WAPs" => waps,
         "Rooms" => node_counts["room"] || 0,
         "Active Channels" => pon_usage.first[:value],
         "Standby Channels" => pon_usage.last[:value],

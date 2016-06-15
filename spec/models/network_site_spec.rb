@@ -248,6 +248,7 @@ RSpec.describe NetworkSite, type: :model do
       building_2_name = network_site.buildings.last.name
 
       sheet = network_site.buildings.last.sheets.first
+      sheet.network_graphs.destroy_all
       NetworkGraph.create_from_graph(sheet, {
         sites: [
           {
@@ -263,7 +264,14 @@ RSpec.describe NetworkSite, type: :model do
                   ont_sns: [
                     {
                       value: 'ont_sn1',
-                      cable_run_id: 1
+                      cable_run_id: 1,
+                      ont_ge_1_macs: [
+                        {
+                          value: 'ont_ge_1_mac_1',
+                          cable_run_id: 1,
+                          ont_ge_2_macs: [{ value: 'ont_ge_2_mac_1', cable_run_id: 1 }]
+                        }
+                      ]
                     },
                   ]
                 },
@@ -293,7 +301,7 @@ RSpec.describe NetworkSite, type: :model do
           "Splitters" => 3,
           "RDTs" => 2,
           "ONTs" => 3,
-          "WAPs" => 0,
+          "WAPs" => 3,
           "Rooms" => 0,
           "Active Channels" => 3,
           "Standby Channels" => (3*32) - 3,
@@ -312,7 +320,7 @@ RSpec.describe NetworkSite, type: :model do
           "Splitters" => 1,
           "RDTs" => 1,
           "ONTs" => 1,
-          "WAPs" => 0,
+          "WAPs" => 1,
           "Rooms" => 0,
           "Active Channels" => 1,
           "Standby Channels" => (1*32) - 1,
@@ -331,7 +339,7 @@ RSpec.describe NetworkSite, type: :model do
           "Splitters" => 2,
           "RDTs" => 1,
           "ONTs" => 2,
-          "WAPs" => 0,
+          "WAPs" => 2,
           "Rooms" => 0,
           "Active Channels" => 2,
           "Standby Channels" => (2*32) - 2,
@@ -345,12 +353,23 @@ RSpec.describe NetworkSite, type: :model do
 
       counts = network_site.network_element_counts
 
+      assert_equal result.first["BLDG"], counts.first["BLDG"]
+      assert_equal result.first["Bldgs"], counts.first["Bldgs"]
+      assert_equal result.first["OLTs"], counts.first["OLTs"]
+      assert_equal result.first["PON Cards"], counts.first["PON Cards"]
+      assert_equal result.first["FDHs"], counts.first["FDHs"]
+      assert_equal result.first["Splitters"], counts.first["Splitters"]
+      assert_equal result.first["RDTs"], counts.first["RDTs"]
+      assert_equal result.first["ONTs"], counts.first["ONTs"]
+      assert_equal result.first["WAPs"], counts.first["WAPs"]
+      assert_equal result.first["Rooms"], counts.first["Rooms"]
       assert_equal result.first["Active Channels"], counts.first["Active Channels"]
       assert_equal result.first["Standby Channels"], counts.first["Standby Channels"]
       assert_equal result.first["Active PON Ports"], counts.first["Active PON Ports"]
       assert_equal result.first["Spare Feeder Fibers"], counts.first["Spare Feeder Fibers"]
       assert_equal result.first["Active Distribution Ports"], counts.first["Active Distribution Ports"]
       assert_equal result.first["Spare Distribution Ports"], counts.first["Spare Distribution Ports"]
+      assert_equal result.first["Actual RDT Count"], counts.first["Actual RDT Count"]
 
       assert_equal result[1]["BLDG"], counts[1]["BLDG"]
       assert_equal result[1]["Bldgs"], counts[1]["Bldgs"]

@@ -39,7 +39,10 @@ FactoryGirl.define do
                     ont_sns: [
                       {
                         value: 'ont_sn1',
-                        cable_run_id: 1
+                        cable_run_id: 1,
+                        ont_ge_1_macs: [
+                          { value: 'ont_ge_1_mac_1', cable_run_id: 1 }
+                        ]
                       },
                     ]
                   ]
