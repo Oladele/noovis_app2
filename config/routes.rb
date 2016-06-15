@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
   mount_devise_token_auth_for 'User', at: 'auth'
-  resources :nodes
   resource :import_cable_run
   jsonapi_resources :users
   jsonapi_resource :global

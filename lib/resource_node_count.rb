@@ -31,7 +31,7 @@ module ResourceNodeCount
 
   def node_counts_from_graphs(network_graphs)
 		if network_graphs
-      nodes = network_graphs.is_a?(Array) ? Node.all_for(network_graphs) : network_graphs.nodes
+      nodes = network_graphs.is_a?(Array) ? network_graphs.collect { |network_graph| network_graph.nodes }.flatten : network_graphs.nodes
 			node_types = [
 				"olt_chassis",
 				"pon_card",
