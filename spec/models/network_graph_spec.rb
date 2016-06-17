@@ -89,7 +89,7 @@ RSpec.describe NetworkGraph, type: :model do
           {
             value: 'site1',
             cable_run_id: 1,
-            olt_chasses: [
+            olt_chassis: [
               {
                 value: 'olt_chassis1',
                 cable_run_id: 1,
@@ -209,6 +209,41 @@ RSpec.describe NetworkGraph, type: :model do
       ]
 
       network_graph = NetworkGraph.create_from_graph(@sheet, @graph)
+      assert_equal result, network_graph.node_counts_pretty
+    end
+
+    it "node_counts_pretty chassis" do
+      graph = {
+        sites: [
+          {
+            value: 'site1',
+            cable_run_id: 1,
+            olt_chassis: [
+              {
+                value: 'olt_chassis1',
+                cable_run_id: 1,
+                olts: [
+                  {
+                    cable_run_id: 1,
+                    value: 'olt1'
+                  }
+                ]
+              },
+              {
+                cable_run_id: 2,
+                value: 'olt_chassis2'
+              }
+            ]
+          }
+        ]
+      }
+
+      result = [
+        { node_type: "olt_chassis", count: 2, node_type_pretty: "Olt Chassis" },
+        { node_type: "olt", count: 1, node_type_pretty: "Olts" }
+      ]
+
+      network_graph = NetworkGraph.create_from_graph(@sheet, graph)
       assert_equal result, network_graph.node_counts_pretty
     end
 

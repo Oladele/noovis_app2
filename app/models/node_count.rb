@@ -6,7 +6,7 @@ class	NodeCount
 		@node_type = node_type
 		@count = count
 
-		@node_type_pretty = node_type.humanize.pluralize
+		@node_type_pretty = node_type.pluralize.titleize
 	end
 
 end
