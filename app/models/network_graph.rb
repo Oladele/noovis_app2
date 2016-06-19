@@ -138,7 +138,14 @@ class NetworkGraph < ActiveRecord::Base
         node_type = node[:node_type]
 
         if node_type.present?
-          hash.has_key?(node_type) ? hash[node_type] += 1 : hash[node_type] = 1
+          node_value = node[:node_value]
+          increment_value = node_value.present? && ["n/a", "na", "blank"].exclude?(node_value.downcase) ? 1 : 0
+
+          if hash.has_key?(node_type)
+            hash[node_type] += increment_value
+          else
+            hash[node_type] = increment_value
+          end
         end
       end
     end

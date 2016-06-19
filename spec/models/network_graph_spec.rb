@@ -149,15 +149,15 @@ RSpec.describe NetworkGraph, type: :model do
             cable_run_id: 1,
             ont_sns: [
               {
-                value: 'N/A',
+                value: 'some_value',
                 cable_run_id: 1,
                 ont_ge_1_macs: [
                   {
-                    value: 'N/A',
+                    value: 'some_value',
                     cable_run_id: 1,
                     ont_ge_2_macs: [
                       {
-                        value: 'N/A',
+                        value: 'some_value',
                         cable_run_id: 1
                       }
                     ]
@@ -170,9 +170,9 @@ RSpec.describe NetworkGraph, type: :model do
       }
 
       nodes = [
-        { id: 1, label: 'ONT_SN: N/A', cable_run_id: 1, level: 0, node_type: 'ont_sn', node_value: 'N/A', parent_id: nil },
-        { id: 2, label: 'ONT_GE_1_MAC: N/A', cable_run_id: 1, level: 1, node_type: 'ont_ge_1_mac', node_value: 'N/A', parent_id: 1 },
-        { id: 3, label: 'ONT_GE_2_MAC: N/A', cable_run_id: 1, level: 1, node_type: 'ont_ge_2_mac', node_value: 'N/A', parent_id: 1 }
+        { id: 1, label: 'ONT_SN: some_value', cable_run_id: 1, level: 0, node_type: 'ont_sn', node_value: 'some_value', parent_id: nil },
+        { id: 2, label: 'ONT_GE_1_MAC: some_value', cable_run_id: 1, level: 1, node_type: 'ont_ge_1_mac', node_value: 'some_value', parent_id: 1 },
+        { id: 3, label: 'ONT_GE_2_MAC: some_value', cable_run_id: 1, level: 1, node_type: 'ont_ge_2_mac', node_value: 'some_value', parent_id: 1 }
       ]
 
       edges = [
@@ -186,10 +186,10 @@ RSpec.describe NetworkGraph, type: :model do
       data = network_graph.nodes
 
       assert_equal [1, 2, 3], data.collect { |r| r["id"] }
-      assert_equal ['ONT_SN: N/A', 'ONT_GE_1_MAC: N/A', 'ONT_GE_2_MAC: N/A'], data.collect { |r| r["label"] }
+      assert_equal ['ONT_SN: some_value', 'ONT_GE_1_MAC: some_value', 'ONT_GE_2_MAC: some_value'], data.collect { |r| r["label"] }
       assert_equal %w(1 2 2), data.collect { |r| r["level"] }
       assert_equal ['ont_sn', 'ont_ge_1_mac', 'ont_ge_2_mac'], data.collect { |r| r["node_type"] }
-      assert_equal ['N/A', 'N/A', 'N/A'], data.collect { |r| r["node_value"] }
+      assert_equal ['some_value', 'some_value', 'some_value'], data.collect { |r| r["node_value"] }
       assert_equal [nil, 1, 1], data.collect { |r| r["parent_id"] }
 
       assert_equal [1, 1, 1], data.collect { |r| r["cable_run_id"] }
@@ -254,13 +254,13 @@ RSpec.describe NetworkGraph, type: :model do
             value: 'site1',
             ont_sns: [
               {
-                value: 'N/A',
+                value: 'some_value',
                 ont_ge_1_macs: [
                   {
-                    value: 'N/A',
+                    value: 'some_value',
                     ont_ge_2_macs: [
                       {
-                        value: 'N/A'
+                        value: 'some_value'
                       }
                     ]
                   }
@@ -292,6 +292,44 @@ RSpec.describe NetworkGraph, type: :model do
       }
 
       network_graph = NetworkGraph.create_from_graph(@sheet, @graph)
+      assert_equal result, network_graph.node_counts
+    end
+
+    it "don't count N/A or blank values" do
+      graph = {
+        sites: [
+          {
+            value: 'site1',
+            ont_sns: [
+              {
+                value: 'some_value',
+                ont_ge_1_macs: [
+                  {
+                    value: 'N/A',
+                    ont_ge_2_macs: [
+                      {
+                        value: '',
+                        ont_ge_3_macs: [
+                          { value: 'na' }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+
+      result = {
+        "ont_sn" => 1,
+        "ont_ge_1_mac" => 0,
+        "ont_ge_2_mac" => 0,
+        "ont_ge_3_mac" => 0
+      }
+
+      network_graph = NetworkGraph.create_from_graph(@sheet, graph)
       assert_equal result, network_graph.node_counts
     end
   end
