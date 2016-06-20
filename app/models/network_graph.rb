@@ -85,9 +85,17 @@ class NetworkGraph < ActiveRecord::Base
   def node_counts_pretty
     return [] if self.node_counts.nil?
 
-    self.node_counts.map do |node_type, count|
-      { node_type: node_type, count: count, node_type_pretty: node_type.pluralize.titleize }
+    waps_count = 0
+
+    counts = self.node_counts.each_with_object([]) do |(node_type, count), array|
+      if %w(ont_ge_1_mac ont_ge_2_mac ont_ge_3_mac ont_ge_4_mac).include?(node_type)
+        waps_count += count
+      else
+        array << { node_type: node_type, count: count, node_type_pretty: node_type.pluralize.titleize }
+      end
     end
+
+    counts << { node_type: 'wap', count: waps_count, node_type_pretty: 'WAPs' }
   end
 
   private

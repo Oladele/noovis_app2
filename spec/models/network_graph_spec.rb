@@ -205,7 +205,8 @@ RSpec.describe NetworkGraph, type: :model do
     it "node_counts_pretty" do
       result = [
         { node_type: "building", count: 2, node_type_pretty: "Buildings" },
-        { node_type: "olt", count: 1, node_type_pretty: "Olts" }
+        { node_type: "olt", count: 1, node_type_pretty: "Olts" },
+        { node_type: "wap", count: 0, node_type_pretty: "WAPs" }
       ]
 
       network_graph = NetworkGraph.create_from_graph(@sheet, @graph)
@@ -240,7 +241,8 @@ RSpec.describe NetworkGraph, type: :model do
 
       result = [
         { node_type: "olt_chassis", count: 2, node_type_pretty: "Olt Chassis" },
-        { node_type: "olt", count: 1, node_type_pretty: "Olts" }
+        { node_type: "olt", count: 1, node_type_pretty: "Olts" },
+        { node_type: "wap", count: 0, node_type_pretty: "WAPs" }
       ]
 
       network_graph = NetworkGraph.create_from_graph(@sheet, graph)
@@ -273,8 +275,7 @@ RSpec.describe NetworkGraph, type: :model do
 
       result = [
         { node_type: "ont_sn", count: 1, node_type_pretty: "Ont Sns" },
-        { node_type: "ont_ge_1_mac", count: 1, node_type_pretty: "Ont Ge 1 Macs" },
-        { node_type: "ont_ge_2_mac", count: 1, node_type_pretty: "Ont Ge 2 Macs" }
+        { node_type: "wap", count: 2, node_type_pretty: "WAPs" }
       ]
 
       network_graph = NetworkGraph.create_from_graph(@sheet, graph)
