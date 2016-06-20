@@ -81,10 +81,7 @@ class ImportCableRun
         field_errors << "HEADER #{field} is missing"
       end
 
-      set_status :unprocessable_entity,
-        "Cannot create cable runs: #{field_errors * ', '}"
-
-      return false
+      raise "Cannot create cable runs: #{field_errors * ', '}"
     end
 
     if imported_cable_runs[:cable_runs].map(&:valid?).all?
@@ -110,10 +107,7 @@ class ImportCableRun
         end
       end
 
-      set_status :unprocessable_entity,
-        "Cannot create cable runs: #{product_errors * ', '}"
-
-      return false
+      raise "Cannot create cable runs: #{product_errors * ', '}"
     end
 
     set_status :created, "Successfully created cable runs"

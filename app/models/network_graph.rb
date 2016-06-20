@@ -76,7 +76,7 @@ class NetworkGraph < ActiveRecord::Base
     graph[:sites].each do |site|
       collection = site[site.keys.last]
 
-      generate_for_collection(iteration_helper, collection, singular_node_type(site.keys.last), 1, nil, 1)
+      generate_for_collection(iteration_helper, collection, site.keys.last.to_s.singularize, 1, nil, 1)
     end
 
     { nodes: iteration_helper.nodes, edges: iteration_helper.edges }
@@ -124,7 +124,7 @@ class NetworkGraph < ActiveRecord::Base
           next_node_level = is_port_node ? node_level : node_level + 1
           previous_parent_id = is_port_node ? parent_id : node[:id]
 
-          generate_for_collection(iteration_helper, nested_collection, singular_node_type(object.keys.last), next_node_level, previous_parent_id, row_id)
+          generate_for_collection(iteration_helper, nested_collection,  object.keys.last.to_s.singularize, next_node_level, previous_parent_id, row_id)
         end
 
         row_id += 1
@@ -138,14 +138,16 @@ class NetworkGraph < ActiveRecord::Base
         node_type = node[:node_type]
 
         if node_type.present?
-          hash.has_key?(node_type) ? hash[node_type] += 1 : hash[node_type] = 1
+          node_value = node[:node_value]
+          increment_value = node_value.present? && ["n/a", "na", "blank"].exclude?(node_value.downcase) ? 1 : 0
+
+          if hash.has_key?(node_type)
+            hash[node_type] += increment_value
+          else
+            hash[node_type] = increment_value
+          end
         end
       end
-    end
-
-
-    def self.singular_node_type(node_type)
-      node_type == :olt_chasses ? "olt_chassis" : node_type.to_s.singularize
     end
 end
 

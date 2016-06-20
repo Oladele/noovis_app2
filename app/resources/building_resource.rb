@@ -18,4 +18,12 @@ class BuildingResource < JSONAPI::Resource
       super
     end
   end
+
+  def self.updatable_fields(context)
+    super - [:node_counts]
+  end
+
+  def self.creatable_fields(context)
+    super - [:node_counts]
+  end
 end

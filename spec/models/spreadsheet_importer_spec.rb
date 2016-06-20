@@ -463,7 +463,7 @@ RSpec.describe SpreadsheetImporter, type: :model do
           {
             value: 'Oakcrest',
             cable_run_id: first_id,
-            olt_chasses: [
+            olt_chassis: [
               {
                 value: 'ELOC001',
                 cable_run_id: first_id,
@@ -515,7 +515,7 @@ RSpec.describe SpreadsheetImporter, type: :model do
           {
             value: 'Oakcrest',
             cable_run_id: first_id,
-            olt_chasses: [
+            olt_chassis: [
               {
                 value: 'ELOC001',
                 cable_run_id: first_id,
@@ -611,7 +611,7 @@ RSpec.describe SpreadsheetImporter, type: :model do
           {
             value: 'Oakcrest',
             cable_run_id: first_id,
-            olt_chasses: [
+            olt_chassis: [
               {
                 value: 'ELOC001',
                 cable_run_id: first_id,
@@ -690,7 +690,7 @@ RSpec.describe SpreadsheetImporter, type: :model do
           {
             value: 'Oakcrest 2',    # This value is different
             cable_run_id: second_id,
-            olt_chasses: [
+            olt_chassis: [
               {
                 value: 'ELOC001',
                 cable_run_id: second_id,
@@ -775,8 +775,8 @@ RSpec.describe SpreadsheetImporter, type: :model do
 
     it "makes the template" do
       result = [
-        { type: :sites, collection: :olt_chasses },
-        { type: :olt_chasses, collection: :pon_cards },
+        { type: :sites, collection: :olt_chassis },
+        { type: :olt_chassis, collection: :pon_cards },
         { type: :pon_cards }
       ]
 
@@ -788,7 +788,7 @@ RSpec.describe SpreadsheetImporter, type: :model do
     it "format" do
       assert_equal :pon_cards, SpreadsheetImporter.format('PON Card')
       assert_equal :sites, SpreadsheetImporter.format('Site')
-      assert_equal :olt_chasses, SpreadsheetImporter.format('OLT Chassis')
+      assert_equal :olt_chassis, SpreadsheetImporter.format('OLT Chassis')
       assert_equal :rooms, SpreadsheetImporter.format('Room Number')
       assert_equal :ont_sns, SpreadsheetImporter.format('ONT SN#')
       assert_equal :ont_ge_1_macs, SpreadsheetImporter.format('ONT GE Port 1 Mac')
