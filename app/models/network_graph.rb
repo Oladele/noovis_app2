@@ -91,11 +91,11 @@ class NetworkGraph < ActiveRecord::Base
       if %w(ont_ge_1_mac ont_ge_2_mac ont_ge_3_mac ont_ge_4_mac).include?(node_type)
         waps_count += count
       else
-        array << { node_type: node_type, count: count, node_type_pretty: node_type.pluralize.titleize }
+        array << { node_type: node_type, count: count, node_type_pretty: label_for_node_type(node_type) }
       end
     end
 
-    counts << { node_type: 'wap', count: waps_count, node_type_pretty: 'WAPs' }
+    counts << { node_type: 'wap', count: waps_count, node_type_pretty: label_for_node_type('wap') }
   end
 
   private
@@ -155,6 +155,35 @@ class NetworkGraph < ActiveRecord::Base
             hash[node_type] = increment_value
           end
         end
+      end
+    end
+
+    def label_for_node_type(node_type)
+      case node_type
+      when "olt_chassis"
+        "OLT Chassis"
+      when "olt"
+        "OLTs"
+      when "pon_card"
+        "PON Cards"
+      when "pon_port"
+        "PON Ports"
+      when "building"
+        "Buildings"
+      when "fdh"
+        "FDHs"
+      when "splitter"
+        "Splitters"
+      when "rdt"
+        "RDTs"
+      when "room"
+        "Rooms"
+      when "ont_sn"
+        "ONTs"
+      when "wap"
+        "WAPs"
+      else
+        raise "NetworkGraph.label_for_node_type: unknown node_type"
       end
     end
 end

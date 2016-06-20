@@ -205,7 +205,7 @@ RSpec.describe NetworkGraph, type: :model do
     it "node_counts_pretty" do
       result = [
         { node_type: "building", count: 2, node_type_pretty: "Buildings" },
-        { node_type: "olt", count: 1, node_type_pretty: "Olts" },
+        { node_type: "olt", count: 1, node_type_pretty: "OLTs" },
         { node_type: "wap", count: 0, node_type_pretty: "WAPs" }
       ]
 
@@ -240,8 +240,8 @@ RSpec.describe NetworkGraph, type: :model do
       }
 
       result = [
-        { node_type: "olt_chassis", count: 2, node_type_pretty: "Olt Chassis" },
-        { node_type: "olt", count: 1, node_type_pretty: "Olts" },
+        { node_type: "olt_chassis", count: 2, node_type_pretty: "OLT Chassis" },
+        { node_type: "olt", count: 1, node_type_pretty: "OLTs" },
         { node_type: "wap", count: 0, node_type_pretty: "WAPs" }
       ]
 
@@ -274,7 +274,7 @@ RSpec.describe NetworkGraph, type: :model do
       }
 
       result = [
-        { node_type: "ont_sn", count: 1, node_type_pretty: "Ont Sns" },
+        { node_type: "ont_sn", count: 1, node_type_pretty: "ONTs" },
         { node_type: "wap", count: 2, node_type_pretty: "WAPs" }
       ]
 
