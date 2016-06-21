@@ -210,7 +210,7 @@ RSpec.describe NetworkGraph, type: :model do
       ]
 
       network_graph = NetworkGraph.create_from_graph(@sheet, @graph)
-      assert_equal result, network_graph.node_counts_pretty
+      assert_equal result, NetworkGraph.node_counts_pretty(network_graph.node_counts)
     end
 
     it "node_counts_pretty chassis" do
@@ -246,7 +246,7 @@ RSpec.describe NetworkGraph, type: :model do
       ]
 
       network_graph = NetworkGraph.create_from_graph(@sheet, graph)
-      assert_equal result, network_graph.node_counts_pretty
+      assert_equal result, NetworkGraph.node_counts_pretty(network_graph.node_counts)
     end
 
     it "node_counts_pretty with ont_ge_macs" do
@@ -279,11 +279,11 @@ RSpec.describe NetworkGraph, type: :model do
       ]
 
       network_graph = NetworkGraph.create_from_graph(@sheet, graph)
-      assert_equal result, network_graph.node_counts_pretty
+      assert_equal result, NetworkGraph.node_counts_pretty(network_graph.node_counts)
     end
 
     it "node_counts_pretty returns empty array with no nodes" do
-      assert_equal [], NetworkGraph.new.node_counts_pretty
+      assert_equal [], NetworkGraph.node_counts_pretty(NetworkGraph.new.node_counts)
     end
 
     it "node_count_values" do
