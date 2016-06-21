@@ -54,7 +54,7 @@ class NetworkSite < ActiveRecord::Base
     pon_usage = self.chart_pon_usage_site
 
     network_graphs = NetworkGraph.all_for(self)
-    node_counts = node_counts_for_all_buildings(network_graphs)
+    node_counts = NetworkGraph.node_counts_for_graphs(network_graphs)
 
     waps = (node_counts["ont_ge_1_mac"] || 0) +
       (node_counts["ont_ge_2_mac"] || 0) +
@@ -164,9 +164,5 @@ class NetworkSite < ActiveRecord::Base
         key = hash[:label] == active_key ? active_key : passive_key
         result[key] += hash[:value]
       end
-    end
-
-    def node_counts_for_all_buildings(network_graphs)
-      network_graphs_counts = network_graphs.inject { |a, b| a.node_counts.merge(b.node_counts) { |k, val1, val2| val1 + val2 } }
     end
 end

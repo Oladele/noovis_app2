@@ -82,20 +82,29 @@ class NetworkGraph < ActiveRecord::Base
     { nodes: iteration_helper.nodes, edges: iteration_helper.edges }
   end
 
-  def node_counts_pretty
-    return [] if self.node_counts.nil?
+  def self.node_counts_for_graphs(network_graphs)
+    network_graphs_counts = network_graphs.inject { |a, b| a.node_counts.merge(b.node_counts) { |k, val1, val2| val1 + val2 } }
+  end
+
+  def self.pretty_node_counts_for_graphs(network_graphs)
+    node_counts = NetworkGraph.node_counts_for_graphs(network_graphs)
+    NetworkGraph.node_counts_pretty(node_counts)
+  end
+
+  def self.node_counts_pretty(node_counts)
+    return [] if node_counts.nil?
 
     waps_count = 0
 
-    counts = self.node_counts.each_with_object([]) do |(node_type, count), array|
+    counts = node_counts.each_with_object([]) do |(node_type, count), array|
       if %w(ont_ge_1_mac ont_ge_2_mac ont_ge_3_mac ont_ge_4_mac).include?(node_type)
         waps_count += count
       else
-        array << { node_type: node_type, count: count, node_type_pretty: label_for_node_type(node_type) }
+        array << { node_type: node_type, count: count, node_type_pretty: NetworkGraph.label_for_node_type(node_type) }
       end
     end
 
-    counts << { node_type: 'wap', count: waps_count, node_type_pretty: label_for_node_type('wap') }
+    counts << { node_type: 'wap', count: waps_count, node_type_pretty: NetworkGraph.label_for_node_type('wap') }
   end
 
   private
@@ -158,7 +167,7 @@ class NetworkGraph < ActiveRecord::Base
       end
     end
 
-    def label_for_node_type(node_type)
+    def self.label_for_node_type(node_type)
       case node_type
       when "olt_chassis"
         "OLT Chassis"
