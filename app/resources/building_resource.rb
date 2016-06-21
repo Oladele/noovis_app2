@@ -7,7 +7,7 @@ class BuildingResource < JSONAPI::Resource
 
   def node_counts
     network_graph = NetworkGraph.latest_for @model
-    network_graph.present? ? network_graph.node_counts_pretty : []
+    network_graph.present? ? NetworkGraph.node_counts_pretty(network_graph.node_counts) : []
   end
 
   def self.records(options = {})
