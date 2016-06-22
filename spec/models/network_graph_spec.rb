@@ -333,5 +333,13 @@ RSpec.describe NetworkGraph, type: :model do
       network_graph = NetworkGraph.create_from_graph(@sheet, graph)
       assert_equal result, network_graph.node_counts
     end
+
+    it "doesn't count empty hash" do
+      skip("todo- fix me")
+      network_graph = FactoryGirl.create(:network_graph)
+      network_graph2 = FactoryGirl.create(:network_graph)
+      network_graph3 = FactoryGirl.create(:network_graph)
+      assert_equal [], NetworkGraph.node_counts_for_graphs([network_graph, network_graph2, network_graph3])
+    end
   end
 end

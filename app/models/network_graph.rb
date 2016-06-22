@@ -83,7 +83,10 @@ class NetworkGraph < ActiveRecord::Base
   end
 
   def self.node_counts_for_graphs(network_graphs)
-    network_graphs_counts = network_graphs.inject { |a, b| a.node_counts.merge(b.node_counts) { |k, val1, val2| val1 + val2 } }
+    network_graphs_counts = network_graphs.inject do |a, b|
+      value = a.is_a?(Hash) ? a : a.node_counts
+      value.merge(b.node_counts) { |k, val1, val2| val1 + val2 }
+    end
   end
 
   def self.pretty_node_counts_for_graphs(network_graphs)
