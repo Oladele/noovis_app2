@@ -18,43 +18,14 @@ class NetworkGraph < ActiveRecord::Base
 
   attr_reader :nodes_in_memory
 
-  def NetworkGraph.all_for model_or_models
-    network_graphs = []
-
-    if model_or_models.respond_to?(:to_ary)
-      network_graphs = NetworkGraph.all_for_array model_or_models
-    else
-      network_graphs = NetworkGraph.all_for_single model_or_models
-    end
-
-  end
-
-  def NetworkGraph.all_for_array(models)
-    network_graphs = []
-    models.each do |model|
-      network_graphs << NetworkGraph.all_for_single(model)
-    end
-    network_graphs.flatten
-  end
-
-  def NetworkGraph.all_for_single(model)
-    network_graphs = []
-    buildings = model.buildings
-    network_graphs = buildings.map do |building|
-      NetworkGraph.latest_for building
-    end
-    network_graphs.compact
-  end
-
   def NetworkGraph.latest_for(building)
-
   	sheets_with_graphs = building.sheets.which_have_graphs
   	return nil if sheets_with_graphs.empty?
 
   	latest_sheet = sheets_with_graphs.last
   	latest_graph = latest_sheet.network_graphs.last
 
-    latest_graph.graph.present? && latest_graph.nodes.present? && latest_graph.edges.present? ? latest_graph : nil
+    latest_graph.graph.present? && latest_graph.nodes.present? && latest_graph.edges.present? && latest_graph.node_counts.present? ? latest_graph : nil
   end
 
   def NetworkGraph.destroy_all_for(building)
@@ -83,9 +54,17 @@ class NetworkGraph < ActiveRecord::Base
   end
 
   def self.node_counts_for_graphs(network_graphs)
-    network_graphs_counts = network_graphs.inject do |a, b|
-      value = a.is_a?(Hash) ? a : a.node_counts
-      value.merge(b.node_counts) { |k, val1, val2| val1 + val2 }
+    unless network_graphs.blank?
+      if network_graphs.count > 1
+        network_graphs_counts = network_graphs.inject do |a, b|
+          value = a.is_a?(Hash) ? a : a.node_counts
+          value.merge(b.node_counts) { |k, val1, val2| val1 + val2 }
+        end
+      else
+        network_graphs.first.node_counts
+      end
+    else
+      nil
     end
   end
 
@@ -95,7 +74,7 @@ class NetworkGraph < ActiveRecord::Base
   end
 
   def self.node_counts_pretty(node_counts)
-    return [] if node_counts.nil?
+    return [] if node_counts.blank?
 
     waps_count = 0
 
@@ -159,7 +138,7 @@ class NetworkGraph < ActiveRecord::Base
 
         if node_type.present?
           node_value = node[:node_value]
-          increment_value = node_value.present? && ["n/a", "na", "blank"].exclude?(node_value.downcase) ? 1 : 0
+          increment_value = node_value.present? && ["n/a", "na", "blank"].exclude?(node_value.strip.downcase) ? 1 : 0
 
           if hash.has_key?(node_type)
             hash[node_type] += increment_value

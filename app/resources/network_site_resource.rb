@@ -1,12 +1,23 @@
 class NetworkSiteResource < JSONAPI::Resource
-  include ResourceNodeCount
-
   attributes :name, :lat, :lng, :address, :node_counts
   has_one :company
   has_many :buildings
   has_many :workbooks
 
   filter :company
+
+  def node_counts
+    network_graphs = @model.network_graphs
+    node_counts = NetworkGraph.pretty_node_counts_for_graphs(network_graphs)
+
+    node_counts.unshift({
+      node_type: "buildings",
+      count: @model.buildings.count,
+      node_type_pretty: "Buildings"
+    })
+
+    node_counts
+  end
 
   def self.records(options = {})
     current_user = options[:context][:current_user]

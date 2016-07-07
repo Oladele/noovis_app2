@@ -21,6 +21,10 @@ class NetworkSite < ActiveRecord::Base
   validates :company_id, presence: true
   validates :name, uniqueness: { scope: [:company_id] }
 
+  def network_graphs
+    self.buildings.collect { |building| NetworkGraph.latest_for(building) }.compact
+  end
+
   def chart_distribution_ports_buildings
   	aggregrate_buildings(:distribution_ports, "Active Distribution Ports", "Spare Distribution Ports")
   end
@@ -53,7 +57,7 @@ class NetworkSite < ActiveRecord::Base
     feeder_capacity = self.chart_feeder_capacity_site
     pon_usage = self.chart_pon_usage_site
 
-    network_graphs = NetworkGraph.all_for(self)
+    network_graphs = self.network_graphs
     node_counts = NetworkGraph.node_counts_for_graphs(network_graphs)
 
     waps = (node_counts["ont_ge_1_mac"] || 0) +
@@ -121,7 +125,7 @@ class NetworkSite < ActiveRecord::Base
 
   private
     def aggregrate_buildings(type, active_key, passive_key)
-      network_graphs = NetworkGraph.all_for(self)
+      network_graphs = self.network_graphs
       network_graphs.each_with_object([]) do |network_graph, array|
         data = data_for_network_graph(type, network_graph, active_key, passive_key)
         data.each { |hash| array << hash }

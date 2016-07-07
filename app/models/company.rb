@@ -16,4 +16,7 @@ class Company < ActiveRecord::Base
 	### Validations
   validates :name, uniqueness: true, presence: true
 
+  def network_graphs
+    self.buildings.collect { |building| NetworkGraph.latest_for(building) }.compact
+  end
 end

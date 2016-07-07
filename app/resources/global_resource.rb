@@ -1,7 +1,24 @@
 class GlobalResource < JSONAPI::Resource
-  include ResourceNodeCount
-
   attributes :node_counts
+
+  def node_counts
+    network_graphs = Global.network_graphs
+    node_counts = NetworkGraph.pretty_node_counts_for_graphs(network_graphs)
+
+    node_counts.unshift({
+      node_type: "buildings",
+      count: Building.count,
+      node_type_pretty: "Buildings"
+    })
+
+    node_counts.unshift({
+      node_type: "network-sites",
+      count: NetworkSite.count,
+      node_type_pretty: "Sites"
+    })
+
+    node_counts
+  end
 
   def self.find_by_key(_key, options={})
     context = options[:context]

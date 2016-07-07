@@ -306,7 +306,7 @@ RSpec.describe NetworkGraph, type: :model do
                 value: 'some_value',
                 ont_ge_1_macs: [
                   {
-                    value: 'N/A',
+                    value: 'N/A ',
                     ont_ge_2_macs: [
                       {
                         value: '',
