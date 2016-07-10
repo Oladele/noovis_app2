@@ -4,6 +4,7 @@ class GlobalResource < JSONAPI::Resource
   def node_counts
     network_graphs = Global.network_graphs
     node_counts = NetworkGraph.pretty_node_counts_for_graphs(network_graphs)
+    node_counts = node_counts.reject { |count| count[:node_type] == "building" }
 
     node_counts.unshift({ node_type: "buildings", count: Building.count, node_type_pretty: "Buildings" })
     node_counts.unshift({ node_type: "network-sites", count: NetworkSite.count, node_type_pretty: "Sites" })
