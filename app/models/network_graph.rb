@@ -140,8 +140,7 @@ class NetworkGraph < ActiveRecord::Base
 
         if node_type.present?
           node_value = node[:node_value]
-          increment_value = node_value.present? && ["n/a", "na", "blank"].exclude?(node_value.strip.downcase) ? 1 : 0
-
+          increment_value = node_value.present? && value_isnt_blank?(node_value) ? 1 : 0
           if hash.has_key?(node_type)
             hash[node_type] += increment_value
           else
@@ -186,9 +185,16 @@ class NetworkGraph < ActiveRecord::Base
       card_count = 0
       port_count = 0
 
+      # TODO: We're checking in two places for a N/A value, that should be done when we build the graph the first
       network_graphs.each do |network_graph|
+        next if network_graph.graph.try(:[], "sites").blank?
+
         network_graph.graph["sites"].each do |site|
+          next if site.try(:[], "olt_chassis").blank?
+
           site["olt_chassis"].each do |olt_chassis|
+            next unless self.value_isnt_blank?(olt_chassis["value"])
+
             unless data.has_key?(olt_chassis["value"]).present?
               data[olt_chassis["value"]] = {}
               olt_count += 1
@@ -220,6 +226,10 @@ class NetworkGraph < ActiveRecord::Base
       node_counts["pon_port"] = port_count
 
       node_counts
+    end
+
+    def self.value_isnt_blank?(value)
+      ["n/a", "na", "blank"].exclude?(value.strip.downcase)
     end
 end
 
