@@ -334,12 +334,134 @@ RSpec.describe NetworkGraph, type: :model do
       assert_equal result, network_graph.node_counts
     end
 
-    it "doesn't count empty hash" do
-      skip("todo- fix me")
-      network_graph = FactoryGirl.create(:network_graph)
-      network_graph2 = FactoryGirl.create(:network_graph)
-      network_graph3 = FactoryGirl.create(:network_graph)
-      assert_equal [], NetworkGraph.node_counts_for_graphs([network_graph, network_graph2, network_graph3])
+    it "doesn't count empty" do
+      assert_equal nil, NetworkGraph.node_counts_for_graphs(nil)
+    end
+
+    it "a new olt_chassis value means that all subsequent nodes are counted" do
+      graph = {
+        sites: [
+          {
+            value: 'site1',
+            cable_run_id: 1,
+            olt_chassis: [
+              {
+                value: 'olt_chassis1',
+                cable_run_id: 1,
+                pon_cards: [
+                  {
+                    cable_run_id: 1,
+                    value: 'pon_card1',
+                    pon_ports: [
+                      {
+                        value: 'pon_port1',
+                        cable_run_id: 1
+                      }
+                    ]
+                  }
+                ]
+              },
+            ]
+          }
+        ]
+      }
+
+      network_graph = NetworkGraph.create_from_graph(@sheet, graph)
+
+      graph[:sites].first[:olt_chassis].first[:value] = 'olt_chassis2'
+
+      network_graph2 = NetworkGraph.create_from_graph(@sheet, graph)
+
+      result = {
+        "olt_chassis" => 2,
+        "pon_card" => 2,
+        "pon_port" => 2
+      }
+
+      assert_equal result, NetworkGraph.node_counts_for_graphs([network_graph, network_graph2])
+    end
+
+    it "counts different nodes correctly 2" do
+      graph = {
+        sites: [
+          {
+            value: 'site1',
+            cable_run_id: 1,
+            olt_chassis: [
+              {
+                value: 'olt_chassis1',
+                cable_run_id: 1,
+                pon_cards: [
+                  {
+                    cable_run_id: 1,
+                    value: 'pon_card1',
+                    pon_ports: [
+                      {
+                        value: 'pon_port1',
+                        cable_run_id: 1
+                      }
+                    ]
+                  }
+                ]
+              },
+            ]
+          }
+        ]
+      }
+
+      network_graph = NetworkGraph.create_from_graph(@sheet, graph)
+
+      graph[:sites].first[:olt_chassis].first[:pon_cards].first[:pon_ports].first[:value] = 'pon_port2'
+
+      network_graph2 = NetworkGraph.create_from_graph(@sheet, graph)
+
+      result = {
+        "olt_chassis" => 1,
+        "pon_card" => 1,
+        "pon_port" => 2
+      }
+
+      assert_equal result, NetworkGraph.node_counts_for_graphs([network_graph, network_graph2])
+    end
+
+    it "doesn't double count olt_chassis, pon_card, or pon_port with the same value" do
+      graph = {
+        sites: [
+          {
+            value: 'site1',
+            cable_run_id: 1,
+            olt_chassis: [
+              {
+                value: 'olt_chassis1',
+                cable_run_id: 1,
+                pon_cards: [
+                  {
+                    cable_run_id: 1,
+                    value: 'pon_card1',
+                    pon_ports: [
+                      {
+                        value: 'pon_port1',
+                        cable_run_id: 1
+                      }
+                    ]
+                  }
+                ]
+              },
+            ]
+          }
+        ]
+      }
+
+      network_graph = NetworkGraph.create_from_graph(@sheet, graph)
+      network_graph2 = NetworkGraph.create_from_graph(@sheet, graph)
+
+      result = {
+        "olt_chassis" => 1,
+        "pon_card" => 1,
+        "pon_port" => 1
+      }
+
+      assert_equal result, NetworkGraph.node_counts_for_graphs([network_graph, network_graph2])
     end
   end
 end

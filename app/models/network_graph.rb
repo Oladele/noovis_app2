@@ -56,10 +56,12 @@ class NetworkGraph < ActiveRecord::Base
   def self.node_counts_for_graphs(network_graphs)
     unless network_graphs.blank?
       if network_graphs.count > 1
-        network_graphs_counts = network_graphs.inject do |a, b|
+        counts = network_graphs.inject do |a, b|
           value = a.is_a?(Hash) ? a : a.node_counts
           value.merge(b.node_counts) { |k, val1, val2| val1 + val2 }
         end
+
+        self.adjust_for_unique_nodes(network_graphs, counts)
       else
         network_graphs.first.node_counts
       end
@@ -176,6 +178,48 @@ class NetworkGraph < ActiveRecord::Base
       else
         raise "NetworkGraph.label_for_node_type: unknown node_type"
       end
+    end
+
+    def self.adjust_for_unique_nodes(network_graphs, node_counts)
+      data = {}
+      olt_count = 0
+      card_count = 0
+      port_count = 0
+
+      network_graphs.each do |network_graph|
+        network_graph.graph["sites"].each do |site|
+          site["olt_chassis"].each do |olt_chassis|
+            unless data.has_key?(olt_chassis["value"]).present?
+              data[olt_chassis["value"]] = {}
+              olt_count += 1
+            end
+
+            chassis_hash = data[olt_chassis["value"]]
+
+            olt_chassis["pon_cards"].each do |pon_card|
+              unless chassis_hash.has_key?(pon_card["value"]).present?
+                chassis_hash[pon_card["value"]] = {}
+                card_count += 1
+              end
+
+              card_hash = chassis_hash[pon_card["value"]]
+
+              pon_card["pon_ports"].each do |pon_port|
+                unless card_hash.has_key?(pon_port["value"]).present?
+                  card_hash[pon_port["value"]] = {}
+                  port_count += 1
+                end
+              end
+            end
+          end
+        end
+      end
+
+      node_counts["olt_chassis"] = olt_count
+      node_counts["pon_card"] = card_count
+      node_counts["pon_port"] = port_count
+
+      node_counts
     end
 end
 
