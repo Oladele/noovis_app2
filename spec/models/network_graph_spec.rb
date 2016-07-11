@@ -355,7 +355,19 @@ RSpec.describe NetworkGraph, type: :model do
                     pon_ports: [
                       {
                         value: 'pon_port1',
-                        cable_run_id: 1
+                        cable_run_id: 1,
+                        buildings: [
+                          {
+                            cable_run_id: 1,
+                            value: 'building1',
+                            fdhs: [
+                              {
+                                cable_run_id: 1,
+                                value: 'fdh1'
+                              }
+                            ]
+                          }
+                        ]
                       }
                     ]
                   }
@@ -375,7 +387,9 @@ RSpec.describe NetworkGraph, type: :model do
       result = {
         "olt_chassis" => 2,
         "pon_card" => 2,
-        "pon_port" => 2
+        "pon_port" => 2,
+        "building" => 2,
+        "fdh" => 1
       }
 
       assert_equal result, NetworkGraph.node_counts_for_graphs([network_graph, network_graph2])
@@ -398,7 +412,19 @@ RSpec.describe NetworkGraph, type: :model do
                     pon_ports: [
                       {
                         value: 'pon_port1',
-                        cable_run_id: 1
+                        cable_run_id: 1,
+                        buildings: [
+                          {
+                            cable_run_id: 1,
+                            value: 'building1',
+                            fdhs: [
+                              {
+                                cable_run_id: 1,
+                                value: 'fdh1'
+                              }
+                            ]
+                          }
+                        ]
                       }
                     ]
                   }
@@ -418,7 +444,9 @@ RSpec.describe NetworkGraph, type: :model do
       result = {
         "olt_chassis" => 1,
         "pon_card" => 1,
-        "pon_port" => 2
+        "pon_port" => 2,
+        "building" => 2,
+        "fdh" => 1
       }
 
       assert_equal result, NetworkGraph.node_counts_for_graphs([network_graph, network_graph2])
@@ -441,7 +469,19 @@ RSpec.describe NetworkGraph, type: :model do
                     pon_ports: [
                       {
                         value: 'pon_port1',
-                        cable_run_id: 1
+                        cable_run_id: 1,
+                        buildings: [
+                          {
+                            cable_run_id: 1,
+                            value: 'building1',
+                            fdhs: [
+                              {
+                                cable_run_id: 1,
+                                value: 'fdh1'
+                              }
+                            ]
+                          }
+                        ]
                       }
                     ]
                   }
@@ -458,7 +498,9 @@ RSpec.describe NetworkGraph, type: :model do
       result = {
         "olt_chassis" => 1,
         "pon_card" => 1,
-        "pon_port" => 1
+        "pon_port" => 1,
+        "building" => 2,
+        "fdh" => 1
       }
 
       assert_equal result, NetworkGraph.node_counts_for_graphs([network_graph, network_graph2])

@@ -55,24 +55,28 @@ class NetworkGraph < ActiveRecord::Base
 
   def self.node_counts_for_graphs(network_graphs)
     unless network_graphs.blank?
-      if network_graphs.count > 1
-        counts = network_graphs.inject do |a, b|
-          value = a.is_a?(Hash) ? a : a.node_counts
-          value.merge(b.node_counts) { |k, val1, val2| val1 + val2 }
+      counts =
+        if network_graphs.count > 1
+          network_graphs.inject do |a, b|
+            value = a.is_a?(Hash) ? a : a.node_counts
+            value.merge(b.node_counts) { |k, val1, val2| val1 + val2 }
+          end
+        else
+          network_graphs.first.node_counts
         end
 
-        self.adjust_for_unique_nodes(network_graphs, counts)
-      else
-        network_graphs.first.node_counts
-      end
+      self.adjust_for_unique_nodes(network_graphs, counts)
     else
       nil
     end
   end
 
   def self.pretty_node_counts_for_graphs(network_graphs)
-    node_counts = NetworkGraph.node_counts_for_graphs(network_graphs)
-    NetworkGraph.node_counts_pretty(node_counts)
+    counts = NetworkGraph.node_counts_for_graphs(network_graphs)
+    counts = NetworkGraph.node_counts_pretty(counts)
+
+    # This is counted manually based on the # of buildings in the database, not nodes.
+    counts.reject { |count| count[:node_type] == "building" }
   end
 
   def self.node_counts_pretty(node_counts)
@@ -181,6 +185,7 @@ class NetworkGraph < ActiveRecord::Base
 
     def self.adjust_for_unique_nodes(network_graphs, node_counts)
       data = {}
+      fdhs = []
       olt_count = 0
       card_count = 0
       port_count = 0
@@ -215,6 +220,15 @@ class NetworkGraph < ActiveRecord::Base
                   card_hash[pon_port["value"]] = {}
                   port_count += 1
                 end
+
+                port_hash = card_hash[pon_port["value"]]
+
+                # FDHs are unique across network sites, regardless of parent/children.
+                pon_port["buildings"].each do |building|
+                  building["fdhs"].each do |fdh|
+                    fdhs << fdh["value"]
+                  end
+                end
               end
             end
           end
@@ -224,6 +238,7 @@ class NetworkGraph < ActiveRecord::Base
       node_counts["olt_chassis"] = olt_count
       node_counts["pon_card"] = card_count
       node_counts["pon_port"] = port_count
+      node_counts["fdh"] = fdhs.uniq.count
 
       node_counts
     end

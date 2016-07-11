@@ -8,8 +8,7 @@ class BuildingResource < JSONAPI::Resource
   def node_counts
     network_graph = NetworkGraph.latest_for @model
     if network_graph.present?
-      counts = NetworkGraph.node_counts_pretty(network_graph.node_counts)
-      counts.reject { |count| count[:node_type] == "building" }
+      NetworkGraph.pretty_node_counts_for_graphs([network_graph])
     else
       []
     end
