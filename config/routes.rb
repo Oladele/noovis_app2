@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   get 'network-sites/:id/chart-pon-usage-buildings', to: 'network_site_stats#chart_pon_usage_buildings'
   get 'network-sites/:id/chart-pon-usage-site', to: 'network_site_stats#chart_pon_usage_site'
   get 'network-sites/:id/network-element-counts', to: 'network_site_stats#network_element_counts'
+  get 'network-sites/:id/chart-distribution-spares-buildings', to: 'network_site_stats#chart_distribution_spares_buildings'
 
   get 'buildings/:id/latest_network_graph', to: 'buildings#latest_network_graph'
 

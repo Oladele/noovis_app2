@@ -22,6 +22,10 @@ class Building < ActiveRecord::Base
   validates :network_site_id, presence: true
   validates :name, uniqueness: { scope: [:network_site_id] }
 
+  def latest_sheet
+  	self.sheets.which_have_graphs.last
+  end
+
   def import_job_status
     job = self.import_jobs.order(created_at: :desc).first
     job.status if job.present? && job.try(:created_at) > 5.minutes.ago

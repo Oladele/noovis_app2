@@ -75,4 +75,12 @@ RSpec.resource "NetworkSiteStats" do
      expect(status).to eq 200
    end
  end
+
+ get "network-sites/:id/chart-distribution-spares-buildings" do
+   include_context "network-site parameters"
+
+   example_request "gets" do
+     expect(status).to eq 200
+   end
+ end
 end

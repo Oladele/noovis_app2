@@ -19,12 +19,10 @@ class NetworkGraph < ActiveRecord::Base
   attr_reader :nodes_in_memory
 
   def NetworkGraph.latest_for(building)
-  	sheets_with_graphs = building.sheets.which_have_graphs
-  	return nil if sheets_with_graphs.empty?
+  	latest_sheet = building.latest_sheet
+    return nil if latest_sheet.nil?
 
-  	latest_sheet = sheets_with_graphs.last
   	latest_graph = latest_sheet.network_graphs.last
-
     latest_graph.graph.present? && latest_graph.nodes.present? && latest_graph.edges.present? && latest_graph.node_counts.present? ? latest_graph : nil
   end
 

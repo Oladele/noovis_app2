@@ -409,5 +409,76 @@ RSpec.describe NetworkSite, type: :model do
 
       assert_equal result, counts
     end
+
+    it "spares_from_cable_run" do
+      building = FactoryGirl.build(:building)
+
+      cable_runs = []
+      cable_run = FactoryGirl.build(:cable_run)
+      cable_run.room = "623"
+      cable_run.drop = " Spare"
+      cable_runs << cable_run
+
+      cable_run = FactoryGirl.build(:cable_run)
+      cable_run.room = "50"
+      cable_run.drop = "spare"
+      cable_runs << cable_run
+
+      cable_run = FactoryGirl.build(:cable_run)
+      cable_run.room = "50"
+      cable_run.drop = "spare"
+      cable_runs << cable_run
+
+      cable_run = FactoryGirl.build(:cable_run)
+      cable_run.room = "lobby"
+      cable_run.drop = "1"
+      cable_runs << cable_run
+
+      cable_run = FactoryGirl.build(:cable_run)
+      cable_run.room = "lobby"
+      cable_run.rdt = "N/A"
+      cable_run.drop = "spare"
+      cable_runs << cable_run
+
+      result = [
+        { label: "Floor 6", group: building.name, value: 1 },
+        { label: "Ground Floor", group: building.name, value: 2 },
+        { label: "Lobby Floor", group: building.name, value: 0 }
+      ]
+
+      assert_equal result, NetworkSite.send(:spares_from_cable_runs, building.name, cable_runs)
+    end
+
+    it "chart_distribution_spares_buildings" do
+      network_site = FactoryGirl.create(:network_site_with_buildings)
+      building_1_name = network_site.buildings.first.name
+      building_2_name = network_site.buildings.last.name
+
+      Sheet.any_instance.stubs(:cable_runs).returns(nil)
+
+      spares1 = [
+        { label: "Floor 6", group: building_1_name, value: 1 },
+        { label: "Ground Floor", group: building_1_name, value: 2 },
+        { label: "Lobby Floor", group: building_1_name, value: 0 }
+      ]
+      spares2 = [
+        { label: "Floor 6", group: building_2_name, value: 1 },
+        { label: "Ground Floor", group: building_2_name, value: 2 },
+        { label: "Lobby Floor", group: building_2_name, value: 0 }
+      ]
+      NetworkSite.stubs(:spares_from_cable_runs).with(building_1_name, nil).returns(spares1)
+      NetworkSite.stubs(:spares_from_cable_runs).with(building_2_name, nil).returns(spares2)
+
+      result = [
+        { label: "Floor 6", group: building_1_name, value: 1 },
+        { label: "Ground Floor", group: building_1_name, value: 2 },
+        { label: "Lobby Floor", group: building_1_name, value: 0 },
+        { label: "Floor 6", group: building_2_name, value: 1 },
+        { label: "Ground Floor", group: building_2_name, value: 2 },
+        { label: "Lobby Floor", group: building_2_name, value: 0 }
+      ]
+
+      assert_equal result, network_site.chart_distribution_spares_buildings
+    end
   end
 end

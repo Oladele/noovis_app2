@@ -30,6 +30,10 @@ class NetworkSiteStatsController < ApplicationController
     render json: @network_site.network_element_counts
   end
 
+  def chart_distribution_spares_buildings
+    render json: @network_site.chart_distribution_spares_buildings
+  end
+
   private
     def set_network_site
       @network_site = NetworkSite.find(params[:id])

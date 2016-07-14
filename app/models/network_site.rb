@@ -52,6 +52,12 @@ class NetworkSite < ActiveRecord::Base
     aggregrate_site(data, "Active Channels", "Standby Channels")
   end
 
+  def chart_distribution_spares_buildings
+    self.buildings.collect do |building|
+      NetworkSite.spares_from_cable_runs(building.name, building.latest_sheet.cable_runs)
+    end.flatten
+  end
+
   def network_element_counts
     distribution_ports = self.chart_distribution_ports_site
     feeder_capacity = self.chart_feeder_capacity_site
@@ -167,6 +173,26 @@ class NetworkSite < ActiveRecord::Base
       data.each_with_object({ active_key => 0, passive_key => 0 }) do |hash, result|
         key = hash[:label] == active_key ? active_key : passive_key
         result[key] += hash[:value]
+      end
+    end
+
+    def self.spares_from_cable_runs(building_name, cable_runs)
+      cable_runs.each_with_object([]) do |cable_run, array|
+        room =
+          if cable_run.room =~ /\A\d+\z/  # room is an integer?
+            cable_run.room.to_i < 100 ? "Ground Floor" : "Floor #{cable_run.room[0]}"
+          else
+            "#{cable_run.room.capitalize} Floor"  # non-numeric values, ex: "Lobby"
+          end
+
+        exists = array.select { |x| x[:label] == room }.first
+        value = NetworkGraph.value_isnt_blank?(cable_run.rdt) && cable_run.drop.downcase.strip == "spare" ? 1 : 0
+
+        if exists.blank?
+          array << { label: room, group: building_name, value: value }
+        else
+          exists[:value] += value
+        end
       end
     end
 end
