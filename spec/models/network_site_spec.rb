@@ -415,7 +415,7 @@ RSpec.describe NetworkSite, type: :model do
 
       cable_runs = []
       cable_run = FactoryGirl.build(:cable_run)
-      cable_run.room = "623"
+      cable_run.room = "623.0"
       cable_run.drop = " Spare"
       cable_runs << cable_run
 

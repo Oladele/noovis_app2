@@ -182,7 +182,7 @@ class NetworkSite < ActiveRecord::Base
     def self.spares_from_cable_runs(building_name, cable_runs)
       cable_runs.each_with_object([]) do |cable_run, array|
         room =
-          if cable_run.room =~ /\A\d+\z/  # room is an integer?
+          if cable_run.room.to_i != 0  # room is an integer?
             cable_run.room.to_i < 100 ? "Ground Floor" : "Floor #{cable_run.room[0]}"
           else
             "#{cable_run.room.capitalize} Floor"  # non-numeric values, ex: "Lobby"
