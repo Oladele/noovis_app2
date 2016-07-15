@@ -52,9 +52,9 @@ RSpec.describe NetworkGraph, type: :model do
 
     it "makes nodes and edges" do
       nodes = [
-        { id: 1, label: 'BUILDING: building1', cable_run_id: 1, level: 0, node_type: 'building', node_value: 'building1', parent_id: nil },
+        { id: 1, label: 'Building: building1', cable_run_id: 1, level: 0, node_type: 'building', node_value: 'building1', parent_id: nil },
         { id: 2, label: 'OLT: olt1', cable_run_id: 1, level: 1, node_type: 'olt', node_value: 'olt1', parent_id: 1 },
-        { id: 3, label: 'BUILDING: building2', cable_run_id: 2, level: 0, node_type: 'building', node_value: 'building2', parent_id: nil }
+        { id: 3, label: 'Building: building2', cable_run_id: 2, level: 0, node_type: 'building', node_value: 'building2', parent_id: nil }
       ]
 
       edges = [
@@ -68,7 +68,7 @@ RSpec.describe NetworkGraph, type: :model do
       data = network_graph.nodes
 
       assert_equal [1, 2, 3], data.collect { |r| r["id"] }
-      assert_equal ['BUILDING: building1', 'OLT: olt1', 'BUILDING: building2'], data.collect { |r| r["label"] }
+      assert_equal ['Building: building1', 'OLT: olt1', 'Building: building2'], data.collect { |r| r["label"] }
       assert_equal %w(1 2 1), data.collect { |r| r["level"] }
       assert_equal ['building', 'olt', 'building'], data.collect { |r| r["node_type"] }
       assert_equal ['building1', 'olt1', 'building2'], data.collect { |r| r["node_value"] }
@@ -110,9 +110,9 @@ RSpec.describe NetworkGraph, type: :model do
       }
 
       nodes = [
-        { id: 1, label: 'OLT_CHASSIS: olt_chassis1', cable_run_id: 1, level: 0, node_type: 'olt_chassis', node_value: 'olt_chassis1', parent_id: nil },
+        { id: 1, label: 'OLT Chassis: olt_chassis1', cable_run_id: 1, level: 0, node_type: 'olt_chassis', node_value: 'olt_chassis1', parent_id: nil },
         { id: 2, label: 'OLT: olt1', cable_run_id: 1, level: 1, node_type: 'olt', node_value: 'olt1', parent_id: 1 },
-        { id: 3, label: 'OLT_CHASSIS: olt_chassis2', cable_run_id: 2, level: 0, node_type: 'olt_chassis', node_value: 'olt_chassis2', parent_id: nil }
+        { id: 3, label: 'OLT Chasdsis: olt_chassis2', cable_run_id: 2, level: 0, node_type: 'olt_chassis', node_value: 'olt_chassis2', parent_id: nil }
       ]
 
       edges = [
@@ -126,7 +126,7 @@ RSpec.describe NetworkGraph, type: :model do
       data = network_graph.nodes
 
       assert_equal [1, 2, 3], data.collect { |r| r["id"] }
-      assert_equal ['OLT_CHASSIS: olt_chassis1', 'OLT: olt1', 'OLT_CHASSIS: olt_chassis2'], data.collect { |r| r["label"] }
+      assert_equal ['OLT Chassis: olt_chassis1', 'OLT: olt1', 'OLT Chassis: olt_chassis2'], data.collect { |r| r["label"] }
       assert_equal %w(1 2 1), data.collect { |r| r["level"] }
       assert_equal ['olt_chassis', 'olt', 'olt_chassis'], data.collect { |r| r["node_type"] }
       assert_equal ['olt_chassis1', 'olt1', 'olt_chassis2'], data.collect { |r| r["node_value"] }
@@ -170,9 +170,9 @@ RSpec.describe NetworkGraph, type: :model do
       }
 
       nodes = [
-        { id: 1, label: 'ONT_SN: some_value', cable_run_id: 1, level: 0, node_type: 'ont_sn', node_value: 'some_value', parent_id: nil },
-        { id: 2, label: 'ONT_GE_1_MAC: some_value', cable_run_id: 1, level: 1, node_type: 'ont_ge_1_mac', node_value: 'some_value', parent_id: 1 },
-        { id: 3, label: 'ONT_GE_2_MAC: some_value', cable_run_id: 1, level: 1, node_type: 'ont_ge_2_mac', node_value: 'some_value', parent_id: 1 }
+        { id: 1, label: 'ONT SN: some_value', cable_run_id: 1, level: 0, node_type: 'ont_sn', node_value: 'some_value', parent_id: nil },
+        { id: 2, label: 'ONT GE 1 MAC: some_value', cable_run_id: 1, level: 1, node_type: 'ont_ge_1_mac', node_value: 'some_value', parent_id: 1 },
+        { id: 3, label: 'ONT GE 2 MAC: some_value', cable_run_id: 1, level: 1, node_type: 'ont_ge_2_mac', node_value: 'some_value', parent_id: 1 }
       ]
 
       edges = [
@@ -186,7 +186,7 @@ RSpec.describe NetworkGraph, type: :model do
       data = network_graph.nodes
 
       assert_equal [1, 2, 3], data.collect { |r| r["id"] }
-      assert_equal ['ONT_SN: some_value', 'ONT_GE_1_MAC: some_value', 'ONT_GE_2_MAC: some_value'], data.collect { |r| r["label"] }
+      assert_equal ['ONT: some_value', 'ONT GE 1 MAC: some_value', 'ONT GE 2 MAC: some_value'], data.collect { |r| r["label"] }
       assert_equal %w(1 2 2), data.collect { |r| r["level"] }
       assert_equal ['ont_sn', 'ont_ge_1_mac', 'ont_ge_2_mac'], data.collect { |r| r["node_type"] }
       assert_equal ['some_value', 'some_value', 'some_value'], data.collect { |r| r["node_value"] }

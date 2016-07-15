@@ -98,7 +98,7 @@ class NetworkGraph < ActiveRecord::Base
       collection.each do |object|
         node = {
           id: iteration_helper.index,
-          label: "#{node_type.upcase}: #{object[:value]}",
+          label: "#{NetworkGraph.label_for_node_type(node_type, true)}:\n#{object[:value]}",
           cable_run_id: object[:cable_run_id],
           level: node_level.to_s,
           node_type: node_type,
@@ -152,33 +152,45 @@ class NetworkGraph < ActiveRecord::Base
       end
     end
 
-    def self.label_for_node_type(node_type)
-      case node_type
-      when "olt_chassis"
-        "OLT Chassis"
-      when "olt"
-        "OLTs"
-      when "pon_card"
-        "PON Cards"
-      when "pon_port"
-        "PON Ports"
-      when "building"
-        "Buildings"
-      when "fdh"
-        "FDHs"
-      when "splitter"
-        "Splitters"
-      when "rdt"
-        "RDTs"
-      when "room"
-        "Rooms"
-      when "ont_sn"
-        "ONTs"
-      when "wap"
-        "WAPs"
-      else
-        raise "NetworkGraph.label_for_node_type: unknown node_type"
-      end
+    def self.label_for_node_type(node_type, singular = false)
+      value =
+        case node_type
+        when "olt_chassis"
+          "OLT Chassis"
+        when "olt"
+          "OLTs"
+        when "pon_card"
+          "PON Cards"
+        when "pon_port"
+          "PON Ports"
+        when "building"
+          "Buildings"
+        when "fdh"
+          "FDHs"
+        when "splitter"
+          "Splitters"
+        when "rdt"
+          "RDTs"
+        when "room"
+          "Rooms"
+        when "ont_sn"
+          "ONTs"
+        when "wap"
+          "WAPs"
+        when "ont_ge_1_mac"
+          "ONT GE 1 MAC"
+        when "ont_ge_2_mac"
+          "ONT GE 2 MAC"
+        when "ont_ge_3_mac"
+          "ONT GE 3 MAC"
+        when "ont_ge_4_mac"
+          "ONT GE 4 MAC"
+        else
+          raise "NetworkGraph.label_for_node_type: unknown node_type"
+        end
+
+      value = value.singularize unless singular == false || node_type == "olt_chassis"
+      value
     end
 
     def self.adjust_for_unique_nodes(network_graphs, node_counts)
