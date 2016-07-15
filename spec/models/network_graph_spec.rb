@@ -68,7 +68,7 @@ RSpec.describe NetworkGraph, type: :model do
       data = network_graph.nodes
 
       assert_equal [1, 2, 3], data.collect { |r| r["id"] }
-      assert_equal ['Building: building1', 'OLT: olt1', 'Building: building2'], data.collect { |r| r["label"] }
+      assert_equal ['Building', 'OLT', 'Building'], data.collect { |r| r["label"].split(":")[0] }
       assert_equal %w(1 2 1), data.collect { |r| r["level"] }
       assert_equal ['building', 'olt', 'building'], data.collect { |r| r["node_type"] }
       assert_equal ['building1', 'olt1', 'building2'], data.collect { |r| r["node_value"] }
@@ -126,7 +126,7 @@ RSpec.describe NetworkGraph, type: :model do
       data = network_graph.nodes
 
       assert_equal [1, 2, 3], data.collect { |r| r["id"] }
-      assert_equal ['OLT Chassis: olt_chassis1', 'OLT: olt1', 'OLT Chassis: olt_chassis2'], data.collect { |r| r["label"] }
+      assert_equal ['OLT Chassis', 'OLT', 'OLT Chassis'], data.collect { |r| r["label"].split(":")[0] }
       assert_equal %w(1 2 1), data.collect { |r| r["level"] }
       assert_equal ['olt_chassis', 'olt', 'olt_chassis'], data.collect { |r| r["node_type"] }
       assert_equal ['olt_chassis1', 'olt1', 'olt_chassis2'], data.collect { |r| r["node_value"] }
@@ -186,7 +186,7 @@ RSpec.describe NetworkGraph, type: :model do
       data = network_graph.nodes
 
       assert_equal [1, 2, 3], data.collect { |r| r["id"] }
-      assert_equal ['ONT: some_value', 'ONT GE 1 MAC: some_value', 'ONT GE 2 MAC: some_value'], data.collect { |r| r["label"] }
+      assert_equal ['ONT', 'ONT GE 1 MAC', 'ONT GE 2 MAC'], data.collect { |r| r["label"].split(":")[0] }
       assert_equal %w(1 2 2), data.collect { |r| r["level"] }
       assert_equal ['ont_sn', 'ont_ge_1_mac', 'ont_ge_2_mac'], data.collect { |r| r["node_type"] }
       assert_equal ['some_value', 'some_value', 'some_value'], data.collect { |r| r["node_value"] }

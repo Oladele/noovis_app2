@@ -54,8 +54,11 @@ class NetworkSite < ActiveRecord::Base
 
   def chart_distribution_spares_buildings
     self.buildings.collect do |building|
-      NetworkSite.spares_from_cable_runs(building.name, building.latest_sheet.cable_runs)
-    end.flatten
+      sheet = building.latest_sheet
+      next if sheet.nil?
+
+      NetworkSite.spares_from_cable_runs(building.name, sheet.cable_runs)
+    end.flatten.compact
   end
 
   def network_element_counts

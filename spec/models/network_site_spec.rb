@@ -480,5 +480,24 @@ RSpec.describe NetworkSite, type: :model do
 
       assert_equal result, network_site.chart_distribution_spares_buildings
     end
+
+    it "chart_distribution_spares_buildings with no cable_runs" do
+      network_site = FactoryGirl.create(:network_site_with_buildings)
+      building_1_name = network_site.buildings.first.name
+      building_2_name = network_site.buildings.last.name
+
+      Building.any_instance.stubs(:latest_sheet).returns(nil)
+
+      spares1 = [
+        { label: "Floor 6", group: building_1_name, value: 1 },
+        { label: "Ground Floor", group: building_1_name, value: 2 },
+        { label: "Lobby Floor", group: building_1_name, value: 0 }
+      ]
+      NetworkSite.stubs(:spares_from_cable_runs).with(building_1_name, nil).returns(spares1)
+
+      result = []
+
+      assert_equal result, network_site.chart_distribution_spares_buildings
+    end
   end
 end
