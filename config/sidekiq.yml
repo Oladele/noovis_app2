@@ -1,0 +1,10 @@
+concurrency: 2
+:backtrace: true
+staging:
+  :concurrency: 5
+production:
+  :concurrency: 10
+:timeout: 30
+:queues:
+  - default
+  - imports

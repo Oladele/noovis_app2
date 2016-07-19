@@ -1,0 +1,51 @@
+Sign in user
+------------
+
+Parameters:
+  * email - User email
+  * password - User password
+
+Request:
+  POST /auth/sign_in
+  Content-Type: application/json
+
+  {"email":"test@example.com","password":"password"}
+
+Response:
+  Status: 200 OK
+  Content-Type: application/json; charset=utf-8
+  access-token: 3pkox6ZItoFSH55-sjDdHA
+  client: 58u2J3T7yDqdaZJODT2g_A
+  uid: test@example.com
+
+  {
+    "data": {
+      "id": 232,
+      "email": "test@example.com",
+      "company_id": 773,
+      "provider": "email",
+      "uid": "test@example.com",
+      "role": "admin"
+    }
+  }
+
+
+Sign out user
+-------------
+
+Request:
+  DELETE /auth/sign_out
+  Access-Token: AlS-ONrsQlxWW4kwhl6z4Q
+  Client: U1U2jyYODHwrs_oeojhfQg
+  Content-Type: application/json
+  Uid: test@example.com
+
+Response:
+  Status: 200 OK
+  Content-Type: application/json; charset=utf-8
+
+  {
+    "success": true
+  }
+
+

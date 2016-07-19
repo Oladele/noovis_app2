@@ -1,0 +1,70 @@
+{
+  "resource": "Buildings",
+  "http_method": "DELETE",
+  "route": "/buildings/:building_id",
+  "description": "Delete a building",
+  "explanation": null,
+  "parameters": [
+    {
+      "required": true,
+      "scope": "relationships",
+      "name": "network-site",
+      "description": "Network site id"
+    },
+    {
+      "required": true,
+      "name": "type",
+      "description": "Should always be set to <code>buildings</code>"
+    },
+    {
+      "required": true,
+      "scope": "attributes",
+      "name": "name",
+      "description": "Building Name"
+    },
+    {
+      "scope": "attributes",
+      "name": "lat",
+      "description": "Building Latitude"
+    },
+    {
+      "scope": "attributes",
+      "name": "lng",
+      "description": "Building Longitude"
+    },
+    {
+      "required": true,
+      "name": "id",
+      "description": "The id of the building"
+    }
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "DELETE",
+      "request_path": "/buildings/233",
+      "request_body": "{\"data\":{\"relationships\":{\"network-site\":{\"data\":{\"type\":\"network-sites\",\"id\":499}}},\"type\":\"buildings\",\"id\":\"233\"}}",
+      "request_headers": {
+        "Content-Type": "application/vnd.api+json",
+        "Access-Token": "48RO2kFBNzieAonIIb3VRQ",
+        "Client": "ym0IYGzYzDmvv9BKdFcoqA",
+        "Uid": "email31@example.com"
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": "application/vnd.api+json",
+      "response_status": 204,
+      "response_status_text": "No Content",
+      "response_body": null,
+      "response_headers": {
+        "access-token": "48RO2kFBNzieAonIIb3VRQ",
+        "client": "ym0IYGzYzDmvv9BKdFcoqA",
+        "uid": "email31@example.com"
+      },
+      "response_content_type": null,
+      "curl": null
+    }
+  ]
+}

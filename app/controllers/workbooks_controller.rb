@@ -1,0 +1,2 @@
+class WorkbooksController < ApiController
+end

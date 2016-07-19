@@ -1,0 +1,20 @@
+List Global Attributes
+----------------------
+
+Request:
+  GET /global
+  Access-Token: PAi-KOULIG-EwLRFf7w8dA
+  Client: AzSgsBOS1gAreCc3mkJrUg
+  Content-Type: application/vnd.api+json
+  Uid: email23@example.com
+
+Response:
+  Status: 200 OK
+  Content-Type: application/vnd.api+json
+  access-token: PAi-KOULIG-EwLRFf7w8dA
+  client: AzSgsBOS1gAreCc3mkJrUg
+  uid: email23@example.com
+
+  {"data":{"id":"824d7069-10ac-459a-bbe4-13f745939d8a","type":"globals","links":{"self":"http://example.org/globals/824d7069-10ac-459a-bbe4-13f745939d8a"},"attributes":{"node-counts":[{"node_type":"network-sites","count":null,"node_type_pretty":"Sites"},{"node_type":"buildings","count":0,"node_type_pretty":"Buildings"}]}}}
+
+

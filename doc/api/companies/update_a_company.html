@@ -152,23 +152,29 @@ table th, table td {
           <h3>Request</h3>
 
             <h4>Headers</h4>
-            <pre class="request headers">Content-Type: application/vnd.api+json</pre>
+            <pre class="request headers">Content-Type: application/vnd.api+json
+Access-Token: a-Fgt6OMw8lQNrtuLiQfrA
+Client: IWb5u8ix1gse8E8rNPAWjQ
+Uid: email17@example.com</pre>
 
           <h4>Route</h4>
-          <pre class="request route highlight">PATCH /companies/647</pre>
+          <pre class="request route highlight">PATCH /companies/750</pre>
 
 
             <h4>Body</h4>
-            <pre class="request body">{"data":{"type":"companies","attributes":{"name":"New Company Name"},"id":"647"}}</pre>
+            <pre class="request body">{"data":{"type":"companies","attributes":{"name":"New Company Name"},"id":"750"}}</pre>
 
 
             <h3>Response</h3>
               <h4>Headers</h4>
-              <pre class="response headers">Content-Type: application/vnd.api+json</pre>
+              <pre class="response headers">access-token: a-Fgt6OMw8lQNrtuLiQfrA
+client: IWb5u8ix1gse8E8rNPAWjQ
+uid: email17@example.com
+Content-Type: application/vnd.api+json</pre>
             <h4>Status</h4>
             <pre class="response status">200 OK</pre>
               <h4>Body</h4>
-              <pre class="response body">{&quot;data&quot;:{&quot;id&quot;:&quot;647&quot;,&quot;type&quot;:&quot;companies&quot;,&quot;links&quot;:{&quot;self&quot;:&quot;http://example.org/companies/647&quot;},&quot;attributes&quot;:{&quot;name&quot;:&quot;New Company Name&quot;},&quot;relationships&quot;:{&quot;network-sites&quot;:{&quot;links&quot;:{&quot;self&quot;:&quot;http://example.org/companies/647/relationships/network-sites&quot;,&quot;related&quot;:&quot;http://example.org/companies/647/network-sites&quot;}}}}}</pre>
+              <pre class="response body">{&quot;data&quot;:{&quot;id&quot;:&quot;750&quot;,&quot;type&quot;:&quot;companies&quot;,&quot;links&quot;:{&quot;self&quot;:&quot;http://example.org/companies/750&quot;},&quot;attributes&quot;:{&quot;name&quot;:&quot;New Company Name&quot;,&quot;node-counts&quot;:[{&quot;node_type&quot;:&quot;network-sites&quot;,&quot;count&quot;:0,&quot;node_type_pretty&quot;:&quot;Sites&quot;},{&quot;node_type&quot;:&quot;buildings&quot;,&quot;count&quot;:0,&quot;node_type_pretty&quot;:&quot;Buildings&quot;}]},&quot;relationships&quot;:{&quot;network-sites&quot;:{&quot;links&quot;:{&quot;self&quot;:&quot;http://example.org/companies/750/relationships/network-sites&quot;,&quot;related&quot;:&quot;http://example.org/companies/750/network-sites&quot;}},&quot;buildings&quot;:{&quot;links&quot;:{&quot;self&quot;:&quot;http://example.org/companies/750/relationships/buildings&quot;,&quot;related&quot;:&quot;http://example.org/companies/750/buildings&quot;}},&quot;users&quot;:{&quot;links&quot;:{&quot;self&quot;:&quot;http://example.org/companies/750/relationships/users&quot;,&quot;related&quot;:&quot;http://example.org/companies/750/users&quot;}}}}}</pre>
       </div>
     </div>
   </body>

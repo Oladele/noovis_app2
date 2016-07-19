@@ -3,6 +3,15 @@ require "acceptance_helper"
 RSpec.resource "NetworkSites" do
   header "Content-Type", "application/vnd.api+json"
 
+  before do
+    user_headers = FactoryGirl.create(:user).create_new_auth_token
+    header "Access-Token", user_headers["access-token"]
+    header "Client", user_headers["client"]
+    header "Uid", user_headers["uid"]
+    header "Token-Type", user_headers["Bearer"]
+    header "Expiry", user_headers["expiry"]
+  end
+
   shared_context "network-site parameters" do
     parameter :type,
       "Should always be set to <code>network-sites</code>",
@@ -13,6 +22,15 @@ RSpec.resource "NetworkSites" do
     parameter :name, 
       "Network Site Name", 
       required: true, scope: :attributes
+    parameter :lat,
+      "Network Site Latitude",
+      scope: :attributes
+    parameter :lng,
+      "Network Site Longitude",
+      scope: :attributes
+    parameter :address,
+      "Address Field",
+      scope: :attributes
 
     let(:type){ "network-sites"}
     let(:company_id){ (FactoryGirl.create(:company)).id }
@@ -64,6 +82,7 @@ RSpec.resource "NetworkSites" do
       expect(status).to eq 200
       network_sites = JSON.parse(response_body)
       expect(network_sites["data"].size).to eq 2
+      expect(network_sites["data"].first["attributes"]["node-counts"].first["node_type"]).to eq "buildings"
     end
   end
 

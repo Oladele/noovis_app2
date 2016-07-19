@@ -145,6 +145,30 @@ table th, table td {
                   <span class="description">Network Site Name</span>
                 </td>
               </tr>
+              <tr>
+                <td>
+                    <span class="name">attributes[lat]</span>
+                </td>
+                <td>
+                  <span class="description">Network Site Latitude</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">attributes[lng]</span>
+                </td>
+                <td>
+                  <span class="description">Network Site Longitude</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">attributes[address]</span>
+                </td>
+                <td>
+                  <span class="description">Address Field</span>
+                </td>
+              </tr>
             </tbody>
           </table>
 
@@ -152,23 +176,29 @@ table th, table td {
           <h3>Request</h3>
 
             <h4>Headers</h4>
-            <pre class="request headers">Content-Type: application/vnd.api+json</pre>
+            <pre class="request headers">Content-Type: application/vnd.api+json
+Access-Token: 3ECOIU45tLQdGnkGUfv54g
+Client: 6WbVe4cYCs1UVujnWnRShw
+Uid: email27@example.com</pre>
 
           <h4>Route</h4>
           <pre class="request route highlight">POST /network-sites</pre>
 
 
             <h4>Body</h4>
-            <pre class="request body">{"data":{"type":"network-sites","relationships":{"company":{"data":{"type":"companies","id":643}}},"attributes":{"name":"Site Name"}}}</pre>
+            <pre class="request body">{"data":{"type":"network-sites","relationships":{"company":{"data":{"type":"companies","id":785}}},"attributes":{"name":"Site Name"}}}</pre>
 
 
             <h3>Response</h3>
               <h4>Headers</h4>
-              <pre class="response headers">Content-Type: application/vnd.api+json</pre>
+              <pre class="response headers">access-token: 3ECOIU45tLQdGnkGUfv54g
+client: 6WbVe4cYCs1UVujnWnRShw
+uid: email27@example.com
+Content-Type: application/vnd.api+json</pre>
             <h4>Status</h4>
             <pre class="response status">201 Created</pre>
               <h4>Body</h4>
-              <pre class="response body">{&quot;data&quot;:{&quot;id&quot;:&quot;276&quot;,&quot;type&quot;:&quot;network-sites&quot;,&quot;links&quot;:{&quot;self&quot;:&quot;http://example.org/network-sites/276&quot;},&quot;attributes&quot;:{&quot;name&quot;:&quot;Site Name&quot;},&quot;relationships&quot;:{&quot;company&quot;:{&quot;links&quot;:{&quot;self&quot;:&quot;http://example.org/network-sites/276/relationships/company&quot;,&quot;related&quot;:&quot;http://example.org/network-sites/276/company&quot;}}}}}</pre>
+              <pre class="response body">{&quot;data&quot;:{&quot;id&quot;:&quot;492&quot;,&quot;type&quot;:&quot;network-sites&quot;,&quot;links&quot;:{&quot;self&quot;:&quot;http://example.org/network-sites/492&quot;},&quot;attributes&quot;:{&quot;name&quot;:&quot;Site Name&quot;,&quot;lat&quot;:null,&quot;lng&quot;:null,&quot;address&quot;:null,&quot;node-counts&quot;:[{&quot;node_type&quot;:&quot;buildings&quot;,&quot;count&quot;:0,&quot;node_type_pretty&quot;:&quot;Buildings&quot;}]},&quot;relationships&quot;:{&quot;company&quot;:{&quot;links&quot;:{&quot;self&quot;:&quot;http://example.org/network-sites/492/relationships/company&quot;,&quot;related&quot;:&quot;http://example.org/network-sites/492/company&quot;}},&quot;buildings&quot;:{&quot;links&quot;:{&quot;self&quot;:&quot;http://example.org/network-sites/492/relationships/buildings&quot;,&quot;related&quot;:&quot;http://example.org/network-sites/492/buildings&quot;}},&quot;workbooks&quot;:{&quot;links&quot;:{&quot;self&quot;:&quot;http://example.org/network-sites/492/relationships/workbooks&quot;,&quot;related&quot;:&quot;http://example.org/network-sites/492/workbooks&quot;}}}}}</pre>
       </div>
     </div>
   </body>

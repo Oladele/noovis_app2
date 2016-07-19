@@ -1,0 +1,77 @@
+{
+  "resource": "Sheets",
+  "http_method": "POST",
+  "route": "/sheets",
+  "description": "Create a sheet",
+  "explanation": null,
+  "parameters": [
+    {
+      "required": true,
+      "scope": "relationships",
+      "name": "workbook",
+      "description": "Workbook id"
+    },
+    {
+      "required": true,
+      "scope": "relationships",
+      "name": "building",
+      "description": "Building id"
+    },
+    {
+      "required": true,
+      "name": "type",
+      "description": "Should always be set to <code>sheets</code>"
+    },
+    {
+      "required": true,
+      "scope": "attributes",
+      "name": "name",
+      "description": "Sheet Name"
+    },
+    {
+      "scope": "attributes",
+      "name": "created-at",
+      "description": "Sheet created at"
+    },
+    {
+      "scope": "attributes",
+      "name": "updated-at",
+      "description": "Sheet created at"
+    },
+    {
+      "scope": "attributes",
+      "name": "record-count",
+      "description": "Cable Run count for Sheet"
+    }
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "POST",
+      "request_path": "/sheets",
+      "request_body": "{\"data\":{\"relationships\":{\"workbook\":{\"data\":{\"type\":\"workbooks\",\"id\":208}},\"building\":{\"data\":{\"type\":\"buildings\",\"id\":245}}},\"type\":\"sheets\",\"attributes\":{\"name\":\"Sheet Name\"}}}",
+      "request_headers": {
+        "Content-Type": "application/vnd.api+json",
+        "Access-Token": "Gg8PuiLCImiTGgpvPHO12g",
+        "Client": "5wfq-YNgFdpooSRTOZgQ-A",
+        "Uid": "email38@example.com"
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": "application/vnd.api+json",
+      "response_status": 201,
+      "response_status_text": "Created",
+      "response_body": "{\"data\":{\"id\":\"161\",\"type\":\"sheets\",\"links\":{\"self\":\"http://example.org/sheets/161\"},\"attributes\":{\"name\":\"Sheet Name\",\"created-at\":\"2016-05-14T02:16:05.975Z\",\"updated-at\":\"2016-05-14T02:16:05.975Z\",\"record-count\":0,\"versions\":[]},\"relationships\":{\"workbook\":{\"links\":{\"self\":\"http://example.org/sheets/161/relationships/workbook\",\"related\":\"http://example.org/sheets/161/workbook\"}},\"building\":{\"links\":{\"self\":\"http://example.org/sheets/161/relationships/building\",\"related\":\"http://example.org/sheets/161/building\"}},\"cable-runs\":{\"links\":{\"self\":\"http://example.org/sheets/161/relationships/cable-runs\",\"related\":\"http://example.org/sheets/161/cable-runs\"}},\"network-graphs\":{\"links\":{\"self\":\"http://example.org/sheets/161/relationships/network-graphs\",\"related\":\"http://example.org/sheets/161/network-graphs\"}}}}}",
+      "response_headers": {
+        "access-token": "Gg8PuiLCImiTGgpvPHO12g",
+        "client": "5wfq-YNgFdpooSRTOZgQ-A",
+        "uid": "email38@example.com",
+        "Content-Type": "application/vnd.api+json"
+      },
+      "response_content_type": "application/vnd.api+json",
+      "curl": null
+    }
+  ]
+}

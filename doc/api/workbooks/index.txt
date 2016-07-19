@@ -1,0 +1,100 @@
+List all workbooks
+------------------
+
+Request:
+  GET /workbooks
+  Access-Token: g8GEpnqaXwSp8zsrUvhD4Q
+  Client: 550T-KWUMzZuQbjqChbbqw
+  Content-Type: application/vnd.api+json
+  Uid: email7@example.com
+
+Response:
+  Status: 200 OK
+  Content-Type: application/vnd.api+json
+  access-token: g8GEpnqaXwSp8zsrUvhD4Q
+  client: 550T-KWUMzZuQbjqChbbqw
+  uid: email7@example.com
+
+  {"data":[{"id":"178","type":"workbooks","links":{"self":"http://example.org/workbooks/178"},"attributes":{"name":"1st workbook"},"relationships":{"network-site":{"links":{"self":"http://example.org/workbooks/178/relationships/network-site","related":"http://example.org/workbooks/178/network-site"}},"sheets":{"links":{"self":"http://example.org/workbooks/178/relationships/sheets","related":"http://example.org/workbooks/178/sheets"}}}},{"id":"179","type":"workbooks","links":{"self":"http://example.org/workbooks/179"},"attributes":{"name":"2nd workbook"},"relationships":{"network-site":{"links":{"self":"http://example.org/workbooks/179/relationships/network-site","related":"http://example.org/workbooks/179/network-site"}},"sheets":{"links":{"self":"http://example.org/workbooks/179/relationships/sheets","related":"http://example.org/workbooks/179/sheets"}}}}],"meta":{"record-count":2}}
+
+
+Create a workbook
+-----------------
+
+Parameters:
+  * network-site - Network site id
+  * type - Should always be set to <code>workbooks</code>
+  * name - Workbook Name
+
+Request:
+  POST /workbooks
+  Access-Token: _bUo-F7X7dMfbXjt3yQhbg
+  Client: nQzAgzjgWBPer6_yL0e2hg
+  Content-Type: application/vnd.api+json
+  Uid: email8@example.com
+
+  {"data":{"relationships":{"network-site":{"data":{"type":"network-sites","id":455}}},"type":"workbooks","attributes":{"name":"Workbook Name"}}}
+
+Response:
+  Status: 201 Created
+  Content-Type: application/vnd.api+json
+  access-token: _bUo-F7X7dMfbXjt3yQhbg
+  client: nQzAgzjgWBPer6_yL0e2hg
+  uid: email8@example.com
+
+  {"data":{"id":"180","type":"workbooks","links":{"self":"http://example.org/workbooks/180"},"attributes":{"name":"Workbook Name"},"relationships":{"network-site":{"links":{"self":"http://example.org/workbooks/180/relationships/network-site","related":"http://example.org/workbooks/180/network-site"}},"sheets":{"links":{"self":"http://example.org/workbooks/180/relationships/sheets","related":"http://example.org/workbooks/180/sheets"}}}}}
+
+
+Update a workbook
+-----------------
+
+Parameters:
+  * network-site - Network site id
+  * type - Should always be set to <code>workbooks</code>
+  * name - Workbook Name
+  * id - The id of the workbook
+
+Request:
+  PATCH /workbooks/181
+  Access-Token: 8-JfyE7Ah0cM9i-SSb6t_A
+  Client: mU6VHZrgBE50iQU_ImBRZA
+  Content-Type: application/vnd.api+json
+  Uid: email9@example.com
+
+  {"data":{"relationships":{"network-site":{"data":{"type":"network-sites","id":457}}},"type":"workbooks","attributes":{"name":"Updated Workbook Name"},"id":"181"}}
+
+Response:
+  Status: 200 OK
+  Content-Type: application/vnd.api+json
+  access-token: 8-JfyE7Ah0cM9i-SSb6t_A
+  client: mU6VHZrgBE50iQU_ImBRZA
+  uid: email9@example.com
+
+  {"data":{"id":"181","type":"workbooks","links":{"self":"http://example.org/workbooks/181"},"attributes":{"name":"Updated Workbook Name"},"relationships":{"network-site":{"links":{"self":"http://example.org/workbooks/181/relationships/network-site","related":"http://example.org/workbooks/181/network-site"}},"sheets":{"links":{"self":"http://example.org/workbooks/181/relationships/sheets","related":"http://example.org/workbooks/181/sheets"}}}}}
+
+
+Delete a workbook
+-----------------
+
+Parameters:
+  * network-site - Network site id
+  * type - Should always be set to <code>workbooks</code>
+  * name - Workbook Name
+  * id - The id of the workbook
+
+Request:
+  DELETE /workbooks/182
+  Access-Token: iLERfgsTuMdKtuY3yzZg8Q
+  Client: _2jUNP0vS31AdDrcv38avA
+  Content-Type: application/vnd.api+json
+  Uid: email10@example.com
+
+  {"data":{"relationships":{"network-site":{"data":{"type":"network-sites","id":459}}},"type":"workbooks","id":"182"}}
+
+Response:
+  Status: 204 No Content
+  access-token: iLERfgsTuMdKtuY3yzZg8Q
+  client: _2jUNP0vS31AdDrcv38avA
+  uid: email10@example.com
+
+

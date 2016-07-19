@@ -36,17 +36,19 @@ module NoovisApp2
     # In Charity App screencasts #12
     # Config culled from gem docs Rails 4 Example application.rb
     # https://github.com/cyu/rack-cors/blob/master/examples/rails4/config/application.rb
-    
+
     config.middleware.insert_before 0, "Rack::Cors" do
       allow do
         origins '*'
 
-        resource '*', 
-            :headers => :any, 
+        resource '*',
+            :headers => :any,
+            :expose => ['access-token', 'expiry', 'token-type', 'uid', 'client'],
             :methods => [:get, :post, :delete, :put, :patch, :options, :head],
             :max_age => 0
       end
     end
 
+    config.autoload_paths += %W(#{config.root}/lib)
   end
 end

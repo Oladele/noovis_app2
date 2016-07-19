@@ -1,0 +1,43 @@
+Upload sheet
+------------
+
+Parameters:
+  * file - Workbook File
+  * sheet - Sheet Name
+  * building_id - Building id
+
+Request:
+  POST /import_cable_run
+  Access-Token: W8UGXk2LH3Vnx9LQQZIUDA
+  Client: WzRuNSRNfPBB0qyKHwCeMA
+  Content-Type: multipart/form-data; boundary=----------XnJLe9ZIbbGUYtzPQJ16u1
+  Uid: email2@example.com
+
+  ------------XnJLe9ZIbbGUYtzPQJ16u1
+  Content-Disposition: form-data; name="file"; filename="test.xls"
+  Content-Type: {:content_type=>"application/vnd.ms-excel"}
+  Content-Length: 20480
+  
+  [uploaded data]
+  ------------XnJLe9ZIbbGUYtzPQJ16u1
+  Content-Disposition: form-data; name="sheet"
+  
+  Sheet1
+  ------------XnJLe9ZIbbGUYtzPQJ16u1
+  Content-Disposition: form-data; name="building_id"
+  
+  214
+  ------------XnJLe9ZIbbGUYtzPQJ16u1--
+
+Response:
+  Status: 201 Created
+  Content-Type: application/json; charset=utf-8
+  access-token: W8UGXk2LH3Vnx9LQQZIUDA
+  client: WzRuNSRNfPBB0qyKHwCeMA
+  uid: email2@example.com
+
+  {
+    "message": "Ready for processing."
+  }
+
+

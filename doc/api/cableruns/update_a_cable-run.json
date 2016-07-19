@@ -1,0 +1,220 @@
+{
+  "resource": "CableRuns",
+  "http_method": "PATCH",
+  "route": "/cable-runs/:cable_run_id",
+  "description": "Update a cable-run",
+  "explanation": null,
+  "parameters": [
+    {
+      "required": true,
+      "name": "type",
+      "description": "Should always be set to <code>cable-runs</code>"
+    },
+    {
+      "required": true,
+      "scope": "relationships",
+      "name": "sheet",
+      "description": "Sheet id"
+    },
+    {
+      "scope": "attributes",
+      "name": "site",
+      "description": "Site"
+    },
+    {
+      "scope": "attributes",
+      "name": "building",
+      "description": "Building"
+    },
+    {
+      "scope": "attributes",
+      "name": "room",
+      "description": "Room"
+    },
+    {
+      "scope": "attributes",
+      "name": "drop",
+      "description": "Drop"
+    },
+    {
+      "scope": "attributes",
+      "name": "rdt",
+      "description": "RDT"
+    },
+    {
+      "scope": "attributes",
+      "name": "rdt-port",
+      "description": "RDT Port"
+    },
+    {
+      "scope": "attributes",
+      "name": "fdh-port",
+      "description": "FDH Port"
+    },
+    {
+      "scope": "attributes",
+      "name": "splitter",
+      "description": "Splitter"
+    },
+    {
+      "scope": "attributes",
+      "name": "splitter-fiber",
+      "description": "Splitter Fiber"
+    },
+    {
+      "scope": "attributes",
+      "name": "pon-card",
+      "description": "PON Card"
+    },
+    {
+      "scope": "attributes",
+      "name": "pon-port",
+      "description": "PON Port"
+    },
+    {
+      "scope": "attributes",
+      "name": "fdh",
+      "description": "FDH"
+    },
+    {
+      "scope": "attributes",
+      "name": "notes",
+      "description": "Notes"
+    },
+    {
+      "scope": "attributes",
+      "name": "olt-rack",
+      "description": "OLT Rack"
+    },
+    {
+      "scope": "attributes",
+      "name": "olt-chassis",
+      "description": "OLT Chassis"
+    },
+    {
+      "scope": "attributes",
+      "name": "vam-shelf",
+      "description": "VAM Shelf"
+    },
+    {
+      "scope": "attributes",
+      "name": "vam-module",
+      "description": "VAM Module"
+    },
+    {
+      "scope": "attributes",
+      "name": "vam-port",
+      "description": "Backbone Shelf"
+    },
+    {
+      "scope": "attributes",
+      "name": "backbone-cable",
+      "description": "Backbone Cable"
+    },
+    {
+      "scope": "attributes",
+      "name": "backbone-port",
+      "description": "Backbone Port"
+    },
+    {
+      "scope": "attributes",
+      "name": "fdh-location",
+      "description": "FDG Location"
+    },
+    {
+      "scope": "attributes",
+      "name": "rdt-location",
+      "description": "RDT Location"
+    },
+    {
+      "scope": "attributes",
+      "name": "ont-model",
+      "description": "ONT Model"
+    },
+    {
+      "scope": "attributes",
+      "name": "ont-sn",
+      "description": "ONT SN"
+    },
+    {
+      "scope": "attributes",
+      "name": "rdt-port-count",
+      "description": "RDT Port Count"
+    },
+    {
+      "scope": "attributes",
+      "name": "ont-ge-1-device",
+      "description": "ONT GE 1 Device"
+    },
+    {
+      "scope": "attributes",
+      "name": "ont-ge-1-mac",
+      "description": "ONT GE 1 MAC"
+    },
+    {
+      "scope": "attributes",
+      "name": "ont-ge-2-device",
+      "description": "ONT GE 2 Device"
+    },
+    {
+      "scope": "attributes",
+      "name": "ont-ge-2-mac",
+      "description": "ONT GE 2 MAC"
+    },
+    {
+      "scope": "attributes",
+      "name": "ont-ge-3-device",
+      "description": "ONT GE 3 Device"
+    },
+    {
+      "scope": "attributes",
+      "name": "ont-ge-3-mac",
+      "description": "ONT GE 3 MAC"
+    },
+    {
+      "scope": "attributes",
+      "name": "ont-ge-4-device",
+      "description": "ONT GE 4 Device"
+    },
+    {
+      "scope": "attributes",
+      "name": "ont-ge-4-mac",
+      "description": "ONT GE 4 MAC"
+    },
+    {
+      "required": true,
+      "name": "id",
+      "description": "The id of the cable-run"
+    }
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "PATCH",
+      "request_path": "/cable-runs/34",
+      "request_body": "{\"data\":{\"type\":\"cable-runs\",\"relationships\":{\"sheet\":{\"data\":{\"type\":\"sheets\",\"id\":143}}},\"attributes\":{\"site\":\"Updated Site\"},\"id\":\"34\"}}",
+      "request_headers": {
+        "Content-Type": "application/vnd.api+json",
+        "Access-Token": "4k8Wd_xCgikblfiO5QI4Ew",
+        "Client": "e2vs45a0SgzXqvZUyEHRyw",
+        "Uid": "email14@example.com"
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": "application/vnd.api+json",
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "{\"data\":{\"id\":\"34\",\"type\":\"cable-runs\",\"links\":{\"self\":\"http://example.org/cable-runs/34\"},\"attributes\":{\"site\":\"Updated Site\",\"building\":\"MyString\",\"room\":\"MyString\",\"drop\":\"MyString\",\"rdt\":\"MyString\",\"rdt-port\":\"MyString\",\"fdh-port\":\"MyString\",\"splitter\":\"MyString\",\"splitter-fiber\":\"MyString\",\"pon-card\":\"MyString\",\"pon-port\":\"MyString\",\"fdh\":\"MyString\",\"notes\":\"MyText\",\"olt-rack\":\"MyString\",\"olt-chassis\":\"MyString\",\"vam-shelf\":\"MyString\",\"vam-module\":\"MyString\",\"vam-port\":\"MyString\",\"backbone-shelf\":\"MyString\",\"backbone-cable\":\"MyString\",\"backbone-port\":\"MyString\",\"fdh-location\":\"MyString\",\"rdt-location\":\"MyString\",\"ont-model\":\"MyString\",\"ont-sn\":\"MyString\",\"rdt-port-count\":\"MyString\",\"ont-ge-1-device\":\"MyString\",\"ont-ge-1-mac\":\"MyString\",\"ont-ge-2-device\":\"MyString\",\"ont-ge-2-mac\":\"MyString\",\"ont-ge-3-device\":\"MyString\",\"ont-ge-3-mac\":\"MyString\",\"ont-ge-4-device\":\"MyString\",\"ont-ge-4-mac\":\"MyString\",\"ont-node-id\":null,\"versions\":[{\"user\":{\"id\":null,\"email\":\"unknown\"},\"event_type\":\"create\",\"changes\":{\"site\":[null,\"MyString\"],\"building\":[null,\"MyString\"],\"room\":[null,\"MyString\"],\"drop\":[null,\"MyString\"],\"rdt\":[null,\"MyString\"],\"rdt_port\":[null,\"MyString\"],\"fdh_port\":[null,\"MyString\"],\"splitter\":[null,\"MyString\"],\"splitter_fiber\":[null,\"MyString\"],\"sheet_id\":[null,142],\"pon_card\":[null,\"MyString\"],\"pon_port\":[null,\"MyString\"],\"fdh\":[null,\"MyString\"],\"notes\":[null,\"MyText\"],\"olt_rack\":[null,\"MyString\"],\"olt_chassis\":[null,\"MyString\"],\"vam_shelf\":[null,\"MyString\"],\"vam_module\":[null,\"MyString\"],\"vam_port\":[null,\"MyString\"],\"backbone_shelf\":[null,\"MyString\"],\"backbone_cable\":[null,\"MyString\"],\"backbone_port\":[null,\"MyString\"],\"fdh_location\":[null,\"MyString\"],\"rdt_location\":[null,\"MyString\"],\"ont_model\":[null,\"MyString\"],\"ont_sn\":[null,\"MyString\"],\"rdt_port_count\":[null,\"MyString\"],\"ont_ge_1_device\":[null,\"MyString\"],\"ont_ge_1_mac\":[null,\"MyString\"],\"ont_ge_2_device\":[null,\"MyString\"],\"ont_ge_2_mac\":[null,\"MyString\"],\"ont_ge_3_device\":[null,\"MyString\"],\"ont_ge_3_mac\":[null,\"MyString\"],\"ont_ge_4_device\":[null,\"MyString\"],\"ont_ge_4_mac\":[null,\"MyString\"],\"created_at\":[null,\"2016-05-14T02:16:02.433Z\"],\"updated_at\":[null,\"2016-05-14T02:16:02.433Z\"],\"id\":[null,34]}},{\"user\":{\"id\":\"222\",\"email\":\"email14@example.com\"},\"event_type\":\"update\",\"changes\":{\"site\":[\"MyString\",\"Updated Site\"],\"sheet_id\":[142,143],\"updated_at\":[\"2016-05-14T02:16:02.433Z\",\"2016-05-14T02:16:02.505Z\"]}}]},\"relationships\":{\"sheet\":{\"links\":{\"self\":\"http://example.org/cable-runs/34/relationships/sheet\",\"related\":\"http://example.org/cable-runs/34/sheet\"}}}}}",
+      "response_headers": {
+        "access-token": "4k8Wd_xCgikblfiO5QI4Ew",
+        "client": "e2vs45a0SgzXqvZUyEHRyw",
+        "uid": "email14@example.com",
+        "Content-Type": "application/vnd.api+json"
+      },
+      "response_content_type": "application/vnd.api+json",
+      "curl": null
+    }
+  ]
+}

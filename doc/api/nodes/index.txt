@@ -1,0 +1,106 @@
+Delete a node
+-------------
+
+Parameters:
+  * type - Should always be set to <code>nodes</code>
+  * network-graph - Network Graph id
+  * node-type - Node Type
+  * node-value - Node Value
+  * node-level - Node Level
+  * id - The id of the node
+
+Request:
+  DELETE /nodes/26
+  Access-Token: ogxB6lnr2j9Atx5zkNXPkQ
+  Client: lWlPN8RGYh6amuN3cugUcg
+  Content-Type: application/vnd.api+json
+  Uid: email19@example.com
+
+  {"data":{"type":"nodes","relationships":{"network-graph":{"data":{"type":"network-graphs","id":60}}},"attributes":{"node-type":"some_node_type"},"id":"26"}}
+
+Response:
+  Status: 204 No Content
+  access-token: ogxB6lnr2j9Atx5zkNXPkQ
+  client: lWlPN8RGYh6amuN3cugUcg
+  uid: email19@example.com
+
+
+Create a node type
+------------------
+
+Parameters:
+  * type - Should always be set to <code>nodes</code>
+  * network-graph - Network Graph id
+  * node-type - Node Type
+  * node-value - Node Value
+  * node-level - Node Level
+
+Request:
+  POST /nodes
+  Access-Token: 5m4GcDrMO0J-FGCDIu8zcA
+  Client: TbrN5bhr9jOHI2QJKGj2yw
+  Content-Type: application/vnd.api+json
+  Uid: email20@example.com
+
+  {"data":{"type":"nodes","relationships":{"network-graph":{"data":{"type":"network-graphs","id":61}}},"attributes":{"node-type":"some_node_type"}}}
+
+Response:
+  Status: 201 Created
+  Content-Type: application/vnd.api+json
+  access-token: 5m4GcDrMO0J-FGCDIu8zcA
+  client: TbrN5bhr9jOHI2QJKGj2yw
+  uid: email20@example.com
+
+  {"data":{"id":"27","type":"nodes","links":{"self":"http://example.org/nodes/27"},"attributes":{"node-value":null,"node-level":null,"node-type":"some_node_type"},"relationships":{"network-graph":{"links":{"self":"http://example.org/nodes/27/relationships/network-graph","related":"http://example.org/nodes/27/network-graph"}}}}}
+
+
+List all nodes
+--------------
+
+Request:
+  GET /nodes
+  Access-Token: hIYLid_nZ6Gsn-gGJwND3A
+  Client: e0bdyJjaD9OsbVrm5TUJzw
+  Content-Type: application/vnd.api+json
+  Uid: email21@example.com
+
+Response:
+  Status: 200 OK
+  Content-Type: application/vnd.api+json
+  access-token: hIYLid_nZ6Gsn-gGJwND3A
+  client: e0bdyJjaD9OsbVrm5TUJzw
+  uid: email21@example.com
+
+  {"data":[{"id":"28","type":"nodes","links":{"self":"http://example.org/nodes/28"},"attributes":{"node-value":"MyString","node-level":1,"node-type":"MyString"},"relationships":{"network-graph":{"links":{"self":"http://example.org/nodes/28/relationships/network-graph","related":"http://example.org/nodes/28/network-graph"}}}},{"id":"29","type":"nodes","links":{"self":"http://example.org/nodes/29"},"attributes":{"node-value":"MyString","node-level":1,"node-type":"MyString"},"relationships":{"network-graph":{"links":{"self":"http://example.org/nodes/29/relationships/network-graph","related":"http://example.org/nodes/29/network-graph"}}}}],"meta":{"record-count":2}}
+
+
+Update a node
+-------------
+
+Parameters:
+  * type - Should always be set to <code>nodes</code>
+  * network-graph - Network Graph id
+  * node-type - Node Type
+  * node-value - Node Value
+  * node-level - Node Level
+  * id - The id of the node
+
+Request:
+  PATCH /nodes/30
+  Access-Token: SPSh6ETXCvGPX10IuGuH1g
+  Client: 1FJrhur25FblI3CWwcR_7A
+  Content-Type: application/vnd.api+json
+  Uid: email22@example.com
+
+  {"data":{"type":"nodes","relationships":{"network-graph":{"data":{"type":"network-graphs","id":65}}},"attributes":{"node-type":"some_node_type"},"id":"30"}}
+
+Response:
+  Status: 200 OK
+  Content-Type: application/vnd.api+json
+  access-token: SPSh6ETXCvGPX10IuGuH1g
+  client: 1FJrhur25FblI3CWwcR_7A
+  uid: email22@example.com
+
+  {"data":{"id":"30","type":"nodes","links":{"self":"http://example.org/nodes/30"},"attributes":{"node-value":"MyString","node-level":1,"node-type":"some_node_type"},"relationships":{"network-graph":{"links":{"self":"http://example.org/nodes/30/relationships/network-graph","related":"http://example.org/nodes/30/network-graph"}}}}}
+
+

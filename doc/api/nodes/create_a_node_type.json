@@ -1,0 +1,66 @@
+{
+  "resource": "Nodes",
+  "http_method": "POST",
+  "route": "/nodes",
+  "description": "Create a node type",
+  "explanation": null,
+  "parameters": [
+    {
+      "required": true,
+      "name": "type",
+      "description": "Should always be set to <code>nodes</code>"
+    },
+    {
+      "required": true,
+      "scope": "relationships",
+      "name": "network-graph",
+      "description": "Network Graph id"
+    },
+    {
+      "required": true,
+      "scope": "attributes",
+      "name": "node-type",
+      "description": "Node Type"
+    },
+    {
+      "scope": "attributes",
+      "name": "node-value",
+      "description": "Node Value"
+    },
+    {
+      "scope": "attributes",
+      "name": "node-level",
+      "description": "Node Level"
+    }
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "POST",
+      "request_path": "/nodes",
+      "request_body": "{\"data\":{\"type\":\"nodes\",\"relationships\":{\"network-graph\":{\"data\":{\"type\":\"network-graphs\",\"id\":61}}},\"attributes\":{\"node-type\":\"some_node_type\"}}}",
+      "request_headers": {
+        "Content-Type": "application/vnd.api+json",
+        "Access-Token": "5m4GcDrMO0J-FGCDIu8zcA",
+        "Client": "TbrN5bhr9jOHI2QJKGj2yw",
+        "Uid": "email20@example.com"
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": "application/vnd.api+json",
+      "response_status": 201,
+      "response_status_text": "Created",
+      "response_body": "{\"data\":{\"id\":\"27\",\"type\":\"nodes\",\"links\":{\"self\":\"http://example.org/nodes/27\"},\"attributes\":{\"node-value\":null,\"node-level\":null,\"node-type\":\"some_node_type\"},\"relationships\":{\"network-graph\":{\"links\":{\"self\":\"http://example.org/nodes/27/relationships/network-graph\",\"related\":\"http://example.org/nodes/27/network-graph\"}}}}}",
+      "response_headers": {
+        "access-token": "5m4GcDrMO0J-FGCDIu8zcA",
+        "client": "TbrN5bhr9jOHI2QJKGj2yw",
+        "uid": "email20@example.com",
+        "Content-Type": "application/vnd.api+json"
+      },
+      "response_content_type": "application/vnd.api+json",
+      "curl": null
+    }
+  ]
+}

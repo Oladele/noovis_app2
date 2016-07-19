@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>CableRuns API</title>
+    <meta charset="utf-8">
+    <style>
+      
+body {
+  font-family: Helvetica,Arial,sans-serif;
+  font-size: 13px;
+  font-weight: normal;
+  line-height: 18px;
+  color: #404040;
+}
+
+.container {
+  width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+  zoom: 1;
+}
+
+pre {
+  background-color: #f5f5f5;
+  display: block;
+  padding: 8.5px;
+  margin: 0 0 18px;
+  line-height: 18px;
+  font-size: 12px;
+  border: 1px solid #ccc;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  white-space: pre;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+td.required .name:after {
+  float: right;
+  content: "required";
+  font-weight: normal;
+  color: #F08080;
+}
+
+a{
+  color: #0069d6;
+  text-decoration: none;
+  line-height: inherit;
+  font-weight: inherit;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: bold;
+  color: #404040;
+}
+
+h1 {
+  margin-bottom: 18px;
+  font-size: 30px;
+  line-height: 36px;
+}
+h2 {
+  font-size: 24px;
+  line-height: 36px;
+}
+h3{
+  font-size: 18px;
+  line-height: 36px;
+}
+h4 {
+  font-size: 16px;
+  line-height: 36px;
+}
+
+table{
+  width: 100%;
+  margin-bottom: 18px;
+  padding: 0;
+  border-collapse: separate;
+  font-size: 13px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  border-spacing: 0;
+  border: 1px solid #ddd;
+}
+
+table th {
+  padding-top: 9px;
+  font-weight: bold;
+  vertical-align: middle;
+  border-bottom: 1px solid #ddd;
+}
+table th+th, table td+td {
+  border-left: 1px solid #ddd;
+}
+table th, table td {
+  padding: 10px 10px 9px;
+  line-height: 18px;
+  text-align: left;
+}
+
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>CableRuns API</h1>
+
+      <div class="article">
+        <h2>List all cable-runs</h2>
+        <h3>GET /cable-runs</h3>
+
+
+
+          <h3>Request</h3>
+
+            <h4>Headers</h4>
+            <pre class="request headers">Content-Type: application/vnd.api+json
+Access-Token: 6ugCmCSmd5Lr932lnR336g
+Client: -p87MLNYwZHbS743_4oPWA
+Uid: email11@example.com</pre>
+
+          <h4>Route</h4>
+          <pre class="request route highlight">GET /cable-runs</pre>
+
+
+
+
+            <h3>Response</h3>
+              <h4>Headers</h4>
+              <pre class="response headers">access-token: 6ugCmCSmd5Lr932lnR336g
+client: -p87MLNYwZHbS743_4oPWA
+uid: email11@example.com
+Content-Type: application/vnd.api+json</pre>
+            <h4>Status</h4>
+            <pre class="response status">200 OK</pre>
+              <h4>Body</h4>
+              <pre class="response body">{&quot;data&quot;:[{&quot;id&quot;:&quot;30&quot;,&quot;type&quot;:&quot;cable-runs&quot;,&quot;links&quot;:{&quot;self&quot;:&quot;http://example.org/cable-runs/30&quot;},&quot;attributes&quot;:{&quot;site&quot;:&quot;MyString&quot;,&quot;building&quot;:&quot;MyString&quot;,&quot;room&quot;:&quot;MyString&quot;,&quot;drop&quot;:&quot;MyString&quot;,&quot;rdt&quot;:&quot;MyString&quot;,&quot;rdt-port&quot;:&quot;MyString&quot;,&quot;fdh-port&quot;:&quot;MyString&quot;,&quot;splitter&quot;:&quot;MyString&quot;,&quot;splitter-fiber&quot;:&quot;MyString&quot;,&quot;pon-card&quot;:&quot;MyString&quot;,&quot;pon-port&quot;:&quot;MyString&quot;,&quot;fdh&quot;:&quot;MyString&quot;,&quot;notes&quot;:&quot;MyText&quot;,&quot;olt-rack&quot;:&quot;MyString&quot;,&quot;olt-chassis&quot;:&quot;MyString&quot;,&quot;vam-shelf&quot;:&quot;MyString&quot;,&quot;vam-module&quot;:&quot;MyString&quot;,&quot;vam-port&quot;:&quot;MyString&quot;,&quot;backbone-shelf&quot;:&quot;MyString&quot;,&quot;backbone-cable&quot;:&quot;MyString&quot;,&quot;backbone-port&quot;:&quot;MyString&quot;,&quot;fdh-location&quot;:&quot;MyString&quot;,&quot;rdt-location&quot;:&quot;MyString&quot;,&quot;ont-model&quot;:&quot;MyString&quot;,&quot;ont-sn&quot;:&quot;MyString&quot;,&quot;rdt-port-count&quot;:&quot;MyString&quot;,&quot;ont-ge-1-device&quot;:&quot;MyString&quot;,&quot;ont-ge-1-mac&quot;:&quot;MyString&quot;,&quot;ont-ge-2-device&quot;:&quot;MyString&quot;,&quot;ont-ge-2-mac&quot;:&quot;MyString&quot;,&quot;ont-ge-3-device&quot;:&quot;MyString&quot;,&quot;ont-ge-3-mac&quot;:&quot;MyString&quot;,&quot;ont-ge-4-device&quot;:&quot;MyString&quot;,&quot;ont-ge-4-mac&quot;:&quot;MyString&quot;,&quot;ont-node-id&quot;:null,&quot;versions&quot;:[{&quot;user&quot;:{&quot;id&quot;:null,&quot;email&quot;:&quot;unknown&quot;},&quot;event_type&quot;:&quot;create&quot;,&quot;changes&quot;:{&quot;site&quot;:[null,&quot;MyString&quot;],&quot;building&quot;:[null,&quot;MyString&quot;],&quot;room&quot;:[null,&quot;MyString&quot;],&quot;drop&quot;:[null,&quot;MyString&quot;],&quot;rdt&quot;:[null,&quot;MyString&quot;],&quot;rdt_port&quot;:[null,&quot;MyString&quot;],&quot;fdh_port&quot;:[null,&quot;MyString&quot;],&quot;splitter&quot;:[null,&quot;MyString&quot;],&quot;splitter_fiber&quot;:[null,&quot;MyString&quot;],&quot;sheet_id&quot;:[null,137],&quot;pon_card&quot;:[null,&quot;MyString&quot;],&quot;pon_port&quot;:[null,&quot;MyString&quot;],&quot;fdh&quot;:[null,&quot;MyString&quot;],&quot;notes&quot;:[null,&quot;MyText&quot;],&quot;olt_rack&quot;:[null,&quot;MyString&quot;],&quot;olt_chassis&quot;:[null,&quot;MyString&quot;],&quot;vam_shelf&quot;:[null,&quot;MyString&quot;],&quot;vam_module&quot;:[null,&quot;MyString&quot;],&quot;vam_port&quot;:[null,&quot;MyString&quot;],&quot;backbone_shelf&quot;:[null,&quot;MyString&quot;],&quot;backbone_cable&quot;:[null,&quot;MyString&quot;],&quot;backbone_port&quot;:[null,&quot;MyString&quot;],&quot;fdh_location&quot;:[null,&quot;MyString&quot;],&quot;rdt_location&quot;:[null,&quot;MyString&quot;],&quot;ont_model&quot;:[null,&quot;MyString&quot;],&quot;ont_sn&quot;:[null,&quot;MyString&quot;],&quot;rdt_port_count&quot;:[null,&quot;MyString&quot;],&quot;ont_ge_1_device&quot;:[null,&quot;MyString&quot;],&quot;ont_ge_1_mac&quot;:[null,&quot;MyString&quot;],&quot;ont_ge_2_device&quot;:[null,&quot;MyString&quot;],&quot;ont_ge_2_mac&quot;:[null,&quot;MyString&quot;],&quot;ont_ge_3_device&quot;:[null,&quot;MyString&quot;],&quot;ont_ge_3_mac&quot;:[null,&quot;MyString&quot;],&quot;ont_ge_4_device&quot;:[null,&quot;MyString&quot;],&quot;ont_ge_4_mac&quot;:[null,&quot;MyString&quot;],&quot;created_at&quot;:[null,&quot;2016-05-14T02:16:01.960Z&quot;],&quot;updated_at&quot;:[null,&quot;2016-05-14T02:16:01.960Z&quot;],&quot;id&quot;:[null,30]}}]},&quot;relationships&quot;:{&quot;sheet&quot;:{&quot;links&quot;:{&quot;self&quot;:&quot;http://example.org/cable-runs/30/relationships/sheet&quot;,&quot;related&quot;:&quot;http://example.org/cable-runs/30/sheet&quot;}}}},{&quot;id&quot;:&quot;31&quot;,&quot;type&quot;:&quot;cable-runs&quot;,&quot;links&quot;:{&quot;self&quot;:&quot;http://example.org/cable-runs/31&quot;},&quot;attributes&quot;:{&quot;site&quot;:&quot;MyString&quot;,&quot;building&quot;:&quot;MyString&quot;,&quot;room&quot;:&quot;MyString&quot;,&quot;drop&quot;:&quot;MyString&quot;,&quot;rdt&quot;:&quot;MyString&quot;,&quot;rdt-port&quot;:&quot;MyString&quot;,&quot;fdh-port&quot;:&quot;MyString&quot;,&quot;splitter&quot;:&quot;MyString&quot;,&quot;splitter-fiber&quot;:&quot;MyString&quot;,&quot;pon-card&quot;:&quot;MyString&quot;,&quot;pon-port&quot;:&quot;MyString&quot;,&quot;fdh&quot;:&quot;MyString&quot;,&quot;notes&quot;:&quot;MyText&quot;,&quot;olt-rack&quot;:&quot;MyString&quot;,&quot;olt-chassis&quot;:&quot;MyString&quot;,&quot;vam-shelf&quot;:&quot;MyString&quot;,&quot;vam-module&quot;:&quot;MyString&quot;,&quot;vam-port&quot;:&quot;MyString&quot;,&quot;backbone-shelf&quot;:&quot;MyString&quot;,&quot;backbone-cable&quot;:&quot;MyString&quot;,&quot;backbone-port&quot;:&quot;MyString&quot;,&quot;fdh-location&quot;:&quot;MyString&quot;,&quot;rdt-location&quot;:&quot;MyString&quot;,&quot;ont-model&quot;:&quot;MyString&quot;,&quot;ont-sn&quot;:&quot;MyString&quot;,&quot;rdt-port-count&quot;:&quot;MyString&quot;,&quot;ont-ge-1-device&quot;:&quot;MyString&quot;,&quot;ont-ge-1-mac&quot;:&quot;MyString&quot;,&quot;ont-ge-2-device&quot;:&quot;MyString&quot;,&quot;ont-ge-2-mac&quot;:&quot;MyString&quot;,&quot;ont-ge-3-device&quot;:&quot;MyString&quot;,&quot;ont-ge-3-mac&quot;:&quot;MyString&quot;,&quot;ont-ge-4-device&quot;:&quot;MyString&quot;,&quot;ont-ge-4-mac&quot;:&quot;MyString&quot;,&quot;ont-node-id&quot;:null,&quot;versions&quot;:[{&quot;user&quot;:{&quot;id&quot;:null,&quot;email&quot;:&quot;unknown&quot;},&quot;event_type&quot;:&quot;create&quot;,&quot;changes&quot;:{&quot;site&quot;:[null,&quot;MyString&quot;],&quot;building&quot;:[null,&quot;MyString&quot;],&quot;room&quot;:[null,&quot;MyString&quot;],&quot;drop&quot;:[null,&quot;MyString&quot;],&quot;rdt&quot;:[null,&quot;MyString&quot;],&quot;rdt_port&quot;:[null,&quot;MyString&quot;],&quot;fdh_port&quot;:[null,&quot;MyString&quot;],&quot;splitter&quot;:[null,&quot;MyString&quot;],&quot;splitter_fiber&quot;:[null,&quot;MyString&quot;],&quot;sheet_id&quot;:[null,138],&quot;pon_card&quot;:[null,&quot;MyString&quot;],&quot;pon_port&quot;:[null,&quot;MyString&quot;],&quot;fdh&quot;:[null,&quot;MyString&quot;],&quot;notes&quot;:[null,&quot;MyText&quot;],&quot;olt_rack&quot;:[null,&quot;MyString&quot;],&quot;olt_chassis&quot;:[null,&quot;MyString&quot;],&quot;vam_shelf&quot;:[null,&quot;MyString&quot;],&quot;vam_module&quot;:[null,&quot;MyString&quot;],&quot;vam_port&quot;:[null,&quot;MyString&quot;],&quot;backbone_shelf&quot;:[null,&quot;MyString&quot;],&quot;backbone_cable&quot;:[null,&quot;MyString&quot;],&quot;backbone_port&quot;:[null,&quot;MyString&quot;],&quot;fdh_location&quot;:[null,&quot;MyString&quot;],&quot;rdt_location&quot;:[null,&quot;MyString&quot;],&quot;ont_model&quot;:[null,&quot;MyString&quot;],&quot;ont_sn&quot;:[null,&quot;MyString&quot;],&quot;rdt_port_count&quot;:[null,&quot;MyString&quot;],&quot;ont_ge_1_device&quot;:[null,&quot;MyString&quot;],&quot;ont_ge_1_mac&quot;:[null,&quot;MyString&quot;],&quot;ont_ge_2_device&quot;:[null,&quot;MyString&quot;],&quot;ont_ge_2_mac&quot;:[null,&quot;MyString&quot;],&quot;ont_ge_3_device&quot;:[null,&quot;MyString&quot;],&quot;ont_ge_3_mac&quot;:[null,&quot;MyString&quot;],&quot;ont_ge_4_device&quot;:[null,&quot;MyString&quot;],&quot;ont_ge_4_mac&quot;:[null,&quot;MyString&quot;],&quot;created_at&quot;:[null,&quot;2016-05-14T02:16:01.977Z&quot;],&quot;updated_at&quot;:[null,&quot;2016-05-14T02:16:01.977Z&quot;],&quot;id&quot;:[null,31]}}]},&quot;relationships&quot;:{&quot;sheet&quot;:{&quot;links&quot;:{&quot;self&quot;:&quot;http://example.org/cable-runs/31/relationships/sheet&quot;,&quot;related&quot;:&quot;http://example.org/cable-runs/31/sheet&quot;}}}}],&quot;meta&quot;:{&quot;record-count&quot;:2}}</pre>
+      </div>
+    </div>
+  </body>
+</html>

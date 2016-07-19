@@ -23,6 +23,21 @@
       "description": "Network Site Name"
     },
     {
+      "scope": "attributes",
+      "name": "lat",
+      "description": "Network Site Latitude"
+    },
+    {
+      "scope": "attributes",
+      "name": "lng",
+      "description": "Network Site Longitude"
+    },
+    {
+      "scope": "attributes",
+      "name": "address",
+      "description": "Address Field"
+    },
+    {
       "required": true,
       "name": "id",
       "description": "The id of the network-site"
@@ -34,18 +49,24 @@
   "requests": [
     {
       "request_method": "PATCH",
-      "request_path": "/network-sites/273",
-      "request_body": "{\"data\":{\"type\":\"network-sites\",\"relationships\":{\"company\":{\"data\":{\"type\":\"companies\",\"id\":640}}},\"attributes\":{\"name\":\"Updated Network Site Name\"},\"id\":\"273\"}}",
+      "request_path": "/network-sites/491",
+      "request_body": "{\"data\":{\"type\":\"network-sites\",\"relationships\":{\"company\":{\"data\":{\"type\":\"companies\",\"id\":783}}},\"attributes\":{\"name\":\"Updated Network Site Name\"},\"id\":\"491\"}}",
       "request_headers": {
-        "Content-Type": "application/vnd.api+json"
+        "Content-Type": "application/vnd.api+json",
+        "Access-Token": "i2zY2kq2dpUG5F4LF8KWhg",
+        "Client": "Q-Jv3BIbmBzntZiAfSTLVQ",
+        "Uid": "email26@example.com"
       },
       "request_query_parameters": {
       },
       "request_content_type": "application/vnd.api+json",
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "{\"data\":{\"id\":\"273\",\"type\":\"network-sites\",\"links\":{\"self\":\"http://example.org/network-sites/273\"},\"attributes\":{\"name\":\"Updated Network Site Name\"},\"relationships\":{\"company\":{\"links\":{\"self\":\"http://example.org/network-sites/273/relationships/company\",\"related\":\"http://example.org/network-sites/273/company\"}}}}}",
+      "response_body": "{\"data\":{\"id\":\"491\",\"type\":\"network-sites\",\"links\":{\"self\":\"http://example.org/network-sites/491\"},\"attributes\":{\"name\":\"Updated Network Site Name\",\"lat\":\"39.290139\",\"lng\":\"-76.614766\",\"address\":\"MyString\",\"node-counts\":[{\"node_type\":\"buildings\",\"count\":0,\"node_type_pretty\":\"Buildings\"}]},\"relationships\":{\"company\":{\"links\":{\"self\":\"http://example.org/network-sites/491/relationships/company\",\"related\":\"http://example.org/network-sites/491/company\"}},\"buildings\":{\"links\":{\"self\":\"http://example.org/network-sites/491/relationships/buildings\",\"related\":\"http://example.org/network-sites/491/buildings\"}},\"workbooks\":{\"links\":{\"self\":\"http://example.org/network-sites/491/relationships/workbooks\",\"related\":\"http://example.org/network-sites/491/workbooks\"}}}}}",
       "response_headers": {
+        "access-token": "i2zY2kq2dpUG5F4LF8KWhg",
+        "client": "Q-Jv3BIbmBzntZiAfSTLVQ",
+        "uid": "email26@example.com",
         "Content-Type": "application/vnd.api+json"
       },
       "response_content_type": "application/vnd.api+json",

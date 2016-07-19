@@ -1,6 +1,91 @@
 {
   "resources": [
     {
+      "name": "Auth",
+      "examples": [
+        {
+          "description": "Sign in user",
+          "link": "auth/sign_in_user.json",
+          "groups": "all",
+          "route": "/auth/sign_in",
+          "method": "post"
+        },
+        {
+          "description": "Sign out user",
+          "link": "auth/sign_out_user.json",
+          "groups": "all",
+          "route": "/auth/sign_out",
+          "method": "delete"
+        }
+      ]
+    },
+    {
+      "name": "Buildings",
+      "examples": [
+        {
+          "description": "Create a building",
+          "link": "buildings/create_a_building.json",
+          "groups": "all",
+          "route": "/buildings",
+          "method": "post"
+        },
+        {
+          "description": "Delete a building",
+          "link": "buildings/delete_a_building.json",
+          "groups": "all",
+          "route": "/buildings/:building_id",
+          "method": "delete"
+        },
+        {
+          "description": "List all buildings",
+          "link": "buildings/list_all_buildings.json",
+          "groups": "all",
+          "route": "/buildings",
+          "method": "get"
+        },
+        {
+          "description": "Update a building",
+          "link": "buildings/update_a_building.json",
+          "groups": "all",
+          "route": "/buildings/:building_id",
+          "method": "patch"
+        }
+      ]
+    },
+    {
+      "name": "CableRuns",
+      "examples": [
+        {
+          "description": "Create a network site",
+          "link": "cableruns/create_a_network_site.json",
+          "groups": "all",
+          "route": "/cable-runs",
+          "method": "post"
+        },
+        {
+          "description": "Delete a cable-run",
+          "link": "cableruns/delete_a_cable-run.json",
+          "groups": "all",
+          "route": "/cable-runs/:cable_run_id",
+          "method": "delete"
+        },
+        {
+          "description": "List all cable-runs",
+          "link": "cableruns/list_all_cable-runs.json",
+          "groups": "all",
+          "route": "/cable-runs",
+          "method": "get"
+        },
+        {
+          "description": "Update a cable-run",
+          "link": "cableruns/update_a_cable-run.json",
+          "groups": "all",
+          "route": "/cable-runs/:cable_run_id",
+          "method": "patch"
+        }
+      ]
+    },
+    {
       "name": "Companies",
       "examples": [
         {
@@ -34,6 +119,63 @@
       ]
     },
     {
+      "name": "Global",
+      "examples": [
+        {
+          "description": "List Global Attributes",
+          "link": "global/list_global_attributes.json",
+          "groups": "all",
+          "route": "/global",
+          "method": "get"
+        }
+      ]
+    },
+    {
+      "name": "ImportCableRuns",
+      "examples": [
+        {
+          "description": "Upload sheet",
+          "link": "importcableruns/upload_sheet.json",
+          "groups": "all",
+          "route": "/import_cable_run",
+          "method": "post"
+        }
+      ]
+    },
+    {
+      "name": "NetworkGraphs",
+      "examples": [
+        {
+          "description": "Create a network graph",
+          "link": "networkgraphs/create_a_network_graph.json",
+          "groups": "all",
+          "route": "/network-graphs",
+          "method": "post"
+        },
+        {
+          "description": "Delete a network-graph",
+          "link": "networkgraphs/delete_a_network-graph.json",
+          "groups": "all",
+          "route": "/network-graphs/:network_graph_id",
+          "method": "delete"
+        },
+        {
+          "description": "List all network-graphs",
+          "link": "networkgraphs/list_all_network-graphs.json",
+          "groups": "all",
+          "route": "/network-graphs",
+          "method": "get"
+        },
+        {
+          "description": "Update a network-graph",
+          "link": "networkgraphs/update_a_network-graph.json",
+          "groups": "all",
+          "route": "/network-graphs/:network_graph_id",
+          "method": "patch"
+        }
+      ]
+    },
+    {
       "name": "NetworkSites",
       "examples": [
         {
@@ -62,6 +204,171 @@
           "link": "networksites/update_a_network-site.json",
           "groups": "all",
           "route": "/network-sites/:network_site_id",
+          "method": "patch"
+        }
+      ]
+    },
+    {
+      "name": "NetworkTemplates",
+      "examples": [
+        {
+          "description": "Create a network template",
+          "link": "networktemplates/create_a_network_template.json",
+          "groups": "all",
+          "route": "/network-templates",
+          "method": "post"
+        },
+        {
+          "description": "Delete a network-template",
+          "link": "networktemplates/delete_a_network-template.json",
+          "groups": "all",
+          "route": "/network-templates/:network_template_id",
+          "method": "delete"
+        },
+        {
+          "description": "List all network-templates",
+          "link": "networktemplates/list_all_network-templates.json",
+          "groups": "all",
+          "route": "/network-templates",
+          "method": "get"
+        },
+        {
+          "description": "Update a network-template",
+          "link": "networktemplates/update_a_network-template.json",
+          "groups": "all",
+          "route": "/network-templates/:network_template_id",
+          "method": "patch"
+        }
+      ]
+    },
+    {
+      "name": "Nodes",
+      "examples": [
+        {
+          "description": "Create a node type",
+          "link": "nodes/create_a_node_type.json",
+          "groups": "all",
+          "route": "/nodes",
+          "method": "post"
+        },
+        {
+          "description": "Delete a node",
+          "link": "nodes/delete_a_node.json",
+          "groups": "all",
+          "route": "/nodes/:node_id",
+          "method": "delete"
+        },
+        {
+          "description": "List all nodes",
+          "link": "nodes/list_all_nodes.json",
+          "groups": "all",
+          "route": "/nodes",
+          "method": "get"
+        },
+        {
+          "description": "Update a node",
+          "link": "nodes/update_a_node.json",
+          "groups": "all",
+          "route": "/nodes/:node_id",
+          "method": "patch"
+        }
+      ]
+    },
+    {
+      "name": "Sheets",
+      "examples": [
+        {
+          "description": "Create a sheet",
+          "link": "sheets/create_a_sheet.json",
+          "groups": "all",
+          "route": "/sheets",
+          "method": "post"
+        },
+        {
+          "description": "Delete a sheet",
+          "link": "sheets/delete_a_sheet.json",
+          "groups": "all",
+          "route": "/sheets/:sheet_id",
+          "method": "delete"
+        },
+        {
+          "description": "List all sheets",
+          "link": "sheets/list_all_sheets.json",
+          "groups": "all",
+          "route": "/sheets",
+          "method": "get"
+        },
+        {
+          "description": "Update a sheet",
+          "link": "sheets/update_a_sheet.json",
+          "groups": "all",
+          "route": "/sheets/:sheet_id",
+          "method": "patch"
+        }
+      ]
+    },
+    {
+      "name": "Users",
+      "examples": [
+        {
+          "description": "Create a user",
+          "link": "users/create_a_user.json",
+          "groups": "all",
+          "route": "/users",
+          "method": "post"
+        },
+        {
+          "description": "Delete a user",
+          "link": "users/delete_a_user.json",
+          "groups": "all",
+          "route": "/users/:user_id",
+          "method": "delete"
+        },
+        {
+          "description": "List all users",
+          "link": "users/list_all_users.json",
+          "groups": "all",
+          "route": "/users",
+          "method": "get"
+        },
+        {
+          "description": "Update a user",
+          "link": "users/update_a_user.json",
+          "groups": "all",
+          "route": "/users/:user_id",
+          "method": "patch"
+        }
+      ]
+    },
+    {
+      "name": "Workbooks",
+      "examples": [
+        {
+          "description": "Create a workbook",
+          "link": "workbooks/create_a_workbook.json",
+          "groups": "all",
+          "route": "/workbooks",
+          "method": "post"
+        },
+        {
+          "description": "Delete a workbook",
+          "link": "workbooks/delete_a_workbook.json",
+          "groups": "all",
+          "route": "/workbooks/:workbook_id",
+          "method": "delete"
+        },
+        {
+          "description": "List all workbooks",
+          "link": "workbooks/list_all_workbooks.json",
+          "groups": "all",
+          "route": "/workbooks",
+          "method": "get"
+        },
+        {
+          "description": "Update a workbook",
+          "link": "workbooks/update_a_workbook.json",
+          "groups": "all",
+          "route": "/workbooks/:workbook_id",
           "method": "patch"
         }
       ]

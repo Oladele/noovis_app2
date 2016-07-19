@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Buildings API</title>
+    <meta charset="utf-8">
+    <style>
+      
+body {
+  font-family: Helvetica,Arial,sans-serif;
+  font-size: 13px;
+  font-weight: normal;
+  line-height: 18px;
+  color: #404040;
+}
+
+.container {
+  width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+  zoom: 1;
+}
+
+pre {
+  background-color: #f5f5f5;
+  display: block;
+  padding: 8.5px;
+  margin: 0 0 18px;
+  line-height: 18px;
+  font-size: 12px;
+  border: 1px solid #ccc;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  white-space: pre;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+td.required .name:after {
+  float: right;
+  content: "required";
+  font-weight: normal;
+  color: #F08080;
+}
+
+a{
+  color: #0069d6;
+  text-decoration: none;
+  line-height: inherit;
+  font-weight: inherit;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: bold;
+  color: #404040;
+}
+
+h1 {
+  margin-bottom: 18px;
+  font-size: 30px;
+  line-height: 36px;
+}
+h2 {
+  font-size: 24px;
+  line-height: 36px;
+}
+h3{
+  font-size: 18px;
+  line-height: 36px;
+}
+h4 {
+  font-size: 16px;
+  line-height: 36px;
+}
+
+table{
+  width: 100%;
+  margin-bottom: 18px;
+  padding: 0;
+  border-collapse: separate;
+  font-size: 13px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  border-spacing: 0;
+  border: 1px solid #ddd;
+}
+
+table th {
+  padding-top: 9px;
+  font-weight: bold;
+  vertical-align: middle;
+  border-bottom: 1px solid #ddd;
+}
+table th+th, table td+td {
+  border-left: 1px solid #ddd;
+}
+table th, table td {
+  padding: 10px 10px 9px;
+  line-height: 18px;
+  text-align: left;
+}
+
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Buildings API</h1>
+
+      <div class="article">
+        <h2>List all buildings</h2>
+        <h3>GET /buildings</h3>
+
+
+
+          <h3>Request</h3>
+
+            <h4>Headers</h4>
+            <pre class="request headers">Content-Type: application/vnd.api+json
+Access-Token: vtAzzR7Tzy9jHVC6JTDcZw
+Client: 04EBsCB7Na0Q4nfj4ZPSMA
+Uid: email28@example.com</pre>
+
+          <h4>Route</h4>
+          <pre class="request route highlight">GET /buildings</pre>
+
+
+
+
+            <h3>Response</h3>
+              <h4>Headers</h4>
+              <pre class="response headers">access-token: vtAzzR7Tzy9jHVC6JTDcZw
+client: 04EBsCB7Na0Q4nfj4ZPSMA
+uid: email28@example.com
+Content-Type: application/vnd.api+json</pre>
+            <h4>Status</h4>
+            <pre class="response status">200 OK</pre>
+              <h4>Body</h4>
+              <pre class="response body">{&quot;data&quot;:[{&quot;id&quot;:&quot;229&quot;,&quot;type&quot;:&quot;buildings&quot;,&quot;links&quot;:{&quot;self&quot;:&quot;http://example.org/buildings/229&quot;},&quot;attributes&quot;:{&quot;name&quot;:&quot;1st building&quot;,&quot;lat&quot;:&quot;39.290139&quot;,&quot;lng&quot;:&quot;-76.614766&quot;,&quot;description&quot;:&quot;MyText&quot;,&quot;node-counts&quot;:[],&quot;import-job-status&quot;:null},&quot;relationships&quot;:{&quot;network-site&quot;:{&quot;links&quot;:{&quot;self&quot;:&quot;http://example.org/buildings/229/relationships/network-site&quot;,&quot;related&quot;:&quot;http://example.org/buildings/229/network-site&quot;}},&quot;sheets&quot;:{&quot;links&quot;:{&quot;self&quot;:&quot;http://example.org/buildings/229/relationships/sheets&quot;,&quot;related&quot;:&quot;http://example.org/buildings/229/sheets&quot;}}}},{&quot;id&quot;:&quot;230&quot;,&quot;type&quot;:&quot;buildings&quot;,&quot;links&quot;:{&quot;self&quot;:&quot;http://example.org/buildings/230&quot;},&quot;attributes&quot;:{&quot;name&quot;:&quot;2nd building&quot;,&quot;lat&quot;:&quot;39.290139&quot;,&quot;lng&quot;:&quot;-76.614766&quot;,&quot;description&quot;:&quot;MyText&quot;,&quot;node-counts&quot;:[],&quot;import-job-status&quot;:null},&quot;relationships&quot;:{&quot;network-site&quot;:{&quot;links&quot;:{&quot;self&quot;:&quot;http://example.org/buildings/230/relationships/network-site&quot;,&quot;related&quot;:&quot;http://example.org/buildings/230/network-site&quot;}},&quot;sheets&quot;:{&quot;links&quot;:{&quot;self&quot;:&quot;http://example.org/buildings/230/relationships/sheets&quot;,&quot;related&quot;:&quot;http://example.org/buildings/230/sheets&quot;}}}}],&quot;meta&quot;:{&quot;record-count&quot;:2}}</pre>
+      </div>
+    </div>
+  </body>
+</html>

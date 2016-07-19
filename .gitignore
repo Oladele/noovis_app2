@@ -11,3 +11,10 @@
 /log/*
 !/log/.keep
 /tmp
+*.dump
+.env
+dump.rdb
+spec/examples.txt
+public/system/*
+.DS_Store
+import_jobs/*

@@ -1,0 +1,60 @@
+{
+  "resource": "NetworkGraphs",
+  "http_method": "DELETE",
+  "route": "/network-graphs/:network_graph_id",
+  "description": "Delete a network-graph",
+  "explanation": null,
+  "parameters": [
+    {
+      "required": true,
+      "name": "type",
+      "description": "Should always be set to <code>network-graphs</code>"
+    },
+    {
+      "required": true,
+      "scope": "relationships",
+      "name": "sheet",
+      "description": "Sheet id"
+    },
+    {
+      "required": true,
+      "scope": "relationships",
+      "name": "network-template",
+      "description": "Network Template id"
+    },
+    {
+      "required": true,
+      "name": "id",
+      "description": "The id of the network-graph"
+    }
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "DELETE",
+      "request_path": "/network-graphs/67",
+      "request_body": "{\"data\":{\"type\":\"network-graphs\",\"relationships\":{\"sheet\":{\"data\":{\"type\":\"sheets\",\"id\":154}},\"network-template\":{\"data\":{\"type\":\"network-templates\",\"id\":107}}},\"id\":\"67\"}}",
+      "request_headers": {
+        "Content-Type": "application/vnd.api+json",
+        "Access-Token": "auDGOFRUlcCbQX1tj72DkQ",
+        "Client": "AQ5AuxWxqzvxAGyT3MALrw",
+        "Uid": "email33@example.com"
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": "application/vnd.api+json",
+      "response_status": 204,
+      "response_status_text": "No Content",
+      "response_body": null,
+      "response_headers": {
+        "access-token": "auDGOFRUlcCbQX1tj72DkQ",
+        "client": "AQ5AuxWxqzvxAGyT3MALrw",
+        "uid": "email33@example.com"
+      },
+      "response_content_type": null,
+      "curl": null
+    }
+  ]
+}

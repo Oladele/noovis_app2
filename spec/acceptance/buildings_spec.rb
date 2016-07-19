@@ -3,6 +3,15 @@ require "acceptance_helper"
 RSpec.resource "Buildings" do
  header "Content-Type", "application/vnd.api+json"
 
+  before do
+    user_headers = FactoryGirl.create(:user).create_new_auth_token
+    header "Access-Token", user_headers["access-token"]
+    header "Client", user_headers["client"]
+    header "Uid", user_headers["uid"]
+    header "Token-Type", user_headers["Bearer"]
+    header "Expiry", user_headers["expiry"]
+  end
+
  shared_context "building parameters" do
    parameter :"network-site", 
      "Network site id", 
@@ -13,6 +22,12 @@ RSpec.resource "Buildings" do
    parameter :name, 
      "Building Name", 
      required: true, scope: :attributes
+    parameter :lat,
+      "Building Latitude",
+      scope: :attributes
+    parameter :lng,
+      "Building Longitude",
+      scope: :attributes
 
    let(:type){ "buildings"}
    let(:network_site_id){ (FactoryGirl.create(:network_site)).id }

@@ -23,6 +23,21 @@
       "description": "Network Site Name"
     },
     {
+      "scope": "attributes",
+      "name": "lat",
+      "description": "Network Site Latitude"
+    },
+    {
+      "scope": "attributes",
+      "name": "lng",
+      "description": "Network Site Longitude"
+    },
+    {
+      "scope": "attributes",
+      "name": "address",
+      "description": "Address Field"
+    },
+    {
       "required": true,
       "name": "id",
       "description": "The id of the network-site"
@@ -34,10 +49,13 @@
   "requests": [
     {
       "request_method": "DELETE",
-      "request_path": "/network-sites/277",
-      "request_body": "{\"data\":{\"type\":\"network-sites\",\"relationships\":{\"company\":{\"data\":{\"type\":\"companies\",\"id\":645}}},\"id\":\"277\"}}",
+      "request_path": "/network-sites/488",
+      "request_body": "{\"data\":{\"type\":\"network-sites\",\"relationships\":{\"company\":{\"data\":{\"type\":\"companies\",\"id\":777}}},\"id\":\"488\"}}",
       "request_headers": {
-        "Content-Type": "application/vnd.api+json"
+        "Content-Type": "application/vnd.api+json",
+        "Access-Token": "KmxrY4mQ1BreCB6I3x8evA",
+        "Client": "aCJkRxt0w3_nvSzxPnP0WQ",
+        "Uid": "email24@example.com"
       },
       "request_query_parameters": {
       },
@@ -46,6 +64,9 @@
       "response_status_text": "No Content",
       "response_body": null,
       "response_headers": {
+        "access-token": "KmxrY4mQ1BreCB6I3x8evA",
+        "client": "aCJkRxt0w3_nvSzxPnP0WQ",
+        "uid": "email24@example.com"
       },
       "response_content_type": null,
       "curl": null
