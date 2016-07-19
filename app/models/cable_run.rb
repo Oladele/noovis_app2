@@ -180,6 +180,8 @@ class CableRun < ActiveRecord::Base
           "ont_ge_4_device"
       when "ONT GE Port 4 Mac".downcase.strip
           "ont_ge_4_mac"
+      when "Floor".downcase.strip
+          "floor"
       else
         "UNIDENTIFIED"
     end
@@ -221,6 +223,7 @@ class CableRun < ActiveRecord::Base
       "ont_ge_3_mac" => "ONT GE Port 3 MAC",
       "ont_ge_4_device" => "ONT GE Port 4 Device",
       "ont_ge_4_mac" => "ONT GE Port 4 MAC",
+      "floor" => "Floor"
     }
   end
 end

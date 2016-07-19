@@ -81,7 +81,7 @@ class ImportCableRun
         field_errors << "HEADER #{field} is missing"
       end
 
-      raise "Cannot create cable runs: #{field_errors * ', '}"
+      raise "Missing fields: #{field_errors * ', '}"
     end
 
     if imported_cable_runs[:cable_runs].map(&:valid?).all?

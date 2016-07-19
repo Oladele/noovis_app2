@@ -415,27 +415,27 @@ RSpec.describe NetworkSite, type: :model do
 
       cable_runs = []
       cable_run = FactoryGirl.build(:cable_run)
-      cable_run.room = "623.0"
+      cable_run.floor = "6"
       cable_run.drop = " Spare"
       cable_runs << cable_run
 
       cable_run = FactoryGirl.build(:cable_run)
-      cable_run.room = "50"
+      cable_run.floor = "ground"
       cable_run.drop = "spare"
       cable_runs << cable_run
 
       cable_run = FactoryGirl.build(:cable_run)
-      cable_run.room = "50"
-      cable_run.drop = "spare"
+      cable_run.floor = "ground"
+      cable_run.drop = " Spare "
       cable_runs << cable_run
 
       cable_run = FactoryGirl.build(:cable_run)
-      cable_run.room = "lobby"
+      cable_run.floor = "lobby"
       cable_run.drop = "1"
       cable_runs << cable_run
 
       cable_run = FactoryGirl.build(:cable_run)
-      cable_run.room = "lobby"
+      cable_run.floor = "lobby"
       cable_run.rdt = "N/A"
       cable_run.drop = "spare"
       cable_runs << cable_run

@@ -79,6 +79,7 @@ FactoryGirl.define do
     ont_ge_3_mac "MyString"
     ont_ge_4_device "MyString"
     ont_ge_4_mac "MyString"
+    floor "1"
   end
 
 end
