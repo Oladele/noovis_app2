@@ -182,7 +182,7 @@ class NetworkSite < ActiveRecord::Base
     def self.spares_from_cable_runs(building_name, cable_runs)
       cable_runs.each_with_object([]) do |cable_run, array|
         # floor is an integer?
-        floor = cable_run.floor.to_i != 0 ? "Floor #{cable_run.floor}" : "#{cable_run.floor.capitalize} Floor"
+        floor = cable_run.floor.to_i != 0 ? "Floor #{cable_run.floor}" : "#{cable_run.floor.try(:capitalize)} Floor"
 
         exists = array.select { |x| x[:label] == floor }.first
         value = NetworkGraph.value_isnt_blank?(cable_run.rdt) && cable_run.drop.downcase.strip == "spare" ? 1 : 0
