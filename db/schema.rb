@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160718233124) do
+ActiveRecord::Schema.define(version: 20160725162723) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -91,6 +91,7 @@ ActiveRecord::Schema.define(version: 20160718233124) do
     t.string   "spreadsheet_content_type"
     t.integer  "spreadsheet_file_size"
     t.datetime "spreadsheet_updated_at"
+    t.string   "message"
   end
 
   create_table "network_graphs", force: :cascade do |t|

@@ -242,6 +242,11 @@ RSpec.describe NetworkSite, type: :model do
       end
     end
 
+    it "network_element_counts with no graphs" do
+      network_site = FactoryGirl.build(:network_site)
+      assert_equal [], network_site.network_element_counts
+    end
+
     it "network_element_counts" do
       network_site = FactoryGirl.create(:network_site_with_buildings)
       building_1_name = network_site.buildings.first.name

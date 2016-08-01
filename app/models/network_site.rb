@@ -62,12 +62,14 @@ class NetworkSite < ActiveRecord::Base
   end
 
   def network_element_counts
+    network_graphs = self.network_graphs
+    node_counts = NetworkGraph.node_counts_for_graphs(network_graphs)
+
+    return [] if node_counts.blank?
+
     distribution_ports = self.chart_distribution_ports_site
     feeder_capacity = self.chart_feeder_capacity_site
     pon_usage = self.chart_pon_usage_site
-
-    network_graphs = self.network_graphs
-    node_counts = NetworkGraph.node_counts_for_graphs(network_graphs)
 
     waps = (node_counts["ont_ge_1_mac"] || 0) +
       (node_counts["ont_ge_2_mac"] || 0) +
