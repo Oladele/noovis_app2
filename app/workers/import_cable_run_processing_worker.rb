@@ -23,7 +23,7 @@ class ImportCableRunProcessingWorker
       end
     rescue => e
       Logger.new(STDOUT).error "Exception importing cable run: #{e}"
-      import_job.update_attribute(:status, 'error')
+      import_job.update_attributes(status: 'error', message: e)
     end
   end
 end

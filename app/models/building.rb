@@ -30,4 +30,9 @@ class Building < ActiveRecord::Base
     job = self.import_jobs.order(created_at: :desc).first
     job.status if job.present? && job.try(:created_at) > 5.minutes.ago
   end
+
+  def import_job_message
+    job = self.import_jobs.order(created_at: :desc).first
+    job.message if job.present? && job.try(:created_at) > 5.minutes.ago
+  end
 end
