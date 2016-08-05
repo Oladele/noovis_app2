@@ -187,7 +187,7 @@ class NetworkSite < ActiveRecord::Base
         floor = cable_run.floor.to_i != 0 ? "Floor #{cable_run.floor}" : "#{cable_run.floor.try(:capitalize)} Floor"
 
         exists = array.select { |x| x[:label] == floor }.first
-        value = NetworkGraph.value_isnt_blank?(cable_run.rdt) && cable_run.drop.downcase.strip == "spare" ? 1 : 0
+        value = NetworkGraph.value_isnt_blank?(cable_run.rdt) && cable_run.drop.present? && cable_run.drop.downcase.strip == "spare" ? 1 : 0
 
         if exists.blank?
           array << { label: floor, group: building_name, value: value }
