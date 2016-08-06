@@ -26,112 +26,128 @@ class NetworkSite < ActiveRecord::Base
   end
 
   def chart_distribution_ports_buildings
-  	aggregrate_buildings(:distribution_ports, "Active Distribution Ports", "Spare Distribution Ports")
+    Rails.cache.fetch("#{cache_key}/#{__method__}", expires_in: 24.hours) do
+      aggregrate_buildings(:distribution_ports, "Active Distribution Ports", "Spare Distribution Ports")
+    end
   end
 
   def chart_distribution_ports_site
-  	data = self.chart_distribution_ports_buildings
-    aggregrate_site(data, "Active Distribution Ports", "Spare Distribution Ports")
+    Rails.cache.fetch("#{cache_key}/#{__method__}", expires_in: 24.hours) do
+      data = self.chart_distribution_ports_buildings
+      aggregrate_site(data, "Active Distribution Ports", "Spare Distribution Ports")
+    end
   end
 
   def chart_feeder_capacity_buildings
-  	aggregrate_buildings(:feeder_capacity, "Active PON Ports", "Spare Feeder Fibers")
+    Rails.cache.fetch("#{cache_key}/#{__method__}", expires_in: 24.hours) do
+      aggregrate_buildings(:feeder_capacity, "Active PON Ports", "Spare Feeder Fibers")
+    end
   end
 
   def chart_feeder_capacity_site
-  	data = self.chart_feeder_capacity_buildings
-    aggregrate_site(data, "Active PON Ports", "Spare Feeder Fibers")
+    Rails.cache.fetch("#{cache_key}/#{__method__}", expires_in: 24.hours) do
+      data = self.chart_feeder_capacity_buildings
+      aggregrate_site(data, "Active PON Ports", "Spare Feeder Fibers")
+    end
   end
 
   def chart_pon_usage_buildings
-  	aggregrate_buildings(:pon_usage, "Active Channels", "Standby Channels")
+    Rails.cache.fetch("#{cache_key}/#{__method__}", expires_in: 24.hours) do
+      aggregrate_buildings(:pon_usage, "Active Channels", "Standby Channels")
+    end
   end
 
   def chart_pon_usage_site
-  	data = self.chart_pon_usage_buildings
-    aggregrate_site(data, "Active Channels", "Standby Channels")
+    Rails.cache.fetch("#{cache_key}/#{__method__}", expires_in: 24.hours) do
+      data = self.chart_pon_usage_buildings
+      aggregrate_site(data, "Active Channels", "Standby Channels")
+    end
   end
 
   def chart_distribution_spares_buildings
-    self.buildings.collect do |building|
-      sheet = building.latest_sheet
-      next if sheet.nil?
+    Rails.cache.fetch("#{cache_key}/#{__method__}", expires_in: 24.hours) do
+      self.buildings.collect do |building|
+        sheet = building.latest_sheet
+        next if sheet.nil?
 
-      NetworkSite.spares_from_cable_runs(building.name, sheet.cable_runs)
-    end.flatten.compact
+        NetworkSite.spares_from_cable_runs(building.name, sheet.cable_runs)
+      end.flatten.compact
+    end
   end
 
   def network_element_counts
-    network_graphs = self.network_graphs
-    node_counts = NetworkGraph.node_counts_for_graphs(network_graphs)
+    Rails.cache.fetch("#{cache_key}/#{__method__}", expires_in: 24.hours) do
+      network_graphs = self.network_graphs
+      node_counts = NetworkGraph.node_counts_for_graphs(network_graphs)
 
-    return [] if node_counts.blank?
+      return [] if node_counts.blank?
 
-    distribution_ports = self.chart_distribution_ports_site
-    feeder_capacity = self.chart_feeder_capacity_site
-    pon_usage = self.chart_pon_usage_site
-
-    waps = (node_counts["ont_ge_1_mac"] || 0) +
-      (node_counts["ont_ge_2_mac"] || 0) +
-      (node_counts["ont_ge_3_mac"] || 0) +
-      (node_counts["ont_ge_4_mac"] || 0)
-
-    counts = [
-      {
-        "BLDG" => self.name,
-        "Bldgs" => self.buildings.count,
-        "OLTs" => node_counts["olt_chassis"] || 0,
-        "PON Cards" => node_counts["pon_card"] || 0,
-        "FDHs" => node_counts["fdh"] || 0,
-        "Splitters" => node_counts["splitter"] || 0,
-        "RDTs" => node_counts["rdt"] || 0,
-        "ONTs" => node_counts["ont_sn"] || 0,
-        "WAPs" => waps,
-        "Rooms" => node_counts["room"] || 0,
-        "Active Channels" => pon_usage["Active Channels"],
-        "Standby Channels" => pon_usage["Standby Channels"],
-        "Active PON Ports" => feeder_capacity["Active PON Ports"],
-        "Spare Feeder Fibers" => feeder_capacity["Spare Feeder Fibers"],
-        "Active Distribution Ports" => distribution_ports["Active Distribution Ports"],
-        "Spare Distribution Ports" => distribution_ports["Spare Distribution Ports"],
-        "Actual RDT Count" => node_counts["rdt"] || 0
-      }
-    ]
-
-    network_graphs.each do |network_graph|
-      pon_usage = data_for_network_graph(:pon_usage, network_graph, "Active Channels", "Standby Channels")
-      feeder_capacity = data_for_network_graph(:feeder_capacity, network_graph, "Active PON Ports", "Spare Feeder Fibers")
-      distribution_ports = data_for_network_graph(:distribution_ports, network_graph, "Active Distribution Ports", "Spare Distribution Ports")
-
-      node_counts = network_graph.node_counts
+      distribution_ports = self.chart_distribution_ports_site
+      feeder_capacity = self.chart_feeder_capacity_site
+      pon_usage = self.chart_pon_usage_site
 
       waps = (node_counts["ont_ge_1_mac"] || 0) +
         (node_counts["ont_ge_2_mac"] || 0) +
         (node_counts["ont_ge_3_mac"] || 0) +
         (node_counts["ont_ge_4_mac"] || 0)
 
-      counts << {
-        "BLDG" => network_graph.sheet.building.name,
-        "Bldgs" => 1,
-        "OLTs" => node_counts["olt_chassis"] || 0,
-        "PON Cards" => node_counts["pon_card"] || 0,
-        "FDHs" => node_counts["fdh"] || 0,
-        "Splitters" => node_counts["splitter"] || 0,
-        "RDTs" => node_counts["rdt"] || 0,
-        "ONTs" => node_counts["ont_sn"] || 0,
-        "WAPs" => waps,
-        "Rooms" => node_counts["room"] || 0,
-        "Active Channels" => pon_usage.first[:value],
-        "Standby Channels" => pon_usage.last[:value],
-        "Active PON Ports" => feeder_capacity.first[:value],
-        "Spare Feeder Fibers" => feeder_capacity.last[:value],
-        "Active Distribution Ports" => distribution_ports.first[:value],
-        "Spare Distribution Ports" => distribution_ports.last[:value],
-        "Actual RDT Count" => node_counts["rdt"] || 0
-      }
-    end
+      counts = [
+        {
+          "BLDG" => self.name,
+          "Bldgs" => self.buildings.count,
+          "OLTs" => node_counts["olt_chassis"] || 0,
+          "PON Cards" => node_counts["pon_card"] || 0,
+          "FDHs" => node_counts["fdh"] || 0,
+          "Splitters" => node_counts["splitter"] || 0,
+          "RDTs" => node_counts["rdt"] || 0,
+          "ONTs" => node_counts["ont_sn"] || 0,
+          "WAPs" => waps,
+          "Rooms" => node_counts["room"] || 0,
+          "Active Channels" => pon_usage["Active Channels"],
+          "Standby Channels" => pon_usage["Standby Channels"],
+          "Active PON Ports" => feeder_capacity["Active PON Ports"],
+          "Spare Feeder Fibers" => feeder_capacity["Spare Feeder Fibers"],
+          "Active Distribution Ports" => distribution_ports["Active Distribution Ports"],
+          "Spare Distribution Ports" => distribution_ports["Spare Distribution Ports"],
+          "Actual RDT Count" => node_counts["rdt"] || 0
+        }
+      ]
 
-    counts
+      network_graphs.each do |network_graph|
+        pon_usage = data_for_network_graph(:pon_usage, network_graph, "Active Channels", "Standby Channels")
+        feeder_capacity = data_for_network_graph(:feeder_capacity, network_graph, "Active PON Ports", "Spare Feeder Fibers")
+        distribution_ports = data_for_network_graph(:distribution_ports, network_graph, "Active Distribution Ports", "Spare Distribution Ports")
+
+        node_counts = network_graph.node_counts
+
+        waps = (node_counts["ont_ge_1_mac"] || 0) +
+          (node_counts["ont_ge_2_mac"] || 0) +
+          (node_counts["ont_ge_3_mac"] || 0) +
+          (node_counts["ont_ge_4_mac"] || 0)
+
+        counts << {
+          "BLDG" => network_graph.sheet.building.name,
+          "Bldgs" => 1,
+          "OLTs" => node_counts["olt_chassis"] || 0,
+          "PON Cards" => node_counts["pon_card"] || 0,
+          "FDHs" => node_counts["fdh"] || 0,
+          "Splitters" => node_counts["splitter"] || 0,
+          "RDTs" => node_counts["rdt"] || 0,
+          "ONTs" => node_counts["ont_sn"] || 0,
+          "WAPs" => waps,
+          "Rooms" => node_counts["room"] || 0,
+          "Active Channels" => pon_usage.first[:value],
+          "Standby Channels" => pon_usage.last[:value],
+          "Active PON Ports" => feeder_capacity.first[:value],
+          "Spare Feeder Fibers" => feeder_capacity.last[:value],
+          "Active Distribution Ports" => distribution_ports.first[:value],
+          "Spare Distribution Ports" => distribution_ports.last[:value],
+          "Actual RDT Count" => node_counts["rdt"] || 0
+        }
+      end
+
+      counts
+    end
   end
 
   private

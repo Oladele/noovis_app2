@@ -26,6 +26,7 @@ gem 'paperclip', :git=> 'https://github.com/thoughtbot/paperclip', :ref => '523b
 gem 'aws-sdk', '~> 2.2', '>= 2.2.35'
 
 gem 'sinatra', :require => nil
+gem 'dalli', '~> 2.7', '>= 2.7.6'
 
 group :development do
   gem "spring"
