@@ -12,6 +12,5 @@ class ImportCableRunsController < ApplicationController
     @importer.process! if @importer.status == :created
 
     render status: @importer.status, json: { message: @importer.message }
-    #render status: :created, json: { message: "Successfully created cable runs" }
   end
 end

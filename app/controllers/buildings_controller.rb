@@ -10,8 +10,7 @@ class BuildingsController < ApiController
       response = JSONAPI::ResourceSerializer.new(NetworkGraphResource).serialize_to_hash(NetworkGraphResource.new(network_graph, nil))
       render json: response
     else
-      message = "A network graph could not be found for #{building.name}"
-      render status: :unprocessable_entity, json: { message: message }
+      render json: { graph: {} }
     end
 	end
 end
