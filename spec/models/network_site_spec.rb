@@ -504,5 +504,27 @@ RSpec.describe NetworkSite, type: :model do
 
       assert_equal result, network_site.chart_distribution_spares_buildings
     end
+
+    it "chart_distribution_spares_buildings with no drop value" do
+      network_site = FactoryGirl.create(:network_site_with_buildings)
+      building_1_name = network_site.buildings.first.name
+      building_2_name = network_site.buildings.last.name
+
+      cable_run = FactoryGirl.build(:cable_run)
+      cable_run.floor = "lobby"
+      cable_run.rdt = "1"
+      cable_run.drop = nil
+
+      Sheet.any_instance.stubs(:cable_runs).returns([cable_run])
+
+      result = [
+        { label: "Lobby Floor", group: building_1_name, value: 0 },
+        { label: "Lobby Floor", group: building_2_name, value: 0 }
+      ]
+
+      assert_equal result.first, network_site.chart_distribution_spares_buildings.first
+
+      assert_equal result, network_site.chart_distribution_spares_buildings
+    end
   end
 end

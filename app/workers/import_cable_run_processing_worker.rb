@@ -18,6 +18,9 @@ class ImportCableRunProcessingWorker
 
         import_cable_run.save_workbook
         import_job.update_attribute(:status, 'completed')
+
+        # Update the stats cache
+        Building.find(import_job.building_id).network_site.touch
       ensure
         File.delete(file)
       end
