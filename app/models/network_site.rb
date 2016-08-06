@@ -26,46 +26,46 @@ class NetworkSite < ActiveRecord::Base
   end
 
   def chart_distribution_ports_buildings
-    Rails.cache.fetch("#{cache_key}/#{__method__}", expires_in: 24.hours) do
+    Rails.cache.fetch("#{cache_key}/#{__method__}", expires_in: 1.week) do
       aggregrate_buildings(:distribution_ports, "Active Distribution Ports", "Spare Distribution Ports")
     end
   end
 
   def chart_distribution_ports_site
-    Rails.cache.fetch("#{cache_key}/#{__method__}", expires_in: 24.hours) do
+    Rails.cache.fetch("#{cache_key}/#{__method__}", expires_in: 1.week) do
       data = self.chart_distribution_ports_buildings
       aggregrate_site(data, "Active Distribution Ports", "Spare Distribution Ports")
     end
   end
 
   def chart_feeder_capacity_buildings
-    Rails.cache.fetch("#{cache_key}/#{__method__}", expires_in: 24.hours) do
+    Rails.cache.fetch("#{cache_key}/#{__method__}", expires_in: 1.week) do
       aggregrate_buildings(:feeder_capacity, "Active PON Ports", "Spare Feeder Fibers")
     end
   end
 
   def chart_feeder_capacity_site
-    Rails.cache.fetch("#{cache_key}/#{__method__}", expires_in: 24.hours) do
+    Rails.cache.fetch("#{cache_key}/#{__method__}", expires_in: 1.week) do
       data = self.chart_feeder_capacity_buildings
       aggregrate_site(data, "Active PON Ports", "Spare Feeder Fibers")
     end
   end
 
   def chart_pon_usage_buildings
-    Rails.cache.fetch("#{cache_key}/#{__method__}", expires_in: 24.hours) do
+    Rails.cache.fetch("#{cache_key}/#{__method__}", expires_in: 1.week) do
       aggregrate_buildings(:pon_usage, "Active Channels", "Standby Channels")
     end
   end
 
   def chart_pon_usage_site
-    Rails.cache.fetch("#{cache_key}/#{__method__}", expires_in: 24.hours) do
+    Rails.cache.fetch("#{cache_key}/#{__method__}", expires_in: 1.week) do
       data = self.chart_pon_usage_buildings
       aggregrate_site(data, "Active Channels", "Standby Channels")
     end
   end
 
   def chart_distribution_spares_buildings
-    Rails.cache.fetch("#{cache_key}/#{__method__}", expires_in: 24.hours) do
+    Rails.cache.fetch("#{cache_key}/#{__method__}", expires_in: 1.week) do
       self.buildings.collect do |building|
         sheet = building.latest_sheet
         next if sheet.nil?
@@ -76,7 +76,7 @@ class NetworkSite < ActiveRecord::Base
   end
 
   def network_element_counts
-    Rails.cache.fetch("#{cache_key}/#{__method__}", expires_in: 24.hours) do
+    Rails.cache.fetch("#{cache_key}/#{__method__}", expires_in: 1.week) do
       network_graphs = self.network_graphs
       node_counts = NetworkGraph.node_counts_for_graphs(network_graphs)
 
