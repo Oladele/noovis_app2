@@ -49,5 +49,5 @@ Rails.application.configure do
     }
   }
 
-  config.cache_store = :dalli_store, { value_max_bytes: ENV['CACHE_SIZE_IN_MEGABYTES'] * (1024*1024) }
+  config.cache_store = :dalli_store, { value_max_bytes: ENV['CACHE_SIZE_IN_MEGABYTES'].to_i * (1024*1024) }
 end

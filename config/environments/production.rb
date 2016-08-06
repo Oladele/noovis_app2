@@ -94,6 +94,6 @@ Rails.application.configure do
      :failover => true,
      :socket_timeout => 1.5,
      :socket_failure_delay => 0.2,
-     :value_max_bytes => ENV['CACHE_SIZE_IN_MEGABYTES'] * (1024*1024)
+     :value_max_bytes => ENV['CACHE_SIZE_IN_MEGABYTES'].to_i * (1024*1024)
     }
 end
