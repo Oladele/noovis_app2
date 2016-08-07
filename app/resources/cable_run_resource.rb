@@ -1,4 +1,6 @@
 class CableRunResource < JSONAPI::Resource
+  after_update :bust_stats_cache
+
   attributes :site,
     :building,
     :room,
@@ -67,4 +69,10 @@ class CableRunResource < JSONAPI::Resource
       }
     end
   end
+
+  private
+    def bust_stats_cache
+      network_site = self.model.sheet.building.network_site
+      Rails.cache.delete("#{network_site.cache_key}/chart_distribution_spares_buildings")
+    end
 end
