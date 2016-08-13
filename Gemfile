@@ -10,7 +10,7 @@ gem 'passenger', '~> 5.0', '>= 5.0.27'
 
 #app-specific gems
 gem 'rspec_api_documentation'
-gem 'jsonapi-resources'
+gem 'jsonapi-resources', git: 'https://github.com/cerebris/jsonapi-resources'
 gem "apitome"
 # Rack CORS gem suggested by Sean Devine
 # In Charity App screencasts #12
