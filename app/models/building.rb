@@ -13,7 +13,7 @@
 #
 
 class Building < ActiveRecord::Base
-  belongs_to :network_site
+  belongs_to :network_site, touch: true
   has_one :company, through: :network_site
   has_many :sheets, dependent: :destroy
   has_many :import_jobs, dependent: :destroy

@@ -1,4 +1,5 @@
 class NetworkSiteResource < JSONAPI::Resource
+  caching
   attributes :name, :lat, :lng, :address, :node_counts
   has_one :company
   has_many :buildings

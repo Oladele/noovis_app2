@@ -13,7 +13,7 @@
 #
 
 class NetworkSite < ActiveRecord::Base
-  belongs_to :company
+  belongs_to :company, touch: true
   has_many :buildings, dependent: :destroy
   has_many :workbooks, dependent: :destroy
 
