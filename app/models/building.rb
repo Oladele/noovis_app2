@@ -13,6 +13,8 @@
 #
 
 class Building < ActiveRecord::Base
+  include BustGlobalCache
+
   belongs_to :network_site, touch: true
   has_one :company, through: :network_site
   has_many :sheets, dependent: :destroy

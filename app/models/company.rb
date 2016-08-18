@@ -9,6 +9,8 @@
 #
 
 class Company < ActiveRecord::Base
+  include BustGlobalCache
+
 	has_many :network_sites, dependent: :destroy
 	has_many :buildings, through: :network_sites
 	has_many :users, dependent: :destroy

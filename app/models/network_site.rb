@@ -13,6 +13,8 @@
 #
 
 class NetworkSite < ActiveRecord::Base
+  include BustGlobalCache
+
   belongs_to :company, touch: true
   has_many :buildings, dependent: :destroy
   has_many :workbooks, dependent: :destroy
