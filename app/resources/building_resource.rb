@@ -1,5 +1,4 @@
 class BuildingResource < JSONAPI::Resource
-  caching
   attributes :name, :lat, :lng, :description, :node_counts, :import_job_status, :import_job_message
   has_one :network_site
   has_many :sheets

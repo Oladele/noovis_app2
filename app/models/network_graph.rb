@@ -12,7 +12,7 @@
 class NetworkGraph < ActiveRecord::Base
   include BustGlobalCache
 
-  belongs_to :sheet
+  belongs_to :sheet, touch: true
   belongs_to :network_template
   has_one :company, through: :sheet
 

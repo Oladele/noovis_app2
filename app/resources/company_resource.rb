@@ -1,5 +1,4 @@
 class CompanyResource < JSONAPI::Resource
-  caching
   attributes :name, :node_counts
   has_many :network_sites, :buildings, :users
 
