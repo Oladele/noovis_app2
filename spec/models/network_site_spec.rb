@@ -483,7 +483,7 @@ RSpec.describe NetworkSite, type: :model do
         { label: "Lobby Floor", group: building_2_name, value: 0 }
       ]
 
-      assert_equal result, network_site.chart_distribution_spares_buildings
+      assert_equal result.sort_by { |hash| hash[:group] }, network_site.chart_distribution_spares_buildings
     end
 
     it "chart_distribution_spares_buildings with no cable_runs" do
