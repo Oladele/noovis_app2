@@ -172,7 +172,7 @@ RSpec.describe NetworkSite, type: :model do
           { label: "Spare Feeder Fibers", group: @building_2_name, value: 10 }
         ]
 
-        assert_equal result, @network_site.chart_feeder_capacity_buildings
+        assert_equal result.sort_by { |hash| hash[:group] }, @network_site.chart_feeder_capacity_buildings
       end
 
       it "chart_feeder_capacity_sites" do
