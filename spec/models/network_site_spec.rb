@@ -111,7 +111,7 @@ RSpec.describe NetworkSite, type: :model do
           { label: "Spare Distribution Ports", group: @building_2_name, value: 10 }
         ]
 
-        assert_equal result, @network_site.chart_distribution_ports_buildings
+        assert_equal result.sort_by { |hash| hash[:group] }, @network_site.chart_distribution_ports_buildings
       end
 
       it "chart_distribution_ports_sites" do
@@ -232,7 +232,7 @@ RSpec.describe NetworkSite, type: :model do
           { label: "Standby Channels", group: @building_2_name, value: 62 }
         ]
 
-        assert_equal result, @network_site.chart_pon_usage_buildings
+        assert_equal result.sort_by { |hash| hash[:group] }, @network_site.chart_pon_usage_buildings
       end
 
       it "chart_pon_usage_sites" do
