@@ -7,6 +7,7 @@ class BuildingsController < ApiController
     network_graph = NetworkGraph.latest_for building
 
     if network_graph
+      NetworkGraph.combine_pon_nodes!(network_graph)
       response = JSONAPI::ResourceSerializer.new(NetworkGraphResource).serialize_to_hash(NetworkGraphResource.new(network_graph, nil))
       render json: response
     else

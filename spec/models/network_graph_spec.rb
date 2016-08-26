@@ -505,5 +505,76 @@ RSpec.describe NetworkGraph, type: :model do
 
       assert_equal result, NetworkGraph.node_counts_for_graphs([network_graph, network_graph2])
     end
+
+    it "combines_pon_nodes" do
+      graph = {
+        sites: [
+          {
+            value: 'site1',
+            cable_run_id: 1,
+            olt_chassis: [
+              {
+                value: 'olt_chassis1',
+                cable_run_id: 1,
+                pon_cards: [
+                  {
+                    cable_run_id: 1,
+                    value: 'pon_card1',
+                    pon_ports: [
+                      {
+                        value: 'pon_port1',
+                        cable_run_id: 1,
+                        buildings: [
+                          {
+                            cable_run_id: 1,
+                            value: 'building1',
+                            fdhs: [
+                              {
+                                cable_run_id: 1,
+                                value: 'fdh1'
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+            ]
+          }
+        ]
+      }
+      network_graph = NetworkGraph.create_from_graph(@sheet, graph)
+
+      nodes = [
+        { id: 1, label: 'OLT Chassis: olt_chassis1', cable_run_id: 1, level: 1, node_type: 'olt_chassis', node_value: 'olt_chassis1', parent_id: nil },
+        { id: 2, label: 'PON Card: pon_card1 PON Port: pon_port1', cable_run_id: 1, level: 2, node_type: 'pon_card', node_value: 'pon_card1', parent_id: 1 },
+        { id: 4, label: 'Building: building1', cable_run_id: 1, level: 4, node_type: 'building', node_value: 'building1', parent_id: 2 },
+        { id: 5, label: 'FDH: fdh1', cable_run_id: 1, level: 5, node_type: 'fdh', node_value: 'fdh1', parent_id: 4 },
+      ]
+
+      result = NetworkGraph.combine_pon_nodes!(network_graph)
+      result_nodes = result.nodes
+
+      assert_equal nodes.collect { |r| r[:id] }, result_nodes.collect { |r| r["id"] }
+      assert_equal nodes.collect { |r| r[:label].split(":")[0] }, result_nodes.collect { |r| r["label"].split(":")[0] }
+      assert_equal nodes.collect { |r| r[:level].to_s }, result_nodes.collect { |r| r["level"] }
+      assert_equal nodes.collect { |r| r[:node_type] }, result_nodes.collect { |r| r["node_type"] }
+      assert_equal nodes.collect { |r| r[:node_value] }, result_nodes.collect { |r| r["node_value"] }
+      assert_equal nodes.collect { |r| r[:parent_id] }, result_nodes.collect { |r| r["parent_id"] }
+      assert_equal nodes.collect { |r| r[:cable_run_id] }, result_nodes.collect { |r| r["cable_run_id"] }
+
+      edges = [
+        { "id" => 1, "to" => 2, "from" => 1 },
+        { "id" => 4, "to" => 5, "from" => 4 },
+        { "id" => 5, "to" => 4, "from" => 2 }
+      ]
+
+      assert_equal edges.first, result.edges.first
+      assert_equal edges.second, result.edges.second
+      assert_equal edges.last, result.edges.last
+      assert_equal edges, result.edges
+    end
   end
 end

@@ -258,6 +258,39 @@ class NetworkGraph < ActiveRecord::Base
     def self.value_isnt_blank?(value)
       ["n/a", "na", "blank"].exclude?(value.strip.downcase)
     end
+
+    def self.combine_pon_nodes!(network_graph)
+      nodes = network_graph.nodes
+      edges = network_graph.edges
+
+      port_ids = []
+
+      nodes.each_with_index do |node, index|
+        if node["node_type"] == "pon_port"
+          # Update the previous node (the pon_card)
+          pon_card = nodes[index - 1]
+          pon_card["label"] = "#{pon_card['label']}\n#{node["label"]}"
+
+
+          # Update the next node (building) to point towards pon_card
+          building = nodes[index + 1]
+          building["parent_id"] = pon_card["id"]
+
+          port_ids << node["id"]
+
+          # Remove the edges from card -> port and port -> building
+          edges.delete_if { |edge| edge["to"] == node["id"] && edge["from"] == pon_card["id"] }
+          edges.delete_if { |edge| edge["to"] == building["id"] && edge["from"] == node["id"] }
+
+          # Make a new edge from card -> building
+          edges << { "id" => edges.last["id"] + 1, "to" => building["id"], "from" => pon_card["id"] }
+        end
+      end
+
+      nodes.delete_if { |node| port_ids.include?(node["id"]) }
+
+      network_graph
+    end
 end
 
 # An integer is passed by value, so when looping we need to retrieve and increment the same value,
