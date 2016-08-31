@@ -91,7 +91,7 @@ class SpreadsheetImporter
           collection = template[index][:collection]
 
           # If it's a number, `1` is sometimes read in as `1.0`
-          col = col.is_a?(Float) ? col.to_i.to_s : col
+          col = is_a_float?(col) ? col.to_i.to_s : col
 
           # Do we have this node yet?
           object = previous[type].select { |object| object[:value] == col }.first
@@ -136,5 +136,9 @@ class SpreadsheetImporter
 
       value = value.pluralize if pluralize == true
       value.to_sym
+    end
+
+    def self.is_a_float?(float)
+      !!Float(float) rescue false
     end
 end

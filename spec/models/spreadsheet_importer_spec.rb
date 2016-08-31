@@ -130,6 +130,39 @@ RSpec.describe SpreadsheetImporter, type: :model do
       assert_equal graph, value
     end
 
+    it "build_structure 3.55 with float values" do
+      graph = {
+        sites: [
+          {
+            value: 'site1',
+            cable_run_id: 1,
+            buildings: [
+              {
+                value: '1',
+                cable_run_id: 1,
+                olts: []
+              },
+              {
+                value: '2',
+                cable_run_id: 2,
+                olts: []
+              }
+            ]
+          }
+        ]
+      }
+
+      template = [
+        { type: :sites, collection: :buildings },
+        { type: :buildings, collection: :olts },
+        { type: :olts, collection: :splitters }
+      ]
+
+      value = SpreadsheetImporter.build_structure(template, [["site1", "1.0"], ["site1", "2.0"]], [1,2])
+
+      assert_equal graph, value
+    end
+
     it "build_structure 3.55 with integer values" do
       graph = {
         sites: [
