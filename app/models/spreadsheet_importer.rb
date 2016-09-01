@@ -90,8 +90,8 @@ class SpreadsheetImporter
           type = template[index][:type]
           collection = template[index][:collection]
 
-          # If it's a number, `1` is sometimes read in as `1.0`
-          col = is_a_float?(col) ? col.to_i.to_s : col
+          # Convert float values ("1.0") into integers ("1")
+          col = col.nan? ? col : col.to_i.to_s
 
           # Do we have this node yet?
           object = previous[type].select { |object| object[:value] == col }.first
@@ -137,8 +137,12 @@ class SpreadsheetImporter
       value = value.pluralize if pluralize == true
       value.to_sym
     end
+end
 
-    def self.is_a_float?(float)
-      !!Float(float) rescue false
-    end
+# Don't love extending String, but there's not a lot of good options here.
+# http://stackoverflow.com/questions/1034418/determine-if-a-string-is-a-valid-float-value
+class String
+  def nan?
+    self !~ /^\s*[+-]?((\d+_?)*\d+(\.(\d+_?)*\d+)?|\.(\d+_?)*\d+)(\s*|([eE][+-]?(\d+_?)*\d+)\s*)$/
+  end
 end
