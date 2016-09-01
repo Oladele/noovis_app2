@@ -232,7 +232,7 @@ RSpec.describe NetworkSite, type: :model do
           { label: "Standby Channels", group: @building_2_name, value: 62 }
         ]
 
-        assert_equal result.sort_by { |hash| hash[:group] }, @network_site.chart_pon_usage_buildings
+        assert_equal result.sort_by { |hash| [hash[:group], hash[:label]] }, @network_site.chart_pon_usage_buildings.sort_by { |hash| [hash[:group], hash[:label]] }
       end
 
       it "chart_pon_usage_sites" do
