@@ -1,6 +1,4 @@
 class CableRunResource < JSONAPI::Resource
-  caching
-
   after_update :bust_stats_cache
 
   attributes :site,

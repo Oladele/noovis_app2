@@ -1,13 +1,4 @@
 GIT
-  remote: https://github.com/cerebris/jsonapi-resources
-  revision: 8a2bd30b00a6ee270baa71c0642a9fb7c14c5d83
-  ref: 8a2bd30b00a6ee270baa71c0642a9fb7c14c5d83
-  specs:
-    jsonapi-resources (0.7.0)
-      concurrent-ruby
-      rails (>= 4.0)
-
-GIT
   remote: https://github.com/thoughtbot/paperclip
   revision: 523bd46c768226893f23889079a7aa9c73b57d68
   ref: 523bd46c768226893f23889079a7aa9c73b57d68
@@ -112,6 +103,8 @@ GEM
       json_pure (>= 1.8.1)
     json (1.8.3)
     json_pure (1.8.3)
+    jsonapi-resources (0.7.0)
+      rails (>= 4.0)
     kgio (2.9.3)
     kramdown (1.9.0)
     loofah (2.0.3)
@@ -273,7 +266,7 @@ DEPENDENCIES
   devise_token_auth
   dotenv-rails (~> 2.1, >= 2.1.1)
   factory_girl_rails
-  jsonapi-resources!
+  jsonapi-resources (~> 0.7.0)
   mocha (~> 1.1)
   newrelic_rpm
   omniauth
@@ -297,5 +290,8 @@ DEPENDENCIES
   spring-commands-rspec
   unicorn
 
+RUBY VERSION
+   ruby 2.2.4p230
+
 BUNDLED WITH
-   1.11.2
+   1.12.5
